@@ -120,6 +120,7 @@
 				541684512AB00F3E00F12484 /* Frameworks */,
 				541684522AB00F3E00F12484 /* Resources */,
 				3C89742C8D332C1B51813F45 /* [CP] Embed Pods Frameworks */,
+				544C7B6F2AB1D7AC0084A8CC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -194,6 +195,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Conscious/Pods-Conscious-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		544C7B6F2AB1D7AC0084A8CC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 		DE4FF8F499E7553C4DADD1A1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
