@@ -10,5 +10,6 @@ target 'Conscious' do
 pod 'FirebaseAnalytics'
 pod 'FirebaseAuth'
 pod 'FirebaseFirestore'
+pod 'SwiftLint'
 
 end
