@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		541684582AB00F3E00F12484 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541684572AB00F3E00F12484 /* AppDelegate.swift */; };
 		5416845A2AB00F3E00F12484 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541684592AB00F3E00F12484 /* SceneDelegate.swift */; };
-		5416845C2AB00F3E00F12484 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5416845B2AB00F3E00F12484 /* ViewController.swift */; };
+		5416845C2AB00F3E00F12484 /* NewDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5416845B2AB00F3E00F12484 /* NewDiaryViewController.swift */; };
 		5416845F2AB00F3E00F12484 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5416845D2AB00F3E00F12484 /* Main.storyboard */; };
 		541684622AB00F3E00F12484 /* Conscious.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 541684602AB00F3E00F12484 /* Conscious.xcdatamodeld */; };
 		541684642AB00F4300F12484 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 541684632AB00F4300F12484 /* Assets.xcassets */; };
@@ -25,7 +25,7 @@
 		541684542AB00F3E00F12484 /* Conscious.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Conscious.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		541684572AB00F3E00F12484 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		541684592AB00F3E00F12484 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5416845B2AB00F3E00F12484 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5416845B2AB00F3E00F12484 /* NewDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDiaryViewController.swift; sourceTree = "<group>"; };
 		5416845E2AB00F3E00F12484 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		541684612AB00F3E00F12484 /* Conscious.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Conscious.xcdatamodel; sourceTree = "<group>"; };
 		541684632AB00F4300F12484 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -72,7 +72,7 @@
 				544C7B6C2AB0689C0084A8CC /* Extension */,
 				541684572AB00F3E00F12484 /* AppDelegate.swift */,
 				541684592AB00F3E00F12484 /* SceneDelegate.swift */,
-				5416845B2AB00F3E00F12484 /* ViewController.swift */,
+				5416845B2AB00F3E00F12484 /* NewDiaryViewController.swift */,
 				5416845D2AB00F3E00F12484 /* Main.storyboard */,
 				541684632AB00F4300F12484 /* Assets.xcassets */,
 				541684652AB00F4300F12484 /* LaunchScreen.storyboard */,
@@ -243,7 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				541684622AB00F3E00F12484 /* Conscious.xcdatamodeld in Sources */,
-				5416845C2AB00F3E00F12484 /* ViewController.swift in Sources */,
+				5416845C2AB00F3E00F12484 /* NewDiaryViewController.swift in Sources */,
 				541684582AB00F3E00F12484 /* AppDelegate.swift in Sources */,
 				544C7B6E2AB068AC0084A8CC /* UIView+Extension.swift in Sources */,
 				5416845A2AB00F3E00F12484 /* SceneDelegate.swift in Sources */,
