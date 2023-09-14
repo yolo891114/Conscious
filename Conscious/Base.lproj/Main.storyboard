@@ -173,6 +173,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="nOQ-xe-ZtH"/>
+                    <connections>
+                        <outlet property="contentTextField" destination="3ch-zC-xIl" id="WtP-gx-dLt"/>
+                        <outlet property="titleTextField" destination="VPl-bN-vXW" id="1uB-oQ-Jww"/>
+                        <outletCollection property="imageButtons" destination="VgX-Bk-lPv" collectionClass="NSMutableArray" id="GEQ-W3-KeF"/>
+                        <outletCollection property="imageButtons" destination="6AQ-cL-S6h" collectionClass="NSMutableArray" id="4V7-Rt-3bD"/>
+                        <outletCollection property="imageButtons" destination="KJ9-yY-RDF" collectionClass="NSMutableArray" id="Fx0-Hz-8EI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2m9-lo-r73" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -222,6 +229,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="L1J-IP-Pc7" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="g5F-AA-6ze">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
