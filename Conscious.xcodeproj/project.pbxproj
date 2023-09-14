@@ -9,23 +9,37 @@
 /* Begin PBXBuildFile section */
 		541684582AB00F3E00F12484 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541684572AB00F3E00F12484 /* AppDelegate.swift */; };
 		5416845A2AB00F3E00F12484 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541684592AB00F3E00F12484 /* SceneDelegate.swift */; };
-		5416845C2AB00F3E00F12484 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5416845B2AB00F3E00F12484 /* ViewController.swift */; };
+		5416845C2AB00F3E00F12484 /* NewDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5416845B2AB00F3E00F12484 /* NewDiaryViewController.swift */; };
 		5416845F2AB00F3E00F12484 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5416845D2AB00F3E00F12484 /* Main.storyboard */; };
 		541684622AB00F3E00F12484 /* Conscious.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 541684602AB00F3E00F12484 /* Conscious.xcdatamodeld */; };
 		541684642AB00F4300F12484 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 541684632AB00F4300F12484 /* Assets.xcassets */; };
 		541684672AB00F4300F12484 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 541684652AB00F4300F12484 /* LaunchScreen.storyboard */; };
+		544C7B6B2AB014920084A8CC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 544C7B6A2AB014910084A8CC /* GoogleService-Info.plist */; };
+		544C7B6E2AB068AC0084A8CC /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544C7B6D2AB068AC0084A8CC /* UIView+Extension.swift */; };
+		546C675D2AB2961800DF82B8 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546C675C2AB2961800DF82B8 /* FirebaseManager.swift */; };
+		546C67652AB2AFF400DF82B8 /* NewDiaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546C67642AB2AFF400DF82B8 /* NewDiaryViewModel.swift */; };
+		546C67692AB2B0AC00DF82B8 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546C67682AB2B0AC00DF82B8 /* UserModel.swift */; };
+		6B6944609698B9D5065EB72C /* Pods_Conscious.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B16F60D1BCDEC2A95318AC3 /* Pods_Conscious.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		29391297F7C4CD8934E03196 /* Pods-Conscious.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Conscious.debug.xcconfig"; path = "Target Support Files/Pods-Conscious/Pods-Conscious.debug.xcconfig"; sourceTree = "<group>"; };
+		50B5DA9B6B164C3D1AF6C2D4 /* Pods-Conscious.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Conscious.release.xcconfig"; path = "Target Support Files/Pods-Conscious/Pods-Conscious.release.xcconfig"; sourceTree = "<group>"; };
 		541684542AB00F3E00F12484 /* Conscious.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Conscious.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		541684572AB00F3E00F12484 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		541684592AB00F3E00F12484 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5416845B2AB00F3E00F12484 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5416845B2AB00F3E00F12484 /* NewDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDiaryViewController.swift; sourceTree = "<group>"; };
 		5416845E2AB00F3E00F12484 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		541684612AB00F3E00F12484 /* Conscious.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Conscious.xcdatamodel; sourceTree = "<group>"; };
 		541684632AB00F4300F12484 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		541684662AB00F4300F12484 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		541684682AB00F4300F12484 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		544C7B6A2AB014910084A8CC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		544C7B6D2AB068AC0084A8CC /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		546C675C2AB2961800DF82B8 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		546C67642AB2AFF400DF82B8 /* NewDiaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDiaryViewModel.swift; sourceTree = "<group>"; };
+		546C67682AB2B0AC00DF82B8 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		5B16F60D1BCDEC2A95318AC3 /* Pods_Conscious.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Conscious.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B6944609698B9D5065EB72C /* Pods_Conscious.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +59,8 @@
 			children = (
 				541684562AB00F3E00F12484 /* Conscious */,
 				541684552AB00F3E00F12484 /* Products */,
+				8EA8AA1D264E0F0E07E85C1C /* Pods */,
+				94C58D0311470E394B979704 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,16 +75,86 @@
 		541684562AB00F3E00F12484 /* Conscious */ = {
 			isa = PBXGroup;
 			children = (
-				541684572AB00F3E00F12484 /* AppDelegate.swift */,
+				546C675B2AB295FB00DF82B8 /* Manager */,
+				546C67602AB2AF7E00DF82B8 /* NewDiaryPage */,
+				544C7B6C2AB0689C0084A8CC /* Extension */,
 				541684592AB00F3E00F12484 /* SceneDelegate.swift */,
-				5416845B2AB00F3E00F12484 /* ViewController.swift */,
+				541684572AB00F3E00F12484 /* AppDelegate.swift */,
 				5416845D2AB00F3E00F12484 /* Main.storyboard */,
 				541684632AB00F4300F12484 /* Assets.xcassets */,
 				541684652AB00F4300F12484 /* LaunchScreen.storyboard */,
 				541684682AB00F4300F12484 /* Info.plist */,
 				541684602AB00F3E00F12484 /* Conscious.xcdatamodeld */,
+				544C7B6A2AB014910084A8CC /* GoogleService-Info.plist */,
 			);
 			path = Conscious;
+			sourceTree = "<group>";
+		};
+		544C7B6C2AB0689C0084A8CC /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				544C7B6D2AB068AC0084A8CC /* UIView+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		546C675B2AB295FB00DF82B8 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				546C675C2AB2961800DF82B8 /* FirebaseManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		546C67602AB2AF7E00DF82B8 /* NewDiaryPage */ = {
+			isa = PBXGroup;
+			children = (
+				546C67632AB2AF9C00DF82B8 /* Model */,
+				546C67622AB2AF9400DF82B8 /* View */,
+				546C67612AB2AF8800DF82B8 /* ViewModel */,
+			);
+			path = NewDiaryPage;
+			sourceTree = "<group>";
+		};
+		546C67612AB2AF8800DF82B8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				546C67642AB2AFF400DF82B8 /* NewDiaryViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		546C67622AB2AF9400DF82B8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5416845B2AB00F3E00F12484 /* NewDiaryViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		546C67632AB2AF9C00DF82B8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				546C67682AB2B0AC00DF82B8 /* UserModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8EA8AA1D264E0F0E07E85C1C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				29391297F7C4CD8934E03196 /* Pods-Conscious.debug.xcconfig */,
+				50B5DA9B6B164C3D1AF6C2D4 /* Pods-Conscious.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		94C58D0311470E394B979704 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5B16F60D1BCDEC2A95318AC3 /* Pods_Conscious.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +164,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5416846B2AB00F4300F12484 /* Build configuration list for PBXNativeTarget "Conscious" */;
 			buildPhases = (
+				DE4FF8F499E7553C4DADD1A1 /* [CP] Check Pods Manifest.lock */,
 				541684502AB00F3E00F12484 /* Sources */,
 				541684512AB00F3E00F12484 /* Frameworks */,
 				541684522AB00F3E00F12484 /* Resources */,
+				3C89742C8D332C1B51813F45 /* [CP] Embed Pods Frameworks */,
+				544C7B6F2AB1D7AC0084A8CC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -129,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				541684672AB00F4300F12484 /* LaunchScreen.storyboard in Resources */,
+				544C7B6B2AB014920084A8CC /* GoogleService-Info.plist in Resources */,
 				541684642AB00F4300F12484 /* Assets.xcassets in Resources */,
 				5416845F2AB00F3E00F12484 /* Main.storyboard in Resources */,
 			);
@@ -136,14 +227,77 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3C89742C8D332C1B51813F45 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Conscious/Pods-Conscious-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Conscious/Pods-Conscious-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Conscious/Pods-Conscious-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		544C7B6F2AB1D7AC0084A8CC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		DE4FF8F499E7553C4DADD1A1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Conscious-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		541684502AB00F3E00F12484 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				546C675D2AB2961800DF82B8 /* FirebaseManager.swift in Sources */,
 				541684622AB00F3E00F12484 /* Conscious.xcdatamodeld in Sources */,
-				5416845C2AB00F3E00F12484 /* ViewController.swift in Sources */,
+				546C67692AB2B0AC00DF82B8 /* UserModel.swift in Sources */,
+				5416845C2AB00F3E00F12484 /* NewDiaryViewController.swift in Sources */,
+				546C67652AB2AFF400DF82B8 /* NewDiaryViewModel.swift in Sources */,
 				541684582AB00F3E00F12484 /* AppDelegate.swift in Sources */,
+				544C7B6E2AB068AC0084A8CC /* UIView+Extension.swift in Sources */,
 				5416845A2AB00F3E00F12484 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,6 +440,7 @@
 		};
 		5416846C2AB00F4300F12484 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29391297F7C4CD8934E03196 /* Pods-Conscious.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -298,6 +453,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -313,6 +469,7 @@
 		};
 		5416846D2AB00F4300F12484 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50B5DA9B6B164C3D1AF6C2D4 /* Pods-Conscious.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -325,6 +482,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
