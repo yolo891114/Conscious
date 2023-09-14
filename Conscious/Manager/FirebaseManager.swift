@@ -35,6 +35,19 @@ class FirebaseManager {
         }
     }
     
+    // 新增日記
+    func addNewDiary(user userID: String, diary: Diary) {
+        let userRef = db.collection("users").document(userID)
+        let diaryRef = userRef.collection("diaries").document(diary.diaryID)
+        
+        diaryRef.setData([
+            "diaryID": diary.diaryID,
+            "date": diary.date,
+            "title": diary.title,
+            "content": diary.content
+        ])
+    }
+    
     // 新增打卡記錄
     func addPunchRecord(to userID: String, punchDate: Date, continuousDay: Int, highestDay: Int) {
         
@@ -49,5 +62,4 @@ class FirebaseManager {
             "highestDay": highestDay
         ])
     }
-    
 }

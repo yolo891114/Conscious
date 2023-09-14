@@ -75,9 +75,9 @@
 		541684562AB00F3E00F12484 /* Conscious */ = {
 			isa = PBXGroup;
 			children = (
+				546C675B2AB295FB00DF82B8 /* Manager */,
 				546C67602AB2AF7E00DF82B8 /* NewDiaryPage */,
 				544C7B6C2AB0689C0084A8CC /* Extension */,
-				546C675B2AB295FB00DF82B8 /* Manager */,
 				541684592AB00F3E00F12484 /* SceneDelegate.swift */,
 				541684572AB00F3E00F12484 /* AppDelegate.swift */,
 				5416845D2AB00F3E00F12484 /* Main.storyboard */,
