@@ -8,58 +8,69 @@
 import Foundation
 import Combine
 import FirebaseFirestore
+import FirebaseStorage
 
 class NewDiaryViewModel: ObservableObject {
-    
+
     @Published var title: String = ""
     @Published var content: String = ""
     @Published var photoCollection: [Photo] = []
-    @Published var photoData: Data
-    
+    @Published var photoData: Data?
+
     private var cancellables = Set<AnyCancellable>()
-    
+
     func saveDiary() {
-        uploadPhotos(imageData: photoData) { url in
-                if let url = url {
-                    let newPhotoCollection = [Photo(url: url,
-                                                   description: "",
-                                                   photoID: UUID().uuidString)]
-
-                    let newDiary = Diary(diaryID: UUID().uuidString,
-                                         date: Date(),
-                                         title: self.title,
-                                         content: self.content,
-                                         photoCollection: newPhotoCollection)
-
-                    FirebaseManager.shared.addNewDiary(user: "no1", diary: newDiary)
+        if photoData != nil {
+            uploadPhotos(imageData: photoData!) { url, photoID in
+                if let url = url, let photoID = photoID {
+                    self.saveDiaryWithPhoto(url: url, photoID: photoID)
+                    print("有照片")
                 } else {
                     print("照片上傳失敗，日記未保存。")
                 }
             }
+        } else {
+            saveDiaryWithPhoto(url: nil, photoID: nil)
+            print("沒照片")
+        }
+
     }
-    
+
+    func saveDiaryWithPhoto(url: String?, photoID: String?) {
+        let newPhotoCollection = url != nil ? [Photo(url: url!, description: "", photoID: photoID ?? "")] : []
+        let newDiary = Diary(diaryID: UUID().uuidString,
+                             date: Date(),
+                             title: self.title,
+                             content: self.content,
+                             photoCollection: newPhotoCollection)
+
+        FirebaseManager.shared.addNewDiary(user: "no1", diary: newDiary)
+    }
+
     // 當函數執行完畢後才執行 Closure
-    func uploadPhotos(imageData: Data, completion: @escaping (_ url: String?) -> Void) {
+    func uploadPhotos(imageData: Data, completion: @escaping (_ url: String?, _ photoID: String?) -> Void) {
+
+        let newPhotoID = UUID().uuidString
+
         let storage = Storage.storage()
-        let imageRef = storage.reference().child("images/\(UUID().uuidString).jpg")
-        
-        imageRef.putData(imageData, metadata: nil) { metadata, error in
+        let imageRef = storage.reference().child("images/\(newPhotoID).jpg")
+
+        imageRef.putData(imageData, metadata: nil) { _, error in
             if let error = error {
                 print("上傳失敗: \(error)")
-                completion(nil)
+                completion(nil, nil)
                 return
             }
-            
+
             // 上傳成功後下載 URL
             imageRef.downloadURL { url, error in
                 if let error = error {
                     print("獲取URL失敗: \(error)")
-                    completion(nil)
+                    completion(nil, nil)
                 } else {
-                    completion(url?.absoluteString)
+                    completion(url?.absoluteString, newPhotoID)
                 }
             }
         }
     }
-
 }

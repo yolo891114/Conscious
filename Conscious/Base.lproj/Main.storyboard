@@ -114,23 +114,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VPl-bN-vXW">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VPl-bN-vXW">
                                 <rect key="frame" x="74" y="206" width="244" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="content" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3ch-zC-xIl">
-                                <rect key="frame" x="74" y="262" width="244" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="content" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3ch-zC-xIl">
+                                <rect key="frame" x="74" y="262" width="245" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VgX-Bk-lPv">
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VgX-Bk-lPv">
                                 <rect key="frame" x="16" y="372" width="103" height="138"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="plus.square.dashed" catalog="system"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="103" id="HnC-Zw-xzS"/>
+                                    <constraint firstAttribute="height" constant="138" id="Nl5-E4-IZi"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="tintColor"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="plus.square.dashed" catalog="system"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="csBorderWidth">
                                         <real key="value" value="1"/>
@@ -139,11 +141,15 @@
                                         <color key="value" red="0.0" green="0.45882352939999999" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="imageButtonTapped:" destination="vUd-gH-yKF" eventType="touchUpInside" id="HB3-B4-qx3"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6AQ-cL-S6h">
+                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6AQ-cL-S6h">
                                 <rect key="frame" x="139" y="372" width="103" height="138"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="plus.square.dashed" catalog="system"/>
                                 <buttonConfiguration key="configuration" style="plain" image="plus.square.dashed" catalog="system"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="csBorderWidth">
@@ -154,10 +160,11 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJ9-yY-RDF">
+                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJ9-yY-RDF">
                                 <rect key="frame" x="259" y="372" width="103" height="138"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="plus.square.dashed" catalog="system"/>
                                 <buttonConfiguration key="configuration" style="plain" image="plus.square.dashed" catalog="system"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="csBorderWidth">
@@ -177,6 +184,16 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7nj-Fr-WWz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3ch-zC-xIl" firstAttribute="leading" secondItem="VPl-bN-vXW" secondAttribute="leading" id="0FE-Lg-U4y"/>
+                            <constraint firstItem="3ch-zC-xIl" firstAttribute="leading" secondItem="7nj-Fr-WWz" secondAttribute="leading" constant="74" id="1Y1-xb-N98"/>
+                            <constraint firstItem="3ch-zC-xIl" firstAttribute="trailing" secondItem="VPl-bN-vXW" secondAttribute="trailing" id="7ei-jO-8Bk"/>
+                            <constraint firstItem="3ch-zC-xIl" firstAttribute="centerX" secondItem="dby-s8-RoF" secondAttribute="centerX" id="Bgu-T4-yJx"/>
+                            <constraint firstItem="3ch-zC-xIl" firstAttribute="top" secondItem="dby-s8-RoF" secondAttribute="top" constant="262" id="Dbh-gN-6cV"/>
+                            <constraint firstItem="VgX-Bk-lPv" firstAttribute="leading" secondItem="7nj-Fr-WWz" secondAttribute="leading" constant="16" id="Iit-yN-G8i"/>
+                            <constraint firstItem="3ch-zC-xIl" firstAttribute="top" secondItem="VPl-bN-vXW" secondAttribute="bottom" constant="22" id="XST-E3-XjQ"/>
+                            <constraint firstItem="VgX-Bk-lPv" firstAttribute="top" secondItem="3ch-zC-xIl" secondAttribute="bottom" constant="76" id="txj-De-OLK"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nOQ-xe-ZtH"/>
                     <connections>
@@ -268,6 +285,9 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
