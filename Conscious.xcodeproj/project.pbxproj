@@ -22,6 +22,7 @@
 		54B62DEC2AB30E7500908DFE /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B62DEB2AB30E7500908DFE /* TimelineViewController.swift */; };
 		54B62DEE2AB3130500908DFE /* TimelineWithDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B62DED2AB3130500908DFE /* TimelineWithDateTableViewCell.swift */; };
 		54B62DF02AB32D4400908DFE /* TimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B62DEF2AB32D4400908DFE /* TimelineViewModel.swift */; };
+		54B62DF52AB4324E00908DFE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B62DF42AB4324E00908DFE /* DetailViewController.swift */; };
 		6B6944609698B9D5065EB72C /* Pods_Conscious.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B16F60D1BCDEC2A95318AC3 /* Pods_Conscious.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		54B62DEB2AB30E7500908DFE /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		54B62DED2AB3130500908DFE /* TimelineWithDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineWithDateTableViewCell.swift; sourceTree = "<group>"; };
 		54B62DEF2AB32D4400908DFE /* TimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewModel.swift; sourceTree = "<group>"; };
+		54B62DF42AB4324E00908DFE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		5B16F60D1BCDEC2A95318AC3 /* Pods_Conscious.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Conscious.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -81,8 +83,10 @@
 		541684562AB00F3E00F12484 /* Conscious */ = {
 			isa = PBXGroup;
 			children = (
+				546C67632AB2AF9C00DF82B8 /* Model */,
 				546C675B2AB295FB00DF82B8 /* Manager */,
 				54B62DE72AB30E2B00908DFE /* TimelinePage */,
+				54B62DF12AB4321100908DFE /* DetailPage */,
 				546C67602AB2AF7E00DF82B8 /* NewDiaryPage */,
 				544C7B6C2AB0689C0084A8CC /* Extension */,
 				541684592AB00F3E00F12484 /* SceneDelegate.swift */,
@@ -116,7 +120,6 @@
 		546C67602AB2AF7E00DF82B8 /* NewDiaryPage */ = {
 			isa = PBXGroup;
 			children = (
-				546C67632AB2AF9C00DF82B8 /* Model */,
 				546C67622AB2AF9400DF82B8 /* View */,
 				546C67612AB2AF8800DF82B8 /* ViewModel */,
 			);
@@ -150,7 +153,6 @@
 		54B62DE72AB30E2B00908DFE /* TimelinePage */ = {
 			isa = PBXGroup;
 			children = (
-				54B62DEA2AB30E4D00908DFE /* Model */,
 				54B62DE92AB30E4800908DFE /* View */,
 				54B62DE82AB30E3E00908DFE /* ViewModel */,
 			);
@@ -174,11 +176,28 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		54B62DEA2AB30E4D00908DFE /* Model */ = {
+		54B62DF12AB4321100908DFE /* DetailPage */ = {
+			isa = PBXGroup;
+			children = (
+				54B62DF32AB4324000908DFE /* View */,
+				54B62DF22AB4323300908DFE /* ViewModel */,
+			);
+			path = DetailPage;
+			sourceTree = "<group>";
+		};
+		54B62DF22AB4323300908DFE /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Model;
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		54B62DF32AB4324000908DFE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				54B62DF42AB4324E00908DFE /* DetailViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		8EA8AA1D264E0F0E07E85C1C /* Pods */ = {
@@ -332,6 +351,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54B62DF52AB4324E00908DFE /* DetailViewController.swift in Sources */,
 				54B62DEE2AB3130500908DFE /* TimelineWithDateTableViewCell.swift in Sources */,
 				546C675D2AB2961800DF82B8 /* FirebaseManager.swift in Sources */,
 				541684622AB00F3E00F12484 /* Conscious.xcdatamodeld in Sources */,

@@ -13,7 +13,17 @@ class TimelineViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
-    var viewModel = TimelineViewModel()
+    // 當 diaries 有變化時 reloadData()
+    lazy var viewModel = {
+        let viewModel = TimelineViewModel()
+        viewModel.$diaries
+            .sink { [weak self] _ in
+                print("reload")
+                self?.tableView.reloadData()
+            }
+            .store(in: &cancellables)
+        return viewModel
+    }()
 
     var cancellables = Set<AnyCancellable>()
 
@@ -25,36 +35,29 @@ class TimelineViewController: UIViewController {
 
         dateFormatter.dateFormat = "yyyy-MM-dd"
 
-        viewModel.$diaries
-            .sink { [weak self] _ in
-                print("reload")
-                self?.tableView.reloadData()
-            }
-            .store(in: &cancellables)
-
         tableView.delegate = self
         tableView.dataSource = self
-
-
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
         // 利用 Combine 的 Future 功能，當非同步的 API 執行完畢後 reload
         viewModel.fetchDiaries()
-                .sink(
-                    receiveCompletion: { completion in
-                        switch completion {
-                        case .failure(let error):
-                            print("Error: \(error.localizedDescription)")
-                        case .finished:
-                            break
-                        }
-                    },
-                    receiveValue: { _ in
-                        self.tableView.reloadData()
+            .sink(
+                receiveCompletion: { completion in
+                    switch completion {
+                    case .failure(let error):
+                        print("Error: \(error.localizedDescription)")
+                    case .finished:
+                        break
                     }
-                )
-                .store(in: &cancellables)
+                },
+                receiveValue: { _ in
+                    self.tableView.reloadData()
+                }
+            )
+            .store(in: &cancellables)
 
     }
 }
@@ -62,7 +65,6 @@ class TimelineViewController: UIViewController {
 extension TimelineViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
         return viewModel.diaries.count
     }
 
@@ -76,4 +78,15 @@ extension TimelineViewController: UITableViewDelegate, UITableViewDataSource {
 
         return cell
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let indexPath = tableView.indexPathForSelectedRow {
+            let selectedDiary = viewModel.diaries[indexPath.row]
+            if segue.identifier == "showDetailSegue",
+               let detailVC = segue.destination as? DetailViewController {
+                detailVC.diary = selectedDiary
+            }
+        }
+    }
+
 }
