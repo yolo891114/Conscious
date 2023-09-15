@@ -19,6 +19,9 @@
 		546C675D2AB2961800DF82B8 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546C675C2AB2961800DF82B8 /* FirebaseManager.swift */; };
 		546C67652AB2AFF400DF82B8 /* NewDiaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546C67642AB2AFF400DF82B8 /* NewDiaryViewModel.swift */; };
 		546C67692AB2B0AC00DF82B8 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546C67682AB2B0AC00DF82B8 /* UserModel.swift */; };
+		54B62DEC2AB30E7500908DFE /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B62DEB2AB30E7500908DFE /* TimelineViewController.swift */; };
+		54B62DEE2AB3130500908DFE /* TimelineWithDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B62DED2AB3130500908DFE /* TimelineWithDateTableViewCell.swift */; };
+		54B62DF02AB32D4400908DFE /* TimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B62DEF2AB32D4400908DFE /* TimelineViewModel.swift */; };
 		6B6944609698B9D5065EB72C /* Pods_Conscious.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B16F60D1BCDEC2A95318AC3 /* Pods_Conscious.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +42,9 @@
 		546C675C2AB2961800DF82B8 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		546C67642AB2AFF400DF82B8 /* NewDiaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDiaryViewModel.swift; sourceTree = "<group>"; };
 		546C67682AB2B0AC00DF82B8 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		54B62DEB2AB30E7500908DFE /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
+		54B62DED2AB3130500908DFE /* TimelineWithDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineWithDateTableViewCell.swift; sourceTree = "<group>"; };
+		54B62DEF2AB32D4400908DFE /* TimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewModel.swift; sourceTree = "<group>"; };
 		5B16F60D1BCDEC2A95318AC3 /* Pods_Conscious.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Conscious.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -76,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				546C675B2AB295FB00DF82B8 /* Manager */,
+				54B62DE72AB30E2B00908DFE /* TimelinePage */,
 				546C67602AB2AF7E00DF82B8 /* NewDiaryPage */,
 				544C7B6C2AB0689C0084A8CC /* Extension */,
 				541684592AB00F3E00F12484 /* SceneDelegate.swift */,
@@ -136,6 +143,40 @@
 			isa = PBXGroup;
 			children = (
 				546C67682AB2B0AC00DF82B8 /* UserModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		54B62DE72AB30E2B00908DFE /* TimelinePage */ = {
+			isa = PBXGroup;
+			children = (
+				54B62DEA2AB30E4D00908DFE /* Model */,
+				54B62DE92AB30E4800908DFE /* View */,
+				54B62DE82AB30E3E00908DFE /* ViewModel */,
+			);
+			path = TimelinePage;
+			sourceTree = "<group>";
+		};
+		54B62DE82AB30E3E00908DFE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				54B62DEF2AB32D4400908DFE /* TimelineViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		54B62DE92AB30E4800908DFE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				54B62DEB2AB30E7500908DFE /* TimelineViewController.swift */,
+				54B62DED2AB3130500908DFE /* TimelineWithDateTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		54B62DEA2AB30E4D00908DFE /* Model */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -291,11 +332,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54B62DEE2AB3130500908DFE /* TimelineWithDateTableViewCell.swift in Sources */,
 				546C675D2AB2961800DF82B8 /* FirebaseManager.swift in Sources */,
 				541684622AB00F3E00F12484 /* Conscious.xcdatamodeld in Sources */,
 				546C67692AB2B0AC00DF82B8 /* UserModel.swift in Sources */,
 				5416845C2AB00F3E00F12484 /* NewDiaryViewController.swift in Sources */,
 				546C67652AB2AFF400DF82B8 /* NewDiaryViewModel.swift in Sources */,
+				54B62DF02AB32D4400908DFE /* TimelineViewModel.swift in Sources */,
+				54B62DEC2AB30E7500908DFE /* TimelineViewController.swift in Sources */,
 				541684582AB00F3E00F12484 /* AppDelegate.swift in Sources */,
 				544C7B6E2AB068AC0084A8CC /* UIView+Extension.swift in Sources */,
 				5416845A2AB00F3E00F12484 /* SceneDelegate.swift in Sources */,

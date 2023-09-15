@@ -52,11 +52,28 @@ class FirebaseManager {
 
         diaryRef.setData([
             "diaryID": diary.diaryID,
-            "date": diary.date,
+            "date": diary.timestamp,
             "title": diary.title,
             "content": diary.content,
             "photoCollection": photoCollectionArray
         ])
+    }
+
+    // 拿到所有日記
+    func fetchAllDiaries(user userID: String, completion: @escaping ([Diary]?, Error?) -> Void) {
+        let userRef = db.collection("users").document(userID)
+        let diaryRef = userRef.collection("diaries")
+
+        diaryRef.order(by: "date", descending: true).getDocuments { snapshot, error in
+            if let error = error {
+                print("Error fetching all diaries: \(error.localizedDescription)")
+            }
+
+            if let documents = snapshot?.documents {
+                let diaries = documents.compactMap { Diary(data: $0.data()) }
+                completion(diaries, nil)
+            }
+        }
     }
 
     // 新增打卡記錄

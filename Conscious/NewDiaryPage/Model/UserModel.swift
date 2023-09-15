@@ -6,22 +6,61 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 struct User {
     var userID: String
     var email: String
     var nickname: String
-    var diary: Diary
+    var diary: [Diary]
     var punchRecord: PunchRecord
     var emotionRecord: [EmotionRecord]
 }
 
 struct Diary {
     var diaryID: String
-    var date: Date
+    var timestamp: Date
     var title: String
     var content: String
     var photoCollection: [Photo]
+
+    init(diaryID: String, date: Date, title: String, content: String, photoCollection: [Photo]) {
+        self.diaryID = diaryID
+        self.timestamp = date
+        self.title = title
+        self.content = content
+        self.photoCollection = photoCollection
+    }
+
+    init?(data: [String: Any]) {
+        guard let diaryID = data["diaryID"] as? String,
+              let timestamp = data["date"] as? Timestamp,
+              let title = data["title"] as? String,
+              let content = data["content"] as? String else {
+            return nil
+        }
+
+        self.diaryID = diaryID
+        self.timestamp = timestamp.dateValue() // 轉換為 Date
+        self.title = title
+        self.content = content
+
+        // photoCollection 可為空
+        if let photoCollection = data["photoCollection"] as? [[String: Any]] {
+            self.photoCollection = photoCollection.compactMap { (photoDict) -> Photo? in
+                guard let url = photoDict["url"] as? String,
+                      let description = photoDict["description"] as? String,
+                      let photoID = photoDict["photoID"] as? String else {
+                    return nil
+                }
+                return Photo(url: url, description: description, photoID: photoID)
+            }
+        } else {
+            self.photoCollection = []
+        }
+
+    }
+
 }
 
 struct Photo {

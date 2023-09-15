@@ -6,3 +6,11 @@
 //
 
 import Foundation
+import UIKit
+
+class TimelineWithDateTableViewCell: UITableViewCell {
+
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var contentLabel: UILabel!
+}
