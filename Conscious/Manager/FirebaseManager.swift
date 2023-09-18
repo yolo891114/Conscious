@@ -76,6 +76,48 @@ class FirebaseManager {
         }
     }
 
+    // 更新日記
+    func updateDiary(user userID: String, diary: Diary) {
+        let userRef = db.collection("users").document(userID)
+        let diaryRef = userRef.collection("diaries").document(diary.diaryID)
+
+        var photoCollectionArray: [[String: Any]] = []
+        for photo in diary.photoCollection {
+            let photoDict: [String: Any] = [
+                "url": photo.url,
+                "description": photo.description,
+                "photoID": photo.photoID
+            ]
+            photoCollectionArray.append(photoDict)
+        }
+
+        diaryRef.updateData([
+            "title": diary.title,
+            "content": diary.content,
+            "photoCollection": photoCollectionArray
+        ]) { error in
+            if let error = error {
+                print("Error updating document: \(error)")
+            } else {
+                print("Document successfully updated")
+            }
+        }
+    }
+
+    // 刪除日記
+    func deleteDiary(user userID: String, diaryID: String) {
+        let userRef = db.collection("users").document(userID)
+        let diaryRef = userRef.collection("diaries").document(diaryID)
+
+        diaryRef.delete { error in
+            if let error = error {
+                print("Error removing document: \(error)")
+            } else {
+                print("Document successfully removed!")
+            }
+        }
+    }
+
     // 新增打卡記錄
     func addPunchRecord(to userID: String, punchDate: Date, continuousDay: Int, highestDay: Int) {
 
