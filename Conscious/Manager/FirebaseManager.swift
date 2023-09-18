@@ -133,3 +133,38 @@ class FirebaseManager {
         ])
     }
 }
+
+// MARK: - Emotion Record
+
+extension FirebaseManager {
+
+    func saveEmotionRecord(to userID: String, emotionRecord: EmotionRecord) {
+
+        // 找到特定用戶
+        let userRef = db.collection("users").document(userID)
+
+        let emotionRecordRef = userRef.collection("emotionRecords").document(emotionRecord.id.uuidString)
+
+        emotionRecordRef.setData([
+            "id": emotionRecord.id.uuidString,
+            "emotionScore": emotionRecord.emotionScore,
+            "date": emotionRecord.date
+        ])
+    }
+
+    func fetchEmotionRecords(user userID: String, completion: @escaping ([EmotionRecord]?, Error?) -> Void) {
+        let userRef = db.collection("users").document(userID)
+        let emotionRecordRef = userRef.collection("emotionRecords")
+
+        emotionRecordRef.order(by: "date", descending: true).getDocuments { snapshot, error in
+            if let error = error {
+                print("Error fetching all emotion records: \(error.localizedDescription)")
+            }
+
+            if let documents = snapshot?.documents {
+                let records = documents.compactMap { EmotionRecord(data: $0.data()) }
+                completion(records, nil)
+            }
+        }
+    }
+}

@@ -20,7 +20,7 @@ extension UIView {
             layer.borderColor = newValue?.cgColor
         }
     }
-    
+
     @IBInspectable var csBorderWidth: CGFloat {
         get {
             return layer.borderWidth
@@ -29,7 +29,7 @@ extension UIView {
             layer.borderWidth = newValue
         }
     }
-    
+
     @IBInspectable var csBornerRadius: CGFloat {
         get {
             return layer.cornerRadius
@@ -38,7 +38,7 @@ extension UIView {
             layer.cornerRadius = newValue
         }
     }
-    
+
     @IBInspectable var csShadowColor: UIColor? {
         get {
             guard let shadowColor = layer.shadowColor else {
@@ -50,7 +50,7 @@ extension UIView {
             layer.shadowColor = newValue?.cgColor
         }
     }
-    
+
     @IBInspectable var csShadowOffset: CGSize {
         get {
             return layer.shadowOffset
@@ -59,7 +59,7 @@ extension UIView {
             layer.shadowOffset = newValue
         }
     }
-    
+
     @IBInspectable var csShadowRadius: CGFloat {
         get {
             return layer.shadowRadius
@@ -68,7 +68,7 @@ extension UIView {
             layer.shadowRadius = newValue
         }
     }
-    
+
     @IBInspectable var csShadowOpacity: Float {
         get {
             return layer.shadowOpacity

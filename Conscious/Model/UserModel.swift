@@ -75,7 +75,28 @@ struct PunchRecord {
     var highestDay: Int
 }
 
-struct EmotionRecord {
+struct EmotionRecord: Identifiable {
+    var id = UUID()
     var emotionScore: Int
-    var emotionDate: Date
+    var date: Date
+
+    init(id: String, emotionScore: Int, date: Date) {
+        self.id = UUID(uuidString: id) ?? UUID()
+        self.emotionScore = emotionScore
+        self.date = date
+    }
+
+    init?(data: [String: Any]) {
+        guard let id = data["id"] as? String,
+              let emotionScore = data["emotionScore"] as? Int,
+              let date = data["date"] as? Date else {
+            return nil
+        }
+
+        self.id = UUID(uuidString: id) ?? UUID()
+        self.emotionScore = emotionScore
+        self.date = date
+    }
+
+
 }
