@@ -23,6 +23,7 @@
 		54B62DEE2AB3130500908DFE /* TimelineWithDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B62DED2AB3130500908DFE /* TimelineWithDateTableViewCell.swift */; };
 		54B62DF02AB32D4400908DFE /* TimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B62DEF2AB32D4400908DFE /* TimelineViewModel.swift */; };
 		54B62DF52AB4324E00908DFE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B62DF42AB4324E00908DFE /* DetailViewController.swift */; };
+		54C287F22AB7F65500A399E7 /* EmotionResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C287F12AB7F65500A399E7 /* EmotionResultViewController.swift */; };
 		6B6944609698B9D5065EB72C /* Pods_Conscious.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B16F60D1BCDEC2A95318AC3 /* Pods_Conscious.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		54B62DED2AB3130500908DFE /* TimelineWithDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineWithDateTableViewCell.swift; sourceTree = "<group>"; };
 		54B62DEF2AB32D4400908DFE /* TimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewModel.swift; sourceTree = "<group>"; };
 		54B62DF42AB4324E00908DFE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		54C287F12AB7F65500A399E7 /* EmotionResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionResultViewController.swift; sourceTree = "<group>"; };
 		5B16F60D1BCDEC2A95318AC3 /* Pods_Conscious.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Conscious.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -88,6 +90,7 @@
 				54B62DE72AB30E2B00908DFE /* TimelinePage */,
 				54B62DF12AB4321100908DFE /* DetailPage */,
 				546C67602AB2AF7E00DF82B8 /* NewDiaryPage */,
+				54C287EE2AB7F5FB00A399E7 /* EmotionResultPage */,
 				544C7B6C2AB0689C0084A8CC /* Extension */,
 				541684592AB00F3E00F12484 /* SceneDelegate.swift */,
 				541684572AB00F3E00F12484 /* AppDelegate.swift */,
@@ -196,6 +199,30 @@
 			isa = PBXGroup;
 			children = (
 				54B62DF42AB4324E00908DFE /* DetailViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		54C287EE2AB7F5FB00A399E7 /* EmotionResultPage */ = {
+			isa = PBXGroup;
+			children = (
+				54C287F02AB7F63400A399E7 /* View */,
+				54C287EF2AB7F62D00A399E7 /* ViewModel */,
+			);
+			path = EmotionResultPage;
+			sourceTree = "<group>";
+		};
+		54C287EF2AB7F62D00A399E7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		54C287F02AB7F63400A399E7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				54C287F12AB7F65500A399E7 /* EmotionResultViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -357,6 +384,7 @@
 				541684622AB00F3E00F12484 /* Conscious.xcdatamodeld in Sources */,
 				546C67692AB2B0AC00DF82B8 /* UserModel.swift in Sources */,
 				5416845C2AB00F3E00F12484 /* NewDiaryViewController.swift in Sources */,
+				54C287F22AB7F65500A399E7 /* EmotionResultViewController.swift in Sources */,
 				546C67652AB2AFF400DF82B8 /* NewDiaryViewModel.swift in Sources */,
 				54B62DF02AB32D4400908DFE /* TimelineViewModel.swift in Sources */,
 				54B62DEC2AB30E7500908DFE /* TimelineViewController.swift in Sources */,

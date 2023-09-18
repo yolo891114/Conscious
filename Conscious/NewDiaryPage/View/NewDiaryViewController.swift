@@ -24,6 +24,12 @@ class NewDiaryViewController: UIViewController, UIImagePickerControllerDelegate,
 
         submitButton.addTarget(self, action: #selector(submitButtonTapped), for: .touchUpInside)
 
+        if let editTitle = viewModel.diaryToEdit?.title,
+           let editContent = viewModel.diaryToEdit?.content {
+            titleTextField.text = editTitle
+            contentTextField.text = editContent
+        }
+
     }
 
     @IBAction func imageButtonTapped(_ sender: UIButton) {
@@ -45,6 +51,7 @@ class NewDiaryViewController: UIViewController, UIImagePickerControllerDelegate,
     }
 
     @objc func submitButtonTapped() {
+
         viewModel.title = titleTextField.text ?? ""
         viewModel.content = contentTextField.text ?? ""
         viewModel.photoData = imageButtons[0].imageView?.image?.jpegData(compressionQuality: 0.8)
@@ -52,5 +59,6 @@ class NewDiaryViewController: UIViewController, UIImagePickerControllerDelegate,
 //            viewModel.photoData = button.imageView?.image?.jpegData(compressionQuality: 0.8)
 //        }
         viewModel.saveDiary()
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }

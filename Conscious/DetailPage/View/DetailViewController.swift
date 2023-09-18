@@ -17,6 +17,21 @@ class DetailViewController: UIViewController {
 
     var diary: Diary?
 
+    @IBAction func editButtonTapped(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let newDiaryViewController = storyboard.instantiateViewController(withIdentifier: "NewDiaryViewController") as? NewDiaryViewController {
+            newDiaryViewController.viewModel.diaryToEdit = self.diary
+            self.navigationController?.pushViewController(newDiaryViewController, animated: true)
+        }
+    }
+
+    @IBAction func deleteButtonTapped(_ sender: UIButton) {
+        if let diaryID = diary?.diaryID {
+                FirebaseManager.shared.deleteDiary(user: "no1", diaryID: diaryID)
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

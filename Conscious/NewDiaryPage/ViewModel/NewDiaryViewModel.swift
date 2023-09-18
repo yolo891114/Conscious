@@ -19,21 +19,48 @@ class NewDiaryViewModel: ObservableObject {
 
     private var cancellables = Set<AnyCancellable>()
 
+    var isEditing: Bool = false
+
+    // 修改日記
+    var diaryToEdit: Diary? {
+        didSet {
+            title = diaryToEdit?.title ?? ""
+            content = diaryToEdit?.content ?? ""
+            isEditing = true
+        }
+    }
+
     func saveDiary() {
-        if photoData != nil {
-            uploadPhotos(imageData: photoData!) { url, photoID in
-                if let url = url, let photoID = photoID {
-                    self.saveDiaryWithPhoto(url: url, photoID: photoID)
-                    print("有照片")
+        if isEditing {
+                updateDiary()
+            } else {
+                if photoData != nil {
+                    uploadPhotos(imageData: photoData!) { url, photoID in
+                        if let url = url, let photoID = photoID {
+                            self.saveDiaryWithPhoto(url: url, photoID: photoID)
+                            print("有照片")
+                        } else {
+                            print("照片上傳失敗，日記未保存。")
+                        }
+                    }
                 } else {
-                    print("照片上傳失敗，日記未保存。")
+                    saveDiaryWithPhoto(url: nil, photoID: nil)
+                    print("沒照片")
                 }
             }
-        } else {
-            saveDiaryWithPhoto(url: nil, photoID: nil)
-            print("沒照片")
-        }
+    }
 
+    func updateDiary() {
+        guard let diaryID = diaryToEdit?.diaryID,
+              let date = diaryToEdit?.timestamp else { return }
+
+        let updatedDiary = Diary(diaryID: diaryID,
+                                 date: date,
+                                 title: self.title,
+                                 content: self.content,
+                                 photoCollection: self.photoCollection)
+
+        FirebaseManager.shared.updateDiary(user: "no1", diary: updatedDiary)
     }
 
     func saveDiaryWithPhoto(url: String?, photoID: String?) {
