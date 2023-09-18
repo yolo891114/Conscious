@@ -23,7 +23,14 @@
 		54B62DEE2AB3130500908DFE /* TimelineWithDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B62DED2AB3130500908DFE /* TimelineWithDateTableViewCell.swift */; };
 		54B62DF02AB32D4400908DFE /* TimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B62DEF2AB32D4400908DFE /* TimelineViewModel.swift */; };
 		54B62DF52AB4324E00908DFE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B62DF42AB4324E00908DFE /* DetailViewController.swift */; };
-		54C287F22AB7F65500A399E7 /* EmotionResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C287F12AB7F65500A399E7 /* EmotionResultViewController.swift */; };
+		54C287F22AB7F65500A399E7 /* EmotionDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C287F12AB7F65500A399E7 /* EmotionDataViewController.swift */; };
+		54C287F72AB7FB7800A399E7 /* StartSurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C287F62AB7FB7800A399E7 /* StartSurveyViewController.swift */; };
+		54C287F92AB80D9C00A399E7 /* EmotionSurveyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C287F82AB80D9C00A399E7 /* EmotionSurveyViewModel.swift */; };
+		54C287FB2AB8221200A399E7 /* EmotionSurveyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C287FA2AB8221200A399E7 /* EmotionSurveyTableViewCell.swift */; };
+		54C287FD2AB8234F00A399E7 /* EmotionSurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C287FC2AB8234F00A399E7 /* EmotionSurveyViewController.swift */; };
+		54C288002AB8257600A399E7 /* QuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C287FF2AB8257500A399E7 /* QuestionModel.swift */; };
+		54C288022AB839CE00A399E7 /* FinishSurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C288012AB839CE00A399E7 /* FinishSurveyViewController.swift */; };
+		54C288062AB8531500A399E7 /* EmotionDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C288052AB8531500A399E7 /* EmotionDataViewModel.swift */; };
 		6B6944609698B9D5065EB72C /* Pods_Conscious.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B16F60D1BCDEC2A95318AC3 /* Pods_Conscious.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +55,14 @@
 		54B62DED2AB3130500908DFE /* TimelineWithDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineWithDateTableViewCell.swift; sourceTree = "<group>"; };
 		54B62DEF2AB32D4400908DFE /* TimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewModel.swift; sourceTree = "<group>"; };
 		54B62DF42AB4324E00908DFE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		54C287F12AB7F65500A399E7 /* EmotionResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionResultViewController.swift; sourceTree = "<group>"; };
+		54C287F12AB7F65500A399E7 /* EmotionDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionDataViewController.swift; sourceTree = "<group>"; };
+		54C287F62AB7FB7800A399E7 /* StartSurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSurveyViewController.swift; sourceTree = "<group>"; };
+		54C287F82AB80D9C00A399E7 /* EmotionSurveyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionSurveyViewModel.swift; sourceTree = "<group>"; };
+		54C287FA2AB8221200A399E7 /* EmotionSurveyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionSurveyTableViewCell.swift; sourceTree = "<group>"; };
+		54C287FC2AB8234F00A399E7 /* EmotionSurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionSurveyViewController.swift; sourceTree = "<group>"; };
+		54C287FF2AB8257500A399E7 /* QuestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionModel.swift; sourceTree = "<group>"; };
+		54C288012AB839CE00A399E7 /* FinishSurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishSurveyViewController.swift; sourceTree = "<group>"; };
+		54C288052AB8531500A399E7 /* EmotionDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionDataViewModel.swift; sourceTree = "<group>"; };
 		5B16F60D1BCDEC2A95318AC3 /* Pods_Conscious.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Conscious.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -206,6 +220,7 @@
 		54C287EE2AB7F5FB00A399E7 /* EmotionResultPage */ = {
 			isa = PBXGroup;
 			children = (
+				54C287F32AB7FB5000A399E7 /* EmotionSurveyPage */,
 				54C287F02AB7F63400A399E7 /* View */,
 				54C287EF2AB7F62D00A399E7 /* ViewModel */,
 			);
@@ -215,6 +230,7 @@
 		54C287EF2AB7F62D00A399E7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				54C288052AB8531500A399E7 /* EmotionDataViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -222,9 +238,46 @@
 		54C287F02AB7F63400A399E7 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				54C287F12AB7F65500A399E7 /* EmotionResultViewController.swift */,
+				54C287F12AB7F65500A399E7 /* EmotionDataViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		54C287F32AB7FB5000A399E7 /* EmotionSurveyPage */ = {
+			isa = PBXGroup;
+			children = (
+				54C287FE2AB8256A00A399E7 /* Model */,
+				54C287F52AB7FB6800A399E7 /* View */,
+				54C287F42AB7FB6100A399E7 /* ViewModel */,
+			);
+			path = EmotionSurveyPage;
+			sourceTree = "<group>";
+		};
+		54C287F42AB7FB6100A399E7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				54C287F82AB80D9C00A399E7 /* EmotionSurveyViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		54C287F52AB7FB6800A399E7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				54C287F62AB7FB7800A399E7 /* StartSurveyViewController.swift */,
+				54C287FC2AB8234F00A399E7 /* EmotionSurveyViewController.swift */,
+				54C287FA2AB8221200A399E7 /* EmotionSurveyTableViewCell.swift */,
+				54C288012AB839CE00A399E7 /* FinishSurveyViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		54C287FE2AB8256A00A399E7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				54C287FF2AB8257500A399E7 /* QuestionModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		8EA8AA1D264E0F0E07E85C1C /* Pods */ = {
@@ -384,12 +437,19 @@
 				541684622AB00F3E00F12484 /* Conscious.xcdatamodeld in Sources */,
 				546C67692AB2B0AC00DF82B8 /* UserModel.swift in Sources */,
 				5416845C2AB00F3E00F12484 /* NewDiaryViewController.swift in Sources */,
-				54C287F22AB7F65500A399E7 /* EmotionResultViewController.swift in Sources */,
+				54C287F22AB7F65500A399E7 /* EmotionDataViewController.swift in Sources */,
 				546C67652AB2AFF400DF82B8 /* NewDiaryViewModel.swift in Sources */,
+				54C288022AB839CE00A399E7 /* FinishSurveyViewController.swift in Sources */,
 				54B62DF02AB32D4400908DFE /* TimelineViewModel.swift in Sources */,
 				54B62DEC2AB30E7500908DFE /* TimelineViewController.swift in Sources */,
+				54C287F92AB80D9C00A399E7 /* EmotionSurveyViewModel.swift in Sources */,
 				541684582AB00F3E00F12484 /* AppDelegate.swift in Sources */,
 				544C7B6E2AB068AC0084A8CC /* UIView+Extension.swift in Sources */,
+				54C287F72AB7FB7800A399E7 /* StartSurveyViewController.swift in Sources */,
+				54C287FB2AB8221200A399E7 /* EmotionSurveyTableViewCell.swift in Sources */,
+				54C288002AB8257600A399E7 /* QuestionModel.swift in Sources */,
+				54C287FD2AB8234F00A399E7 /* EmotionSurveyViewController.swift in Sources */,
+				54C288062AB8531500A399E7 /* EmotionDataViewModel.swift in Sources */,
 				5416845A2AB00F3E00F12484 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -545,7 +605,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -574,7 +634,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

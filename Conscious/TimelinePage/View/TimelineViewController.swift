@@ -29,7 +29,6 @@ class TimelineViewController: UIViewController {
 
     let dateFormatter = DateFormatter()
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
