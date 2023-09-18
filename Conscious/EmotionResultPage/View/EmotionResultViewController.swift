@@ -14,4 +14,6 @@ class EmotionResultViewController: UIViewController {
         super.viewDidLoad()
     }
 
+    @IBAction func createNewSurveyButtonTapped(_ sender: UIButton) {
+    }
 }
