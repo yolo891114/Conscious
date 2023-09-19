@@ -13,9 +13,10 @@ import Combine
 
 class EmotionDataViewController: UIViewController {
 
-    @IBOutlet weak var createButton: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
-    
+    @IBOutlet weak var createButton: UIButton!
+    @IBOutlet weak var segmentControll: UISegmentedControl!
+
     var emotionData: [EmotionRecord] = []
 
     private var canAddNewRecord: Bool?
@@ -28,6 +29,12 @@ class EmotionDataViewController: UIViewController {
         if let canAddNewRecord = canAddNewRecord, canAddNewRecord == false {
             showOverrideAlert()
         }
+    }
+
+    @IBAction func segmentChanged(_ sender: UISegmentedControl) {
+        viewModel.currentDataScope = sender.selectedSegmentIndex == 0 ? .month : .year
+        dateLabel.text = viewModel.currentViewingDateText
+        print("Current viewing date text: \(viewModel.currentViewingDateText)")
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -55,11 +62,15 @@ class EmotionDataViewController: UIViewController {
             }
             .store(in: &cancellables)
 
-        viewModel.$currentViewingMonth
-            .sink { newMonth in
-                print("---")
-                print(newMonth)
-                self.dateLabel.text = String(describing: newMonth)
+        viewModel.$currentDataScope
+            .sink { [weak self] _ in
+                self?.dateLabel.text = self?.viewModel.currentViewingDateText
+            }
+            .store(in: &cancellables)
+
+        viewModel.$dateChanged
+            .sink { [weak self] _ in
+                self?.dateLabel.text = self?.viewModel.currentViewingDateText
             }
             .store(in: &cancellables)
 
@@ -68,13 +79,14 @@ class EmotionDataViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let swiftUIView = EmotionLineChartView(viewModel: viewModel)
+        segmentControll.selectedSegmentIndex = viewModel.currentDataScope == .month ? 0 : 1
 
-        let hostingController = UIHostingController(rootView: swiftUIView)
+        let lineChartView = EmotionLineChartView(viewModel: viewModel)
+
+        let hostingController = UIHostingController(rootView: lineChartView)
 
         self.addChild(hostingController)
 
-        //        hostingController.view.frame = self.view.bounds
         hostingController.view.translatesAutoresizingMaskIntoConstraints = false
 
         self.view.addSubview(hostingController.view)
@@ -90,6 +102,7 @@ class EmotionDataViewController: UIViewController {
 
         self.view.bringSubviewToFront(createButton)
         self.view.bringSubviewToFront(dateLabel)
+        self.view.bringSubviewToFront(segmentControll)
     }
 
     func showOverrideAlert() {
@@ -114,7 +127,7 @@ struct EmotionLineChartView: View {
     var body: some View {
         VStack {
             Chart {
-                ForEach(viewModel.currentMonthRecords) { item in
+                ForEach(viewModel.filteredRecords) { item in
                     LineMark(
                         x: .value("Date", item.date),
                         y: .value("Score", item.emotionScore))
@@ -130,9 +143,9 @@ struct EmotionLineChartView: View {
 
                     if abs(horizontalValue) > abs(verticalValue) {
                         if horizontalValue > 0 {
-                            viewModel.switchToPreviousMonth()
+                            viewModel.switchToPreviousPeriod()
                         } else {
-                            viewModel.switchToNextMonth()
+                            viewModel.switchToNextPeriod()
                         }
                     }
                 }

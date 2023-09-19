@@ -354,6 +354,9 @@
                                     <segment title="Month"/>
                                     <segment title="Year"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentChanged:" destination="V1D-vY-5ZJ" eventType="valueChanged" id="Qnh-2a-IZa"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E9S-5z-nal">
                                 <rect key="frame" x="44" y="110" width="113" height="28"/>
@@ -370,6 +373,7 @@
                     <connections>
                         <outlet property="createButton" destination="3wG-Ws-FKY" id="BbA-4J-mI6"/>
                         <outlet property="dateLabel" destination="E9S-5z-nal" id="G6g-Sl-LYK"/>
+                        <outlet property="segmentControll" destination="xBH-VZ-09e" id="SFL-yL-Wjr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ENA-zz-yWh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
