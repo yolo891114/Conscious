@@ -31,6 +31,7 @@
 		54C288002AB8257600A399E7 /* QuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C287FF2AB8257500A399E7 /* QuestionModel.swift */; };
 		54C288022AB839CE00A399E7 /* FinishSurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C288012AB839CE00A399E7 /* FinishSurveyViewController.swift */; };
 		54C288062AB8531500A399E7 /* EmotionDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C288052AB8531500A399E7 /* EmotionDataViewModel.swift */; };
+		54C288082AB93A6400A399E7 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C288072AB93A6400A399E7 /* DateManager.swift */; };
 		6B6944609698B9D5065EB72C /* Pods_Conscious.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B16F60D1BCDEC2A95318AC3 /* Pods_Conscious.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		54C287FF2AB8257500A399E7 /* QuestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionModel.swift; sourceTree = "<group>"; };
 		54C288012AB839CE00A399E7 /* FinishSurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishSurveyViewController.swift; sourceTree = "<group>"; };
 		54C288052AB8531500A399E7 /* EmotionDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionDataViewModel.swift; sourceTree = "<group>"; };
+		54C288072AB93A6400A399E7 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		5B16F60D1BCDEC2A95318AC3 /* Pods_Conscious.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Conscious.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -130,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				546C675C2AB2961800DF82B8 /* FirebaseManager.swift */,
+				54C288072AB93A6400A399E7 /* DateManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 				546C67692AB2B0AC00DF82B8 /* UserModel.swift in Sources */,
 				5416845C2AB00F3E00F12484 /* NewDiaryViewController.swift in Sources */,
 				54C287F22AB7F65500A399E7 /* EmotionDataViewController.swift in Sources */,
+				54C288082AB93A6400A399E7 /* DateManager.swift in Sources */,
 				546C67652AB2AFF400DF82B8 /* NewDiaryViewModel.swift in Sources */,
 				54C288022AB839CE00A399E7 /* FinishSurveyViewController.swift in Sources */,
 				54B62DF02AB32D4400908DFE /* TimelineViewModel.swift in Sources */,
