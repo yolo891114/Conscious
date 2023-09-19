@@ -28,7 +28,7 @@ class EmotionSurveyViewController: UIViewController {
 
     @IBAction func nextButtonTapped(_ sender: UIButton) {
         let totalScore = viewModel.calculateTotalScore()
-        let newEmotionRecord = EmotionRecord(emotionRecordID: UUID().uuidString,
+        let newEmotionRecord = EmotionRecord(id: UUID().uuidString,
                                              emotionScore: totalScore,
                                              date: Date())
         FirebaseManager.shared.saveEmotionRecord(to: "no1", emotionRecord: newEmotionRecord)

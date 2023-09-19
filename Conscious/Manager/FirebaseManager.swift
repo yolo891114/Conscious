@@ -152,6 +152,32 @@ extension FirebaseManager {
         ])
     }
 
+    func deleteCurrentWeekEmotionRecord(user userID: String) {
+        let userRef = db.collection("users").document(userID)
+        let emotionRecordRef = userRef.collection("emotionRecords")
+
+        let (startOfWeek, endOfWeek) = DateManager.shared.getCurrentWeekDates()
+
+        let period = emotionRecordRef.whereField("date", isGreaterThanOrEqualTo: startOfWeek)
+                                     .whereField("date", isLessThanOrEqualTo: endOfWeek)
+
+        period.getDocuments { snapshot, error in
+            if let error = error {
+                print("Error when get this week's document: \(error)")
+            }
+
+            if let documents = snapshot?.documents {
+                for document in documents {
+                    emotionRecordRef.document(document.documentID).delete { error in
+                        if let error = error {
+                            print("Error when delete this week's document: \(error)")
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     func fetchEmotionRecords(user userID: String, completion: @escaping ([EmotionRecord]?, Error?) -> Void) {
         let userRef = db.collection("users").document(userID)
         let emotionRecordRef = userRef.collection("emotionRecords")
@@ -167,4 +193,33 @@ extension FirebaseManager {
             }
         }
     }
+
+    func canAddRecordThisWeek(user userID: String, completion: @escaping (Bool) -> Void) {
+        let (startOfWeek, endOfWeek) = DateManager.shared.getCurrentWeekDates()
+
+        let userRef = db.collection("users").document(userID)
+        let emotionRecordRef = userRef.collection("emotionRecords")
+
+        let period = emotionRecordRef.whereField("date", isGreaterThanOrEqualTo: startOfWeek)
+                                     .whereField("date", isLessThanOrEqualTo: endOfWeek)
+
+        period.getDocuments { snapshot, error in
+            if let error = error {
+                print("Error when get this week's document: \(error)")
+                completion(false)
+                return
+            }
+
+            if let documents = snapshot?.documents, !documents.isEmpty {
+                // 本週已有資料
+                print("本週有資料：\(documents)")
+                completion(false)
+            } else {
+                // 本週尚無資料
+                print("本週無資料")
+                completion(true)
+            }
+        }
+    }
+
 }

@@ -89,14 +89,14 @@ struct EmotionRecord: Identifiable {
     init?(data: [String: Any]) {
         guard let id = data["id"] as? String,
               let emotionScore = data["emotionScore"] as? Int,
-              let date = data["date"] as? Date else {
+              let date = data["date"] as? Timestamp else {
+            print("Failed to initialize EmotionRecord with data: \(data)")
             return nil
         }
 
         self.id = UUID(uuidString: id) ?? UUID()
         self.emotionScore = emotionScore
-        self.date = date
+        self.date = date.dateValue()
     }
-
 
 }
