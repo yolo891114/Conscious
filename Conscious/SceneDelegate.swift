@@ -29,6 +29,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let enterPasswordViewController = storyboard.instantiateViewController(withIdentifier: "EnterPasswordViewController") as? EnterPasswordViewController {
+            if let rootViewController = self.window?.rootViewController {
+                enterPasswordViewController.modalPresentationStyle = .overFullScreen
+                rootViewController.present(enterPasswordViewController, animated: true, completion: nil)
+            }
+        }
     }
 
     func sceneWillResignActive(_ scene: UIScene) {

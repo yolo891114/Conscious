@@ -1,5 +1,5 @@
 //
-//  EnterPasswordViewController.swift
+//  SettingPasswordViewController.swift
 //  Conscious
 //
 //  Created by jeff on 2023/9/21.
@@ -10,23 +10,32 @@ import UIKit
 import SwiftUI
 import Combine
 
-class EnterPasswordViewController: UIViewController {
+class SettingPasswordViewController: UIViewController {
 
-    lazy var viewModel = EnterPasswordViewModel()
+    var viewModel: SettingPasswordViewModel
     private var cancellables = Set<AnyCancellable>()
+
+    init(viewModel: SettingPasswordViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        viewModel.unlockSuccess
+        viewModel.settingSuccess
             .sink { [weak self] in
                 self?.dismiss(animated: true)
             }
             .store(in: &cancellables)
 
-        let passwordView = PasswordView(viewModel: viewModel)
+        let settingPasswordView = SettingPasswordView(viewModel: self.viewModel)
 
-        let hostingController = UIHostingController(rootView: passwordView)
+        let hostingController = UIHostingController(rootView: settingPasswordView)
 
         self.addChild(hostingController)
 
@@ -35,22 +44,22 @@ class EnterPasswordViewController: UIViewController {
         self.view.addSubview(hostingController.view)
 
         NSLayoutConstraint.activate([
-            hostingController.view.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 16),
-            hostingController.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 16),
-            hostingController.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
-            hostingController.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16)
+            hostingController.view.topAnchor.constraint(equalTo: self.view.topAnchor),
+            hostingController.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            hostingController.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            hostingController.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         ])
 
         hostingController.didMove(toParent: self)
     }
 }
 
-struct PasswordView: View {
-    @ObservedObject var viewModel = EnterPasswordViewModel()
+struct SettingPasswordView: View {
+    @ObservedObject var viewModel: SettingPasswordViewModel
 
     var body: some View {
         VStack(spacing: 20) {
-            Text("Enter Password")
+            Text(viewModel.mode == .setting ? "Enter Password" : "Update Password")
 
             // 顯示輸入的密碼
             Text(viewModel.inputPassword)
@@ -93,16 +102,6 @@ struct PasswordView: View {
                     .cornerRadius(30)
                 }
             }
-
-////            // 解鎖按鈕
-//            Button("Unlock") {
-//                if viewModel.isValidPassword {
-//                    // 解鎖操作
-//                    viewModel.checkPasswordAndUnlock()
-//                    print("Unlock")
-//                }
-//            }
-//            .disabled(!viewModel.isValidPassword)
         }
     }
 }

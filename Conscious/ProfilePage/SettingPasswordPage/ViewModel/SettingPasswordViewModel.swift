@@ -1,5 +1,5 @@
 //
-//  EnterPasswordViewModel.swift
+//  SettingPasswordViewModel.swift
 //  Conscious
 //
 //  Created by jeff on 2023/9/21.
@@ -8,19 +8,28 @@
 import Foundation
 import Combine
 
-class EnterPasswordViewModel: ObservableObject {
+// TODO: 更改密碼前輸入舊密碼 / 換密碼時確認密碼
+
+enum PasswordMode {
+    case setting
+    case updating
+}
+
+class SettingPasswordViewModel: ObservableObject {
 
     @Published var inputPassword: String = ""
     private var passwordManager = PasswordManager()
-    let unlockSuccess = PassthroughSubject<Void, Never>()
     private var cancellables = Set<AnyCancellable>()
+    let settingSuccess = PassthroughSubject<Void, Never>()
+    var mode: PasswordMode = .setting
 
-    init() {
+    init(mode: PasswordMode) {
+        self.mode = mode
         $inputPassword
             .sink { password in
                 if password.count == 4 {
                     DispatchQueue.main.async {
-                        self.checkPasswordAndUnlock()
+                        self.saveOrUpdatePassword()
                     }
                 }
             }
@@ -28,7 +37,7 @@ class EnterPasswordViewModel: ObservableObject {
     }
 
     var isValidPassword: Bool {
-        return inputPassword == passwordManager.getPassword()
+        return inputPassword.count == 4
     }
 
     func appendInputPassword(number: String) {
@@ -43,9 +52,14 @@ class EnterPasswordViewModel: ObservableObject {
         }
     }
 
-    func checkPasswordAndUnlock() {
-        if isValidPassword {
-            unlockSuccess.send(())
+    func saveOrUpdatePassword() {
+        switch mode {
+        case .setting:
+            passwordManager.savePassword(password: inputPassword)
+            settingSuccess.send()
+        case .updating:
+            passwordManager.updatePassword(newPassword: inputPassword)
+            settingSuccess.send()
         }
     }
 

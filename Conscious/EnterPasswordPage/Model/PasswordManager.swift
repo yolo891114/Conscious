@@ -43,4 +43,17 @@ class PasswordManager {
         }
         return nil
     }
+
+    func updatePassword(newPassword: String) {
+        // 刪除舊密碼
+        let deleteQuery: [String: Any] = [
+            kSecClass as String: kSecClassGenericPassword,
+            kSecAttrService as String: "ConsciousDiary"
+        ]
+        SecItemDelete(deleteQuery as CFDictionary)
+
+        // 儲存新密碼
+        savePassword(password: newPassword)
+    }
+
 }
