@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yif-8a-tMB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uQu-q8-YYG">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -593,26 +593,61 @@
             </objects>
             <point key="canvasLocation" x="6165.6488549618316" y="1409.8591549295775"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile-->
         <scene sceneID="Pa3-TG-jK2">
             <objects>
-                <viewController id="36m-Fu-qQo" sceneMemberID="viewController">
+                <viewController id="36m-Fu-qQo" customClass="ProfileViewController" customModule="Conscious" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iQ9-7E-HEx">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="00b-iC-vCd">
+                                <rect key="frame" x="149" y="373" width="94" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="設定密碼"/>
+                                <connections>
+                                    <action selector="settingButtonTapped:" destination="36m-Fu-qQo" eventType="touchUpInside" id="2OK-OX-AZV"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="o3i-NA-AQa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="o3i-NA-AQa" firstAttribute="trailing" secondItem="00b-iC-vCd" secondAttribute="trailing" constant="150" id="1az-dd-uBn"/>
+                            <constraint firstItem="00b-iC-vCd" firstAttribute="leading" secondItem="o3i-NA-AQa" secondAttribute="leading" constant="149" id="6mE-bg-mae"/>
+                            <constraint firstItem="00b-iC-vCd" firstAttribute="top" secondItem="o3i-NA-AQa" secondAttribute="top" constant="270" id="K31-Hw-PVX"/>
+                            <constraint firstItem="o3i-NA-AQa" firstAttribute="bottom" secondItem="00b-iC-vCd" secondAttribute="bottom" constant="361" id="ZQM-Xi-RF0"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="2AZ-fL-6zE"/>
+                    <navigationItem key="navigationItem" title="Profile" id="2AZ-fL-6zE"/>
+                    <connections>
+                        <outlet property="settingButton" destination="00b-iC-vCd" id="77E-Pk-pnj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zOw-bg-Z6Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3650" y="2180"/>
         </scene>
+        <!--設定密碼-->
+        <scene sceneID="Ewc-vW-7Xa">
+            <objects>
+                <viewController id="uqL-z1-Hrh" customClass="SettingPasswordViewController" customModule="Conscious" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UC9-DH-d2o">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="1g8-aR-p1j"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="設定密碼" id="TKi-EP-Fo9"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g7C-qj-6x7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4552" y="2180"/>
+        </scene>
         <!--Enter Password View Controller-->
         <scene sceneID="n2t-Ru-QjY">
             <objects>
-                <viewController id="yif-8a-tMB" customClass="EnterPasswordViewController" customModule="Conscious" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EnterPasswordViewController" id="yif-8a-tMB" customClass="EnterPasswordViewController" customModule="Conscious" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1oy-Cl-4TU">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -622,7 +657,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="scV-6v-4dZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4609.9236641221369" y="2179.5774647887324"/>
+            <point key="canvasLocation" x="5360" y="2180"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1eb-WE-ccL">

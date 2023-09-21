@@ -29,6 +29,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let enterPasswordViewController = storyboard.instantiateViewController(withIdentifier: "EnterPasswordViewController") as? EnterPasswordViewController {
+//            if let rootViewController = self.window?.rootViewController {
+//                enterPasswordViewController.modalPresentationStyle = .overFullScreen
+//                rootViewController.present(enterPasswordViewController, animated: true, completion: nil)
+//            }
+            if !GlobalState.isUnlock {
+                if let rootViewController = self.window?.rootViewController {
+                    enterPasswordViewController.modalPresentationStyle = .overFullScreen
+                    rootViewController.present(enterPasswordViewController, animated: true, completion: nil)
+                }
+            }
+        }
+        print(1)
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
@@ -39,6 +54,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let enterPasswordViewController = storyboard.instantiateViewController(withIdentifier: "EnterPasswordViewController") as? EnterPasswordViewController {
+//            if let rootViewController = self.window?.rootViewController {
+//                enterPasswordViewController.modalPresentationStyle = .overFullScreen
+//                rootViewController.present(enterPasswordViewController, animated: true, completion: nil)
+//            }
+            if !GlobalState.isUnlock {
+                if let rootViewController = self.window?.rootViewController {
+                    enterPasswordViewController.modalPresentationStyle = .overFullScreen
+                    rootViewController.present(enterPasswordViewController, animated: true, completion: nil)
+                }
+            }
+        }
+        print(1)
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
@@ -47,6 +76,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
 
         // Save changes in the application's managed object context when the application transitions to the background.
+        GlobalState.isUnlock = false
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
 
