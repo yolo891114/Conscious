@@ -21,6 +21,7 @@
 		544C5D052ABBF20B0020F88F /* SettingPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544C5D042ABBF20B0020F88F /* SettingPasswordViewController.swift */; };
 		544C5D072ABBF27D0020F88F /* SettingPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544C5D062ABBF27D0020F88F /* SettingPasswordViewModel.swift */; };
 		544C5D0B2ABC1A380020F88F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544C5D0A2ABC1A380020F88F /* ProfileViewController.swift */; };
+		544C5D0D2ABC72AE0020F88F /* SettingNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544C5D0C2ABC72AE0020F88F /* SettingNotificationViewController.swift */; };
 		544C7B6B2AB014920084A8CC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 544C7B6A2AB014910084A8CC /* GoogleService-Info.plist */; };
 		544C7B6E2AB068AC0084A8CC /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544C7B6D2AB068AC0084A8CC /* UIView+Extension.swift */; };
 		546C675D2AB2961800DF82B8 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546C675C2AB2961800DF82B8 /* FirebaseManager.swift */; };
@@ -62,6 +63,7 @@
 		544C5D042ABBF20B0020F88F /* SettingPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPasswordViewController.swift; sourceTree = "<group>"; };
 		544C5D062ABBF27D0020F88F /* SettingPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPasswordViewModel.swift; sourceTree = "<group>"; };
 		544C5D0A2ABC1A380020F88F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		544C5D0C2ABC72AE0020F88F /* SettingNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingNotificationViewController.swift; sourceTree = "<group>"; };
 		544C7B6A2AB014910084A8CC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		544C7B6D2AB068AC0084A8CC /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		546C675C2AB2961800DF82B8 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				544C5D0A2ABC1A380020F88F /* ProfileViewController.swift */,
+				544C5D0C2ABC72AE0020F88F /* SettingNotificationViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -578,6 +581,7 @@
 				544C5D0B2ABC1A380020F88F /* ProfileViewController.swift in Sources */,
 				546C67652AB2AFF400DF82B8 /* NewDiaryViewModel.swift in Sources */,
 				54C288022AB839CE00A399E7 /* FinishSurveyViewController.swift in Sources */,
+				544C5D0D2ABC72AE0020F88F /* SettingNotificationViewController.swift in Sources */,
 				54B62DF02AB32D4400908DFE /* TimelineViewModel.swift in Sources */,
 				54B62DEC2AB30E7500908DFE /* TimelineViewController.swift in Sources */,
 				54C287F92AB80D9C00A399E7 /* EmotionSurveyViewModel.swift in Sources */,

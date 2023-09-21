@@ -609,6 +609,12 @@
                                     <action selector="settingButtonTapped:" destination="36m-Fu-qQo" eventType="touchUpInside" id="2OK-OX-AZV"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="av6-uo-6NT">
+                                <rect key="frame" x="150" y="416" width="94" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="設定通知"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="o3i-NA-AQa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

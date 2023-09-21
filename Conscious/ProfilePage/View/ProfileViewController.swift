@@ -16,6 +16,8 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
 
         settingButton.titleLabel?.text = passwordManager.getPassword() == nil ? "新增密碼" : "更改密碼"
+
+        createNotification()
     }
 
     @IBAction func settingButtonTapped(_ sender: UIButton) {
@@ -25,6 +27,23 @@ class ProfileViewController: UIViewController {
         let settingPasswordVC = SettingPasswordViewController(viewModel: viewModel)
         settingPasswordVC.modalPresentationStyle = .automatic
         self.present(settingPasswordVC, animated: true, completion: nil)
-//        self.navigationController?.pushViewController(settingPasswordVC, animated: true)
     }
+
+    func createNotification() {
+        let content = UNMutableNotificationContent()
+        content.title = "Conscious"
+        content.body = "今天寫日記了嗎？"
+        content.sound = UNNotificationSound.default
+
+        var dateComponents = DateComponents()
+        dateComponents.hour = 20
+        dateComponents.minute = 33
+
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+
+        let request = UNNotificationRequest(identifier: "dailyReminder", content: content, trigger: trigger)
+
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    }
+
 }
