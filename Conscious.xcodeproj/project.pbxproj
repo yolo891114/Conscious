@@ -14,6 +14,10 @@
 		541684622AB00F3E00F12484 /* Conscious.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 541684602AB00F3E00F12484 /* Conscious.xcdatamodeld */; };
 		541684642AB00F4300F12484 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 541684632AB00F4300F12484 /* Assets.xcassets */; };
 		541684672AB00F4300F12484 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 541684652AB00F4300F12484 /* LaunchScreen.storyboard */; };
+		544C5CF92ABBD4C00020F88F /* EnterPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544C5CF82ABBD4BF0020F88F /* EnterPasswordViewController.swift */; };
+		544C5CFB2ABBD84E0020F88F /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544C5CFA2ABBD84E0020F88F /* UIButton+Extension.swift */; };
+		544C5CFD2ABBDBEA0020F88F /* EnterPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544C5CFC2ABBDBEA0020F88F /* EnterPasswordViewModel.swift */; };
+		544C5CFF2ABBDEAB0020F88F /* PasswordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544C5CFE2ABBDEAB0020F88F /* PasswordManager.swift */; };
 		544C7B6B2AB014920084A8CC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 544C7B6A2AB014910084A8CC /* GoogleService-Info.plist */; };
 		544C7B6E2AB068AC0084A8CC /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544C7B6D2AB068AC0084A8CC /* UIView+Extension.swift */; };
 		546C675D2AB2961800DF82B8 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546C675C2AB2961800DF82B8 /* FirebaseManager.swift */; };
@@ -32,6 +36,7 @@
 		54C288022AB839CE00A399E7 /* FinishSurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C288012AB839CE00A399E7 /* FinishSurveyViewController.swift */; };
 		54C288062AB8531500A399E7 /* EmotionDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C288052AB8531500A399E7 /* EmotionDataViewModel.swift */; };
 		54C288082AB93A6400A399E7 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C288072AB93A6400A399E7 /* DateManager.swift */; };
+		54C2880D2AB9A93700A399E7 /* PunchRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C2880C2AB9A93700A399E7 /* PunchRecordViewController.swift */; };
 		6B6944609698B9D5065EB72C /* Pods_Conscious.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B16F60D1BCDEC2A95318AC3 /* Pods_Conscious.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +52,10 @@
 		541684632AB00F4300F12484 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		541684662AB00F4300F12484 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		541684682AB00F4300F12484 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		544C5CF82ABBD4BF0020F88F /* EnterPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPasswordViewController.swift; sourceTree = "<group>"; };
+		544C5CFA2ABBD84E0020F88F /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		544C5CFC2ABBDBEA0020F88F /* EnterPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPasswordViewModel.swift; sourceTree = "<group>"; };
+		544C5CFE2ABBDEAB0020F88F /* PasswordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordManager.swift; sourceTree = "<group>"; };
 		544C7B6A2AB014910084A8CC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		544C7B6D2AB068AC0084A8CC /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		546C675C2AB2961800DF82B8 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
@@ -65,6 +74,7 @@
 		54C288012AB839CE00A399E7 /* FinishSurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishSurveyViewController.swift; sourceTree = "<group>"; };
 		54C288052AB8531500A399E7 /* EmotionDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionDataViewModel.swift; sourceTree = "<group>"; };
 		54C288072AB93A6400A399E7 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
+		54C2880C2AB9A93700A399E7 /* PunchRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PunchRecordViewController.swift; sourceTree = "<group>"; };
 		5B16F60D1BCDEC2A95318AC3 /* Pods_Conscious.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Conscious.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -101,13 +111,15 @@
 		541684562AB00F3E00F12484 /* Conscious */ = {
 			isa = PBXGroup;
 			children = (
+				544C7B6C2AB0689C0084A8CC /* Extension */,
 				546C67632AB2AF9C00DF82B8 /* Model */,
 				546C675B2AB295FB00DF82B8 /* Manager */,
 				54B62DE72AB30E2B00908DFE /* TimelinePage */,
 				54B62DF12AB4321100908DFE /* DetailPage */,
+				54C288092AB9A8FF00A399E7 /* PunchRecordPage */,
 				546C67602AB2AF7E00DF82B8 /* NewDiaryPage */,
 				54C287EE2AB7F5FB00A399E7 /* EmotionResultPage */,
-				544C7B6C2AB0689C0084A8CC /* Extension */,
+				544C5CF42ABBD3DB0020F88F /* EnterPasswordPage */,
 				541684592AB00F3E00F12484 /* SceneDelegate.swift */,
 				541684572AB00F3E00F12484 /* AppDelegate.swift */,
 				5416845D2AB00F3E00F12484 /* Main.storyboard */,
@@ -120,10 +132,45 @@
 			path = Conscious;
 			sourceTree = "<group>";
 		};
+		544C5CF42ABBD3DB0020F88F /* EnterPasswordPage */ = {
+			isa = PBXGroup;
+			children = (
+				544C5CF72ABBD4AD0020F88F /* Model */,
+				544C5CF62ABBD4A90020F88F /* View */,
+				544C5CF52ABBD4A10020F88F /* ViewModel */,
+			);
+			path = EnterPasswordPage;
+			sourceTree = "<group>";
+		};
+		544C5CF52ABBD4A10020F88F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				544C5CFC2ABBDBEA0020F88F /* EnterPasswordViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		544C5CF62ABBD4A90020F88F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				544C5CF82ABBD4BF0020F88F /* EnterPasswordViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		544C5CF72ABBD4AD0020F88F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				544C5CFE2ABBDEAB0020F88F /* PasswordManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		544C7B6C2AB0689C0084A8CC /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				544C7B6D2AB068AC0084A8CC /* UIView+Extension.swift */,
+				544C5CFA2ABBD84E0020F88F /* UIButton+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -283,6 +330,30 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		54C288092AB9A8FF00A399E7 /* PunchRecordPage */ = {
+			isa = PBXGroup;
+			children = (
+				54C2880B2AB9A92600A399E7 /* View */,
+				54C2880A2AB9A91F00A399E7 /* ViewModel */,
+			);
+			path = PunchRecordPage;
+			sourceTree = "<group>";
+		};
+		54C2880A2AB9A91F00A399E7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		54C2880B2AB9A92600A399E7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				54C2880C2AB9A93700A399E7 /* PunchRecordViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		8EA8AA1D264E0F0E07E85C1C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -435,9 +506,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				54B62DF52AB4324E00908DFE /* DetailViewController.swift in Sources */,
+				544C5CF92ABBD4C00020F88F /* EnterPasswordViewController.swift in Sources */,
 				54B62DEE2AB3130500908DFE /* TimelineWithDateTableViewCell.swift in Sources */,
+				54C2880D2AB9A93700A399E7 /* PunchRecordViewController.swift in Sources */,
 				546C675D2AB2961800DF82B8 /* FirebaseManager.swift in Sources */,
+				544C5CFB2ABBD84E0020F88F /* UIButton+Extension.swift in Sources */,
 				541684622AB00F3E00F12484 /* Conscious.xcdatamodeld in Sources */,
+				544C5CFD2ABBDBEA0020F88F /* EnterPasswordViewModel.swift in Sources */,
 				546C67692AB2B0AC00DF82B8 /* UserModel.swift in Sources */,
 				5416845C2AB00F3E00F12484 /* NewDiaryViewController.swift in Sources */,
 				54C287F22AB7F65500A399E7 /* EmotionDataViewController.swift in Sources */,
@@ -448,6 +523,7 @@
 				54B62DEC2AB30E7500908DFE /* TimelineViewController.swift in Sources */,
 				54C287F92AB80D9C00A399E7 /* EmotionSurveyViewModel.swift in Sources */,
 				541684582AB00F3E00F12484 /* AppDelegate.swift in Sources */,
+				544C5CFF2ABBDEAB0020F88F /* PasswordManager.swift in Sources */,
 				544C7B6E2AB068AC0084A8CC /* UIView+Extension.swift in Sources */,
 				54C287F72AB7FB7800A399E7 /* StartSurveyViewController.swift in Sources */,
 				54C287FB2AB8221200A399E7 /* EmotionSurveyTableViewCell.swift in Sources */,
@@ -602,6 +678,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8L87DVW5GZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Conscious/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -614,7 +691,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ssy.Conscious;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -631,6 +708,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8L87DVW5GZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Conscious/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -643,7 +721,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ssy.Conscious;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
