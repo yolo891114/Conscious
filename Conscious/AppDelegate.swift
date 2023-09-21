@@ -84,3 +84,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+class GlobalState {
+    static var isUnlock: Bool = false
+}

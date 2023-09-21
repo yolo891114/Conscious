@@ -9,11 +9,19 @@ import Foundation
 import UIKit
 import SwiftUI
 import Combine
+import LocalAuthentication
 
 class EnterPasswordViewController: UIViewController {
 
     lazy var viewModel = EnterPasswordViewModel()
     private var cancellables = Set<AnyCancellable>()
+
+    //    let faceIDButton: UIButton = {
+    //        let button = UIButton()
+    //        button.setImage(UIImage(named: "faceid"), for: .normal)
+    //        button.translatesAutoresizingMaskIntoConstraints = false
+    //        return button
+    //    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +32,13 @@ class EnterPasswordViewController: UIViewController {
             }
             .store(in: &cancellables)
 
-        let passwordView = PasswordView(viewModel: viewModel)
+        viewModel.triggerFaceID
+                .sink { [weak self] in
+                    self?.faceIDButtonTapped()
+                }
+                .store(in: &cancellables)
+
+        let passwordView = PasswordView(viewModel: self.viewModel)
 
         let hostingController = UIHostingController(rootView: passwordView)
 
@@ -42,11 +56,45 @@ class EnterPasswordViewController: UIViewController {
         ])
 
         hostingController.didMove(toParent: self)
+
+        //        biometricsLogin()
+    }
+
+    func faceIDButtonTapped() {
+        // 創建 LAContext 實例
+        let context = LAContext()
+        // 設置取消按鈕標題
+        context.localizedCancelTitle = "Cancel"
+        var error: NSError?
+        // 評估是否可以針對給定方案進行身份驗證
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            let reason = "Log in to your account"
+            // 評估指定方案
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { (success, error) in
+                if success {
+                    DispatchQueue.main.async { [unowned self] in
+                        GlobalState.isUnlock = true
+                        viewModel.unlockSuccess.send()
+                    }
+                }
+            }
+        }
+    }
+
+    func showMessage(title: String?, message: String?) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 
 struct PasswordView: View {
     @ObservedObject var viewModel = EnterPasswordViewModel()
+
+    init(viewModel: EnterPasswordViewModel) {
+        self.viewModel = viewModel
+    }
 
     var body: some View {
         VStack(spacing: 20) {
@@ -56,6 +104,14 @@ struct PasswordView: View {
             Text(viewModel.inputPassword)
                 .font(.title)
                 .padding()
+
+            Button(action: {
+                viewModel.triggerFaceID.send()
+            }) {
+                Image(systemName: "faceid") // 使用 SF Symbols，或者您可以使用自己的圖片
+                    .resizable()
+                    .frame(width: 30, height: 30)
+            }
 
             // 自定義數字鍵盤
             VStack(spacing: 10) {
@@ -93,16 +149,6 @@ struct PasswordView: View {
                     .cornerRadius(30)
                 }
             }
-
-////            // 解鎖按鈕
-//            Button("Unlock") {
-//                if viewModel.isValidPassword {
-//                    // 解鎖操作
-//                    viewModel.checkPasswordAndUnlock()
-//                    print("Unlock")
-//                }
-//            }
-//            .disabled(!viewModel.isValidPassword)
         }
     }
 }
