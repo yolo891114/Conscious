@@ -117,21 +117,6 @@ class FirebaseManager {
             }
         }
     }
-
-    // 新增打卡記錄
-    func addPunchRecord(to userID: String, punchDate: Date, continuousDay: Int, highestDay: Int) {
-
-        // 找到特定用戶
-        let userRef = db.collection("users").document(userID)
-
-        let punchRecordsRef = userRef.collection("PunchRecords")
-
-        punchRecordsRef.addDocument(data: [
-            "punchDate": punchDate,
-            "continuousDay": continuousDay,
-            "highestDay": highestDay
-        ])
-    }
 }
 
 // MARK: - Emotion Record
@@ -222,4 +207,52 @@ extension FirebaseManager {
         }
     }
 
+}
+
+// MARK: - Punch Record
+
+extension FirebaseManager {
+
+    // 新增打卡記錄
+    func addPunchRecord(to userID: String, punchRecord: PunchRecord) {
+
+        let userRef = db.collection("users").document(userID)
+        let punchRecordsRef = userRef.collection("PunchRecords").document(punchRecord.punchID)
+
+        punchRecordsRef.setData([
+            "punchID": punchRecord.punchID,
+            "punchDate": punchRecord.punchDate,
+            "consecutiveDays": punchRecord.consecutiveDays,
+            "highestDay": punchRecord.highestDay
+        ])
+    }
+
+    func fetchPunchRecord(userID: String, completion: @escaping ([PunchRecord]?, Error?) -> Void) {
+        let userRef = db.collection("users").document(userID)
+        let punchRecordRef = userRef.collection("PunchRecords")
+
+        punchRecordRef.order(by: "punchDate", descending: true).getDocuments { snapshot, error in
+            if let error = error {
+                print("Error fetching all emotion records: \(error.localizedDescription)")
+            }
+
+            if let documents = snapshot?.documents {
+                let records = documents.compactMap { PunchRecord(data: $0.data()) }
+                completion(records, nil)
+            }
+        }
+    }
+
+    func deletePunchRecord(userID: String, punchID: String) {
+        let userRef = db.collection("users").document(userID)
+        let punchRecordsRef = userRef.collection("PunchRecords").document(punchID)
+
+        punchRecordsRef.delete { error in
+            if let error = error {
+                print("Error removing punch record: \(error)")
+            } else {
+                print("Punch record successfully removed!")
+            }
+        }
+    }
 }

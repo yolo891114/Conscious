@@ -70,9 +70,32 @@ struct Photo {
 }
 
 struct PunchRecord {
+    var punchID: String
     var punchDate: Date
-    var continuousDay: Int
+    var consecutiveDays: Int
     var highestDay: Int
+
+    init(punchID: String, punchDate: Date,                                          consecutiveDays: Int, highestDay: Int) {
+        self.punchID = punchID
+        self.punchDate = punchDate
+        self.consecutiveDays = consecutiveDays
+        self.highestDay = highestDay
+    }
+
+    init?(data: [String: Any]) {
+        guard let punchID = data["punchID"] as? String,
+              let punchDate = data["punchDate"] as? Timestamp,
+              let consecutiveDays = data["consecutiveDays"] as? Int,
+              let highestDay = data["highestDay"] as? Int else {
+                  print("Failed to initialize PunchRecord with data: \(data)")
+                  return nil
+        }
+
+        self.punchID = punchID
+        self.punchDate = punchDate.dateValue()
+        self.consecutiveDays = consecutiveDays
+        self.highestDay = highestDay
+    }
 }
 
 struct EmotionRecord: Identifiable {

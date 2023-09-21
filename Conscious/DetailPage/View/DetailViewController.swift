@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 class DetailViewController: UIViewController {
 
@@ -27,9 +28,9 @@ class DetailViewController: UIViewController {
 
     @IBAction func deleteButtonTapped(_ sender: UIButton) {
         if let diaryID = diary?.diaryID {
-                FirebaseManager.shared.deleteDiary(user: "no1", diaryID: diaryID)
-                self.navigationController?.popToRootViewController(animated: true)
-            }
+            FirebaseManager.shared.deleteDiary(user: "no1", diaryID: diaryID)
+            self.navigationController?.popToRootViewController(animated: true)
+        }
     }
 
     override func viewDidLoad() {
@@ -38,5 +39,9 @@ class DetailViewController: UIViewController {
         dateLabel.text = diary?.timestamp.description
         titleLabel.text = diary?.title
         contentLabel.text = diary?.content
+        if let urlString = diary?.photoCollection.first?.url,
+           let url = URL(string: urlString) {
+            self.imageView.kf.setImage(with: url)
+        }
     }
 }

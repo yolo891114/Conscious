@@ -12,6 +12,9 @@ pod 'FirebaseAuth'
 pod 'FirebaseFirestore'
 pod 'SwiftLint'
 pod 'Firebase/Storage'
+pod 'EventsCalendar'
+pod 'Kingfisher'
+pod 'IQKeyboardManagerSwift'
 
 
 end

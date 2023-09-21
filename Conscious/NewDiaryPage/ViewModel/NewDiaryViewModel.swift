@@ -22,6 +22,7 @@ class NewDiaryViewModel: ObservableObject {
     var isEditing: Bool = false
 
     // 修改日記
+    // TODO: 修改時照片要讀取
     var diaryToEdit: Diary? {
         didSet {
             title = diaryToEdit?.title ?? ""
@@ -30,24 +31,59 @@ class NewDiaryViewModel: ObservableObject {
         }
     }
 
+    func calculateConsecutiveDay(dates: [Date]) -> (currentConsecutiveDay: Int, highestConsecutiveDay: Int) {
+        if dates.isEmpty {
+            return (1, 1)
+        }
+
+        var allDates = dates
+        let today = Calendar.current.startOfDay(for: Date())
+
+        let sortedDates = allDates.sorted(by: { $0 < $1 })
+        var currentConsecutiveDay = 1
+        var highestConsecutiveDay = 1
+
+        // 檢查是不是今天第二篇
+        if !allDates.contains(where: { Calendar.current.isDate($0, inSameDayAs: today) }) {
+                allDates.append(today) // 添加今天的日期才能做比較
+            }
+
+        for date in 1..<sortedDates.count {
+            let prevDate = Calendar.current.startOfDay(for: sortedDates[date-1])
+            let lastDate = Calendar.current.startOfDay(for: sortedDates[date])
+
+            if let nextDayOfPrevDate = Calendar.current.date(byAdding: .day, value: 1, to: prevDate),
+               Calendar.current.isDate(nextDayOfPrevDate, inSameDayAs: lastDate) {
+                currentConsecutiveDay += 1
+                if currentConsecutiveDay > highestConsecutiveDay {
+                    highestConsecutiveDay = currentConsecutiveDay
+                }
+            } else {
+                currentConsecutiveDay = 1
+            }
+        }
+
+        return (currentConsecutiveDay, highestConsecutiveDay)
+    }
+
     func saveDiary() {
         if isEditing {
-                updateDiary()
-            } else {
-                if photoData != nil {
-                    uploadPhotos(imageData: photoData!) { url, photoID in
-                        if let url = url, let photoID = photoID {
-                            self.saveDiaryWithPhoto(url: url, photoID: photoID)
-                            print("有照片")
-                        } else {
-                            print("照片上傳失敗，日記未保存。")
-                        }
+            updateDiary()
+        } else {
+            if photoData != nil {
+                uploadPhotos(imageData: photoData!) { url, photoID in
+                    if let url = url, let photoID = photoID {
+                        self.saveDiaryWithPhoto(url: url, photoID: photoID)
+                        print("有照片")
+                    } else {
+                        print("照片上傳失敗，日記未保存。")
                     }
-                } else {
-                    saveDiaryWithPhoto(url: nil, photoID: nil)
-                    print("沒照片")
                 }
+            } else {
+                saveDiaryWithPhoto(url: nil, photoID: nil)
+                print("沒照片")
             }
+        }
     }
 
     func updateDiary() {
@@ -64,6 +100,28 @@ class NewDiaryViewModel: ObservableObject {
     }
 
     func saveDiaryWithPhoto(url: String?, photoID: String?) {
+
+        FirebaseManager.shared.fetchPunchRecord(userID: "no1") { records, error in
+            if let error = error {
+                print("Error fetching all diaries: \(error.localizedDescription)")
+            }
+
+            guard let records = records else { return }
+
+            let fetchedDates = records.map { $0.punchDate }
+
+            print("fetchedDates: \(fetchedDates)")
+
+            let (consecutiveDay, highestConsecutiveDay) = self.calculateConsecutiveDay(dates: fetchedDates)
+
+            let newPunchRecord = PunchRecord(punchID: UUID().uuidString,
+                                             punchDate: Date(),
+                                             consecutiveDays: consecutiveDay,
+                                             highestDay: highestConsecutiveDay)
+
+            FirebaseManager.shared.addPunchRecord(to: "no1", punchRecord: newPunchRecord)
+        }
+
         let newPhotoCollection = url != nil ? [Photo(url: url!, description: "", photoID: photoID ?? "")] : []
         let newDiary = Diary(diaryID: UUID().uuidString,
                              date: Date(),
