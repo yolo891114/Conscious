@@ -11,7 +11,7 @@ import FirebaseFirestore
 struct User {
     var userID: String
     var email: String
-    var nickname: String
+    var userName: String
     var diary: [Diary]
     var punchRecord: PunchRecord
     var emotionRecord: [EmotionRecord]

@@ -14,26 +14,47 @@ class FirebaseManager {
     static let shared = FirebaseManager()
 
     let db = Firestore.firestore()
+    let userID = Auth.auth().currentUser?.uid
 
     // 註冊
-    func signUp(userID: String, email: String, nickname: String, password: String) {
+    func signUp(email: String, userName: String, password: String) {
 
-        let userRef = db.collection("users").document(userID)
-
-        Auth.auth().createUser(withEmail: email, password: password) { _, error in
+        Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if let error = error {
-                print("Error creating user: \(error.localizedDescription)")
-            } else {
+                print("Error creating user: \(error)")
+            }
+            if let result = result {
+
                 print("User created successfully")
 
+                let userRef = self.db.collection("users").document(result.user.uid)
+
                 userRef.setData([
-                    "userID": userID,
+                    "userID": result.user.uid,
                     "email": email,
-                    "nickname": nickname
+                    "userName": userName
                 ])
+
+                self.authUpdate(user: result.user, name: userName)
+
             }
         }
     }
+
+    func authUpdate(user userData: FirebaseAuth.User, name userName: String) {
+        let changeRequest = userData.createProfileChangeRequest()
+        changeRequest.displayName = userName
+
+        changeRequest.commitChanges { error in
+            if let error = error {
+                print("Error updating user profile: \(error.localizedDescription)")
+            } else {
+                print("User profile updated successfully.")
+            }
+        }
+    }
+
+    //    func logIn(
 
     // 新增日記
     func addNewDiary(user userID: String, diary: Diary) {
@@ -41,14 +62,14 @@ class FirebaseManager {
         let diaryRef = userRef.collection("diaries").document(diary.diaryID)
 
         var photoCollectionArray: [[String: Any]] = []
-            for photo in diary.photoCollection {
-                let photoDict: [String: Any] = [
-                    "url": photo.url,
-                    "description": photo.description,
-                    "photoID": photo.photoID
-                ]
-                photoCollectionArray.append(photoDict)
-            }
+        for photo in diary.photoCollection {
+            let photoDict: [String: Any] = [
+                "url": photo.url,
+                "description": photo.description,
+                "photoID": photo.photoID
+            ]
+            photoCollectionArray.append(photoDict)
+        }
 
         diaryRef.setData([
             "diaryID": diary.diaryID,
@@ -144,7 +165,7 @@ extension FirebaseManager {
         let (startOfWeek, endOfWeek) = DateManager.shared.getCurrentWeekDates()
 
         let period = emotionRecordRef.whereField("date", isGreaterThanOrEqualTo: startOfWeek)
-                                     .whereField("date", isLessThanOrEqualTo: endOfWeek)
+            .whereField("date", isLessThanOrEqualTo: endOfWeek)
 
         period.getDocuments { snapshot, error in
             if let error = error {
@@ -186,7 +207,7 @@ extension FirebaseManager {
         let emotionRecordRef = userRef.collection("emotionRecords")
 
         let period = emotionRecordRef.whereField("date", isGreaterThanOrEqualTo: startOfWeek)
-                                     .whereField("date", isLessThanOrEqualTo: endOfWeek)
+            .whereField("date", isLessThanOrEqualTo: endOfWeek)
 
         period.getDocuments { snapshot, error in
             if let error = error {
