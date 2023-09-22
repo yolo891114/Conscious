@@ -30,6 +30,7 @@ class EnterPasswordViewModel: ObservableObject {
     }
 
     var isValidPassword: Bool {
+        print(passwordManager.getPassword())
         return inputPassword == passwordManager.getPassword()
     }
 
