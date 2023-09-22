@@ -25,6 +25,6 @@ class ProfileViewController: UIViewController {
         let settingPasswordVC = SettingPasswordViewController(viewModel: viewModel)
         settingPasswordVC.modalPresentationStyle = .automatic
         self.present(settingPasswordVC, animated: true, completion: nil)
-//        self.navigationController?.pushViewController(settingPasswordVC, animated: true)
     }
+
 }
