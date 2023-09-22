@@ -8,6 +8,7 @@
 import UIKit
 import CoreData
 import FirebaseCore
+import FirebaseAuth
 import IQKeyboardManagerSwift
 
 @main
@@ -29,7 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 print("拒絕接受開啟")
             }
         }
-
         return true
     }
 

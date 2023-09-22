@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uFo-On-pEa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uQu-q8-YYG">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -618,6 +618,13 @@
                                     <segue destination="gKA-9d-Ccn" kind="show" id="zw8-fL-U4Z"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qhp-V6-waf">
+                                <rect key="frame" x="139" y="256" width="114" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="o3i-NA-AQa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -628,14 +635,28 @@
                             <constraint firstItem="o3i-NA-AQa" firstAttribute="bottom" secondItem="00b-iC-vCd" secondAttribute="bottom" constant="361" id="ZQM-Xi-RF0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="2AZ-fL-6zE"/>
+                    <navigationItem key="navigationItem" title="Profile" id="2AZ-fL-6zE">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="YSj-00-NBz">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="4Mc-5e-CCt">
+                                <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="登出"/>
+                                <connections>
+                                    <action selector="logoutButtonTapped:" destination="36m-Fu-qQo" eventType="touchUpInside" id="h5y-Vo-aP7"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="nameLabel" destination="Qhp-V6-waf" id="xHt-VE-cEg"/>
                         <outlet property="settingButton" destination="00b-iC-vCd" id="77E-Pk-pnj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zOw-bg-Z6Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3650" y="2180"/>
+            <point key="canvasLocation" x="3649.6183206106871" y="2179.5774647887324"/>
         </scene>
         <!--設定密碼-->
         <scene sceneID="Ewc-vW-7Xa">
@@ -801,7 +822,7 @@
         <!--Log In View Controller-->
         <scene sceneID="4PI-to-bhu">
             <objects>
-                <viewController id="uFo-On-pEa" customClass="LogInViewController" customModule="Conscious" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LogInViewController" id="uFo-On-pEa" customClass="LogInViewController" customModule="Conscious" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Aol-0I-3lX">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

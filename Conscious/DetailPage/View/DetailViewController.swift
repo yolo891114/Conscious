@@ -28,7 +28,7 @@ class DetailViewController: UIViewController {
 
     @IBAction func deleteButtonTapped(_ sender: UIButton) {
         if let diaryID = diary?.diaryID {
-            FirebaseManager.shared.deleteDiary(user: "no1", diaryID: diaryID)
+            FirebaseManager.shared.deleteDiary(diaryID: diaryID)
             self.navigationController?.popToRootViewController(animated: true)
         }
     }

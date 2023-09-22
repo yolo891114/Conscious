@@ -7,15 +7,23 @@
 
 import Foundation
 import UIKit
+import Combine
 
 class LogInViewController: UIViewController {
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @Published var isLogin: Bool = false
 
     @IBAction func loginButtonTapped(_ sender: UIButton) {
+        guard let email = emailTextField.text,
+              let password = passwordTextField.text else { return }
 
+        FirebaseManager.shared.logIn(email: email, password: password)
+        isLogin = true
+
+        self.dismiss(animated: true)
     }
 
     @IBAction func signupButtonTapped(_ sender: UIButton) {
