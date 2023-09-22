@@ -96,12 +96,12 @@ class NewDiaryViewModel: ObservableObject {
                                  content: self.content,
                                  photoCollection: self.photoCollection)
 
-        FirebaseManager.shared.updateDiary(user: "no1", diary: updatedDiary)
+        FirebaseManager.shared.updateDiary(diary: updatedDiary)
     }
 
     func saveDiaryWithPhoto(url: String?, photoID: String?) {
 
-        FirebaseManager.shared.fetchPunchRecord(userID: "no1") { records, error in
+        FirebaseManager.shared.fetchPunchRecord() { records, error in
             if let error = error {
                 print("Error fetching all diaries: \(error.localizedDescription)")
             }
@@ -119,7 +119,7 @@ class NewDiaryViewModel: ObservableObject {
                                              consecutiveDays: consecutiveDay,
                                              highestDay: highestConsecutiveDay)
 
-            FirebaseManager.shared.addPunchRecord(to: "no1", punchRecord: newPunchRecord)
+            FirebaseManager.shared.addPunchRecord(punchRecord: newPunchRecord)
         }
 
         let newPhotoCollection = url != nil ? [Photo(url: url!, description: "", photoID: photoID ?? "")] : []
@@ -129,7 +129,7 @@ class NewDiaryViewModel: ObservableObject {
                              content: self.content,
                              photoCollection: newPhotoCollection)
 
-        FirebaseManager.shared.addNewDiary(user: "no1", diary: newDiary)
+        FirebaseManager.shared.addNewDiary(diary: newDiary)
     }
 
     // 當函數執行完畢後才執行 Closure

@@ -69,13 +69,13 @@ class EmotionDataViewModel: ObservableObject {
 extension EmotionDataViewModel {
 
     func canAddNewEmotionRecord() {
-        FirebaseManager.shared.canAddRecordThisWeek(user: "no1") { canAddNewRecord in
+        FirebaseManager.shared.canAddRecordThisWeek() { canAddNewRecord in
             self.canAddNewRecord = canAddNewRecord
         }
     }
 
     func deleteCurrentWeekEmotionRecord() {
-        FirebaseManager.shared.deleteCurrentWeekEmotionRecord(user: "no1")
+        FirebaseManager.shared.deleteCurrentWeekEmotionRecord()
         self.canAddNewRecord = true
     }
 
@@ -128,7 +128,7 @@ extension EmotionDataViewModel {
     // Fetch 後回傳 Future promise
     func fetchEmotionRecords() -> Future<[EmotionRecord], Error> {
         return Future { promise in
-            FirebaseManager.shared.fetchEmotionRecords(user: "no1") { emotionRecords, error in
+            FirebaseManager.shared.fetchEmotionRecords() { emotionRecords, error in
                 if let error = error {
                     print("Error fetching emotion record: \(error.localizedDescription)")
                     promise(.failure(error))

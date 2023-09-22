@@ -31,7 +31,7 @@ class EmotionSurveyViewController: UIViewController {
         let newEmotionRecord = EmotionRecord(id: UUID().uuidString,
                                              emotionScore: totalScore,
                                              date: Date())
-        FirebaseManager.shared.saveEmotionRecord(to: "no1", emotionRecord: newEmotionRecord)
+        FirebaseManager.shared.saveEmotionRecord(emotionRecord: newEmotionRecord)
         print("Total score is: \(totalScore)")
     }
 

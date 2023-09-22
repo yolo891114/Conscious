@@ -15,40 +15,83 @@ class FirebaseManager {
 
     let db = Firestore.firestore()
 
+    func getCurrentUserID() -> String? {
+        return Auth.auth().currentUser?.uid
+    }
+
     // 註冊
-    func signUp(userID: String, email: String, nickname: String, password: String) {
+    func signUp(email: String, userName: String, password: String) {
 
-        let userRef = db.collection("users").document(userID)
-
-        Auth.auth().createUser(withEmail: email, password: password) { _, error in
+        Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if let error = error {
-                print("Error creating user: \(error.localizedDescription)")
-            } else {
+                print("Error creating user: \(error)")
+            }
+            if let result = result {
+
                 print("User created successfully")
 
+                let userRef = self.db.collection("users").document(result.user.uid)
+
                 userRef.setData([
-                    "userID": userID,
+                    "userID": result.user.uid,
                     "email": email,
-                    "nickname": nickname
+                    "userName": userName
                 ])
+
+                self.authUpdate(user: result.user, name: userName)
+
             }
         }
     }
 
+    func authUpdate(user userData: FirebaseAuth.User, name userName: String) {
+        let changeRequest = userData.createProfileChangeRequest()
+        changeRequest.displayName = userName
+
+        changeRequest.commitChanges { error in
+            if let error = error {
+                print("Error updating user profile: \(error.localizedDescription)")
+            } else {
+                print("User profile updated successfully.")
+            }
+        }
+    }
+
+    func logIn(email: String, password: String) {
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            if let error = error {
+                print("Error logging in: \(error)")
+            }
+
+            if let result = result {
+                print("\(String(describing: result.user.displayName)) has logged in.")
+            }
+        }
+    }
+
+    func logOut() {
+        do {
+            try Auth.auth().signOut()
+        } catch let signOutError as NSError {
+            print("Error signing out: \(signOutError)")
+        }
+    }
+
     // 新增日記
-    func addNewDiary(user userID: String, diary: Diary) {
+    func addNewDiary(diary: Diary) {
+        guard let userID = getCurrentUserID() else { return }
         let userRef = db.collection("users").document(userID)
         let diaryRef = userRef.collection("diaries").document(diary.diaryID)
 
         var photoCollectionArray: [[String: Any]] = []
-            for photo in diary.photoCollection {
-                let photoDict: [String: Any] = [
-                    "url": photo.url,
-                    "description": photo.description,
-                    "photoID": photo.photoID
-                ]
-                photoCollectionArray.append(photoDict)
-            }
+        for photo in diary.photoCollection {
+            let photoDict: [String: Any] = [
+                "url": photo.url,
+                "description": photo.description,
+                "photoID": photo.photoID
+            ]
+            photoCollectionArray.append(photoDict)
+        }
 
         diaryRef.setData([
             "diaryID": diary.diaryID,
@@ -60,7 +103,9 @@ class FirebaseManager {
     }
 
     // 拿到所有日記
-    func fetchAllDiaries(user userID: String, completion: @escaping ([Diary]?, Error?) -> Void) {
+    func fetchAllDiaries(completion: @escaping ([Diary]?, Error?) -> Void) {
+        guard let userID = getCurrentUserID() else { return }
+
         let userRef = db.collection("users").document(userID)
         let diaryRef = userRef.collection("diaries")
 
@@ -77,7 +122,8 @@ class FirebaseManager {
     }
 
     // 更新日記
-    func updateDiary(user userID: String, diary: Diary) {
+    func updateDiary(diary: Diary) {
+        guard let userID = getCurrentUserID() else { return }
         let userRef = db.collection("users").document(userID)
         let diaryRef = userRef.collection("diaries").document(diary.diaryID)
 
@@ -105,7 +151,10 @@ class FirebaseManager {
     }
 
     // 刪除日記
-    func deleteDiary(user userID: String, diaryID: String) {
+    func deleteDiary(diaryID: String) {
+
+        guard let userID = getCurrentUserID() else { return }
+
         let userRef = db.collection("users").document(userID)
         let diaryRef = userRef.collection("diaries").document(diaryID)
 
@@ -123,7 +172,9 @@ class FirebaseManager {
 
 extension FirebaseManager {
 
-    func saveEmotionRecord(to userID: String, emotionRecord: EmotionRecord) {
+    func saveEmotionRecord(emotionRecord: EmotionRecord) {
+
+        guard let userID = getCurrentUserID() else { return }
 
         // 找到特定用戶
         let userRef = db.collection("users").document(userID)
@@ -137,14 +188,17 @@ extension FirebaseManager {
         ])
     }
 
-    func deleteCurrentWeekEmotionRecord(user userID: String) {
+    func deleteCurrentWeekEmotionRecord() {
+
+        guard let userID = getCurrentUserID() else { return }
+
         let userRef = db.collection("users").document(userID)
         let emotionRecordRef = userRef.collection("emotionRecords")
 
         let (startOfWeek, endOfWeek) = DateManager.shared.getCurrentWeekDates()
 
         let period = emotionRecordRef.whereField("date", isGreaterThanOrEqualTo: startOfWeek)
-                                     .whereField("date", isLessThanOrEqualTo: endOfWeek)
+            .whereField("date", isLessThanOrEqualTo: endOfWeek)
 
         period.getDocuments { snapshot, error in
             if let error = error {
@@ -163,7 +217,10 @@ extension FirebaseManager {
         }
     }
 
-    func fetchEmotionRecords(user userID: String, completion: @escaping ([EmotionRecord]?, Error?) -> Void) {
+    func fetchEmotionRecords(completion: @escaping ([EmotionRecord]?, Error?) -> Void) {
+
+        guard let userID = getCurrentUserID() else { return }
+
         let userRef = db.collection("users").document(userID)
         let emotionRecordRef = userRef.collection("emotionRecords")
 
@@ -179,14 +236,17 @@ extension FirebaseManager {
         }
     }
 
-    func canAddRecordThisWeek(user userID: String, completion: @escaping (Bool) -> Void) {
+    func canAddRecordThisWeek(completion: @escaping (Bool) -> Void) {
+
+        guard let userID = getCurrentUserID() else { return }
+
         let (startOfWeek, endOfWeek) = DateManager.shared.getCurrentWeekDates()
 
         let userRef = db.collection("users").document(userID)
         let emotionRecordRef = userRef.collection("emotionRecords")
 
         let period = emotionRecordRef.whereField("date", isGreaterThanOrEqualTo: startOfWeek)
-                                     .whereField("date", isLessThanOrEqualTo: endOfWeek)
+            .whereField("date", isLessThanOrEqualTo: endOfWeek)
 
         period.getDocuments { snapshot, error in
             if let error = error {
@@ -214,7 +274,9 @@ extension FirebaseManager {
 extension FirebaseManager {
 
     // 新增打卡記錄
-    func addPunchRecord(to userID: String, punchRecord: PunchRecord) {
+    func addPunchRecord(punchRecord: PunchRecord) {
+
+        guard let userID = getCurrentUserID() else { return }
 
         let userRef = db.collection("users").document(userID)
         let punchRecordsRef = userRef.collection("PunchRecords").document(punchRecord.punchID)
@@ -227,7 +289,10 @@ extension FirebaseManager {
         ])
     }
 
-    func fetchPunchRecord(userID: String, completion: @escaping ([PunchRecord]?, Error?) -> Void) {
+    func fetchPunchRecord(completion: @escaping ([PunchRecord]?, Error?) -> Void) {
+
+        guard let userID = getCurrentUserID() else { return }
+
         let userRef = db.collection("users").document(userID)
         let punchRecordRef = userRef.collection("PunchRecords")
 
@@ -243,7 +308,10 @@ extension FirebaseManager {
         }
     }
 
-    func deletePunchRecord(userID: String, punchID: String) {
+    func deletePunchRecord(punchID: String) {
+
+        guard let userID = getCurrentUserID() else { return }
+
         let userRef = db.collection("users").document(userID)
         let punchRecordsRef = userRef.collection("PunchRecords").document(punchID)
 

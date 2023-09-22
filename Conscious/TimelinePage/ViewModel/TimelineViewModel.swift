@@ -17,7 +17,7 @@ class TimelineViewModel: ObservableObject {
     // Fetch 後回傳 Future promise
     func fetchDiaries() -> Future<[Diary], Error> {
         return Future { promise in
-            FirebaseManager.shared.fetchAllDiaries(user: "no1") { diaries, error in
+            FirebaseManager.shared.fetchAllDiaries { diaries, error in
                 if let error = error {
                     print("Error fetching diaries: \(error.localizedDescription)")
                     promise(.failure(error))

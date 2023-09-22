@@ -52,14 +52,13 @@ extension PunchRecordViewController: CalendarViewDelegate {
         // TODO: 顯示當天日記
     }
 
-
     func calendarView(_ calendarView: CalendarProtocol,
                       eventDaysForCalendar type: CalendarViewType,
                       with calendarInfo: CalendarInfo,
                       and referenceDate: Date,
                       completion: @escaping (Result<Set<Int>, Error>) -> ()) {
 
-        FirebaseManager.shared.fetchPunchRecord(userID: "no1") { records, error in
+        FirebaseManager.shared.fetchPunchRecord() { records, error in
             if let error = error {
                 print("Error when fetch punch dates: \(error)")
                 completion(.failure(error))
