@@ -13,6 +13,8 @@ class TimelineViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
+    var cancellables = Set<AnyCancellable>()
+
     // 當 diaries 有變化時 reloadData()
     lazy var viewModel = {
         let viewModel = TimelineViewModel()
@@ -22,10 +24,13 @@ class TimelineViewController: UIViewController {
                 self?.tableView.reloadData()
             }
             .store(in: &cancellables)
+        viewModel.$diariesByDate
+            .sink { [weak self] _ in
+                self?.tableView.reloadData()
+            }
+            .store(in: &cancellables)
         return viewModel
     }()
-
-    var cancellables = Set<AnyCancellable>()
 
     let dateFormatter = DateFormatter()
 
@@ -63,17 +68,27 @@ class TimelineViewController: UIViewController {
 
 extension TimelineViewController: UITableViewDelegate, UITableViewDataSource {
 
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel.diariesByDate.keys.count
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.diaries.count
+        let date = Array(viewModel.diariesByDate.keys)[section]
+        return viewModel.diariesByDate[date]?.count ?? 0
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return Array(viewModel.diariesByDate.keys)[section]
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TimelineWithDateTableViewCell") as? TimelineWithDateTableViewCell else { return UITableViewCell() }
 
-        let diary = viewModel.diaries[indexPath.row]
-        cell.titleLabel.text = diary.title
-        cell.contentLabel.text = diary.content
-        cell.dateLabel.text = dateFormatter.string(from: diary.timestamp)
+        let date = Array(viewModel.diariesByDate.keys)[indexPath.section]
+        if let diary = viewModel.diariesByDate[date]?[indexPath.row] {
+                cell.titleLabel.text = diary.title
+                cell.contentLabel.text = diary.content
+                cell.dateLabel.text = dateFormatter.string(from: diary.timestamp)
+            }
 
         return cell
     }

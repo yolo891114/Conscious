@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -115,7 +116,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="cw6-2G-8Pi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bsv-C7-FR9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cw6-2G-8Pi" secondAttribute="bottom" id="hmp-Nn-tNP"/>
@@ -637,7 +638,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="2AZ-fL-6zE">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="YSj-00-NBz">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="4Mc-5e-CCt">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="4Mc-5e-CCt">
                                 <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -727,7 +728,15 @@
         <scene sceneID="1eb-WE-ccL">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="j4c-Nk-f9B" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" image="house" catalog="system" id="5ta-xH-ynN"/>
+                    <tabBarItem key="tabBarItem" title="" image="house" catalog="system" id="5ta-xH-ynN">
+                        <imageReference key="selectedImage" image="house.fill" catalog="system" renderingMode="hierarchical-single">
+                            <hierarchicalColors>
+                                <color name="Color 3"/>
+                                <color systemColor="secondaryLabelColor"/>
+                                <color systemColor="tertiaryLabelColor"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OYG-x0-8fn">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -746,7 +755,15 @@
         <scene sceneID="WuN-Zh-GvS">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KCY-Wg-nSI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="plus.circle" catalog="system" id="fZs-Tl-oDR"/>
+                    <tabBarItem key="tabBarItem" title="" image="plus.circle" catalog="system" id="fZs-Tl-oDR">
+                        <imageReference key="selectedImage" image="plus.circle.fill" catalog="system" renderingMode="hierarchical">
+                            <hierarchicalColors>
+                                <color name="Color 5"/>
+                                <color name="Color 3"/>
+                                <color name="Color 3"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qQV-ak-J11">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -765,7 +782,15 @@
         <scene sceneID="8Rw-Vb-DBV">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oFm-LE-m8p" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="chart.xyaxis.line" catalog="system" id="piS-Ye-efW"/>
+                    <tabBarItem key="tabBarItem" title="" image="chart.xyaxis.line" catalog="system" id="piS-Ye-efW">
+                        <imageReference key="selectedImage" image="chart.xyaxis.line" catalog="system" renderingMode="hierarchical-single">
+                            <hierarchicalColors>
+                                <color name="Color 3"/>
+                                <color systemColor="secondaryLabelColor"/>
+                                <color systemColor="tertiaryLabelColor"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Td9-j7-u3X"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="B1f-bG-387">
@@ -785,7 +810,15 @@
         <scene sceneID="9zq-4f-FOw">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BG8-Cc-LXF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="person" catalog="system" id="s7c-Lp-HCc"/>
+                    <tabBarItem key="tabBarItem" title="" image="person" catalog="system" id="s7c-Lp-HCc">
+                        <imageReference key="selectedImage" image="person.fill" catalog="system" renderingMode="hierarchical-single">
+                            <hierarchicalColors>
+                                <color name="Color 3"/>
+                                <color systemColor="secondaryLabelColor"/>
+                                <color systemColor="tertiaryLabelColor"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZOY-bl-Bxy">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -804,7 +837,15 @@
         <scene sceneID="J8v-zb-rAd">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="S8l-US-KwT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="calendar" catalog="system" id="VKe-UD-SQs"/>
+                    <tabBarItem key="tabBarItem" title="" image="calendar" catalog="system" id="VKe-UD-SQs">
+                        <imageReference key="selectedImage" image="calendar" catalog="system" renderingMode="hierarchical-single">
+                            <hierarchicalColors>
+                                <color name="Color 3"/>
+                                <color systemColor="secondaryLabelColor"/>
+                                <color systemColor="tertiaryLabelColor"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6V4-4Q-xTv">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -904,7 +945,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="uQu-q8-YYG" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sM2-1N-a4U">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -926,9 +967,12 @@
         <image name="chart.xyaxis.line" catalog="system" width="128" height="102"/>
         <image name="circle" catalog="system" width="128" height="123"/>
         <image name="house" catalog="system" width="128" height="104"/>
+        <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="person" catalog="system" width="128" height="121"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="plus.circle" catalog="system" width="128" height="123"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
         <image name="plus.square.dashed" catalog="system" width="128" height="114"/>
         <image name="square.and.pencil" catalog="system" width="128" height="113"/>
         <image name="trash" catalog="system" width="117" height="128"/>
@@ -936,11 +980,17 @@
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="Color 3">
+            <color red="0.0" green="0.6588235294117647" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Color 5">
+            <color red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -953,6 +1003,9 @@
         </systemColor>
         <systemColor name="systemMintColor">
             <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tintColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

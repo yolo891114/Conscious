@@ -11,8 +11,11 @@ import Combine
 class TimelineViewModel: ObservableObject {
 
     @Published var diaries: [Diary] = []
+    @Published var diariesByDate: [String: [Diary]] = [:]
 
     private var cancellables = Set<AnyCancellable>()
+
+    let dateFormatter = DateFormatter()
 
     // Fetch 後回傳 Future promise
     func fetchDiaries() -> Future<[Diary], Error> {
@@ -24,7 +27,9 @@ class TimelineViewModel: ObservableObject {
                 }
 
                 if let diaries = diaries {
+                    self.dateFormatter.dateFormat = "yyyy-MM-dd"
                     self.diaries = diaries
+                    self.diariesByDate = Dictionary(grouping: diaries) { self.dateFormatter.string(from: $0.timestamp) }
                     promise(.success(diaries))
                 }
             }
