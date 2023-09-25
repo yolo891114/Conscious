@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import Combine
+import Kingfisher
 
 class TimelineViewController: UIViewController {
 
@@ -25,6 +26,11 @@ class TimelineViewController: UIViewController {
             }
             .store(in: &cancellables)
         viewModel.$diariesByDate
+            .sink { [weak self] _ in
+                self?.tableView.reloadData()
+            }
+            .store(in: &cancellables)
+        viewModel.$sortedDates
             .sink { [weak self] _ in
                 self?.tableView.reloadData()
             }
@@ -69,7 +75,8 @@ class TimelineViewController: UIViewController {
 extension TimelineViewController: UITableViewDelegate, UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.diariesByDate.keys.count
+        return viewModel.diariesByDate.keys.sorted(by: >).count
+//        return viewModel.diar
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let date = Array(viewModel.diariesByDate.keys)[section]
@@ -77,20 +84,33 @@ extension TimelineViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return Array(viewModel.diariesByDate.keys)[section]
+        return Array(viewModel.diariesByDate.keys.sorted(by: >))[section]
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TimelineWithDateTableViewCell") as? TimelineWithDateTableViewCell else { return UITableViewCell() }
+        guard let textCell = tableView.dequeueReusableCell(withIdentifier: "TimelineWithDateTableViewCell") as? TimelineWithDateTableViewCell else { return UITableViewCell() }
+        guard let photoCell = tableView.dequeueReusableCell(withIdentifier: "TimelineWithPhotoTableViewCell") as? PhotoTableViewCell else { return UITableViewCell() }
 
-        let date = Array(viewModel.diariesByDate.keys)[indexPath.section]
-        if let diary = viewModel.diariesByDate[date]?[indexPath.row] {
-                cell.titleLabel.text = diary.title
-                cell.contentLabel.text = diary.content
-                cell.dateLabel.text = dateFormatter.string(from: diary.timestamp)
-            }
+//        let date = Array(viewModel.diariesByDate.keys.sorted(by: >))[indexPath.section]
+//        if let diary = viewModel.diariesByDate[date]?[indexPath.row] {
+//                cell.titleLabel.text = diary.title
+//                cell.contentLabel.text = diary.content
+//            }
+        let diary = viewModel.diaries[indexPath.row]
 
-        return cell
+        if viewModel.diaries[indexPath.row].photoCollection.count == 0 {
+
+            textCell.titleLabel.text = diary.title
+            textCell.contentLabel.text = diary.content
+
+            return textCell
+        } else {
+            photoCell.titleLabel.text = diary.title
+            photoCell.contentLabel.text = diary.content
+            photoCell.diaryImage.kf.setImage(with: URL(string: diary.photoCollection[0].url))
+
+            return photoCell
+        }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
