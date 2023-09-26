@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Timeline View Controller-->
+        <!--Conscious-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="TimelineViewController" customModule="Conscious" customModuleProvider="target" sceneMemberID="viewController">
@@ -81,6 +81,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" name="B5"/>
                                             <constraints>
                                                 <constraint firstItem="bzK-nd-qw4" firstAttribute="leading" secondItem="WA7-GS-Lai" secondAttribute="leading" constant="16" id="0bU-UQ-hT3"/>
                                                 <constraint firstAttribute="bottom" secondItem="bzK-nd-qw4" secondAttribute="bottom" constant="8" id="EeA-cb-bI8"/>
@@ -170,6 +171,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" name="B5"/>
                                             <constraints>
                                                 <constraint firstItem="UUs-f3-NAC" firstAttribute="top" secondItem="xD1-1N-i0S" secondAttribute="top" constant="8" id="14q-GP-KZv"/>
                                                 <constraint firstItem="UUs-f3-NAC" firstAttribute="leading" secondItem="xD1-1N-i0S" secondAttribute="leading" constant="16" id="4W7-UJ-n63"/>
@@ -199,9 +201,9 @@
                             <constraint firstItem="cw6-2G-8Pi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="udc-rW-OMo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="v77-Oy-SiL">
+                    <navigationItem key="navigationItem" title="Conscious" id="v77-Oy-SiL">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="okr-BW-kJY">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Xv5-zJ-S8o">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Xv5-zJ-S8o">
                                 <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>

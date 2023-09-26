@@ -48,9 +48,7 @@ class TimelineViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
 
-//        if let navigationController = self.navigationController {
-//            navigationBarConfiguration(navigationController)
-//        }
+        tableView.backgroundColor = .B5
     }
 
     override func viewWillAppear(_ animated: Bool) {
