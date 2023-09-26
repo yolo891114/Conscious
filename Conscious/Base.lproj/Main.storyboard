@@ -449,26 +449,31 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YSj-GI-JaK" customClass="GradientView" customModule="Conscious" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="502"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Let's review this week's emotions together." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aME-mb-Poj">
-                                        <rect key="frame" x="32" y="463" width="328" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's review this week's emotions together." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aME-mb-Poj">
+                                        <rect key="frame" x="24" y="402.66666666666669" width="345" height="67.333333333333314"/>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="24"/>
+                                        <color key="textColor" name="B5"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="aME-mb-Poj" secondAttribute="bottom" constant="32" id="GkH-c9-KtX"/>
+                                    <constraint firstItem="aME-mb-Poj" firstAttribute="leading" secondItem="YSj-GI-JaK" secondAttribute="leading" constant="24" id="YL4-w4-1cy"/>
+                                    <constraint firstAttribute="trailing" secondItem="aME-mb-Poj" secondAttribute="trailing" constant="24" id="gbE-Sx-c3f"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="startColor">
                                         <color key="value" name="B6"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                        <color key="value" name="B2"/>
+                                        <color key="value" name="B3"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hat-Jb-c8y">
                                 <rect key="frame" x="10" y="60" width="50" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" name="B5"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="xmark.circle.fill" catalog="system"/>
                                 <connections>
@@ -482,20 +487,37 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Start">
                                     <backgroundConfiguration key="background" cornerRadius="30">
-                                        <color key="backgroundColor" systemColor="systemMintColor"/>
+                                        <color key="backgroundColor" name="B3"/>
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
                                 <connections>
                                     <segue destination="kQq-kW-BwV" kind="show" id="X8F-QC-BhG"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Explore the Depths of your mind with us and gain self-insight." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zne-bh-tXU">
+                                <rect key="frame" x="24" y="534" width="345" height="56"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <color key="highlightedColor" red="0.71372549019607845" green="0.71372549019607845" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help us get to know you better." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xN2-y1-Ypg">
+                                <rect key="frame" x="24" y="606" width="206" height="20"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="v9x-lP-0pY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="zne-bh-tXU" firstAttribute="leading" secondItem="v9x-lP-0pY" secondAttribute="leading" constant="24" id="EUc-dc-FMQ"/>
                             <constraint firstItem="v9x-lP-0pY" firstAttribute="trailing" secondItem="YSj-GI-JaK" secondAttribute="trailing" id="GIA-tw-VDG"/>
                             <constraint firstItem="YSj-GI-JaK" firstAttribute="leading" secondItem="v9x-lP-0pY" secondAttribute="leading" id="LUb-Iv-pxp"/>
+                            <constraint firstAttribute="trailing" secondItem="zne-bh-tXU" secondAttribute="trailing" constant="24" id="LeU-2m-blj"/>
+                            <constraint firstItem="xN2-y1-Ypg" firstAttribute="leading" secondItem="v9x-lP-0pY" secondAttribute="leading" constant="24" id="SPZ-do-LSC"/>
                             <constraint firstItem="YSj-GI-JaK" firstAttribute="top" secondItem="6QE-C5-RPD" secondAttribute="top" id="fhX-Hr-IKu"/>
+                            <constraint firstItem="xN2-y1-Ypg" firstAttribute="top" secondItem="zne-bh-tXU" secondAttribute="bottom" constant="16" id="fif-sd-iJf"/>
+                            <constraint firstItem="zne-bh-tXU" firstAttribute="top" secondItem="YSj-GI-JaK" secondAttribute="bottom" constant="32" id="z5Z-bu-FUv"/>
                             <constraint firstAttribute="bottom" secondItem="YSj-GI-JaK" secondAttribute="bottom" constant="350" id="zE2-kI-LCV"/>
                         </constraints>
                     </view>
@@ -513,15 +535,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="STP-GP-m95">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="STP-GP-m95" customClass="GradientView" customModule="Conscious" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="218"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemMintColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                        <color key="value" name="B6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                        <color key="value" name="B3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aAR-UZ-8JI">
                                 <rect key="frame" x="0.0" y="216" width="393" height="500"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" name="B5"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EmotionSurveyTableViewCell" id="E0C-14-RHq" customClass="EmotionSurveyTableViewCell" customModule="Conscious" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="100"/>
@@ -530,82 +561,138 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AIY-Gp-KvZ">
-                                                    <rect key="frame" x="50" y="11" width="307" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rnb-bK-IfJ">
-                                                    <rect key="frame" x="282" y="40" width="75" height="35"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                    <state key="normal" image="circle" catalog="system"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="circle" catalog="system" title="總是">
-                                                        <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
-                                                    </buttonConfiguration>
-                                                    <connections>
-                                                        <action selector="answerButtonsTapped:" destination="E0C-14-RHq" eventType="touchUpInside" id="HtZ-W3-WKK"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z5e-Nl-czU">
-                                                    <rect key="frame" x="36" y="41" width="72" height="35"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                    <state key="normal" image="circle" catalog="system"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="circle" catalog="system" title="從不">
-                                                        <fontDescription key="titleFontDescription" name=".PingFangTC-Regular" family=".PingFang TC" pointSize="11"/>
-                                                    </buttonConfiguration>
-                                                    <connections>
-                                                        <action selector="answerButtonsTapped:" destination="E0C-14-RHq" eventType="touchUpInside" id="rF9-y2-EwM"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FPx-bK-sLQ">
-                                                    <rect key="frame" x="96" y="40" width="75" height="35"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                    <state key="normal" image="circle" catalog="system"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="circle" catalog="system" title="很少">
-                                                        <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
-                                                    </buttonConfiguration>
-                                                    <connections>
-                                                        <action selector="answerButtonsTapped:" destination="E0C-14-RHq" eventType="touchUpInside" id="1Eg-cn-k0g"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJ5-J7-L74">
-                                                    <rect key="frame" x="162" y="40" width="75" height="35"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                    <state key="normal" image="circle" catalog="system"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="circle" catalog="system" title="有時">
-                                                        <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
-                                                    </buttonConfiguration>
-                                                    <connections>
-                                                        <action selector="answerButtonsTapped:" destination="E0C-14-RHq" eventType="touchUpInside" id="Zus-vt-TZr"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i8z-s5-ljR">
-                                                    <rect key="frame" x="222" y="40" width="75" height="35"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                    <state key="normal" image="circle" catalog="system"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="circle" catalog="system" title="頗多">
-                                                        <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
-                                                    </buttonConfiguration>
-                                                    <connections>
-                                                        <action selector="answerButtonsTapped:" destination="E0C-14-RHq" eventType="touchUpInside" id="nuz-3E-ifS"/>
-                                                    </connections>
-                                                </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ck-CK-e8Z">
+                                                    <rect key="frame" x="16" y="8" width="361" height="84"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AIY-Gp-KvZ">
+                                                            <rect key="frame" x="16" y="16" width="329" height="22"/>
+                                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="byv-6J-gWF">
+                                                            <rect key="frame" x="16" y="46" width="329" height="22"/>
+                                                            <subviews>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="iAD-ws-vRh">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="54.666666666666664" height="22"/>
+                                                                    <subviews>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Md-ml-vc0">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="23.666666666666668" height="22"/>
+                                                                            <color key="tintColor" name="B3"/>
+                                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                            <state key="normal" image="circle" catalog="system"/>
+                                                                            <state key="selected" image="circle.inset.filled" catalog="system"/>
+                                                                        </button>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="從不" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tz5-Bf-XrI">
+                                                                            <rect key="frame" x="28.666666666666664" y="0.0" width="26" height="22"/>
+                                                                            <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="13"/>
+                                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5aH-zY-9g0">
+                                                                    <rect key="frame" x="68.666666666666671" y="0.0" width="54.666666666666671" height="22"/>
+                                                                    <subviews>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qOe-04-ApX">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="23.666666666666668" height="22"/>
+                                                                            <color key="tintColor" name="B3"/>
+                                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                            <state key="normal" image="circle" catalog="system"/>
+                                                                            <state key="selected" image="circle.inset.filled" catalog="system"/>
+                                                                        </button>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="很少" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pnW-Fi-8D4">
+                                                                            <rect key="frame" x="28.666666666666671" y="0.0" width="26" height="22"/>
+                                                                            <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="13"/>
+                                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Dr8-z1-mSO">
+                                                                    <rect key="frame" x="137.33333333333334" y="0.0" width="54.333333333333343" height="22"/>
+                                                                    <subviews>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bg6-73-us4">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="23.333333333333332" height="22"/>
+                                                                            <color key="tintColor" name="B3"/>
+                                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                            <state key="normal" image="circle" catalog="system"/>
+                                                                            <state key="selected" image="circle.inset.filled" catalog="system"/>
+                                                                        </button>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有時" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pQ-XZ-LpX">
+                                                                            <rect key="frame" x="28.333333333333314" y="0.0" width="26" height="22"/>
+                                                                            <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="13"/>
+                                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="7n5-5L-gtl">
+                                                                    <rect key="frame" x="205.66666666666666" y="0.0" width="54.666666666666657" height="22"/>
+                                                                    <subviews>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CeA-0H-feu">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="23.666666666666668" height="22"/>
+                                                                            <color key="tintColor" name="B3"/>
+                                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                            <state key="normal" image="circle" catalog="system"/>
+                                                                            <state key="selected" image="circle.inset.filled" catalog="system"/>
+                                                                        </button>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="頗多" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRq-vm-Dxj">
+                                                                            <rect key="frame" x="28.666666666666657" y="0.0" width="26" height="22"/>
+                                                                            <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="13"/>
+                                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="CbI-Hx-1dj">
+                                                                    <rect key="frame" x="274.33333333333331" y="0.0" width="54.666666666666686" height="22"/>
+                                                                    <subviews>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4kz-Gy-AGk">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="23.666666666666668" height="22"/>
+                                                                            <color key="tintColor" name="B3"/>
+                                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                            <state key="normal" image="circle" catalog="system"/>
+                                                                            <state key="selected" image="circle.inset.filled" catalog="system"/>
+                                                                        </button>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="總是" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AfG-2I-GFt">
+                                                                            <rect key="frame" x="28.666666666666686" y="0.0" width="26" height="22"/>
+                                                                            <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="13"/>
+                                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="byv-6J-gWF" firstAttribute="leading" secondItem="6ck-CK-e8Z" secondAttribute="leading" constant="16" id="2Vz-rN-4NI"/>
+                                                        <constraint firstItem="AIY-Gp-KvZ" firstAttribute="leading" secondItem="6ck-CK-e8Z" secondAttribute="leading" constant="16" id="5Bo-89-NRO"/>
+                                                        <constraint firstItem="byv-6J-gWF" firstAttribute="top" secondItem="AIY-Gp-KvZ" secondAttribute="bottom" constant="8" id="5dP-Bg-uIl"/>
+                                                        <constraint firstAttribute="trailing" secondItem="byv-6J-gWF" secondAttribute="trailing" constant="16" id="Pxd-hs-Vw8"/>
+                                                        <constraint firstItem="AIY-Gp-KvZ" firstAttribute="top" secondItem="6ck-CK-e8Z" secondAttribute="top" constant="16" id="YJR-qy-dly"/>
+                                                        <constraint firstAttribute="trailing" secondItem="AIY-Gp-KvZ" secondAttribute="trailing" constant="16" id="kc3-Ws-fxf"/>
+                                                        <constraint firstAttribute="bottom" secondItem="byv-6J-gWF" secondAttribute="bottom" constant="16" id="vxZ-0g-qJW"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="csBornerRadius">
+                                                            <real key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                             </subviews>
+                                            <color key="backgroundColor" name="B5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="6ck-CK-e8Z" secondAttribute="bottom" constant="8" id="CBs-Bp-CYV"/>
+                                                <constraint firstItem="6ck-CK-e8Z" firstAttribute="leading" secondItem="cH2-Os-odn" secondAttribute="leading" constant="16" id="OkO-MJ-9uB"/>
+                                                <constraint firstAttribute="trailing" secondItem="6ck-CK-e8Z" secondAttribute="trailing" constant="16" id="XRn-BY-rWX"/>
+                                                <constraint firstItem="6ck-CK-e8Z" firstAttribute="top" secondItem="cH2-Os-odn" secondAttribute="top" constant="8" id="onW-cK-HB5"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="questionLabel" destination="AIY-Gp-KvZ" id="RQx-Of-UrS"/>
-                                            <outletCollection property="answerButtons" destination="Z5e-Nl-czU" collectionClass="NSMutableArray" id="dAm-0r-wBc"/>
-                                            <outletCollection property="answerButtons" destination="FPx-bK-sLQ" collectionClass="NSMutableArray" id="cJC-9f-a0e"/>
-                                            <outletCollection property="answerButtons" destination="qJ5-J7-L74" collectionClass="NSMutableArray" id="Fi3-Hq-El9"/>
-                                            <outletCollection property="answerButtons" destination="i8z-s5-ljR" collectionClass="NSMutableArray" id="opo-bV-9t9"/>
-                                            <outletCollection property="answerButtons" destination="Rnb-bK-IfJ" collectionClass="NSMutableArray" id="yhg-HG-cuz"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -621,7 +708,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Next">
                                             <backgroundConfiguration key="background" cornerRadius="30">
-                                                <color key="backgroundColor" systemColor="systemMintColor"/>
+                                                <color key="backgroundColor" name="B3"/>
                                             </backgroundConfiguration>
                                         </buttonConfiguration>
                                         <connections>
@@ -1077,6 +1164,7 @@
         <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="chart.xyaxis.line" catalog="system" width="128" height="102"/>
         <image name="circle" catalog="system" width="128" height="123"/>
+        <image name="circle.inset.filled" catalog="system" width="128" height="123"/>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="person" catalog="system" width="128" height="121"/>
@@ -1091,8 +1179,8 @@
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="B2">
-            <color red="0.0078431372549019607" green="0.50196078431372548" blue="0.56470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="B3">
+            <color red="0.0" green="0.6589999794960022" blue="0.58799999952316284" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="B5">
             <color red="0.9882352941176471" green="0.9882352941176471" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
