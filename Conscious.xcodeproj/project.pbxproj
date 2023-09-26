@@ -35,6 +35,7 @@
 		54B7A7BD2ABD8E91001BD9AD /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B7A7BC2ABD8E91001BD9AD /* ProfileViewModel.swift */; };
 		54B7A7BF2ABD9A5A001BD9AD /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B7A7BE2ABD9A59001BD9AD /* UIColor+Extension.swift */; };
 		54B7A7C12AC1601D001BD9AD /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B7A7C02AC1601D001BD9AD /* PhotoTableViewCell.swift */; };
+		54B7A7C32AC27724001BD9AD /* StartSurveyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B7A7C22AC27724001BD9AD /* StartSurveyViewModel.swift */; };
 		54C287F22AB7F65500A399E7 /* EmotionDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C287F12AB7F65500A399E7 /* EmotionDataViewController.swift */; };
 		54C287F72AB7FB7800A399E7 /* StartSurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C287F62AB7FB7800A399E7 /* StartSurveyViewController.swift */; };
 		54C287F92AB80D9C00A399E7 /* EmotionSurveyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C287F82AB80D9C00A399E7 /* EmotionSurveyViewModel.swift */; };
@@ -81,6 +82,7 @@
 		54B7A7BC2ABD8E91001BD9AD /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		54B7A7BE2ABD9A59001BD9AD /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		54B7A7C02AC1601D001BD9AD /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
+		54B7A7C22AC27724001BD9AD /* StartSurveyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSurveyViewModel.swift; sourceTree = "<group>"; };
 		54C287F12AB7F65500A399E7 /* EmotionDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionDataViewController.swift; sourceTree = "<group>"; };
 		54C287F62AB7FB7800A399E7 /* StartSurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSurveyViewController.swift; sourceTree = "<group>"; };
 		54C287F82AB80D9C00A399E7 /* EmotionSurveyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionSurveyViewModel.swift; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 			isa = PBXGroup;
 			children = (
 				54C287F82AB80D9C00A399E7 /* EmotionSurveyViewModel.swift */,
+				54B7A7C22AC27724001BD9AD /* StartSurveyViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -589,6 +592,7 @@
 				544C5CFD2ABBDBEA0020F88F /* EnterPasswordViewModel.swift in Sources */,
 				54B7A7C12AC1601D001BD9AD /* PhotoTableViewCell.swift in Sources */,
 				546C67692AB2B0AC00DF82B8 /* UserModel.swift in Sources */,
+				54B7A7C32AC27724001BD9AD /* StartSurveyViewModel.swift in Sources */,
 				5416845C2AB00F3E00F12484 /* NewDiaryViewController.swift in Sources */,
 				54C287F22AB7F65500A399E7 /* EmotionDataViewController.swift in Sources */,
 				54C288082AB93A6400A399E7 /* DateManager.swift in Sources */,

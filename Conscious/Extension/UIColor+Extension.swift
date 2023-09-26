@@ -25,8 +25,10 @@ extension UIColor {
     // swiftlint:disable identifier_name
     static let B1 = CSColor(.B1)
     static let B2 = CSColor(.B2)
+    static let B3 = CSColor(.B3)
     static let B4 = CSColor(.B4)
-    static let B5 = CSColor(.B6)
+    static let B5 = CSColor(.B5)
+    static let B6 = CSColor(.B6)
     static let G1 = CSColor(.G1)
     // swiftlint:enable identifier_name
 

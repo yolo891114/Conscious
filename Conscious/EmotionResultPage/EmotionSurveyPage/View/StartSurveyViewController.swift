@@ -7,9 +7,13 @@
 
 import Foundation
 import UIKit
-import SwiftUI
+import Combine
 
 class StartSurveyViewController: UIViewController {
+
+    var cancellables = Set<AnyCancellable>()
+
+    var viewModel = StartSurveyViewModel()
 
     @IBAction func closeButtonTapped(_ sender: UIButton) {
         self.navigationController?.popToRootViewController(animated: true)
@@ -24,10 +28,9 @@ class StartSurveyViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.tabBarController?.tabBar.isHidden = false
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
 }

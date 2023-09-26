@@ -67,7 +67,7 @@
                                                             <size key="value" width="0.0" height="2"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="csBorderWidth">
-                                                            <real key="value" value="0.29999999999999999"/>
+                                                            <real key="value" value="0.0"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="csBornerRadius">
                                                             <real key="value" value="15"/>
@@ -159,7 +159,7 @@
                                                             <color key="value" name="Color 2"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="csBorderWidth">
-                                                            <real key="value" value="0.29999999999999999"/>
+                                                            <real key="value" value="0.0"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="csBornerRadius">
                                                             <real key="value" value="15"/>
@@ -191,7 +191,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="B5"/>
                         <constraints>
                             <constraint firstItem="cw6-2G-8Pi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bsv-C7-FR9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cw6-2G-8Pi" secondAttribute="bottom" id="hmp-Nn-tNP"/>
@@ -199,7 +199,19 @@
                             <constraint firstItem="cw6-2G-8Pi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="udc-rW-OMo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="v77-Oy-SiL"/>
+                    <navigationItem key="navigationItem" id="v77-Oy-SiL">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="okr-BW-kJY">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Xv5-zJ-S8o">
+                                <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
+                                <connections>
+                                    <segue destination="vUd-gH-yKF" kind="show" id="bhj-Ow-ZEA"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="cw6-2G-8Pi" id="oI8-Sq-w4V"/>
                     </connections>
@@ -432,6 +444,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YSj-GI-JaK" customClass="GradientView" customModule="Conscious" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="502"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Let's review this week's emotions together." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aME-mb-Poj">
+                                        <rect key="frame" x="32" y="463" width="328" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                        <color key="value" name="B6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                        <color key="value" name="B2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hat-Jb-c8y">
                                 <rect key="frame" x="10" y="60" width="50" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -441,13 +473,6 @@
                                     <action selector="closeButtonTapped:" destination="F3M-U2-FNj" eventType="touchUpInside" id="vK9-7v-wbT"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="一起回顧本週的情緒吧！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3a8-Ul-5YS">
-                                <rect key="frame" x="101" y="496" width="191" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uUI-2Y-4ly">
                                 <rect key="frame" x="38" y="750" width="317" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -465,6 +490,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="v9x-lP-0pY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="v9x-lP-0pY" firstAttribute="trailing" secondItem="YSj-GI-JaK" secondAttribute="trailing" id="GIA-tw-VDG"/>
+                            <constraint firstItem="YSj-GI-JaK" firstAttribute="leading" secondItem="v9x-lP-0pY" secondAttribute="leading" id="LUb-Iv-pxp"/>
+                            <constraint firstItem="YSj-GI-JaK" firstAttribute="top" secondItem="6QE-C5-RPD" secondAttribute="top" id="fhX-Hr-IKu"/>
+                            <constraint firstAttribute="bottom" secondItem="YSj-GI-JaK" secondAttribute="bottom" constant="350" id="zE2-kI-LCV"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dH2-0a-tp2"/>
                 </viewController>
@@ -1037,6 +1068,9 @@
             <point key="canvasLocation" x="1031" y="718"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="bhj-Ow-ZEA"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="chart.xyaxis.line" catalog="system" width="128" height="102"/>
@@ -1054,6 +1088,15 @@
         <image name="xmark.circle.fill" catalog="system" width="128" height="123"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="B2">
+            <color red="0.0078431372549019607" green="0.50196078431372548" blue="0.56470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="B5">
+            <color red="0.9882352941176471" green="0.9882352941176471" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="B6">
+            <color red="0.94117647058823528" green="0.95294117647058818" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Color 1">
             <color red="0.019999999552965164" green="0.40000000596046448" blue="0.55299997329711914" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -47,6 +47,10 @@ class TimelineViewController: UIViewController {
 
         tableView.delegate = self
         tableView.dataSource = self
+
+//        if let navigationController = self.navigationController {
+//            navigationBarConfiguration(navigationController)
+//        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -123,4 +127,30 @@ extension TimelineViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 
+}
+
+extension TimelineViewController {
+
+//    private func navigationBarConfiguration (_ controller: UINavigationController) {
+//
+//        if #available(iOS 13.0, *) {
+//
+//            let navBarAppearance = UINavigationBarAppearance()
+//            navBarAppearance.configureWithOpaqueBackground()
+//            navBarAppearance.backgroundColor = UIColor.B3
+//            navBarAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+//            navBarAppearance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+//
+//            controller.navigationBar.standardAppearance = navBarAppearance
+//            controller.navigationBar.scrollEdgeAppearance = navBarAppearance
+//            controller.navigationBar.tintColor = .white
+//        } else {
+//
+//            controller.edgesForExtendedLayout = []
+//            controller.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+//            controller.navigationBar.tintColor = .white
+//
+//        }
+//
+//    }
 }
