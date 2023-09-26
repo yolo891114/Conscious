@@ -78,3 +78,45 @@ extension UIView {
         }
     }
 }
+
+@IBDesignable
+class GradientView: UIView {
+
+    var gradientLayer: CAGradientLayer!
+
+    @IBInspectable var startColor: UIColor = .red {
+        didSet {
+            setupGradientLayer()
+        }
+    }
+
+    @IBInspectable var endColor: UIColor = .blue {
+        didSet {
+            setupGradientLayer()
+        }
+    }
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupGradientLayer()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupGradientLayer()
+    }
+
+    private func setupGradientLayer() {
+        if gradientLayer == nil {
+            gradientLayer = CAGradientLayer()
+            self.layer.addSublayer(gradientLayer)
+        }
+
+        gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        gradientLayer.frame = self.bounds
+    }
+}

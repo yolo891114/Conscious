@@ -8,10 +8,13 @@
 import Foundation
 import UIKit
 import Combine
+import Kingfisher
 
 class TimelineViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+
+    var cancellables = Set<AnyCancellable>()
 
     // 當 diaries 有變化時 reloadData()
     lazy var viewModel = {
@@ -22,10 +25,18 @@ class TimelineViewController: UIViewController {
                 self?.tableView.reloadData()
             }
             .store(in: &cancellables)
+        viewModel.$diariesByDate
+            .sink { [weak self] _ in
+                self?.tableView.reloadData()
+            }
+            .store(in: &cancellables)
+        viewModel.$sortedDates
+            .sink { [weak self] _ in
+                self?.tableView.reloadData()
+            }
+            .store(in: &cancellables)
         return viewModel
     }()
-
-    var cancellables = Set<AnyCancellable>()
 
     let dateFormatter = DateFormatter()
 
@@ -36,6 +47,8 @@ class TimelineViewController: UIViewController {
 
         tableView.delegate = self
         tableView.dataSource = self
+
+        tableView.backgroundColor = .B5
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -63,19 +76,43 @@ class TimelineViewController: UIViewController {
 
 extension TimelineViewController: UITableViewDelegate, UITableViewDataSource {
 
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel.diariesByDate.keys.sorted(by: >).count
+//        return viewModel.diar
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.diaries.count
+        let date = Array(viewModel.diariesByDate.keys)[section]
+        return viewModel.diariesByDate[date]?.count ?? 0
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return Array(viewModel.diariesByDate.keys.sorted(by: >))[section]
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TimelineWithDateTableViewCell") as? TimelineWithDateTableViewCell else { return UITableViewCell() }
+        guard let textCell = tableView.dequeueReusableCell(withIdentifier: "TimelineWithDateTableViewCell") as? TimelineWithDateTableViewCell else { return UITableViewCell() }
+        guard let photoCell = tableView.dequeueReusableCell(withIdentifier: "TimelineWithPhotoTableViewCell") as? PhotoTableViewCell else { return UITableViewCell() }
 
+//        let date = Array(viewModel.diariesByDate.keys.sorted(by: >))[indexPath.section]
+//        if let diary = viewModel.diariesByDate[date]?[indexPath.row] {
+//                cell.titleLabel.text = diary.title
+//                cell.contentLabel.text = diary.content
+//            }
         let diary = viewModel.diaries[indexPath.row]
-        cell.titleLabel.text = diary.title
-        cell.contentLabel.text = diary.content
-        cell.dateLabel.text = dateFormatter.string(from: diary.timestamp)
 
-        return cell
+        if viewModel.diaries[indexPath.row].photoCollection.count == 0 {
+
+            textCell.titleLabel.text = diary.title
+            textCell.contentLabel.text = diary.content
+
+            return textCell
+        } else {
+            photoCell.titleLabel.text = diary.title
+            photoCell.contentLabel.text = diary.content
+            photoCell.diaryImage.kf.setImage(with: URL(string: diary.photoCollection[0].url))
+
+            return photoCell
+        }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -88,4 +125,30 @@ extension TimelineViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 
+}
+
+extension TimelineViewController {
+
+//    private func navigationBarConfiguration (_ controller: UINavigationController) {
+//
+//        if #available(iOS 13.0, *) {
+//
+//            let navBarAppearance = UINavigationBarAppearance()
+//            navBarAppearance.configureWithOpaqueBackground()
+//            navBarAppearance.backgroundColor = UIColor.B3
+//            navBarAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+//            navBarAppearance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+//
+//            controller.navigationBar.standardAppearance = navBarAppearance
+//            controller.navigationBar.scrollEdgeAppearance = navBarAppearance
+//            controller.navigationBar.tintColor = .white
+//        } else {
+//
+//            controller.edgesForExtendedLayout = []
+//            controller.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+//            controller.navigationBar.tintColor = .white
+//
+//        }
+//
+//    }
 }
