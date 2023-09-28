@@ -286,7 +286,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="VnK-jH-ueg">
-                                <rect key="frame" x="16" y="625" width="364" height="128"/>
+                                <rect key="frame" x="16" y="625" width="361" height="128"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XpR-8C-67h">
                                         <rect key="frame" x="0.0" y="0.0" width="110" height="128"/>
@@ -303,7 +303,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mr8-QP-OVp">
-                                        <rect key="frame" x="254" y="0.0" width="110" height="128"/>
+                                        <rect key="frame" x="254" y="0.0" width="107" height="128"/>
                                         <color key="backgroundColor" name="B2"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="g8x-8V-VMz"/>
@@ -452,35 +452,14 @@
             </objects>
             <point key="canvasLocation" x="3649.6183206106871" y="718.30985915492965"/>
         </scene>
-        <!--Emotion Data View Controller-->
+        <!--Emotion Result View Controller-->
         <scene sceneID="odt-wu-dYW">
             <objects>
-                <viewController id="V1D-vY-5ZJ" customClass="EmotionDataViewController" customModule="Conscious" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="V1D-vY-5ZJ" customClass="EmotionResultViewController" customModule="Conscious" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="64O-Vl-erD">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3wG-Ws-FKY">
-                                <rect key="frame" x="243" y="103" width="134" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system" title="Create new"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="csBorderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="csBorderColor">
-                                        <color key="value" name="AccentColor"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="csBornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="createButtonTapped:" destination="V1D-vY-5ZJ" eventType="touchUpInside" id="ocO-20-tnm"/>
-                                    <segue destination="F3M-U2-FNj" kind="show" identifier="showSurveySegue" id="thc-3d-8I9"/>
-                                </connections>
-                            </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xBH-VZ-09e">
                                 <rect key="frame" x="73" y="164" width="246" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -503,7 +482,20 @@
                         <viewLayoutGuide key="safeArea" id="o3d-C6-eHB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="hYs-Ee-h1T"/>
+                    <navigationItem key="navigationItem" id="hYs-Ee-h1T">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="QY8-bs-vHU">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="3wG-Ws-FKY">
+                                <rect key="frame" x="243" y="103" width="134" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
+                                <connections>
+                                    <action selector="createButtonTapped:" destination="V1D-vY-5ZJ" eventType="touchUpInside" id="ocO-20-tnm"/>
+                                    <segue destination="F3M-U2-FNj" kind="show" identifier="showSurveySegue" id="thc-3d-8I9"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="createButton" destination="3wG-Ws-FKY" id="BbA-4J-mI6"/>
                         <outlet property="dateLabel" destination="E9S-5z-nal" id="G6g-Sl-LYK"/>
@@ -556,9 +548,12 @@
                                     <action selector="closeButtonTapped:" destination="F3M-U2-FNj" eventType="touchUpInside" id="vK9-7v-wbT"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uUI-2Y-4ly">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uUI-2Y-4ly">
                                 <rect key="frame" x="38" y="750" width="317" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="le8-cB-V4w"/>
+                                    <constraint firstAttribute="width" constant="317" id="qK6-v3-5yG"/>
+                                </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Start">
@@ -586,8 +581,10 @@
                         <viewLayoutGuide key="safeArea" id="v9x-lP-0pY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="uUI-2Y-4ly" firstAttribute="centerX" secondItem="v9x-lP-0pY" secondAttribute="centerX" id="0II-cc-2x8"/>
                             <constraint firstItem="zne-bh-tXU" firstAttribute="leading" secondItem="v9x-lP-0pY" secondAttribute="leading" constant="24" id="EUc-dc-FMQ"/>
                             <constraint firstItem="v9x-lP-0pY" firstAttribute="trailing" secondItem="YSj-GI-JaK" secondAttribute="trailing" id="GIA-tw-VDG"/>
+                            <constraint firstAttribute="bottom" secondItem="uUI-2Y-4ly" secondAttribute="bottom" constant="55" id="HVF-KR-tdX"/>
                             <constraint firstItem="YSj-GI-JaK" firstAttribute="leading" secondItem="v9x-lP-0pY" secondAttribute="leading" id="LUb-Iv-pxp"/>
                             <constraint firstAttribute="trailing" secondItem="zne-bh-tXU" secondAttribute="trailing" constant="24" id="LeU-2m-blj"/>
                             <constraint firstItem="xN2-y1-Ypg" firstAttribute="leading" secondItem="v9x-lP-0pY" secondAttribute="leading" constant="24" id="SPZ-do-LSC"/>
@@ -1273,9 +1270,6 @@
         <image name="square.and.pencil" catalog="system" width="128" height="113"/>
         <image name="trash" catalog="system" width="117" height="128"/>
         <image name="xmark.circle.fill" catalog="system" width="128" height="123"/>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="B1">
             <color red="0.019999999552965164" green="0.40000000596046448" blue="0.55299997329711914" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

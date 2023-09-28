@@ -11,11 +11,21 @@ import SwiftUI
 import Charts
 import Combine
 
-class EmotionDataViewController: UIViewController {
+class EmotionResultViewController: UIViewController {
 
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var createButton: UIButton!
     @IBOutlet weak var segmentControll: UISegmentedControl!
+
+    private let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: 205, height: 216)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.showsHorizontalScrollIndicator = false
+        return collectionView
+    }()
 
     var emotionData: [EmotionRecord] = []
 
@@ -79,6 +89,11 @@ class EmotionDataViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        collectionView.delegate = self
+        collectionView.dataSource = self
+
+        collectionView.register(EmotionResultCollectionViewCell.self, forCellWithReuseIdentifier: "EmotionResultCollectionViewCell")
+
         segmentControll.selectedSegmentIndex = viewModel.currentDataScope == .month ? 0 : 1
 
         let lineChartView = EmotionLineChartView(viewModel: viewModel)
@@ -90,12 +105,19 @@ class EmotionDataViewController: UIViewController {
         hostingController.view.translatesAutoresizingMaskIntoConstraints = false
 
         self.view.addSubview(hostingController.view)
+        self.view.addSubview(collectionView)
 
         NSLayoutConstraint.activate([
             hostingController.view.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 16),
             hostingController.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 16),
             hostingController.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
-            hostingController.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16)
+            hostingController.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+
+            collectionView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            collectionView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+            collectionView.widthAnchor.constraint(equalToConstant: 300),
+            collectionView.heightAnchor.constraint(equalToConstant: 100)
+
         ])
 
         hostingController.didMove(toParent: self)
@@ -103,6 +125,7 @@ class EmotionDataViewController: UIViewController {
         self.view.bringSubviewToFront(createButton)
         self.view.bringSubviewToFront(dateLabel)
         self.view.bringSubviewToFront(segmentControll)
+        self.view.bringSubviewToFront(collectionView)
     }
 
     func showOverrideAlert() {
@@ -120,6 +143,29 @@ class EmotionDataViewController: UIViewController {
 
 }
 
+extension EmotionResultViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: "EmotionResultCollectionViewCell",
+            for: indexPath) as? EmotionResultCollectionViewCell
+        else { return UICollectionViewCell() }
+
+        cell.backgroungImage.startColor = .B6!
+        cell.backgroungImage.endColor = .B3!
+
+        return cell
+    }
+
+}
+
 struct EmotionLineChartView: View {
 
     @ObservedObject var viewModel: EmotionDataViewModel
@@ -133,7 +179,7 @@ struct EmotionLineChartView: View {
                         y: .value("Score", item.emotionScore))
                 }
             }
-            .frame(height: 300)
+            .frame(height: 200)
         }
         .gesture(
             DragGesture()
