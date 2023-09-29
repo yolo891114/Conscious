@@ -49,10 +49,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //                rootViewController.present(enterPasswordViewController, animated: true, completion: nil)
 //            }
             if !GlobalState.isUnlock {
-                if let rootViewController = self.window?.rootViewController {
-                    enterPasswordViewController.modalPresentationStyle = .overFullScreen
-                    rootViewController.present(enterPasswordViewController, animated: true, completion: nil)
-                }
+//                if let rootViewController = self.window?.rootViewController {
+//                    enterPasswordViewController.modalPresentationStyle = .overFullScreen
+//                    rootViewController.present(enterPasswordViewController, animated: true, completion: nil)
+//                }
             }
         }
         print(1)
