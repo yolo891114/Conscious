@@ -10,7 +10,7 @@ import UIKit
 
 class EmotionResultCollectionViewCell: UICollectionViewCell {
 
-    lazy var backgroundImage: GradientView = {
+    lazy var gradientBackground: GradientView = {
         let image = GradientView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.shouldApplyCornerRadius = true
@@ -37,9 +37,16 @@ class EmotionResultCollectionViewCell: UICollectionViewCell {
         return label
     }()
 
+    lazy var ornamentalImage: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubview(backgroundImage)
+        addSubview(gradientBackground)
+        addSubview(ornamentalImage)
         addSubview(titleLabel)
         addSubview(subTitleLabel)
         setupUI()
@@ -51,16 +58,21 @@ class EmotionResultCollectionViewCell: UICollectionViewCell {
 
     func setupUI() {
         NSLayoutConstraint.activate([
-            backgroundImage.topAnchor.constraint(equalTo: topAnchor),
-            backgroundImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            backgroundImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
-            backgroundImage.bottomAnchor.constraint(equalTo: bottomAnchor),
+            gradientBackground.topAnchor.constraint(equalTo: topAnchor),
+            gradientBackground.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+            gradientBackground.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+            gradientBackground.bottomAnchor.constraint(equalTo: bottomAnchor),
 
-            titleLabel.topAnchor.constraint(equalTo: backgroundImage.topAnchor, constant: 24),
-            titleLabel.leadingAnchor.constraint(equalTo: backgroundImage.leadingAnchor, constant: 16),
+            titleLabel.topAnchor.constraint(equalTo: gradientBackground.topAnchor, constant: 24),
+            titleLabel.leadingAnchor.constraint(equalTo: gradientBackground.leadingAnchor, constant: 16),
 
             subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 24),
-            subTitleLabel.leadingAnchor.constraint(equalTo: backgroundImage.leadingAnchor, constant: 16),
+            subTitleLabel.leadingAnchor.constraint(equalTo: gradientBackground.leadingAnchor, constant: 16),
+
+            ornamentalImage.trailingAnchor.constraint(equalTo: gradientBackground.trailingAnchor, constant: 16),
+            ornamentalImage.bottomAnchor.constraint(equalTo: gradientBackground.bottomAnchor, constant: 16),
+            ornamentalImage.widthAnchor.constraint(equalToConstant: 150),
+            ornamentalImage.heightAnchor.constraint(equalToConstant: 150)
         ])
     }
 }

@@ -11,6 +11,8 @@ import SwiftUI
 import Charts
 import Combine
 
+// TODO: 檢查驚嘆號
+
 class EmotionResultViewController: UIViewController {
 
     @IBOutlet weak var dateLabel: UILabel!
@@ -123,10 +125,11 @@ extension EmotionResultViewController: UICollectionViewDataSource, UICollectionV
             for: indexPath) as? EmotionResultCollectionViewCell
         else { return UICollectionViewCell() }
 
-        cell.backgroundImage.startColor = viewModel.startColor[indexPath.row]
-        cell.backgroundImage.endColor = viewModel.endColor[indexPath.row]
-        cell.backgroundImage.csBornerRadius = 15
-        cell.backgroundImage.angle = 45
+        cell.gradientBackground.startColor = viewModel.startColor[indexPath.row]
+        cell.gradientBackground.endColor = viewModel.endColor[indexPath.row]
+        cell.gradientBackground.csBornerRadius = 15
+        cell.gradientBackground.angle = 45
+        cell.ornamentalImage.image = UIImage(named: viewModel.imageName[indexPath.row])
 
         return cell
     }
