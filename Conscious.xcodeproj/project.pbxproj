@@ -44,7 +44,7 @@
 		54C287FD2AB8234F00A399E7 /* EmotionSurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C287FC2AB8234F00A399E7 /* EmotionSurveyViewController.swift */; };
 		54C288002AB8257600A399E7 /* QuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C287FF2AB8257500A399E7 /* QuestionModel.swift */; };
 		54C288022AB839CE00A399E7 /* FinishSurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C288012AB839CE00A399E7 /* FinishSurveyViewController.swift */; };
-		54C288062AB8531500A399E7 /* EmotionDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C288052AB8531500A399E7 /* EmotionDataViewModel.swift */; };
+		54C288062AB8531500A399E7 /* EmotionResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C288052AB8531500A399E7 /* EmotionResultViewModel.swift */; };
 		54C288082AB93A6400A399E7 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C288072AB93A6400A399E7 /* DateManager.swift */; };
 		54C2880D2AB9A93700A399E7 /* PunchRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C2880C2AB9A93700A399E7 /* PunchRecordViewController.swift */; };
 		6B6944609698B9D5065EB72C /* Pods_Conscious.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B16F60D1BCDEC2A95318AC3 /* Pods_Conscious.framework */; };
@@ -92,7 +92,7 @@
 		54C287FC2AB8234F00A399E7 /* EmotionSurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionSurveyViewController.swift; sourceTree = "<group>"; };
 		54C287FF2AB8257500A399E7 /* QuestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionModel.swift; sourceTree = "<group>"; };
 		54C288012AB839CE00A399E7 /* FinishSurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishSurveyViewController.swift; sourceTree = "<group>"; };
-		54C288052AB8531500A399E7 /* EmotionDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionDataViewModel.swift; sourceTree = "<group>"; };
+		54C288052AB8531500A399E7 /* EmotionResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionResultViewModel.swift; sourceTree = "<group>"; };
 		54C288072AB93A6400A399E7 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		54C2880C2AB9A93700A399E7 /* PunchRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PunchRecordViewController.swift; sourceTree = "<group>"; };
 		5B16F60D1BCDEC2A95318AC3 /* Pods_Conscious.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Conscious.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -356,7 +356,7 @@
 		54C287EF2AB7F62D00A399E7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				54C288052AB8531500A399E7 /* EmotionDataViewModel.swift */,
+				54C288052AB8531500A399E7 /* EmotionResultViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -617,7 +617,7 @@
 				54C287FB2AB8221200A399E7 /* EmotionSurveyTableViewCell.swift in Sources */,
 				54C288002AB8257600A399E7 /* QuestionModel.swift in Sources */,
 				54C287FD2AB8234F00A399E7 /* EmotionSurveyViewController.swift in Sources */,
-				54C288062AB8531500A399E7 /* EmotionDataViewModel.swift in Sources */,
+				54C288062AB8531500A399E7 /* EmotionResultViewModel.swift in Sources */,
 				5416845A2AB00F3E00F12484 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,12 +10,38 @@ import UIKit
 
 class EmotionResultCollectionViewCell: UICollectionViewCell {
 
-    lazy var backgroungImage = GradientView()
-    
+    lazy var backgroundImage: GradientView = {
+        let image = GradientView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.shouldApplyCornerRadius = true
+        return image
+    }()
+
+    lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 22.0, weight: .heavy)
+        label.textColor = .B2
+        label.numberOfLines = 0
+        label.text = "Title"
+        return label
+    }()
+
+    lazy var subTitleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 12.0, weight: .regular)
+        label.textColor = .B3
+        label.numberOfLines = 0
+        label.text = "Sub Title"
+        return label
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroungImage.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(backgroungImage)
+        addSubview(backgroundImage)
+        addSubview(titleLabel)
+        addSubview(subTitleLabel)
         setupUI()
     }
 
@@ -25,10 +51,16 @@ class EmotionResultCollectionViewCell: UICollectionViewCell {
 
     func setupUI() {
         NSLayoutConstraint.activate([
-            backgroungImage.topAnchor.constraint(equalTo: topAnchor, constant: 8),
-            backgroungImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            backgroungImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
-            backgroungImage.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8)
+            backgroundImage.topAnchor.constraint(equalTo: topAnchor),
+            backgroundImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+            backgroundImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+            backgroundImage.bottomAnchor.constraint(equalTo: bottomAnchor),
+
+            titleLabel.topAnchor.constraint(equalTo: backgroundImage.topAnchor, constant: 24),
+            titleLabel.leadingAnchor.constraint(equalTo: backgroundImage.leadingAnchor, constant: 16),
+
+            subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 24),
+            subTitleLabel.leadingAnchor.constraint(equalTo: backgroundImage.leadingAnchor, constant: 16),
         ])
     }
 }

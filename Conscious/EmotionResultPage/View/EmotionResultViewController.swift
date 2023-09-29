@@ -16,12 +16,16 @@ class EmotionResultViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var createButton: UIButton!
     @IBOutlet weak var segmentControll: UISegmentedControl!
+    @IBOutlet weak var lineChartBackgroundView: UIView!
+    @IBOutlet weak var emotionLabel: UILabel!
+    @IBOutlet weak var infoLabel: UILabel!
 
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: 205, height: 216)
+        layout.estimatedItemSize = CGSize(width: 205, height: 245)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .B5
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsHorizontalScrollIndicator = false
         return collectionView
@@ -31,7 +35,7 @@ class EmotionResultViewController: UIViewController {
 
     private var canAddNewRecord: Bool?
 
-    lazy var viewModel = EmotionDataViewModel()
+    lazy var viewModel = EmotionResultViewModel()
 
     private var cancellables = Set<AnyCancellable>()
 
@@ -89,6 +93,9 @@ class EmotionResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.tabBarController?.tabBar.isHidden = false
+
         collectionView.delegate = self
         collectionView.dataSource = self
 
@@ -96,49 +103,7 @@ class EmotionResultViewController: UIViewController {
 
         segmentControll.selectedSegmentIndex = viewModel.currentDataScope == .month ? 0 : 1
 
-        let lineChartView = EmotionLineChartView(viewModel: viewModel)
-
-        let hostingController = UIHostingController(rootView: lineChartView)
-
-        self.addChild(hostingController)
-
-        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
-
-        self.view.addSubview(hostingController.view)
-        self.view.addSubview(collectionView)
-
-        NSLayoutConstraint.activate([
-            hostingController.view.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 16),
-            hostingController.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 16),
-            hostingController.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
-            hostingController.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
-
-            collectionView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            collectionView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
-            collectionView.widthAnchor.constraint(equalToConstant: 300),
-            collectionView.heightAnchor.constraint(equalToConstant: 100)
-
-        ])
-
-        hostingController.didMove(toParent: self)
-
-        self.view.bringSubviewToFront(createButton)
-        self.view.bringSubviewToFront(dateLabel)
-        self.view.bringSubviewToFront(segmentControll)
-        self.view.bringSubviewToFront(collectionView)
-    }
-
-    func showOverrideAlert() {
-        let alert = UIAlertController(title: "本週已有資料存在", message: "確定要覆蓋本週資料嗎？", preferredStyle: .alert)
-
-        alert.addAction(UIAlertAction(title: "確定", style: .default, handler: { _ in
-            self.viewModel.deleteCurrentWeekEmotionRecord()
-            self.performSegue(withIdentifier: "showSurveySegue", sender: self)
-        }))
-
-        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
-
-        self.present(alert, animated: true, completion: nil)
+        setupUI()
     }
 
 }
@@ -158,17 +123,28 @@ extension EmotionResultViewController: UICollectionViewDataSource, UICollectionV
             for: indexPath) as? EmotionResultCollectionViewCell
         else { return UICollectionViewCell() }
 
-        cell.backgroungImage.startColor = .B6!
-        cell.backgroungImage.endColor = .B3!
+        cell.backgroundImage.startColor = viewModel.startColor[indexPath.row]
+        cell.backgroundImage.endColor = viewModel.endColor[indexPath.row]
+        cell.backgroundImage.csBornerRadius = 15
+        cell.backgroundImage.angle = 45
 
         return cell
     }
 
 }
 
+extension EmotionResultViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        // 計算動態大小
+        let width = CGFloat(220)
+        let height = collectionView.frame.height - 32
+        return CGSize(width: width, height: height)
+    }
+}
+
 struct EmotionLineChartView: View {
 
-    @ObservedObject var viewModel: EmotionDataViewModel
+    @ObservedObject var viewModel: EmotionResultViewModel
 
     var body: some View {
         VStack {
@@ -179,7 +155,7 @@ struct EmotionLineChartView: View {
                         y: .value("Score", item.emotionScore))
                 }
             }
-            .frame(height: 200)
+            .frame(height: 180)
         }
         .gesture(
             DragGesture()
@@ -196,5 +172,85 @@ struct EmotionLineChartView: View {
                     }
                 }
         )
+    }
+}
+
+// MARK: - Function
+
+extension EmotionResultViewController {
+
+    func setupUI() {
+
+        let lineChartView = EmotionLineChartView(viewModel: viewModel)
+
+        let hostingController = UIHostingController(rootView: lineChartView)
+
+        self.addChild(hostingController)
+
+        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+        lineChartBackgroundView.translatesAutoresizingMaskIntoConstraints = false
+        dateLabel.translatesAutoresizingMaskIntoConstraints = false
+        createButton.translatesAutoresizingMaskIntoConstraints = false
+        segmentControll.translatesAutoresizingMaskIntoConstraints = false
+        emotionLabel.translatesAutoresizingMaskIntoConstraints = false
+        infoLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        self.view.addSubview(hostingController.view)
+        self.view.addSubview(collectionView)
+
+        NSLayoutConstraint.activate([
+
+            emotionLabel.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            emotionLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 24),
+
+            segmentControll.topAnchor.constraint(equalTo: emotionLabel.bottomAnchor, constant: 16),
+            segmentControll.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 24),
+            segmentControll.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -24),
+            segmentControll.heightAnchor.constraint(equalToConstant: 25),
+
+            lineChartBackgroundView.topAnchor.constraint(equalTo: segmentControll.bottomAnchor, constant: 16),
+            lineChartBackgroundView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 24),
+            lineChartBackgroundView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -24),
+            lineChartBackgroundView.heightAnchor.constraint(equalToConstant: 300),
+
+            dateLabel.topAnchor.constraint(equalTo: lineChartBackgroundView.topAnchor, constant: 24),
+            dateLabel.leadingAnchor.constraint(equalTo: lineChartBackgroundView.leadingAnchor, constant: 24),
+
+            hostingController.view.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 16),
+            hostingController.view.leadingAnchor.constraint(equalTo: lineChartBackgroundView.leadingAnchor, constant: 16),
+            hostingController.view.trailingAnchor.constraint(equalTo: lineChartBackgroundView.trailingAnchor, constant: -16),
+            hostingController.view.bottomAnchor.constraint(equalTo: lineChartBackgroundView.bottomAnchor, constant: -16),
+
+            infoLabel.topAnchor.constraint(equalTo: lineChartBackgroundView.bottomAnchor, constant: 16),
+            infoLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 24),
+
+            collectionView.topAnchor.constraint(equalTo: infoLabel.bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            collectionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+
+        ])
+
+        hostingController.didMove(toParent: self)
+
+        self.view.bringSubviewToFront(createButton)
+        self.view.bringSubviewToFront(dateLabel)
+        self.view.bringSubviewToFront(segmentControll)
+        self.view.bringSubviewToFront(collectionView)
+        self.view.bringSubviewToFront(emotionLabel)
+        self.view.bringSubviewToFront(infoLabel)
+    }
+
+    func showOverrideAlert() {
+        let alert = UIAlertController(title: "本週已有資料存在", message: "確定要覆蓋本週資料嗎？", preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "確定", style: .default, handler: { _ in
+            self.viewModel.deleteCurrentWeekEmotionRecord()
+            self.performSegue(withIdentifier: "showSurveySegue", sender: self)
+        }))
+
+        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+
+        self.present(alert, animated: true, completion: nil)
     }
 }

@@ -7,13 +7,24 @@
 
 import Foundation
 import Combine
+import UIKit
 
 enum DataScope {
     case month
     case year
 }
 
-class EmotionDataViewModel: ObservableObject {
+class EmotionResultViewModel: ObservableObject {
+
+    @Published var startColor: [UIColor] = [
+        UIColor.hexStringToUIColor(hex: "CBF7E0"),
+        UIColor.hexStringToUIColor(hex: "CBF4F7"),
+        UIColor.hexStringToUIColor(hex: "E9F7CB")]
+
+    @Published var endColor: [UIColor] = [
+        UIColor.hexStringToUIColor(hex: "BBFDFF"),
+        UIColor.hexStringToUIColor(hex: "BBCAFF"),
+        UIColor.hexStringToUIColor(hex: "FFCFBB")]
 
     @Published var canAddNewRecord: Bool?
     @Published var dateChanged: Bool = false
@@ -66,7 +77,7 @@ class EmotionDataViewModel: ObservableObject {
 
 // MARK: - Function
 
-extension EmotionDataViewModel {
+extension EmotionResultViewModel {
 
     func canAddNewEmotionRecord() {
         FirebaseManager.shared.canAddRecordThisWeek() { canAddNewRecord in
