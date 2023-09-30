@@ -12,6 +12,9 @@ import FirebaseAuth
 class ProfileViewModel: ObservableObject {
 
     @Published var currentUserName: String?
+    @Published var titleArray = ["Privacy Settings", "Notification", "About Us"]
+    @Published var imageArray = ["lock.circle", "bell.circle", "heart.circle"]
+    @Published var descriptionArray = ["Manage your device security", "Custom Notification Time", "Contact or Provide Feedback"]
     var cancellables = Set<AnyCancellable>()
 
     init() {

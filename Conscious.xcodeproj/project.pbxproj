@@ -27,6 +27,7 @@
 		546C675D2AB2961800DF82B8 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546C675C2AB2961800DF82B8 /* FirebaseManager.swift */; };
 		546C67652AB2AFF400DF82B8 /* NewDiaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546C67642AB2AFF400DF82B8 /* NewDiaryViewModel.swift */; };
 		546C67692AB2B0AC00DF82B8 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546C67682AB2B0AC00DF82B8 /* UserModel.swift */; };
+		5479F4F52AC888980035B645 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479F4F42AC888980035B645 /* ProfileTableViewCell.swift */; };
 		548871332AC41AD50067A54D /* EmotionResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548871322AC41AD50067A54D /* EmotionResultCollectionViewCell.swift */; };
 		54B62DEC2AB30E7500908DFE /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B62DEB2AB30E7500908DFE /* TimelineViewController.swift */; };
 		54B62DEE2AB3130500908DFE /* TimelineWithDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B62DED2AB3130500908DFE /* TimelineWithDateTableViewCell.swift */; };
@@ -75,6 +76,7 @@
 		546C675C2AB2961800DF82B8 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		546C67642AB2AFF400DF82B8 /* NewDiaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDiaryViewModel.swift; sourceTree = "<group>"; };
 		546C67682AB2B0AC00DF82B8 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		5479F4F42AC888980035B645 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		548871322AC41AD50067A54D /* EmotionResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionResultCollectionViewCell.swift; sourceTree = "<group>"; };
 		54B62DEB2AB30E7500908DFE /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		54B62DED2AB3130500908DFE /* TimelineWithDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineWithDateTableViewCell.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				544C5D0A2ABC1A380020F88F /* ProfileViewController.swift */,
 				544C5D0C2ABC72AE0020F88F /* NotificationViewController.swift */,
 				54B7A7BA2ABD61A6001BD9AD /* LogInViewController.swift */,
+				5479F4F42AC888980035B645 /* ProfileTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -594,6 +597,7 @@
 				541684622AB00F3E00F12484 /* Conscious.xcdatamodeld in Sources */,
 				544C5CFD2ABBDBEA0020F88F /* EnterPasswordViewModel.swift in Sources */,
 				54B7A7C12AC1601D001BD9AD /* PhotoTableViewCell.swift in Sources */,
+				5479F4F52AC888980035B645 /* ProfileTableViewCell.swift in Sources */,
 				546C67692AB2B0AC00DF82B8 /* UserModel.swift in Sources */,
 				54B7A7C32AC27724001BD9AD /* StartSurveyViewModel.swift in Sources */,
 				5416845C2AB00F3E00F12484 /* NewDiaryViewController.swift in Sources */,
