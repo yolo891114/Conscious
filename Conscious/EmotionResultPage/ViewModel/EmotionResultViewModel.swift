@@ -26,7 +26,7 @@ class EmotionResultViewModel: ObservableObject {
         UIColor.hexStringToUIColor(hex: "BBCAFF"),
         UIColor.hexStringToUIColor(hex: "FFCFBB")]
 
-    @Published var imageName = ["excersicing","notebook","hoding_heart"]
+    @Published var imageName = ["Excersicing", "notebook", "hoding_heart"]
 
     @Published var canAddNewRecord: Bool?
     @Published var dateChanged: Bool = false

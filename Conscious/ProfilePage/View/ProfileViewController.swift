@@ -12,7 +12,7 @@ import Combine
 
 class ProfileViewController: UIViewController {
 
-    @IBOutlet weak var settingButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var nameLabel: UILabel!
     private var viewModel = ProfileViewModel()
     var cancellables = Set<AnyCancellable>()
@@ -21,16 +21,19 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+
         viewModel.$currentUserName
             .sink { [weak self] name in
                 self?.nameLabel.text = name
             }
             .store(in: &cancellables)
-        
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        settingButton.titleLabel?.text = passwordManager.getPassword() == nil ? "新增密碼" : "更改密碼"
+//        settingButton.titleLabel?.text = passwordManager.getPassword() == nil ? "新增密碼" : "更改密碼"
     }
 
     @IBAction func settingButtonTapped(_ sender: UIButton) {
@@ -52,6 +55,25 @@ class ProfileViewController: UIViewController {
             GlobalState.isUnlock = true
         }
 
+    }
+
+}
+
+// MARK: DataSource
+
+extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableViewCell", for: indexPath) as? ProfileTableViewCell else { return UITableViewCell() }
+
+        cell.iconView.image = UIImage(systemName: viewModel.imageArray[indexPath.row])
+        cell.titleLabel.text = viewModel.titleArray[indexPath.row]
+        cell.descriptionLabel.text = viewModel.descriptionArray[indexPath.row]
+
+        return cell
     }
 
 }
