@@ -296,7 +296,7 @@ extension FirebaseManager {
         let userRef = db.collection("users").document(userID)
         let punchRecordRef = userRef.collection("PunchRecords")
 
-        punchRecordRef.order(by: "punchDate", descending: true).getDocuments { snapshot, error in
+        punchRecordRef.order(by: "punchDate", descending: false).getDocuments { snapshot, error in
             if let error = error {
                 print("Error fetching all emotion records: \(error.localizedDescription)")
             }

@@ -28,6 +28,7 @@
 		546C67652AB2AFF400DF82B8 /* NewDiaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546C67642AB2AFF400DF82B8 /* NewDiaryViewModel.swift */; };
 		546C67692AB2B0AC00DF82B8 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546C67682AB2B0AC00DF82B8 /* UserModel.swift */; };
 		5479F4F52AC888980035B645 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479F4F42AC888980035B645 /* ProfileTableViewCell.swift */; };
+		5479F4F72ACA6C820035B645 /* PunchRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479F4F62ACA6C820035B645 /* PunchRecordViewModel.swift */; };
 		548871332AC41AD50067A54D /* EmotionResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548871322AC41AD50067A54D /* EmotionResultCollectionViewCell.swift */; };
 		54B62DEC2AB30E7500908DFE /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B62DEB2AB30E7500908DFE /* TimelineViewController.swift */; };
 		54B62DEE2AB3130500908DFE /* TimelineWithDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B62DED2AB3130500908DFE /* TimelineWithDateTableViewCell.swift */; };
@@ -77,6 +78,7 @@
 		546C67642AB2AFF400DF82B8 /* NewDiaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDiaryViewModel.swift; sourceTree = "<group>"; };
 		546C67682AB2B0AC00DF82B8 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		5479F4F42AC888980035B645 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		5479F4F62ACA6C820035B645 /* PunchRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PunchRecordViewModel.swift; sourceTree = "<group>"; };
 		548871322AC41AD50067A54D /* EmotionResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionResultCollectionViewCell.swift; sourceTree = "<group>"; };
 		54B62DEB2AB30E7500908DFE /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		54B62DED2AB3130500908DFE /* TimelineWithDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineWithDateTableViewCell.swift; sourceTree = "<group>"; };
@@ -423,6 +425,7 @@
 		54C2880A2AB9A91F00A399E7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				5479F4F62ACA6C820035B645 /* PunchRecordViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -596,6 +599,7 @@
 				544C5D072ABBF27D0020F88F /* SettingPasswordViewModel.swift in Sources */,
 				541684622AB00F3E00F12484 /* Conscious.xcdatamodeld in Sources */,
 				544C5CFD2ABBDBEA0020F88F /* EnterPasswordViewModel.swift in Sources */,
+				5479F4F72ACA6C820035B645 /* PunchRecordViewModel.swift in Sources */,
 				54B7A7C12AC1601D001BD9AD /* PhotoTableViewCell.swift in Sources */,
 				5479F4F52AC888980035B645 /* ProfileTableViewCell.swift in Sources */,
 				546C67692AB2B0AC00DF82B8 /* UserModel.swift in Sources */,

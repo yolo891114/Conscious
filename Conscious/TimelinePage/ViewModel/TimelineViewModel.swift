@@ -14,8 +14,6 @@ class TimelineViewModel: ObservableObject {
     @Published var diariesByDate: [String: [Diary]] = [:]
     @Published var sortedDates: [String] = []
 
-    private var cancellables = Set<AnyCancellable>()
-
     let dateFormatter = DateFormatter()
 
     // Fetch 後回傳 Future promise
