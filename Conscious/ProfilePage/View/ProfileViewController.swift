@@ -33,7 +33,7 @@ class ProfileViewController: UIViewController {
                 self?.nameLabel.text = name
             }
             .store(in: &cancellables)
-//        settingButton.titleLabel?.text = passwordManager.getPassword() == nil ? "新增密碼" : "更改密碼"
+        //        settingButton.titleLabel?.text = passwordManager.getPassword() == nil ? "新增密碼" : "更改密碼"
     }
 
     @IBAction func settingButtonTapped(_ sender: UIButton) {
@@ -69,6 +69,20 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableViewCell", for: indexPath) as? ProfileTableViewCell else { return UITableViewCell() }
 
+        if indexPath.row == 0 || indexPath.row == 1 {
+            let switchView = UISwitch(frame: .zero)
+            switchView.tag = indexPath.row
+            switchView.addTarget(self, action: #selector(switchChanged(_:)), for: .valueChanged)
+            cell.accessoryView = switchView
+            cell.selectionStyle = .none
+        } else {
+            let chevronImage = UIImageView(image: UIImage(systemName: "chevron.right"))
+            chevronImage.tintColor = .B1
+            cell.accessoryView = chevronImage
+            cell.selectionStyle = .default
+            cell.isUserInteractionEnabled = true
+        }
+
         cell.iconView.image = UIImage(systemName: viewModel.imageArray[indexPath.row])
         cell.titleLabel.text = viewModel.titleArray[indexPath.row]
         cell.descriptionLabel.text = viewModel.descriptionArray[indexPath.row]
@@ -76,4 +90,20 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
 
+}
+
+// MARK: - Function
+
+extension ProfileViewController {
+
+    @objc func switchChanged(_ sender: UISwitch) {
+        if sender.tag == 0 && sender.isOn {
+            let currentMode = PasswordMode.updating
+            let viewModel = SettingPasswordViewModel(mode: currentMode)
+
+            let settingPasswordVC = SettingPasswordViewController(viewModel: viewModel)
+            settingPasswordVC.modalPresentationStyle = .overFullScreen
+            self.present(settingPasswordVC, animated: true, completion: nil)
+        }
+    }
 }

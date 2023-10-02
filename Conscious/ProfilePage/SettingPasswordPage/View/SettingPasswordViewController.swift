@@ -15,6 +15,7 @@ class SettingPasswordViewController: UIViewController {
     var viewModel: SettingPasswordViewModel
     private var cancellables = Set<AnyCancellable>()
 
+
     init(viewModel: SettingPasswordViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -55,16 +56,27 @@ class SettingPasswordViewController: UIViewController {
 }
 
 struct SettingPasswordView: View {
+
     @ObservedObject var viewModel: SettingPasswordViewModel
+    @State private var showError: Bool = false
 
     var body: some View {
         VStack(spacing: 20) {
             Text(viewModel.mode == .setting ? "Enter Password" : "Update Password")
 
-            // 顯示輸入的密碼
-            Text(viewModel.inputPassword)
-                .font(.title)
-                .padding()
+            HStack(spacing: 15) {
+                ForEach(0..<4) { index in
+                    Circle()
+                        .stroke(lineWidth: 2)
+                        .frame(width: 16, height: 16)
+                        .overlay(
+                            Circle()
+                                .fill(viewModel.inputPassword.count > index ? Color.black : Color.clear)
+                                .frame(width: 12, height: 12)
+                        )
+                }
+            }
+            .padding()
 
             // 自定義數字鍵盤
             VStack(spacing: 10) {
@@ -85,13 +97,14 @@ struct SettingPasswordView: View {
 
                 // 為0和刪除按鈕添加一個特殊的行
                 HStack(spacing: 10) {
-                    Button("Delete") {
-                        viewModel.deleteInputPassword()
+
+                    Button(action: {
+                        viewModel.settingSuccess.send()
+                    }) {
+                        Image(systemName: "xmark")
+                                .font(.title)
+                                .frame(width: 60, height: 60)
                     }
-                    .font(.title)
-                    .frame(width: 60, height: 60)
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(30)
 
                     Button("0") {
                         viewModel.appendInputPassword(number: "0")
@@ -100,6 +113,14 @@ struct SettingPasswordView: View {
                     .frame(width: 60, height: 60)
                     .background(Color.gray.opacity(0.2))
                     .cornerRadius(30)
+
+                    Button(action: {
+                        viewModel.deleteInputPassword()
+                    }) {
+                        Image(systemName: "delete.left")
+                                .font(.title)
+                                .frame(width: 60, height: 60)
+                    }
                 }
             }
         }

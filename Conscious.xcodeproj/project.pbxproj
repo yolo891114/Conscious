@@ -135,9 +135,9 @@
 		541684562AB00F3E00F12484 /* Conscious */ = {
 			isa = PBXGroup;
 			children = (
+				544C7B6C2AB0689C0084A8CC /* Extension */,
 				546C675B2AB295FB00DF82B8 /* Manager */,
 				544C5D002ABBF1D00020F88F /* ProfilePage */,
-				544C7B6C2AB0689C0084A8CC /* Extension */,
 				546C67632AB2AF9C00DF82B8 /* Model */,
 				54B62DE72AB30E2B00908DFE /* TimelinePage */,
 				54B62DF12AB4321100908DFE /* DetailPage */,

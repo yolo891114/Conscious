@@ -33,10 +33,10 @@ class EnterPasswordViewController: UIViewController {
             .store(in: &cancellables)
 
         viewModel.triggerFaceID
-                .sink { [weak self] in
-                    self?.faceIDButtonTapped()
-                }
-                .store(in: &cancellables)
+            .sink { [weak self] in
+                self?.faceIDButtonTapped()
+            }
+            .store(in: &cancellables)
 
         let passwordView = PasswordView(viewModel: self.viewModel)
 
@@ -91,6 +91,7 @@ class EnterPasswordViewController: UIViewController {
 
 struct PasswordView: View {
     @ObservedObject var viewModel = EnterPasswordViewModel()
+    @State private var showError: Bool = false
 
     init(viewModel: EnterPasswordViewModel) {
         self.viewModel = viewModel
@@ -100,20 +101,29 @@ struct PasswordView: View {
         VStack(spacing: 20) {
             Text("Enter Password")
 
-            // 顯示輸入的密碼
-            Text(viewModel.inputPassword)
-                .font(.title)
-                .padding()
+            HStack(spacing: 15) {
+                ForEach(0..<4) { index in
+                    Circle()
+                        .stroke(lineWidth: 2)
+                        .frame(width: 16, height: 16)
+                        .overlay(
+                            Circle()
+                                .fill(viewModel.inputPassword.count > index ? Color.black : Color.clear)
+                                .frame(width: 12, height: 12)
+                        )
+                }
+            }
+            .padding()
+            .modifier(Shake(animatableData: showError ? CGFloat(1) : CGFloat(0)))
 
             Button(action: {
                 viewModel.triggerFaceID.send()
             }) {
-                Image(systemName: "faceid") // 使用 SF Symbols，或者您可以使用自己的圖片
+                Image(systemName: "faceid")
                     .resizable()
                     .frame(width: 30, height: 30)
             }
 
-            // 自定義數字鍵盤
             VStack(spacing: 10) {
                 ForEach(0..<3) { row in
                     HStack(spacing: 10) {
@@ -130,15 +140,11 @@ struct PasswordView: View {
                     }
                 }
 
-                // 為0和刪除按鈕添加一個特殊的行
                 HStack(spacing: 10) {
-                    Button("Delete") {
-                        viewModel.deleteInputPassword()
-                    }
-                    .font(.title)
-                    .frame(width: 60, height: 60)
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(30)
+
+                    Color.clear
+                        .frame(width: 60, height: 60)
+                        .background(Color.clear)
 
                     Button("0") {
                         viewModel.appendInputPassword(number: "0")
@@ -147,8 +153,37 @@ struct PasswordView: View {
                     .frame(width: 60, height: 60)
                     .background(Color.gray.opacity(0.2))
                     .cornerRadius(30)
+
+                    Button(action: {
+                        viewModel.deleteInputPassword()
+                    }) {
+                        Image(systemName: "delete.left")
+                            .font(.title)
+                            .frame(width: 60, height: 60)
+                    }
                 }
             }
         }
+        .onChange(of: viewModel.inputPassword) { newValue in
+            if newValue.count == 4 {
+                // 檢查密碼是否正確
+                if !viewModel.isValidPassword {
+                    withAnimation {
+                        showError.toggle()
+                    }
+                    print(showError)
+                }
+            }
+        }
+    }
+}
+
+struct Shake: GeometryEffect {
+    var amount: CGFloat = 10
+    var shakesPerUnit = 3
+    var animatableData: CGFloat
+
+    func effectValue(size: CGSize) -> ProjectionTransform {
+        ProjectionTransform(CGAffineTransform(translationX: amount * sin(animatableData * .pi * CGFloat(shakesPerUnit)), y: 0))
     }
 }
