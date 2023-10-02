@@ -284,44 +284,8 @@
                     <view key="view" contentMode="scaleToFill" id="4ZN-xw-QZg">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="VnK-jH-ueg">
-                                <rect key="frame" x="16" y="625" width="364" height="128"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XpR-8C-67h">
-                                        <rect key="frame" x="0.0" y="0.0" width="110" height="128"/>
-                                        <color key="backgroundColor" name="B2"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="110" id="1zc-3g-dWT"/>
-                                        </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EVQ-iz-OXH">
-                                        <rect key="frame" x="127" y="0.0" width="110" height="128"/>
-                                        <color key="backgroundColor" name="B2"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="110" id="96a-bI-ZKW"/>
-                                        </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mr8-QP-OVp">
-                                        <rect key="frame" x="254" y="0.0" width="110" height="128"/>
-                                        <color key="backgroundColor" name="B2"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="110" id="g8x-8V-VMz"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="364" id="DNU-Wc-EaH"/>
-                                </constraints>
-                            </stackView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="7sd-MS-lTn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="7sd-MS-lTn" firstAttribute="bottom" secondItem="VnK-jH-ueg" secondAttribute="bottom" constant="16" id="XU3-R7-Olo"/>
-                            <constraint firstItem="7sd-MS-lTn" firstAttribute="trailing" secondItem="VnK-jH-ueg" secondAttribute="trailing" constant="16" id="ssA-8h-pZS"/>
-                            <constraint firstItem="VnK-jH-ueg" firstAttribute="leading" secondItem="7sd-MS-lTn" secondAttribute="leading" constant="16" id="ykY-Tj-Qkl"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hYS-W5-IjH"/>
                 </viewController>
