@@ -14,15 +14,24 @@ import IQKeyboardManagerSwift
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         IQKeyboardManager.shared.enable = true
+//        if Auth.auth().currentUser == nil {
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            if let lobbyVC = storyboard.instantiateViewController(withIdentifier: "LobbyViewController") as? LobbyViewController {
+//                if let rootViewController = self.window?.rootViewController {
+//                    lobbyVC.modalPresentationStyle = .overFullScreen
+//                    rootViewController.present(lobbyVC, animated: true)
+//                    GlobalState.isUnlock = true
+//                }
+//            }
+//        }
 
         UNUserNotificationCenter.current().delegate = self
-        
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (granted, error) in
             if granted {
                 print("允許開啟")
