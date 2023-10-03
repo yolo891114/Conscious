@@ -155,8 +155,11 @@ struct EmotionLineChartView: View {
                 ForEach(viewModel.filteredRecords) { item in
                     LineMark(
                         x: .value("Date", item.date),
-                        y: .value("Score", item.emotionScore))
+                        y: .value("Score", item.emotionScore)
+                    )
                 }
+                .symbol(.circle)
+                .foregroundStyle(Gradient(colors: [.blue, .mint, .yellow]))
             }
             .frame(height: 180)
         }

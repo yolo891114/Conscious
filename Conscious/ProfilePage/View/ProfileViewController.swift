@@ -33,6 +33,7 @@ class ProfileViewController: UIViewController {
                 self?.nameLabel.text = name
             }
             .store(in: &cancellables)
+
     }
 
     @IBAction func logoutButtonTapped(_ sender: UIButton) {

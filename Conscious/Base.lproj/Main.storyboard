@@ -1249,7 +1249,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="uFo-On-pEa" kind="show" id="gXO-u2-LFb"/>
+                                    <action selector="loginButtonTapped:" destination="Aw1-0P-zMN" eventType="touchUpInside" id="NFI-uO-LAJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HGI-g4-6cR">
@@ -1293,17 +1293,20 @@
             <objects>
                 <viewController storyboardIdentifier="LogInViewController" id="uFo-On-pEa" customClass="LogInViewController" customModule="Conscious" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Aol-0I-3lX">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NcC-RT-8sY">
-                                <rect key="frame" x="0.0" y="602" width="393" height="240"/>
+                                <rect key="frame" x="0.0" y="612" width="393" height="240"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="msM-n7-IB6">
                                         <rect key="frame" x="338" y="8" width="47" height="35"/>
                                         <color key="tintColor" name="B1"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="xmark" catalog="system"/>
+                                        <connections>
+                                            <action selector="closeButtontapped:" destination="uFo-On-pEa" eventType="touchUpInside" id="jrm-Zg-EsQ"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="djF-8Z-RhA">
                                         <rect key="frame" x="32" y="59" width="329" height="40"/>
@@ -1410,21 +1413,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zFN-4E-9oj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1031" y="718"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="s1R-uz-vd2">
-            <objects>
-                <viewController id="NNi-JN-I6p" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="d90-6i-gJf">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="jdE-Kd-qeI"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DoF-Ji-JWj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-334" y="41"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
