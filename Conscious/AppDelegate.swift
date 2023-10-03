@@ -7,16 +7,47 @@
 
 import UIKit
 import CoreData
+import FirebaseCore
+import FirebaseAuth
+import IQKeyboardManagerSwift
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
+        IQKeyboardManager.shared.enable = true
+//        if Auth.auth().currentUser == nil {
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            if let lobbyVC = storyboard.instantiateViewController(withIdentifier: "LobbyViewController") as? LobbyViewController {
+//                if let rootViewController = self.window?.rootViewController {
+//                    lobbyVC.modalPresentationStyle = .overFullScreen
+//                    rootViewController.present(lobbyVC, animated: true)
+//                    GlobalState.isUnlock = true
+//                }
+//            }
+//        }
+
+        UNUserNotificationCenter.current().delegate = self
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+            if granted {
+                print("允許開啟")
+            }else{
+                print("拒絕接受開啟")
+            }
+        }
         return true
     }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler:
+                                @escaping (UNNotificationPresentationOptions) -> Void) {
+            completionHandler([.badge, .banner, .list, .sound])
+        }
 
     // MARK: UISceneSession Lifecycle
 
@@ -32,6 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
+
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {
@@ -40,13 +72,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          creates and returns a container, having loaded the store for the
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
-        */
+         */
         let container = NSPersistentContainer(name: "Conscious")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                 
+
                 /*
                  Typical reasons for an error here include:
                  * The parent directory does not exist, cannot be created, or disallows writing.
@@ -79,3 +111,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+class GlobalState {
+    static var isUnlock: Bool = false
+}
