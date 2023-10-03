@@ -13,4 +13,7 @@ class ProfileTableViewCell: UITableViewCell {
     @IBOutlet weak var iconView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    var hiddenTextField: UITextField?
+    var switchButton: UISwitch?
+
 }
