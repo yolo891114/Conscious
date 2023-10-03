@@ -33,15 +33,16 @@ class ProfileViewController: UIViewController {
                 self?.nameLabel.text = name
             }
             .store(in: &cancellables)
+
     }
 
     @IBAction func logoutButtonTapped(_ sender: UIButton) {
 
         FirebaseManager.shared.logOut()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let loginVC = storyboard.instantiateViewController(withIdentifier: "LogInViewController") as? LogInViewController {
-            loginVC.modalPresentationStyle = .overFullScreen
-            self.navigationController?.present(loginVC, animated: true)
+        if let lobbyVC = storyboard.instantiateViewController(withIdentifier: "LobbyViewController") as? LobbyViewController {
+            lobbyVC.modalPresentationStyle = .overFullScreen
+            self.navigationController?.present(lobbyVC, animated: true)
             GlobalState.isUnlock = true
         }
 
