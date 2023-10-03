@@ -1087,15 +1087,11 @@
         <!--設定通知-->
         <scene sceneID="ifT-bP-oog">
             <objects>
-                <viewController id="gKA-9d-Ccn" customClass="NotificationViewController" customModule="Conscious" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NotificationViewController" id="gKA-9d-Ccn" customClass="NotificationViewController" customModule="Conscious" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yPR-Sq-PbT">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Cml-To-AKu">
-                                <rect key="frame" x="0.0" y="359" width="393" height="75"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qUY-y7-aBr">
                                 <rect key="frame" x="158" y="448" width="78" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1105,18 +1101,19 @@
                                     <action selector="submitButtonTapped:" destination="gKA-9d-Ccn" eventType="touchUpInside" id="zur-xJ-eYy"/>
                                 </connections>
                             </button>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="Tej-e6-iEK">
+                                <rect key="frame" x="44" y="311" width="306" height="129"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </datePicker>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GFF-8Q-Aqi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="設定通知" id="oYP-s8-Kwo"/>
-                    <connections>
-                        <outlet property="datePicker" destination="Cml-To-AKu" id="cxu-f4-RRq"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8tT-dU-r8v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4551.9083969465646" y="2880.9859154929577"/>
+            <point key="canvasLocation" x="4551.9083969465646" y="2880.2816901408451"/>
         </scene>
         <!--Enter Password View Controller-->
         <scene sceneID="n2t-Ru-QjY">
