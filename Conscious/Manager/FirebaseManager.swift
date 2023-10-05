@@ -20,11 +20,12 @@ class FirebaseManager {
     }
 
     // 註冊
-    func signUp(email: String, userName: String, password: String) {
+    func signUp(email: String, userName: String, password: String, completion: @escaping ((Bool) -> Void)) {
 
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if let error = error {
                 print("Error creating user: \(error)")
+                completion(false)
             }
             if let result = result {
 
@@ -40,6 +41,7 @@ class FirebaseManager {
 
                 self.authUpdate(user: result.user, name: userName)
 
+                completion(true)
             }
         }
     }
@@ -74,6 +76,16 @@ class FirebaseManager {
             try Auth.auth().signOut()
         } catch let signOutError as NSError {
             print("Error signing out: \(signOutError)")
+        }
+    }
+
+    func resetPassword(email: String, completion: @escaping ((Bool) -> Void)) {
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+            if let error = error {
+                completion(false)
+            } else {
+                completion(true)
+            }
         }
     }
 

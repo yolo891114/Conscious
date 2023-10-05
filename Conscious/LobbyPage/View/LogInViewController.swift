@@ -13,7 +13,6 @@ import Combine
 
 class LogInViewController: UIViewController {
 
-    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @Published var isLogin: Bool = false
@@ -33,12 +32,13 @@ class LogInViewController: UIViewController {
         loginSuccess?()
     }
 
-    @IBAction func signupButtonTapped(_ sender: UIButton) {
-        guard let name = nameTextField.text,
-              let email = emailTextField.text,
-              let password = passwordTextField.text else { return }
+    @IBAction func forgotPasswordButtonTapped(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let resetVC = storyboard.instantiateViewController(withIdentifier: "ResetPasswordViewController") as? ResetPasswordViewController {
 
-        FirebaseManager.shared.signUp(email: email, userName: name, password: password)
+            resetVC.modalPresentationStyle = .overFullScreen
+            self.present(resetVC, animated: true)
+        }
     }
 
     override func viewDidLoad() {
