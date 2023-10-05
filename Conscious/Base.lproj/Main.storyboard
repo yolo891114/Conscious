@@ -915,18 +915,6 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qhp-V6-waf">
-                                        <rect key="frame" x="86" y="26" width="211" height="19.666666666666671"/>
-                                        <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="14"/>
-                                        <color key="textColor" name="B5"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Go-jY-IQO">
-                                        <rect key="frame" x="86" y="49.666666666666657" width="211" height="15.666666666666671"/>
-                                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="11"/>
-                                        <color key="textColor" systemColor="opaqueSeparatorColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zrW-Fj-DbG">
                                         <rect key="frame" x="313" y="32.666666666666657" width="24" height="24"/>
                                         <constraints>
@@ -936,20 +924,37 @@
                                         <color key="tintColor" name="B5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="pencil" catalog="system"/>
+                                        <connections>
+                                            <action selector="editButtonTapped:" destination="36m-Fu-qQo" eventType="touchUpInside" id="XJG-Fm-C07"/>
+                                        </connections>
                                     </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="gS6-c1-OjX">
+                                        <rect key="frame" x="86" y="23.666666666666657" width="89" height="39"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D2J-8E-NGG">
+                                                <rect key="frame" x="0.0" y="0.0" width="89" height="21.333333333333332"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" name="B5"/>
+                                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Go-jY-IQO">
+                                                <rect key="frame" x="0.0" y="23.333333333333343" width="89" height="15.666666666666664"/>
+                                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="11"/>
+                                                <color key="textColor" systemColor="opaqueSeparatorColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" name="B2"/>
                                 <constraints>
-                                    <constraint firstItem="Qhp-V6-waf" firstAttribute="leading" secondItem="NyQ-ju-WFs" secondAttribute="trailing" constant="16" id="DPf-He-eIz"/>
-                                    <constraint firstItem="zrW-Fj-DbG" firstAttribute="leading" secondItem="Qhp-V6-waf" secondAttribute="trailing" constant="16" id="OBy-Ga-qE1"/>
+                                    <constraint firstItem="gS6-c1-OjX" firstAttribute="leading" secondItem="NyQ-ju-WFs" secondAttribute="trailing" constant="16" id="A4e-cr-8ML"/>
+                                    <constraint firstItem="gS6-c1-OjX" firstAttribute="centerY" secondItem="NyQ-ju-WFs" secondAttribute="centerY" id="HHw-gT-zyM"/>
                                     <constraint firstAttribute="height" constant="89" id="Spr-dn-eon"/>
-                                    <constraint firstItem="zrW-Fj-DbG" firstAttribute="leading" secondItem="9Go-jY-IQO" secondAttribute="trailing" constant="16" id="bZb-hE-LJe"/>
                                     <constraint firstItem="NyQ-ju-WFs" firstAttribute="leading" secondItem="BAu-Aj-foe" secondAttribute="leading" constant="16" id="dql-DR-7eg"/>
                                     <constraint firstItem="NyQ-ju-WFs" firstAttribute="top" secondItem="BAu-Aj-foe" secondAttribute="top" constant="16" id="ilB-xc-d0q"/>
-                                    <constraint firstItem="9Go-jY-IQO" firstAttribute="top" secondItem="Qhp-V6-waf" secondAttribute="bottom" constant="4" id="kUZ-nN-6Xm"/>
-                                    <constraint firstItem="9Go-jY-IQO" firstAttribute="leading" secondItem="NyQ-ju-WFs" secondAttribute="trailing" constant="16" id="rRv-z2-mqw"/>
                                     <constraint firstItem="zrW-Fj-DbG" firstAttribute="centerY" secondItem="BAu-Aj-foe" secondAttribute="centerY" id="sha-IS-Z2h"/>
-                                    <constraint firstItem="Qhp-V6-waf" firstAttribute="top" secondItem="BAu-Aj-foe" secondAttribute="top" constant="26" id="uUV-kx-V7w"/>
                                     <constraint firstAttribute="trailing" secondItem="zrW-Fj-DbG" secondAttribute="trailing" constant="24" id="zF8-1Q-Ijy"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -983,13 +988,13 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privacy Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6z-YV-E4z">
-                                                    <rect key="frame" x="72" y="22.666666666666671" width="98" height="19"/>
+                                                    <rect key="frame" x="72" y="22.666666666666671" width="97.666666666666686" height="18.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manage your device security" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yxl-xS-Gzm">
-                                                    <rect key="frame" x="72" y="46.666666666666664" width="147" height="16"/>
+                                                    <rect key="frame" x="71.999999999999986" y="47" width="146.66666666666663" height="15.666666666666664"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="11"/>
                                                     <color key="textColor" systemColor="systemGrayColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1045,7 +1050,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="nameLabel" destination="Qhp-V6-waf" id="xHt-VE-cEg"/>
+                        <outlet property="editButton" destination="zrW-Fj-DbG" id="ljT-GU-I5a"/>
+                        <outlet property="nameTextField" destination="D2J-8E-NGG" id="a59-kE-haf"/>
                         <outlet property="tableView" destination="o0N-BC-f07" id="20U-ZY-oyQ"/>
                     </connections>
                 </viewController>
