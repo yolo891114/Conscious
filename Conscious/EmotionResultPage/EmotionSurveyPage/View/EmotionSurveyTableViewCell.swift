@@ -32,4 +32,14 @@ class EmotionSurveyTableViewCell: UITableViewCell {
             }
         }
     }
+
+    func updateUI(with score: Int?) {
+        for button in answerButtons {
+            if let score = score {
+                button.isSelected = (button.tag == score)
+            } else {
+                button.isSelected = false
+            }
+        }
+    }
 }
