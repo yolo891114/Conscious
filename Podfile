@@ -14,6 +14,7 @@ pod 'SwiftLint'
 pod 'Firebase/Storage'
 pod 'EventsCalendar'
 pod 'Kingfisher'
+pod 'Hero'
 pod 'IQKeyboardManagerSwift'
 
 

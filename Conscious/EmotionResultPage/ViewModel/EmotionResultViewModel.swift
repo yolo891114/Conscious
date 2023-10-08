@@ -14,6 +14,8 @@ enum DataScope {
     case year
 }
 
+// TODO: Model ViewModel 職責未分
+
 class EmotionResultViewModel: ObservableObject {
 
     @Published var startColor: [UIColor] = [
@@ -27,6 +29,13 @@ class EmotionResultViewModel: ObservableObject {
         UIColor.hexStringToUIColor(hex: "FFCFBB")]
 
     @Published var imageName = ["Excersicing", "notebook", "hoding_heart"]
+
+    @Published var titleArray = ["Emotional Health", "Benefits of Journaling", "Alleviate Anxiety"]
+    @Published var subtitleArray = [""]
+
+    @Published var directedViewControllerArray = [FirstInfoViewController.self, SecondInfoViewController.self, ThirdInfoViewController.self]
+
+    @Published var heroIDArray = ["showFirstInfoVC", "showSecondInfoVC", "showThirdInfoVC"]
 
     @Published var canAddNewRecord: Bool?
     @Published var dateChanged: Bool = false
