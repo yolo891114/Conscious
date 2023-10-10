@@ -24,6 +24,7 @@ class EmotionResultCollectionViewCell: UICollectionViewCell {
         label.textColor = .B2
         label.numberOfLines = 0
         label.text = "Title"
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
 
@@ -34,6 +35,7 @@ class EmotionResultCollectionViewCell: UICollectionViewCell {
         label.textColor = .B3
         label.numberOfLines = 0
         label.text = "Sub Title"
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
 
@@ -57,6 +59,8 @@ class EmotionResultCollectionViewCell: UICollectionViewCell {
     }
 
     func setupUI() {
+        titleLabel.lineBreakMode = .byWordWrapping
+
         NSLayoutConstraint.activate([
             gradientBackground.topAnchor.constraint(equalTo: topAnchor),
             gradientBackground.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
@@ -65,6 +69,8 @@ class EmotionResultCollectionViewCell: UICollectionViewCell {
 
             titleLabel.topAnchor.constraint(equalTo: gradientBackground.topAnchor, constant: 24),
             titleLabel.leadingAnchor.constraint(equalTo: gradientBackground.leadingAnchor, constant: 16),
+            titleLabel.widthAnchor.constraint(equalToConstant: 140),
+//            titleLabel.trailingAnchor.constraint(equalTo: gradientBackground.trailingAnchor, constant: -32),
 
             subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 24),
             subTitleLabel.leadingAnchor.constraint(equalTo: gradientBackground.leadingAnchor, constant: 16),

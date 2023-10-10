@@ -50,7 +50,11 @@ extension EmotionSurveyViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "EmotionSurveyTableViewCell") as? EmotionSurveyTableViewCell else { return UITableViewCell() }
 
-        cell.question = viewModel.questions[indexPath.row]
+        let question = viewModel.questions[indexPath.row]
+        cell.question = question
+
+        cell.updateUI(with: question.score)
+
         // 將傳送過來的 sender.tag 作為分數計算
         cell.passScoreData = { [weak self] score in
             self?.viewModel.updateScore(forQuestionAt: indexPath.row, withScore: score)

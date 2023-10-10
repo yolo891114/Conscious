@@ -13,7 +13,9 @@ import Combine
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var editButton: UIButton!
+
     private var viewModel = ProfileViewModel()
     var cancellables = Set<AnyCancellable>()
 
@@ -23,6 +25,8 @@ class ProfileViewController: UIViewController {
 
         tableView.delegate = self
         tableView.dataSource = self
+
+        nameTextField.isEnabled = false
         
     }
 
@@ -30,7 +34,7 @@ class ProfileViewController: UIViewController {
 
         viewModel.$currentUserName
             .sink { [weak self] name in
-                self?.nameLabel.text = name
+                self?.nameTextField.text = name
             }
             .store(in: &cancellables)
 
@@ -45,6 +49,24 @@ class ProfileViewController: UIViewController {
             self.navigationController?.present(lobbyVC, animated: true)
             GlobalState.isUnlock = true
         }
+    }
+
+    @IBAction func editButtonTapped(_ sender: UIButton) {
+        if nameTextField.isEditing {
+            nameTextField.isEnabled = false
+            editButton.setImage(UIImage(systemName: "pencil"), for: .normal)
+
+            if let user = Auth.auth().currentUser,
+               let name = nameTextField.text {
+                FirebaseManager.shared.authUpdate(user: user, name: name)
+            }
+        } else {
+            nameTextField.isEnabled = true
+            nameTextField.becomeFirstResponder()
+            editButton.setImage(UIImage(systemName: "checkmark"), for: .normal)
+        }
+
+
 
     }
 

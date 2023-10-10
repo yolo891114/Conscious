@@ -10,6 +10,7 @@ import UIKit
 import SwiftUI
 import Charts
 import Combine
+import Hero
 
 // TODO: 檢查驚嘆號
 
@@ -21,6 +22,7 @@ class EmotionResultViewController: UIViewController {
     @IBOutlet weak var lineChartBackgroundView: UIView!
     @IBOutlet weak var emotionLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
+    var selectedCell: UICollectionViewCell?
 
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -100,6 +102,8 @@ class EmotionResultViewController: UIViewController {
 
         collectionView.delegate = self
         collectionView.dataSource = self
+//        self.transitioningDelegate = self
+        self.hero.isEnabled = true
 
         collectionView.register(EmotionResultCollectionViewCell.self, forCellWithReuseIdentifier: "EmotionResultCollectionViewCell")
 
@@ -130,10 +134,39 @@ extension EmotionResultViewController: UICollectionViewDataSource, UICollectionV
         cell.gradientBackground.csBornerRadius = 15
         cell.gradientBackground.angle = 45
         cell.ornamentalImage.image = UIImage(named: viewModel.imageName[indexPath.row])
+        cell.titleLabel.text = viewModel.titleArray[indexPath.row]
 
         return cell
     }
 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? EmotionResultCollectionViewCell else { return }
+
+        cell.gradientBackground.hero.id = viewModel.heroIDArray[indexPath.row]
+        cell.hero.modifiers = [.fade, .scale(0.5)]
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let identifier = "\(viewModel.directedViewControllerArray[indexPath.row])"
+        let infoVC = storyboard.instantiateViewController(withIdentifier: identifier)
+
+        infoVC.modalPresentationStyle = .fullScreen
+        infoVC.hero.isEnabled = true
+
+        if let firstVC = infoVC as? FirstInfoViewController {
+            present(firstVC, animated: true, completion: nil)
+        } else if let secondVC = infoVC as? SecondInfoViewController {
+            present(secondVC, animated: true, completion: nil)
+        } else if let thirdVC = infoVC as? ThirdInfoViewController {
+            present(thirdVC, animated: true, completion: nil)
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? EmotionResultCollectionViewCell else { return }
+
+        // 移除選中 cell 的 Hero ID
+        cell.gradientBackground.hero.id = nil
+    }
 }
 
 extension EmotionResultViewController: UICollectionViewDelegateFlowLayout {
