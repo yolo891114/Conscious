@@ -15,6 +15,8 @@
 		541684622AB00F3E00F12484 /* Conscious.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 541684602AB00F3E00F12484 /* Conscious.xcdatamodeld */; };
 		541684642AB00F4300F12484 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 541684632AB00F4300F12484 /* Assets.xcassets */; };
 		541684672AB00F4300F12484 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 541684652AB00F4300F12484 /* LaunchScreen.storyboard */; };
+		5447DBD52AD797F200B06198 /* ContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5447DBD42AD797F200B06198 /* ContentTableViewCell.swift */; };
+		5447DBD92AD7BE9200B06198 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5447DBD82AD7BE9200B06198 /* PhotoTableViewCell.swift */; };
 		544C5CF92ABBD4C00020F88F /* EnterPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544C5CF82ABBD4BF0020F88F /* EnterPasswordViewController.swift */; };
 		544C5CFB2ABBD84E0020F88F /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544C5CFA2ABBD84E0020F88F /* UIButton+Extension.swift */; };
 		544C5CFD2ABBDBEA0020F88F /* EnterPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544C5CFC2ABBDBEA0020F88F /* EnterPasswordViewModel.swift */; };
@@ -39,7 +41,7 @@
 		54B7A7BB2ABD61A6001BD9AD /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B7A7BA2ABD61A6001BD9AD /* LogInViewController.swift */; };
 		54B7A7BD2ABD8E91001BD9AD /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B7A7BC2ABD8E91001BD9AD /* ProfileViewModel.swift */; };
 		54B7A7BF2ABD9A5A001BD9AD /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B7A7BE2ABD9A59001BD9AD /* UIColor+Extension.swift */; };
-		54B7A7C12AC1601D001BD9AD /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B7A7C02AC1601D001BD9AD /* PhotoTableViewCell.swift */; };
+		54B7A7C12AC1601D001BD9AD /* TimelineWithPhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B7A7C02AC1601D001BD9AD /* TimelineWithPhotoTableViewCell.swift */; };
 		54B7A7C32AC27724001BD9AD /* StartSurveyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B7A7C22AC27724001BD9AD /* StartSurveyViewModel.swift */; };
 		54C287F22AB7F65500A399E7 /* EmotionResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C287F12AB7F65500A399E7 /* EmotionResultViewController.swift */; };
 		54C287F72AB7FB7800A399E7 /* StartSurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C287F62AB7FB7800A399E7 /* StartSurveyViewController.swift */; };
@@ -70,6 +72,8 @@
 		541684632AB00F4300F12484 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		541684662AB00F4300F12484 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		541684682AB00F4300F12484 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5447DBD42AD797F200B06198 /* ContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTableViewCell.swift; sourceTree = "<group>"; };
+		5447DBD82AD7BE9200B06198 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
 		544C5CF82ABBD4BF0020F88F /* EnterPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPasswordViewController.swift; sourceTree = "<group>"; };
 		544C5CFA2ABBD84E0020F88F /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		544C5CFC2ABBDBEA0020F88F /* EnterPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPasswordViewModel.swift; sourceTree = "<group>"; };
@@ -94,7 +98,7 @@
 		54B7A7BA2ABD61A6001BD9AD /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		54B7A7BC2ABD8E91001BD9AD /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		54B7A7BE2ABD9A59001BD9AD /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
-		54B7A7C02AC1601D001BD9AD /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
+		54B7A7C02AC1601D001BD9AD /* TimelineWithPhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineWithPhotoTableViewCell.swift; sourceTree = "<group>"; };
 		54B7A7C22AC27724001BD9AD /* StartSurveyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSurveyViewModel.swift; sourceTree = "<group>"; };
 		54C287F12AB7F65500A399E7 /* EmotionResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionResultViewController.swift; sourceTree = "<group>"; };
 		54C287F62AB7FB7800A399E7 /* StartSurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSurveyViewController.swift; sourceTree = "<group>"; };
@@ -313,6 +317,8 @@
 			isa = PBXGroup;
 			children = (
 				5416845B2AB00F3E00F12484 /* NewDiaryViewController.swift */,
+				5447DBD42AD797F200B06198 /* ContentTableViewCell.swift */,
+				5447DBD82AD7BE9200B06198 /* PhotoTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -347,7 +353,7 @@
 			children = (
 				54B62DEB2AB30E7500908DFE /* TimelineViewController.swift */,
 				54B62DED2AB3130500908DFE /* TimelineWithDateTableViewCell.swift */,
-				54B7A7C02AC1601D001BD9AD /* PhotoTableViewCell.swift */,
+				54B7A7C02AC1601D001BD9AD /* TimelineWithPhotoTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -648,7 +654,9 @@
 				54B62DF52AB4324E00908DFE /* DetailViewController.swift in Sources */,
 				544C5CF92ABBD4C00020F88F /* EnterPasswordViewController.swift in Sources */,
 				54B62DEE2AB3130500908DFE /* TimelineWithDateTableViewCell.swift in Sources */,
+				5447DBD52AD797F200B06198 /* ContentTableViewCell.swift in Sources */,
 				54B7A7BF2ABD9A5A001BD9AD /* UIColor+Extension.swift in Sources */,
+				5447DBD92AD7BE9200B06198 /* PhotoTableViewCell.swift in Sources */,
 				54C2880D2AB9A93700A399E7 /* PunchRecordViewController.swift in Sources */,
 				546C675D2AB2961800DF82B8 /* FirebaseManager.swift in Sources */,
 				544C5CFB2ABBD84E0020F88F /* UIButton+Extension.swift in Sources */,
@@ -657,7 +665,7 @@
 				544C5CFD2ABBDBEA0020F88F /* EnterPasswordViewModel.swift in Sources */,
 				54E198CB2ACE9367000A3931 /* ThirdInfoViewController.swift in Sources */,
 				5479F4F72ACA6C820035B645 /* PunchRecordViewModel.swift in Sources */,
-				54B7A7C12AC1601D001BD9AD /* PhotoTableViewCell.swift in Sources */,
+				54B7A7C12AC1601D001BD9AD /* TimelineWithPhotoTableViewCell.swift in Sources */,
 				5479F4F52AC888980035B645 /* ProfileTableViewCell.swift in Sources */,
 				546C67692AB2B0AC00DF82B8 /* UserModel.swift in Sources */,
 				54B7A7C32AC27724001BD9AD /* StartSurveyViewModel.swift in Sources */,

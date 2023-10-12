@@ -16,6 +16,7 @@ class NewDiaryViewModel: ObservableObject {
     @Published var content: String = ""
     @Published var photoCollection: [Photo] = []
     @Published var photoData: Data?
+    @Published var isPhotoSelected: Bool = false
 
     private var cancellables = Set<AnyCancellable>()
 
