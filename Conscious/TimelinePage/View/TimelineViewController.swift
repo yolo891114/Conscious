@@ -91,13 +91,8 @@ extension TimelineViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let textCell = tableView.dequeueReusableCell(withIdentifier: "TimelineWithDateTableViewCell") as? TimelineWithDateTableViewCell else { return UITableViewCell() }
-        guard let photoCell = tableView.dequeueReusableCell(withIdentifier: "TimelineWithPhotoTableViewCell") as? PhotoTableViewCell else { return UITableViewCell() }
+        guard let photoCell = tableView.dequeueReusableCell(withIdentifier: "TimelineWithPhotoTableViewCell") as? TimelineWithPhotoTableViewCell else { return UITableViewCell() }
 
-//        let date = Array(viewModel.diariesByDate.keys.sorted(by: >))[indexPath.section]
-//        if let diary = viewModel.diariesByDate[date]?[indexPath.row] {
-//                cell.titleLabel.text = diary.title
-//                cell.contentLabel.text = diary.content
-//            }
         let diary = viewModel.diaries[indexPath.row]
 
         if viewModel.diaries[indexPath.row].photoCollection.count == 0 {

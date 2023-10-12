@@ -6,33 +6,35 @@
 //
 
 import UIKit
+import Combine
 
 class NewDiaryViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var contentTextField: UITextField!
-    @IBOutlet var imageButtons: [UIButton]!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var submitButton: UIButton!
 
     var viewModel = NewDiaryViewModel()
 
-    var isSelectedPhoto = false // 判定是否有選擇照片
+    private var cancellables = Set<AnyCancellable>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
 
+        tableView.delegate = self
+        tableView.dataSource = self
+
         submitButton.addTarget(self, action: #selector(submitButtonTapped), for: .touchUpInside)
 
-        if let editTitle = viewModel.diaryToEdit?.title,
-           let editContent = viewModel.diaryToEdit?.content {
-            titleTextField.text = editTitle
-            contentTextField.text = editContent
-        }
+        viewModel.$isPhotoSelected
+            .sink { [weak self] _ in
+                self?.tableView.reloadData()
+            }
+            .store(in: &cancellables)
 
     }
 
-    @IBAction func imageButtonTapped(_ sender: UIButton) {
+    @IBAction func cameraButtonTapped(_ sender: UIButton) {
         let imagePickerController = UIImagePickerController()
         imagePickerController.sourceType = .photoLibrary
         imagePickerController.delegate = self
@@ -41,24 +43,84 @@ class NewDiaryViewController: UIViewController, UIImagePickerControllerDelegate,
 
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        isSelectedPhoto = true
+
         if let image = info[.originalImage] as? UIImage {
-            let imageToSet = image.withRenderingMode(.alwaysOriginal)
-            imageButtons[0].setImage(imageToSet, for: .normal)
+            viewModel.photoData = image.jpegData(compressionQuality: 0.8)
+            viewModel.isPhotoSelected = true
         }
 
         dismiss(animated: true, completion: nil)
     }
 
     @objc func submitButtonTapped() {
-
-        viewModel.title = titleTextField.text ?? ""
-        viewModel.content = contentTextField.text ?? ""
-        viewModel.photoData = imageButtons[0].imageView?.image?.jpegData(compressionQuality: 0.8)
-//        for button in imageButtons {
-//            viewModel.photoData = button.imageView?.image?.jpegData(compressionQuality: 0.8)
-//        }
         viewModel.saveDiary()
         self.navigationController?.popToRootViewController(animated: true)
     }
+}
+
+// MARK: - DataSource
+
+extension NewDiaryViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.isPhotoSelected ? 2 : 1
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        if viewModel.isPhotoSelected && indexPath.row == 1 {
+            guard let photoCell = tableView.dequeueReusableCell(withIdentifier: "PhotoTableViewCell", for: indexPath) as? PhotoTableViewCell else { return UITableViewCell() }
+
+            if let photoData = viewModel.photoData {
+                photoCell.diaryImage.image = UIImage(data: photoData)
+            }
+
+            photoCell.deletePhoto = { [weak self] in
+                self?.viewModel.isPhotoSelected = false
+                self?.viewModel.photoData = nil
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+
+            return photoCell
+        } else {
+            guard let contentCell = tableView.dequeueReusableCell(withIdentifier: "ContentTableViewCell", for: indexPath) as? ContentTableViewCell else { return UITableViewCell() }
+
+            contentCell.titleTextView.delegate = self
+            contentCell.contentTextView.delegate = self
+
+            contentCell.titleTextView.tag = 1
+            contentCell.contentTextView.tag = 2
+
+            return contentCell
+        }
+    }
+
+}
+
+// MARK: - TextView Delegate
+
+extension NewDiaryViewController: UITextViewDelegate {
+
+    func textViewDidChange(_ textView: UITextView) {
+
+        switch textView.tag {
+        case 1:
+            viewModel.title = textView.text ?? ""
+        case 2:
+            viewModel.content = textView.text ?? ""
+        default:
+            break
+        }
+
+        tableView.beginUpdates()
+        tableView.endUpdates()
+    }
+
 }
