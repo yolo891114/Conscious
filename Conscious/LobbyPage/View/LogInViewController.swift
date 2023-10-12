@@ -15,6 +15,7 @@ class LogInViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var errorLabel: UILabel!
     @Published var isLogin: Bool = false
     var loginSuccess: (() -> Void)?
 
@@ -23,13 +24,19 @@ class LogInViewController: UIViewController {
     }
 
     @IBAction func loginButtonTapped(_ sender: UIButton) {
-        guard let email = emailTextField.text,
-              let password = passwordTextField.text else { return }
+        if let email = emailTextField.text,
+           let password = passwordTextField.text {
+            FirebaseManager.shared.logIn(email: email, password: password) { success in
+                if success {
+                    self.dismiss(animated: true)
+                    self.loginSuccess?()
+                } else {
+                    self.errorLabel.isHidden = false
+                    self.errorLabel.text = "Invalid username or password."
+                }
+            }
+        }
 
-        FirebaseManager.shared.logIn(email: email, password: password)
-        self.dismiss(animated: true)
-        isLogin = true
-        loginSuccess?()
     }
 
     @IBAction func forgotPasswordButtonTapped(_ sender: UIButton) {
@@ -43,6 +50,8 @@ class LogInViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        errorLabel.isHidden = true
     }
 
 }

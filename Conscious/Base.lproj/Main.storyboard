@@ -1653,15 +1653,6 @@ Dear you, when you're feeling down, remember that you have the ability and wisdo
                                     <action selector="signupButtonTapped:" destination="Aw1-0P-zMN" eventType="touchUpInside" id="NQu-43-qOd"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Atx-0G-bAH">
-                                <rect key="frame" x="76" y="459" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sEw-eK-pE0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1762,6 +1753,12 @@ Dear you, when you're feeling down, remember that you have the ability and wisdo
                                             <action selector="forgotPasswordButtonTapped:" destination="uFo-On-pEa" eventType="touchUpInside" id="Xih-xz-DRc"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invalid username or password." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N0D-q4-yNg">
+                                        <rect key="frame" x="32" y="175" width="172" height="15"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" systemColor="systemRedColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -1770,6 +1767,7 @@ Dear you, when you're feeling down, remember that you have the ability and wisdo
                                     <constraint firstItem="djF-8Z-RhA" firstAttribute="leading" secondItem="NcC-RT-8sY" secondAttribute="leading" constant="32" id="K1v-53-MIa"/>
                                     <constraint firstAttribute="trailing" secondItem="FaR-hw-JqI" secondAttribute="trailing" constant="32" id="PLP-gc-zQe"/>
                                     <constraint firstAttribute="trailing" secondItem="0cx-1J-1od" secondAttribute="trailing" constant="32" id="Rae-eC-fB2"/>
+                                    <constraint firstItem="N0D-q4-yNg" firstAttribute="centerY" secondItem="FaR-hw-JqI" secondAttribute="centerY" id="SmZ-u1-CTm"/>
                                     <constraint firstItem="h6H-fJ-93V" firstAttribute="leading" secondItem="NcC-RT-8sY" secondAttribute="leading" constant="32" id="U2C-rV-bXX"/>
                                     <constraint firstItem="h6H-fJ-93V" firstAttribute="top" relation="greaterThanOrEqual" secondItem="0cx-1J-1od" secondAttribute="bottom" constant="8" id="XjZ-x7-Vd8"/>
                                     <constraint firstItem="msM-n7-IB6" firstAttribute="top" secondItem="NcC-RT-8sY" secondAttribute="top" constant="8" id="YTL-gc-X2m"/>
@@ -1782,6 +1780,7 @@ Dear you, when you're feeling down, remember that you have the ability and wisdo
                                     <constraint firstAttribute="bottom" secondItem="h6H-fJ-93V" secondAttribute="bottom" constant="50" id="rWE-4J-ToK"/>
                                     <constraint firstAttribute="height" constant="300" id="teA-fx-zJP"/>
                                     <constraint firstItem="5Ql-gn-FPt" firstAttribute="top" secondItem="NcC-RT-8sY" secondAttribute="top" constant="24" id="wws-GD-TE1"/>
+                                    <constraint firstItem="N0D-q4-yNg" firstAttribute="leading" secondItem="NcC-RT-8sY" secondAttribute="leading" constant="32" id="xLY-9A-Ewy"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="csBornerRadius">
@@ -1801,6 +1800,7 @@ Dear you, when you're feeling down, remember that you have the ability and wisdo
                     <navigationItem key="navigationItem" id="BTL-qP-3aA"/>
                     <connections>
                         <outlet property="emailTextField" destination="djF-8Z-RhA" id="YUB-OZ-bga"/>
+                        <outlet property="errorLabel" destination="N0D-q4-yNg" id="TPX-Ud-XDX"/>
                         <outlet property="passwordTextField" destination="0cx-1J-1od" id="Hm3-7D-BPy"/>
                     </connections>
                 </viewController>
@@ -1817,7 +1817,7 @@ Dear you, when you're feeling down, remember that you have the ability and wisdo
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="68P-Dr-Fro">
-                                <rect key="frame" x="0.0" y="552" width="393" height="300"/>
+                                <rect key="frame" x="0.0" y="532" width="393" height="320"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VJ8-O5-TIm">
                                         <rect key="frame" x="338" y="8" width="47" height="35"/>
@@ -1854,7 +1854,7 @@ Dear you, when you're feeling down, remember that you have the ability and wisdo
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9aL-fO-fU4">
-                                        <rect key="frame" x="32" y="210" width="329" height="40"/>
+                                        <rect key="frame" x="32" y="230" width="329" height="40"/>
                                         <color key="backgroundColor" name="B3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="iz1-tC-mC6"/>
@@ -1880,6 +1880,12 @@ Dear you, when you're feeling down, remember that you have the ability and wisdo
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The password must be 6 characters long or more." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="juk-O4-Dz4">
+                                        <rect key="frame" x="32" y="203" width="281.33333333333331" height="15"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" systemColor="systemRedColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -1888,14 +1894,17 @@ Dear you, when you're feeling down, remember that you have the ability and wisdo
                                     <constraint firstItem="VCd-0t-aSS" firstAttribute="top" secondItem="tQK-78-IeB" secondAttribute="bottom" constant="8" id="Dxm-F0-Esd"/>
                                     <constraint firstItem="U11-N8-bga" firstAttribute="leading" secondItem="68P-Dr-Fro" secondAttribute="leading" constant="32" id="Gyn-lE-Guo"/>
                                     <constraint firstAttribute="trailing" secondItem="VCd-0t-aSS" secondAttribute="trailing" constant="32" id="I5i-RF-veM"/>
-                                    <constraint firstAttribute="height" constant="300" id="IOc-vN-TfS"/>
+                                    <constraint firstAttribute="height" constant="320" id="IOc-vN-TfS"/>
                                     <constraint firstItem="tQK-78-IeB" firstAttribute="leading" secondItem="68P-Dr-Fro" secondAttribute="leading" constant="32" id="P4I-zh-prn"/>
                                     <constraint firstAttribute="trailing" secondItem="9aL-fO-fU4" secondAttribute="trailing" constant="32" id="R7d-tc-PsN"/>
+                                    <constraint firstItem="juk-O4-Dz4" firstAttribute="leading" secondItem="68P-Dr-Fro" secondAttribute="leading" constant="32" id="TNc-2y-PgU"/>
                                     <constraint firstItem="VJ8-O5-TIm" firstAttribute="top" secondItem="68P-Dr-Fro" secondAttribute="top" constant="8" id="V4Q-uu-GFa"/>
+                                    <constraint firstItem="juk-O4-Dz4" firstAttribute="top" secondItem="ksv-ye-tfi" secondAttribute="bottom" constant="8" id="h34-q2-ArU"/>
                                     <constraint firstItem="U11-N8-bga" firstAttribute="top" secondItem="68P-Dr-Fro" secondAttribute="top" constant="24" id="jBU-1r-RYK"/>
                                     <constraint firstItem="ksv-ye-tfi" firstAttribute="leading" secondItem="68P-Dr-Fro" secondAttribute="leading" constant="32" id="k36-dx-MZr"/>
                                     <constraint firstItem="9aL-fO-fU4" firstAttribute="leading" secondItem="68P-Dr-Fro" secondAttribute="leading" constant="32" id="mKW-VC-oq3"/>
                                     <constraint firstItem="tQK-78-IeB" firstAttribute="top" secondItem="U11-N8-bga" secondAttribute="bottom" constant="11" id="oO1-z3-4tE"/>
+                                    <constraint firstItem="9aL-fO-fU4" firstAttribute="top" relation="greaterThanOrEqual" secondItem="juk-O4-Dz4" secondAttribute="bottom" constant="8" id="pz7-He-9PK"/>
                                     <constraint firstItem="VCd-0t-aSS" firstAttribute="leading" secondItem="68P-Dr-Fro" secondAttribute="leading" constant="32" id="sGz-VS-Zmo"/>
                                     <constraint firstAttribute="trailing" secondItem="ksv-ye-tfi" secondAttribute="trailing" constant="32" id="uM1-t6-9KI"/>
                                     <constraint firstItem="ksv-ye-tfi" firstAttribute="top" secondItem="VCd-0t-aSS" secondAttribute="bottom" constant="8" id="y1v-nf-aaU"/>
@@ -1917,6 +1926,7 @@ Dear you, when you're feeling down, remember that you have the ability and wisdo
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="VCd-0t-aSS" id="9OS-xE-43a"/>
+                        <outlet property="errorLabel" destination="juk-O4-Dz4" id="nzD-jh-o4v"/>
                         <outlet property="nameTextField" destination="tQK-78-IeB" id="Wvj-NN-7Tt"/>
                         <outlet property="passwordTextField" destination="ksv-ye-tfi" id="CRg-KA-roS"/>
                     </connections>
