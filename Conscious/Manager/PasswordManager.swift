@@ -10,6 +10,8 @@ import Security
 
 class PasswordManager {
 
+    static let shared = PasswordManager()
+
     func savePassword(password: String) {
         let passwordData = password.data(using: .utf8)!
 
@@ -56,4 +58,8 @@ class PasswordManager {
         savePassword(password: newPassword)
     }
 
+}
+
+class GlobalState {
+    static var isLock: Bool = false
 }

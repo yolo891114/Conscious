@@ -10,9 +10,9 @@ import Combine
 
 // TODO: 更改密碼前輸入舊密碼 / 換密碼時確認密碼
 
-enum PasswordMode {
-    case setting
-    case updating
+enum PasswordSet {
+    case off
+    case on
 }
 
 class SettingPasswordViewModel: ObservableObject {
@@ -21,9 +21,9 @@ class SettingPasswordViewModel: ObservableObject {
     private var passwordManager = PasswordManager()
     private var cancellables = Set<AnyCancellable>()
     let settingSuccess = PassthroughSubject<Void, Never>()
-    var mode: PasswordMode = .setting
+    var mode: PasswordSet = .off
 
-    init(mode: PasswordMode) {
+    init(mode: PasswordSet) {
         self.mode = mode
         $inputPassword
             .sink { password in
@@ -54,11 +54,12 @@ class SettingPasswordViewModel: ObservableObject {
 
     func saveOrUpdatePassword() {
         switch mode {
-        case .setting:
-            passwordManager.savePassword(password: inputPassword)
+        case .off:
+            UserDefaults.standard.set(false, forKey: "isPasswordSet")
             settingSuccess.send()
-        case .updating:
+        case .on:
             passwordManager.updatePassword(newPassword: inputPassword)
+            UserDefaults.standard.set(true, forKey: "isPasswordSet")
             settingSuccess.send()
         }
     }

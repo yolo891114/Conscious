@@ -12,7 +12,7 @@ class EnterPasswordViewModel: ObservableObject {
 
     @Published var inputPassword: String = ""
     @Published var isUnlock: Bool = false
-    private var passwordManager = PasswordManager()
+
     let unlockSuccess = PassthroughSubject<Void, Never>()
     let triggerFaceID = PassthroughSubject<Void, Never>()
     private var cancellables = Set<AnyCancellable>()
@@ -30,8 +30,7 @@ class EnterPasswordViewModel: ObservableObject {
     }
 
     var isValidPassword: Bool {
-        print(passwordManager.getPassword())
-        return inputPassword == passwordManager.getPassword()
+        return inputPassword == PasswordManager.shared.getPassword()
     }
 
     func appendInputPassword(number: String) {

@@ -302,7 +302,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="VQr-f7-WR4">
-                                <rect key="frame" x="0.0" y="103" width="393" height="599"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="599.66666666666663"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContentTableViewCell" rowHeight="150" id="T8B-OL-HBA" customClass="ContentTableViewCell" customModule="Conscious" customModuleProvider="target">
@@ -385,10 +385,11 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAR-3m-lCF">
-                                <rect key="frame" x="299" y="718" width="78" height="35"/>
+                                <rect key="frame" x="299" y="718.66666666666663" width="78" height="34.333333333333371"/>
                                 <color key="backgroundColor" name="B3"/>
                                 <color key="tintColor" name="B5"/>
-                                <state key="normal" title="Button"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Submit"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Submit"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="csBornerRadius">
@@ -397,7 +398,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vh5-r9-UHN">
-                                <rect key="frame" x="248" y="718" width="35" height="35"/>
+                                <rect key="frame" x="248" y="718.33333333333337" width="35" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="4Ym-AG-Rkp"/>
                                     <constraint firstAttribute="width" constant="35" id="xTl-89-dSH"/>

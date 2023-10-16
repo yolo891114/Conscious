@@ -17,6 +17,7 @@
 		541684672AB00F4300F12484 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 541684652AB00F4300F12484 /* LaunchScreen.storyboard */; };
 		5447DBD52AD797F200B06198 /* ContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5447DBD42AD797F200B06198 /* ContentTableViewCell.swift */; };
 		5447DBD92AD7BE9200B06198 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5447DBD82AD7BE9200B06198 /* PhotoTableViewCell.swift */; };
+		5447DBDF2AD8D27200B06198 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5447DBDE2AD8D27200B06198 /* ProfileModel.swift */; };
 		544C5CF92ABBD4C00020F88F /* EnterPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544C5CF82ABBD4BF0020F88F /* EnterPasswordViewController.swift */; };
 		544C5CFB2ABBD84E0020F88F /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544C5CFA2ABBD84E0020F88F /* UIButton+Extension.swift */; };
 		544C5CFD2ABBDBEA0020F88F /* EnterPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544C5CFC2ABBDBEA0020F88F /* EnterPasswordViewModel.swift */; };
@@ -74,6 +75,7 @@
 		541684682AB00F4300F12484 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5447DBD42AD797F200B06198 /* ContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTableViewCell.swift; sourceTree = "<group>"; };
 		5447DBD82AD7BE9200B06198 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
+		5447DBDE2AD8D27200B06198 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		544C5CF82ABBD4BF0020F88F /* EnterPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPasswordViewController.swift; sourceTree = "<group>"; };
 		544C5CFA2ABBD84E0020F88F /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		544C5CFC2ABBDBEA0020F88F /* EnterPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPasswordViewModel.swift; sourceTree = "<group>"; };
@@ -191,10 +193,17 @@
 			path = Conscious;
 			sourceTree = "<group>";
 		};
+		5447DBDD2AD8D26700B06198 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5447DBDE2AD8D27200B06198 /* ProfileModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		544C5CF42ABBD3DB0020F88F /* EnterPasswordPage */ = {
 			isa = PBXGroup;
 			children = (
-				544C5CF72ABBD4AD0020F88F /* Model */,
 				544C5CF62ABBD4A90020F88F /* View */,
 				544C5CF52ABBD4A10020F88F /* ViewModel */,
 			);
@@ -217,17 +226,10 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		544C5CF72ABBD4AD0020F88F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				544C5CFE2ABBDEAB0020F88F /* PasswordManager.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		544C5D002ABBF1D00020F88F /* ProfilePage */ = {
 			isa = PBXGroup;
 			children = (
+				5447DBDD2AD8D26700B06198 /* Model */,
 				544C5D092ABC1A250020F88F /* View */,
 				544C5D082ABC1A1E0020F88F /* ViewModel */,
 				544C5D012ABBF1DF0020F88F /* SettingPasswordPage */,
@@ -291,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				546C675C2AB2961800DF82B8 /* FirebaseManager.swift */,
+				544C5CFE2ABBDEAB0020F88F /* PasswordManager.swift */,
 				54C288072AB93A6400A399E7 /* DateManager.swift */,
 			);
 			path = Manager;
@@ -512,6 +515,8 @@
 			dependencies = (
 			);
 			name = Conscious;
+			packageProductDependencies = (
+			);
 			productName = Conscious;
 			productReference = 541684542AB00F3E00F12484 /* Conscious.app */;
 			productType = "com.apple.product-type.application";
@@ -540,6 +545,9 @@
 				Base,
 			);
 			mainGroup = 5416844B2AB00F3E00F12484;
+			packageReferences = (
+				5447DBE02AD91B2100B06198 /* XCRemoteSwiftPackageReference "SwiftfulLoadingIndicators" */,
+			);
 			productRefGroup = 541684552AB00F3E00F12484 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -670,6 +678,7 @@
 				546C67692AB2B0AC00DF82B8 /* UserModel.swift in Sources */,
 				54B7A7C32AC27724001BD9AD /* StartSurveyViewModel.swift in Sources */,
 				5416845C2AB00F3E00F12484 /* NewDiaryViewController.swift in Sources */,
+				5447DBDF2AD8D27200B06198 /* ProfileModel.swift in Sources */,
 				547352992AD0055700C4699B /* FirstInfoViewController.swift in Sources */,
 				54C287F22AB7F65500A399E7 /* EmotionResultViewController.swift in Sources */,
 				54C288082AB93A6400A399E7 /* DateManager.swift in Sources */,
@@ -928,6 +937,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5447DBE02AD91B2100B06198 /* XCRemoteSwiftPackageReference "SwiftfulLoadingIndicators" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftfulThinking/SwiftfulLoadingIndicators.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCVersionGroup section */
 		541684602AB00F3E00F12484 /* Conscious.xcdatamodeld */ = {

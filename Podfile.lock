@@ -832,6 +832,9 @@ PODS:
     - nanopb/encode (= 2.30909.0)
   - nanopb/decode (2.30909.0)
   - nanopb/encode (2.30909.0)
+  - NVActivityIndicatorView (5.1.1):
+    - NVActivityIndicatorView/Base (= 5.1.1)
+  - NVActivityIndicatorView/Base (5.1.1)
   - PromisesObjC (2.3.1)
   - PromisesSwift (2.3.1):
     - PromisesObjC (= 2.3.1)
@@ -848,6 +851,7 @@ DEPENDENCIES:
   - Hero
   - IQKeyboardManagerSwift
   - Kingfisher
+  - NVActivityIndicatorView
   - SwiftLint
 
 SPEC REPOS:
@@ -879,6 +883,7 @@ SPEC REPOS:
     - Kingfisher
     - leveldb-library
     - nanopb
+    - NVActivityIndicatorView
     - PromisesObjC
     - PromisesSwift
     - RecaptchaInterop
@@ -912,11 +917,12 @@ SPEC CHECKSUMS:
   Kingfisher: 59f908b6d2f403b0a3e539debb0eec05cb27002c
   leveldb-library: f03246171cce0484482ec291f88b6d563699ee06
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
+  NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
   PromisesSwift: 28dca69a9c40779916ac2d6985a0192a5cb4a265
   RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
   SwiftLint: 1cc5cd61ba9bacb2194e340aeb47a2a37fda00b3
 
-PODFILE CHECKSUM: d42c0ae644411c73a3bf59562ad70c7170a37c07
+PODFILE CHECKSUM: 82154fe5406adbc73aa24bc954823fa2a8bf245f
 
 COCOAPODS: 1.12.1

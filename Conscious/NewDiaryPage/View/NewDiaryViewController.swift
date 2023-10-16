@@ -7,19 +7,35 @@
 
 import UIKit
 import Combine
+import NVActivityIndicatorView
 
 class NewDiaryViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var submitButton: UIButton!
 
+    private let presentingIndicatorTypes = {
+        return NVActivityIndicatorType.allCases.filter { $0 != .blank }
+    }()
     var viewModel = NewDiaryViewModel()
 
     private var cancellables = Set<AnyCancellable>()
 
+    let width = UIScreen.main.bounds.width
+    let height = UIScreen.main.bounds.height
+
+    let activityIndicator = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50), type: .ballScaleRipple, color: UIColor.B1)
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.isLoading = false
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+
+//        submitButton.setTitleColor(submitButton.titleColor(for: .normal), for: .disabled)
 
         tableView.delegate = self
         tableView.dataSource = self
@@ -32,13 +48,41 @@ class NewDiaryViewController: UIViewController, UIImagePickerControllerDelegate,
             }
             .store(in: &cancellables)
 
+        viewModel.$isLoading
+            .receive(on: DispatchQueue.main)
+            .sink { isLoading in
+                isLoading ? self.activityIndicator.startAnimating() : self.activityIndicator.stopAnimating()
+            }
+            .store(in: &cancellables)
+
+        viewModel.$canSubmit
+            .sink { [weak self] canSubmit in
+                self?.submitButton.isEnabled = canSubmit
+                self?.submitButton.setTitleColor(canSubmit ? UIColor.B5 : UIColor.B5, for: .disabled)
+                self?.submitButton.backgroundColor = canSubmit ? UIColor.B3 : UIColor.lightGray
+            }
+            .store(in: &cancellables)
+
+        self.view.addSubview(activityIndicator)
+        self.view.bringSubviewToFront(activityIndicator)
+        activityIndicator.center = self.view.center
     }
 
     @IBAction func cameraButtonTapped(_ sender: UIButton) {
+
+        viewModel.isLoading = true
         let imagePickerController = UIImagePickerController()
         imagePickerController.sourceType = .photoLibrary
         imagePickerController.delegate = self
+        imagePickerController.navigationController?.delegate = self
         present(imagePickerController, animated: true, completion: nil)
+
+    }
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: {
+            self.viewModel.isLoading = false
+        })
     }
 
     func imagePickerController(_ picker: UIImagePickerController,
@@ -49,7 +93,9 @@ class NewDiaryViewController: UIViewController, UIImagePickerControllerDelegate,
             viewModel.isPhotoSelected = true
         }
 
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: {
+            self.viewModel.isLoading = false
+        })
     }
 
     @objc func submitButtonTapped() {

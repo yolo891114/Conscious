@@ -47,7 +47,7 @@ class ProfileViewController: UIViewController {
         if let lobbyVC = storyboard.instantiateViewController(withIdentifier: "LobbyViewController") as? LobbyViewController {
             lobbyVC.modalPresentationStyle = .overFullScreen
             self.navigationController?.present(lobbyVC, animated: true)
-            GlobalState.isUnlock = true
+            GlobalState.isLock = false
         }
     }
 
@@ -108,8 +108,17 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
 
                 cell.contentView.addSubview(textField)
             }
+            let isPasswordSet = UserDefaults.standard.bool(forKey: "isPasswordSet")
+            let isNotificationSet = UserDefaults.standard.bool(forKey: "isNotificationSet")
+
             let switchView = UISwitch(frame: .zero)
+
             switchView.tag = indexPath.row
+            if switchView.tag == 0 {
+                switchView.isOn = isPasswordSet
+            } else if switchView.tag == 1 {
+                switchView.isOn = isNotificationSet
+            }
             switchView.addTarget(self, action: #selector(switchChanged(_:)), for: .valueChanged)
             cell.switchButton = switchView
             cell.accessoryView = switchView
@@ -138,6 +147,7 @@ extension ProfileViewController {
 
         cell.switchButton?.setOn(false, animated: true)
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["dailyReminder"])
+        UserDefaults.standard.set(false, forKey: "isNotificationSet")
     }
 
     @objc func doneButtonTapped(_ sender: UIBarButtonItem) {
@@ -151,17 +161,23 @@ extension ProfileViewController {
 
         let selectedTime = datePicker.date
         UserDefaults.standard.set(selectedTime, forKey: "notificationTime")
+        UserDefaults.standard.set(true, forKey: "isNotificationSet")
         createNotification(selectedTime: selectedTime)
     }
 
     @objc func switchChanged(_ sender: UISwitch) {
-        if sender.tag == 0 && sender.isOn {
-            let currentMode = PasswordMode.updating
-            let viewModel = SettingPasswordViewModel(mode: currentMode)
+        if sender.tag == 0 {
+            if sender.isOn {
+                let currentMode = PasswordSet.on
+                let viewModel = SettingPasswordViewModel(mode: currentMode)
 
-            let settingPasswordVC = SettingPasswordViewController(viewModel: viewModel)
-            settingPasswordVC.modalPresentationStyle = .overFullScreen
-            self.present(settingPasswordVC, animated: true, completion: nil)
+                let settingPasswordVC = SettingPasswordViewController(viewModel: viewModel)
+                settingPasswordVC.modalPresentationStyle = .overFullScreen
+                self.present(settingPasswordVC, animated: true, completion: nil)
+            } else {
+                let currentMode = PasswordSet.off
+                UserDefaults.standard.set(false, forKey: "isPasswordSet")
+            }
         }
 
         if sender.tag == 1 {
@@ -173,6 +189,7 @@ extension ProfileViewController {
             if sender.isOn {
                 cell.hiddenTextField?.becomeFirstResponder()
             } else {
+                UserDefaults.standard.set(false, forKey: "isNotificationSet")
                 cell.hiddenTextField?.resignFirstResponder()
                 UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["dailyReminder"])
             }
