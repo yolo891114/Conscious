@@ -29,12 +29,12 @@ class TimelineViewModel: ObservableObject {
                     self.diaries = diaries
                     self.diariesByDate = Dictionary(grouping: diaries) { self.dateFormatter.string(from: $0.timestamp) }
 
-//                    self.sortedDates = Array(self.diariesByDate.keys).sorted(by: >)
-//
-//                    // 使用 sortedDates 來重新設置 diariesByDate
-//                    self.diariesByDate = self.sortedDates.reduce(into: [String: [Diary]]()) { (result, date) in
-//                        result[date] = self.diariesByDate[date]
-//                    }
+                    self.sortedDates = Array(self.diariesByDate.keys).sorted(by: >)
+
+                    // 使用 sortedDates 來重新設置 diariesByDate
+                    self.diariesByDate = self.sortedDates.reduce(into: [String: [Diary]]()) { (result, date) in
+                        result[date] = self.diariesByDate[date]
+                    }
                 }
             }
         }

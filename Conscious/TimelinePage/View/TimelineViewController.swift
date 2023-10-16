@@ -77,23 +77,27 @@ class TimelineViewController: UIViewController {
 extension TimelineViewController: UITableViewDelegate, UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.diariesByDate.keys.sorted(by: >).count
-//        return viewModel.diar
+        return viewModel.sortedDates.count
+        //        return viewModel.diar
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let date = Array(viewModel.diariesByDate.keys)[section]
+        let date = viewModel.sortedDates[section]
         return viewModel.diariesByDate[date]?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return Array(viewModel.diariesByDate.keys.sorted(by: >))[section]
+        return viewModel.sortedDates[section]
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let textCell = tableView.dequeueReusableCell(withIdentifier: "TimelineWithDateTableViewCell") as? TimelineWithDateTableViewCell else { return UITableViewCell() }
         guard let photoCell = tableView.dequeueReusableCell(withIdentifier: "TimelineWithPhotoTableViewCell") as? TimelineWithPhotoTableViewCell else { return UITableViewCell() }
 
-        let diary = viewModel.diaries[indexPath.row]
+        // 先過濾日期
+        let date = viewModel.sortedDates[indexPath.section]
+        // 再過濾當天的所有日記出來
+        guard let diariesForDate = viewModel.diariesByDate[date] else { return UITableViewCell() }
+        let diary = diariesForDate[indexPath.row]
 
         if viewModel.diaries[indexPath.row].photoCollection.count == 0 {
 
@@ -120,30 +124,4 @@ extension TimelineViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 
-}
-
-extension TimelineViewController {
-
-//    private func navigationBarConfiguration (_ controller: UINavigationController) {
-//
-//        if #available(iOS 13.0, *) {
-//
-//            let navBarAppearance = UINavigationBarAppearance()
-//            navBarAppearance.configureWithOpaqueBackground()
-//            navBarAppearance.backgroundColor = UIColor.B3
-//            navBarAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-//            navBarAppearance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-//
-//            controller.navigationBar.standardAppearance = navBarAppearance
-//            controller.navigationBar.scrollEdgeAppearance = navBarAppearance
-//            controller.navigationBar.tintColor = .white
-//        } else {
-//
-//            controller.edgesForExtendedLayout = []
-//            controller.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-//            controller.navigationBar.tintColor = .white
-//
-//        }
-//
-//    }
 }
