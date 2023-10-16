@@ -15,6 +15,7 @@ pod 'Firebase/Storage'
 pod 'EventsCalendar'
 pod 'Kingfisher'
 pod 'Hero'
+pod 'NVActivityIndicatorView'
 pod 'Firebase/Crashlytics'
 pod 'IQKeyboardManagerSwift'
 

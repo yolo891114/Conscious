@@ -110,7 +110,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
 
 }
-
-class GlobalState {
-    static var isUnlock: Bool = false
-}
