@@ -74,6 +74,8 @@ class EmotionResultCollectionViewCell: UICollectionViewCell {
 
             subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 24),
             subTitleLabel.leadingAnchor.constraint(equalTo: gradientBackground.leadingAnchor, constant: 16),
+            subTitleLabel.trailingAnchor.constraint(equalTo: ornamentalImage.leadingAnchor, constant: -1),
+            subTitleLabel.widthAnchor.constraint(equalToConstant: 90),
 
             ornamentalImage.trailingAnchor.constraint(equalTo: gradientBackground.trailingAnchor, constant: 16),
             ornamentalImage.bottomAnchor.constraint(equalTo: gradientBackground.bottomAnchor, constant: 16),

@@ -24,7 +24,14 @@ class PunchRecordViewController: UIViewController {
 
         view.isPagingEnabled = true // default value: true
         view.scrollDirection = .horizontal // default value: .horizontal
-        view.viewConfiguration = CalendarConfig() // default valut: .default
+        if let lightColor = UIColor.B3,
+           let darkColor = UIColor.B2 {
+            view.viewConfiguration = CalendarConfig(selectionColor: lightColor,
+                               dotColor: darkColor,
+                               selectedDotColor: darkColor,
+                               weekdayTitleColor: darkColor)
+        }
+
         view.translatesAutoresizingMaskIntoConstraints = false
         DispatchQueue.main.async {
             view.scroll(to: Date(fromFormattedString: "2023 09 19")!, animated: false)

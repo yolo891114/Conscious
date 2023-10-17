@@ -49,6 +49,9 @@ class TimelineViewController: UIViewController {
         tableView.dataSource = self
 
         tableView.backgroundColor = .B5
+
+        self.tabBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: 0, right: 0)
+
     }
 
     override func viewWillAppear(_ animated: Bool) {

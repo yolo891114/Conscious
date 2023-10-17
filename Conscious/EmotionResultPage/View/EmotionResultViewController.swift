@@ -135,6 +135,7 @@ extension EmotionResultViewController: UICollectionViewDataSource, UICollectionV
         cell.gradientBackground.angle = 45
         cell.ornamentalImage.image = UIImage(named: viewModel.imageName[indexPath.row])
         cell.titleLabel.text = viewModel.titleArray[indexPath.row]
+        cell.subTitleLabel.text = viewModel.subtitleArray[indexPath.row]
 
         return cell
     }
