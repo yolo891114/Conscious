@@ -31,7 +31,7 @@ class EmotionResultViewModel: ObservableObject {
     @Published var imageName = ["Excersicing", "notebook", "hoding_heart"]
 
     @Published var titleArray = ["Emotional Health", "Benefits of Journaling", "Alleviate Anxiety"]
-    @Published var subtitleArray = [""]
+    @Published var subtitleArray = ["To Ease your worries","To Explore your creativity", "To Elevate your spirits"]
 
     @Published var directedViewControllerArray = [FirstInfoViewController.self, SecondInfoViewController.self, ThirdInfoViewController.self]
 

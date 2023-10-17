@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -193,7 +192,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" name="B5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="cw6-2G-8Pi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bsv-C7-FR9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cw6-2G-8Pi" secondAttribute="bottom" id="hmp-Nn-tNP"/>
@@ -412,7 +411,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7nj-Fr-WWz"/>
-                        <color key="backgroundColor" name="B5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="uAR-3m-lCF" firstAttribute="top" secondItem="VQr-f7-WR4" secondAttribute="bottom" constant="16" id="6hr-8W-siR"/>
                             <constraint firstItem="7nj-Fr-WWz" firstAttribute="trailing" secondItem="VQr-f7-WR4" secondAttribute="trailing" id="7H1-8m-R8w"/>
@@ -1013,14 +1012,14 @@ Dear you, when you're feeling down, remember that you have the ability and wisdo
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="byv-6J-gWF">
-                                                            <rect key="frame" x="16" y="46" width="329" height="22"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="byv-6J-gWF">
+                                                            <rect key="frame" x="8" y="46" width="345" height="22"/>
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="iAD-ws-vRh">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="54.666666666666664" height="22"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="iAD-ws-vRh">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="62" height="22"/>
                                                                     <subviews>
                                                                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Md-ml-vc0">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="23.666666666666668" height="22"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="26" height="22"/>
                                                                             <color key="tintColor" name="B3"/>
                                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                             <state key="normal" image="circle" catalog="system"/>
@@ -1029,19 +1028,19 @@ Dear you, when you're feeling down, remember that you have the ability and wisdo
                                                                                 <action selector="answerButtonsTapped:" destination="E0C-14-RHq" eventType="touchUpInside" id="G1y-8I-y7P"/>
                                                                             </connections>
                                                                         </button>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="從不" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tz5-Bf-XrI">
-                                                                            <rect key="frame" x="28.666666666666664" y="0.0" width="26" height="22"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Never" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tz5-Bf-XrI">
+                                                                            <rect key="frame" x="27" y="0.0" width="35" height="22"/>
                                                                             <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="13"/>
                                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5aH-zY-9g0">
-                                                                    <rect key="frame" x="68.666666666666671" y="0.0" width="54.666666666666671" height="22"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="5aH-zY-9g0">
+                                                                    <rect key="frame" x="62" y="0.0" width="65" height="22"/>
                                                                     <subviews>
                                                                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qOe-04-ApX">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="23.666666666666668" height="22"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="26.333333333333332" height="22"/>
                                                                             <color key="tintColor" name="B3"/>
                                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                             <state key="normal" image="circle" catalog="system"/>
@@ -1050,19 +1049,19 @@ Dear you, when you're feeling down, remember that you have the ability and wisdo
                                                                                 <action selector="answerButtonsTapped:" destination="E0C-14-RHq" eventType="touchUpInside" id="H1L-Da-FAp"/>
                                                                             </connections>
                                                                         </button>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="很少" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pnW-Fi-8D4">
-                                                                            <rect key="frame" x="28.666666666666671" y="0.0" width="26" height="22"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rarely" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pnW-Fi-8D4">
+                                                                            <rect key="frame" x="27.333333333333325" y="0.0" width="37.666666666666657" height="22"/>
                                                                             <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="13"/>
                                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Dr8-z1-mSO">
-                                                                    <rect key="frame" x="137.33333333333334" y="0.0" width="54.333333333333343" height="22"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Dr8-z1-mSO">
+                                                                    <rect key="frame" x="127" y="0.0" width="97.666666666666686" height="22"/>
                                                                     <subviews>
                                                                         <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bg6-73-us4">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="23.333333333333332" height="22"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="29.333333333333332" height="22"/>
                                                                             <color key="tintColor" name="B3"/>
                                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                             <state key="normal" image="circle" catalog="system"/>
@@ -1071,19 +1070,19 @@ Dear you, when you're feeling down, remember that you have the ability and wisdo
                                                                                 <action selector="answerButtonsTapped:" destination="E0C-14-RHq" eventType="touchUpInside" id="kqc-5y-nT7"/>
                                                                             </connections>
                                                                         </button>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有時" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pQ-XZ-LpX">
-                                                                            <rect key="frame" x="28.333333333333314" y="0.0" width="26" height="22"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sometimes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pQ-XZ-LpX">
+                                                                            <rect key="frame" x="30.333333333333336" y="0.0" width="67.333333333333314" height="22"/>
                                                                             <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="13"/>
                                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="7n5-5L-gtl">
-                                                                    <rect key="frame" x="205.66666666666666" y="0.0" width="54.666666666666657" height="22"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="7n5-5L-gtl">
+                                                                    <rect key="frame" x="224.66666666666666" y="0.0" width="59.333333333333343" height="22"/>
                                                                     <subviews>
                                                                         <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CeA-0H-feu">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="23.666666666666668" height="22"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="25.666666666666668" height="22"/>
                                                                             <color key="tintColor" name="B3"/>
                                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                             <state key="normal" image="circle" catalog="system"/>
@@ -1092,19 +1091,19 @@ Dear you, when you're feeling down, remember that you have the ability and wisdo
                                                                                 <action selector="answerButtonsTapped:" destination="E0C-14-RHq" eventType="touchUpInside" id="JqM-Ag-GP3"/>
                                                                             </connections>
                                                                         </button>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="頗多" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRq-vm-Dxj">
-                                                                            <rect key="frame" x="28.666666666666657" y="0.0" width="26" height="22"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Many" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRq-vm-Dxj">
+                                                                            <rect key="frame" x="26.666666666666654" y="0.0" width="32.666666666666657" height="22"/>
                                                                             <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="13"/>
                                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="CbI-Hx-1dj">
-                                                                    <rect key="frame" x="274.33333333333331" y="0.0" width="54.666666666666686" height="22"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="CbI-Hx-1dj">
+                                                                    <rect key="frame" x="284" y="0.0" width="61" height="22"/>
                                                                     <subviews>
                                                                         <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4kz-Gy-AGk">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="23.666666666666668" height="22"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="26" height="22"/>
                                                                             <color key="tintColor" name="B3"/>
                                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                             <state key="normal" image="circle" catalog="system"/>
@@ -1113,8 +1112,8 @@ Dear you, when you're feeling down, remember that you have the ability and wisdo
                                                                                 <action selector="answerButtonsTapped:" destination="E0C-14-RHq" eventType="touchUpInside" id="uwR-7C-Dgs"/>
                                                                             </connections>
                                                                         </button>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="總是" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AfG-2I-GFt">
-                                                                            <rect key="frame" x="28.666666666666686" y="0.0" width="26" height="22"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Often" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AfG-2I-GFt">
+                                                                            <rect key="frame" x="27" y="0.0" width="34" height="22"/>
                                                                             <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="13"/>
                                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
@@ -1126,10 +1125,10 @@ Dear you, when you're feeling down, remember that you have the ability and wisdo
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstItem="byv-6J-gWF" firstAttribute="leading" secondItem="6ck-CK-e8Z" secondAttribute="leading" constant="16" id="2Vz-rN-4NI"/>
+                                                        <constraint firstItem="byv-6J-gWF" firstAttribute="leading" secondItem="6ck-CK-e8Z" secondAttribute="leading" constant="8" id="2Vz-rN-4NI"/>
                                                         <constraint firstItem="AIY-Gp-KvZ" firstAttribute="leading" secondItem="6ck-CK-e8Z" secondAttribute="leading" constant="16" id="5Bo-89-NRO"/>
                                                         <constraint firstItem="byv-6J-gWF" firstAttribute="top" secondItem="AIY-Gp-KvZ" secondAttribute="bottom" constant="8" id="5dP-Bg-uIl"/>
-                                                        <constraint firstAttribute="trailing" secondItem="byv-6J-gWF" secondAttribute="trailing" constant="16" id="Pxd-hs-Vw8"/>
+                                                        <constraint firstAttribute="trailing" secondItem="byv-6J-gWF" secondAttribute="trailing" constant="8" id="Pxd-hs-Vw8"/>
                                                         <constraint firstItem="AIY-Gp-KvZ" firstAttribute="top" secondItem="6ck-CK-e8Z" secondAttribute="top" constant="16" id="YJR-qy-dly"/>
                                                         <constraint firstAttribute="trailing" secondItem="AIY-Gp-KvZ" secondAttribute="trailing" constant="16" id="kc3-Ws-fxf"/>
                                                         <constraint firstAttribute="bottom" secondItem="byv-6J-gWF" secondAttribute="bottom" constant="16" id="vxZ-0g-qJW"/>
@@ -1203,9 +1202,12 @@ Dear you, when you're feeling down, remember that you have the ability and wisdo
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tG3-ii-dSL">
-                                <rect key="frame" x="38" y="742" width="317" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tG3-ii-dSL">
+                                <rect key="frame" x="38" y="741" width="317" height="47"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="317" id="2sf-Qp-p9b"/>
+                                    <constraint firstAttribute="height" constant="47" id="IBi-j1-Gyn"/>
+                                </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Finish">
@@ -1217,23 +1219,23 @@ Dear you, when you're feeling down, remember that you have the ability and wisdo
                                     <action selector="finsihButtonTapped:" destination="07x-oa-EJr" eventType="touchUpInside" id="hCb-nu-Fhw"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="您的情緒分數是：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Le-LH-yAq">
-                                <rect key="frame" x="127" y="171" width="139" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your emotional score is:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Le-LH-yAq">
+                                <rect key="frame" x="105.66666666666669" y="203" width="182" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="你目前的心理狀態似乎相當穩定，請繼續保持覺察和自我照顧吧！" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohb-f7-1fC">
-                                <rect key="frame" x="50" y="585" width="293" height="94"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你目前的心理狀態似乎相當穩定，請繼續保持覺察和自我照顧吧！" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohb-f7-1fC">
+                                <rect key="frame" x="48" y="589" width="297" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="bng-Tk-Uye"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="21" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="veu-1d-ISt">
-                                <rect key="frame" x="164" y="217" width="65" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="veu-1d-ISt">
+                                <rect key="frame" x="181" y="248" width="31.333333333333343" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" name="B4"/>
                                 <nil key="highlightedColor"/>
@@ -1241,6 +1243,18 @@ Dear you, when you're feeling down, remember that you have the ability and wisdo
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bBy-un-Yuy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="veu-1d-ISt" firstAttribute="top" secondItem="9Le-LH-yAq" secondAttribute="bottom" constant="24" id="1v8-Hz-pKn"/>
+                            <constraint firstItem="tG3-ii-dSL" firstAttribute="centerX" secondItem="bBy-un-Yuy" secondAttribute="centerX" id="209-hB-8Em"/>
+                            <constraint firstAttribute="bottom" secondItem="tG3-ii-dSL" secondAttribute="bottom" constant="64" id="N2a-P4-MOE"/>
+                            <constraint firstItem="9Le-LH-yAq" firstAttribute="top" secondItem="bBy-un-Yuy" secondAttribute="top" constant="100" id="UDL-Go-USW"/>
+                            <constraint firstAttribute="trailing" secondItem="ohb-f7-1fC" secondAttribute="trailing" constant="48" id="ZCW-7z-Dws"/>
+                            <constraint firstItem="9Le-LH-yAq" firstAttribute="centerX" secondItem="bBy-un-Yuy" secondAttribute="centerX" id="cDd-uM-LXv"/>
+                            <constraint firstItem="veu-1d-ISt" firstAttribute="centerX" secondItem="bBy-un-Yuy" secondAttribute="centerX" id="erI-L4-8C7"/>
+                            <constraint firstItem="tG3-ii-dSL" firstAttribute="top" secondItem="ohb-f7-1fC" secondAttribute="bottom" constant="32" id="hl9-6t-Vc7"/>
+                            <constraint firstItem="ohb-f7-1fC" firstAttribute="leading" secondItem="DIM-jd-rEO" secondAttribute="leading" constant="48" id="lcd-gv-gHM"/>
+                            <constraint firstItem="ohb-f7-1fC" firstAttribute="centerX" secondItem="bBy-un-Yuy" secondAttribute="centerX" id="nRh-6P-wM7"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="RfX-tG-Uoq"/>
                     <connections>
@@ -1296,17 +1310,17 @@ Dear you, when you're feeling down, remember that you have the ability and wisdo
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="gS6-c1-OjX">
-                                        <rect key="frame" x="86" y="23.666666666666657" width="89" height="39"/>
+                                        <rect key="frame" x="86" y="23.666666666666657" width="91.333333333333314" height="39"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D2J-8E-NGG">
-                                                <rect key="frame" x="0.0" y="0.0" width="89" height="21.333333333333332"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="91.333333333333329" height="21.333333333333332"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" name="B5"/>
                                                 <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Go-jY-IQO">
-                                                <rect key="frame" x="0.0" y="23.333333333333343" width="89" height="15.666666666666664"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="shuyu@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Go-jY-IQO">
+                                                <rect key="frame" x="0.0" y="23.333333333333343" width="91.333333333333329" height="15.666666666666664"/>
                                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="11"/>
                                                 <color key="textColor" systemColor="opaqueSeparatorColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1457,19 +1471,11 @@ Dear you, when you're feeling down, remember that you have the ability and wisdo
             </objects>
             <point key="canvasLocation" x="6167" y="2188"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Timeline-->
         <scene sceneID="1eb-WE-ccL">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="j4c-Nk-f9B" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="house" catalog="system" id="5ta-xH-ynN">
-                        <imageReference key="selectedImage" image="house.fill" catalog="system" renderingMode="hierarchical-single">
-                            <hierarchicalColors>
-                                <color name="Color 3"/>
-                                <color systemColor="secondaryLabelColor"/>
-                                <color systemColor="tertiaryLabelColor"/>
-                            </hierarchicalColors>
-                        </imageReference>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Timeline" image="house" catalog="system" selectedImage="house.fill" id="5ta-xH-ynN"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OYG-x0-8fn">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -1484,19 +1490,11 @@ Dear you, when you're feeling down, remember that you have the ability and wisdo
             </objects>
             <point key="canvasLocation" x="2723" y="-805"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--New-->
         <scene sceneID="WuN-Zh-GvS">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KCY-Wg-nSI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="plus.circle" catalog="system" id="fZs-Tl-oDR">
-                        <imageReference key="selectedImage" image="plus.circle.fill" catalog="system" renderingMode="hierarchical">
-                            <hierarchicalColors>
-                                <color name="Color 5"/>
-                                <color name="Color 3"/>
-                                <color name="Color 3"/>
-                            </hierarchicalColors>
-                        </imageReference>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="New" image="plus.circle" catalog="system" selectedImage="plus.circle.fill" id="fZs-Tl-oDR"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qQV-ak-J11">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -1512,19 +1510,11 @@ Dear you, when you're feeling down, remember that you have the ability and wisdo
             </objects>
             <point key="canvasLocation" x="2659" y="718"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Tracking-->
         <scene sceneID="8Rw-Vb-DBV">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oFm-LE-m8p" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="chart.xyaxis.line" catalog="system" id="piS-Ye-efW">
-                        <imageReference key="selectedImage" image="chart.xyaxis.line" catalog="system" renderingMode="hierarchical-single">
-                            <hierarchicalColors>
-                                <color name="Color 3"/>
-                                <color systemColor="secondaryLabelColor"/>
-                                <color systemColor="tertiaryLabelColor"/>
-                            </hierarchicalColors>
-                        </imageReference>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Tracking" image="chart.xyaxis.line" catalog="system" selectedImage="chart.xyaxis.line" id="piS-Ye-efW"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Td9-j7-u3X"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="B1f-bG-387">
@@ -1540,19 +1530,11 @@ Dear you, when you're feeling down, remember that you have the ability and wisdo
             </objects>
             <point key="canvasLocation" x="2723" y="1410"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Profile-->
         <scene sceneID="9zq-4f-FOw">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BG8-Cc-LXF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="person" catalog="system" id="s7c-Lp-HCc">
-                        <imageReference key="selectedImage" image="person.fill" catalog="system" renderingMode="hierarchical-single">
-                            <hierarchicalColors>
-                                <color name="Color 3"/>
-                                <color systemColor="secondaryLabelColor"/>
-                                <color systemColor="tertiaryLabelColor"/>
-                            </hierarchicalColors>
-                        </imageReference>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" selectedImage="person.fill" id="s7c-Lp-HCc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZOY-bl-Bxy">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -1567,18 +1549,12 @@ Dear you, when you're feeling down, remember that you have the ability and wisdo
             </objects>
             <point key="canvasLocation" x="2723" y="2180"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Calender-->
         <scene sceneID="J8v-zb-rAd">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="S8l-US-KwT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="calendar" catalog="system" id="VKe-UD-SQs">
-                        <imageReference key="selectedImage" image="calendar" catalog="system" renderingMode="hierarchical-single">
-                            <hierarchicalColors>
-                                <color name="Color 3"/>
-                                <color systemColor="secondaryLabelColor"/>
-                                <color systemColor="tertiaryLabelColor"/>
-                            </hierarchicalColors>
-                        </imageReference>
+                    <tabBarItem key="tabBarItem" title="Calender" image="calendar" catalog="system" selectedImage="calendar" id="VKe-UD-SQs">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6V4-4Q-xTv">
@@ -2059,7 +2035,12 @@ Dear you, when you're feeling down, remember that you have the ability and wisdo
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sM2-1N-a4U">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" name="B3"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath=".tintColor">
+                                <color key="value" name="B3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="j4c-Nk-f9B" kind="relationship" relationship="viewControllers" id="TKH-FC-RNJ"/>
@@ -2135,12 +2116,6 @@ Dear you, when you're feeling down, remember that you have the ability and wisdo
         <namedColor name="Color 2">
             <color red="0.0078431372549019607" green="0.50196078431372548" blue="0.56470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="Color 3">
-            <color red="0.0" green="0.6588235294117647" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Color 5">
-            <color red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
@@ -2161,9 +2136,6 @@ Dear you, when you're feeling down, remember that you have the ability and wisdo
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="tertiaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

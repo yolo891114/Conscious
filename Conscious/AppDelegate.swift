@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Override point for customization after application launch.
         FirebaseApp.configure()
         IQKeyboardManager.shared.enable = true
+
 //        if Auth.auth().currentUser == nil {
 //            let storyboard = UIStoryboard(name: "Main", bundle: nil)
 //            if let lobbyVC = storyboard.instantiateViewController(withIdentifier: "LobbyViewController") as? LobbyViewController {
