@@ -99,7 +99,7 @@ extension TimelineViewController: UITableViewDelegate, UITableViewDataSource {
         guard let diariesForDate = viewModel.diariesByDate[date] else { return UITableViewCell() }
         let diary = diariesForDate[indexPath.row]
 
-        if viewModel.diaries[indexPath.row].photoCollection.count == 0 {
+        if diary.photoCollection.isEmpty {
 
             textCell.titleLabel.text = diary.title
             textCell.contentLabel.text = diary.content
@@ -114,14 +114,14 @@ extension TimelineViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let indexPath = tableView.indexPathForSelectedRow {
-            let selectedDiary = viewModel.diaries[indexPath.row]
-            if segue.identifier == "showDetailSegue",
-               let detailVC = segue.destination as? DetailViewController {
-                detailVC.diary = selectedDiary
-            }
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let indexPath = tableView.indexPathForSelectedRow {
+//            let selectedDiary = viewModel.diaries[indexPath.row]
+//            if segue.identifier == "showDetailSegue",
+//               let detailVC = segue.destination as? DetailViewController {
+//                detailVC.diary = selectedDiary
+//            }
+//        }
+//    }
 
 }
