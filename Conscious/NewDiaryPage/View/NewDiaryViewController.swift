@@ -90,7 +90,10 @@ class NewDiaryViewController: UIViewController, UIImagePickerControllerDelegate,
 
         if let image = info[.originalImage] as? UIImage {
             viewModel.photoData = image.jpegData(compressionQuality: 0.8)
-            viewModel.isPhotoSelected = true
+            DispatchQueue.main.async {
+                self.viewModel.isPhotoSelected = true
+                self.tableView.reloadData()
+            }
         }
 
         dismiss(animated: true, completion: {
