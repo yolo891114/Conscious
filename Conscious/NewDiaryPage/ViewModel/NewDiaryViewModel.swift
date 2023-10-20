@@ -16,6 +16,9 @@ class NewDiaryViewModel: ObservableObject {
     @Published var content: String = ""
     @Published var photoCollection: [Photo] = []
     @Published var photoData: Data?
+    @Published var isPhotoSelected: Bool = false
+    @Published var isLoading: Bool = false
+    @Published var canSubmit: Bool = false
 
     private var cancellables = Set<AnyCancellable>()
 
@@ -29,6 +32,14 @@ class NewDiaryViewModel: ObservableObject {
             content = diaryToEdit?.content ?? ""
             isEditing = true
         }
+    }
+
+    init() {
+        Publishers.CombineLatest($title, $content)
+                .map { title, content in
+                    return !title.isEmpty && !content.isEmpty
+                }
+                .assign(to: &$canSubmit)
     }
 
     func calculateConsecutiveDay(dates: [Date]) -> (currentConsecutiveDay: Int, highestConsecutiveDay: Int) {

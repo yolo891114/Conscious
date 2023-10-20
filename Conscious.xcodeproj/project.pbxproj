@@ -15,6 +15,10 @@
 		541684622AB00F3E00F12484 /* Conscious.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 541684602AB00F3E00F12484 /* Conscious.xcdatamodeld */; };
 		541684642AB00F4300F12484 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 541684632AB00F4300F12484 /* Assets.xcassets */; };
 		541684672AB00F4300F12484 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 541684652AB00F4300F12484 /* LaunchScreen.storyboard */; };
+		541F52DA2ADE379D00008BAF /* CSTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541F52D92ADE379D00008BAF /* CSTabBarController.swift */; };
+		5447DBD52AD797F200B06198 /* ContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5447DBD42AD797F200B06198 /* ContentTableViewCell.swift */; };
+		5447DBD92AD7BE9200B06198 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5447DBD82AD7BE9200B06198 /* PhotoTableViewCell.swift */; };
+		5447DBDF2AD8D27200B06198 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5447DBDE2AD8D27200B06198 /* ProfileModel.swift */; };
 		544C5CF92ABBD4C00020F88F /* EnterPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544C5CF82ABBD4BF0020F88F /* EnterPasswordViewController.swift */; };
 		544C5CFB2ABBD84E0020F88F /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544C5CFA2ABBD84E0020F88F /* UIButton+Extension.swift */; };
 		544C5CFD2ABBDBEA0020F88F /* EnterPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544C5CFC2ABBDBEA0020F88F /* EnterPasswordViewModel.swift */; };
@@ -31,6 +35,9 @@
 		5473529B2AD0056400C4699B /* SecondInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5473529A2AD0056400C4699B /* SecondInfoViewController.swift */; };
 		5479F4F52AC888980035B645 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479F4F42AC888980035B645 /* ProfileTableViewCell.swift */; };
 		5479F4F72ACA6C820035B645 /* PunchRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479F4F62ACA6C820035B645 /* PunchRecordViewModel.swift */; };
+		547FA4E92ADE3B6400D90284 /* UITabBarController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547FA4E82ADE3B6400D90284 /* UITabBarController+Extension.swift */; };
+		547FA4EC2AE11EA200D90284 /* UIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547FA4EB2AE11EA200D90284 /* UIConfiguration.swift */; };
+		547FA4EE2AE2270C00D90284 /* EmotionResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547FA4ED2AE2270C00D90284 /* EmotionResultModel.swift */; };
 		548871332AC41AD50067A54D /* EmotionResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548871322AC41AD50067A54D /* EmotionResultCollectionViewCell.swift */; };
 		54B62DEC2AB30E7500908DFE /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B62DEB2AB30E7500908DFE /* TimelineViewController.swift */; };
 		54B62DEE2AB3130500908DFE /* TimelineWithDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B62DED2AB3130500908DFE /* TimelineWithDateTableViewCell.swift */; };
@@ -39,7 +46,7 @@
 		54B7A7BB2ABD61A6001BD9AD /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B7A7BA2ABD61A6001BD9AD /* LogInViewController.swift */; };
 		54B7A7BD2ABD8E91001BD9AD /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B7A7BC2ABD8E91001BD9AD /* ProfileViewModel.swift */; };
 		54B7A7BF2ABD9A5A001BD9AD /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B7A7BE2ABD9A59001BD9AD /* UIColor+Extension.swift */; };
-		54B7A7C12AC1601D001BD9AD /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B7A7C02AC1601D001BD9AD /* PhotoTableViewCell.swift */; };
+		54B7A7C12AC1601D001BD9AD /* TimelineWithPhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B7A7C02AC1601D001BD9AD /* TimelineWithPhotoTableViewCell.swift */; };
 		54B7A7C32AC27724001BD9AD /* StartSurveyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B7A7C22AC27724001BD9AD /* StartSurveyViewModel.swift */; };
 		54C287F22AB7F65500A399E7 /* EmotionResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C287F12AB7F65500A399E7 /* EmotionResultViewController.swift */; };
 		54C287F72AB7FB7800A399E7 /* StartSurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C287F62AB7FB7800A399E7 /* StartSurveyViewController.swift */; };
@@ -70,6 +77,10 @@
 		541684632AB00F4300F12484 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		541684662AB00F4300F12484 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		541684682AB00F4300F12484 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		541F52D92ADE379D00008BAF /* CSTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSTabBarController.swift; sourceTree = "<group>"; };
+		5447DBD42AD797F200B06198 /* ContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTableViewCell.swift; sourceTree = "<group>"; };
+		5447DBD82AD7BE9200B06198 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
+		5447DBDE2AD8D27200B06198 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		544C5CF82ABBD4BF0020F88F /* EnterPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPasswordViewController.swift; sourceTree = "<group>"; };
 		544C5CFA2ABBD84E0020F88F /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		544C5CFC2ABBDBEA0020F88F /* EnterPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPasswordViewModel.swift; sourceTree = "<group>"; };
@@ -86,6 +97,9 @@
 		5473529A2AD0056400C4699B /* SecondInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondInfoViewController.swift; sourceTree = "<group>"; };
 		5479F4F42AC888980035B645 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		5479F4F62ACA6C820035B645 /* PunchRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PunchRecordViewModel.swift; sourceTree = "<group>"; };
+		547FA4E82ADE3B6400D90284 /* UITabBarController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Extension.swift"; sourceTree = "<group>"; };
+		547FA4EB2AE11EA200D90284 /* UIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConfiguration.swift; sourceTree = "<group>"; };
+		547FA4ED2AE2270C00D90284 /* EmotionResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionResultModel.swift; sourceTree = "<group>"; };
 		548871322AC41AD50067A54D /* EmotionResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionResultCollectionViewCell.swift; sourceTree = "<group>"; };
 		54B62DEB2AB30E7500908DFE /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		54B62DED2AB3130500908DFE /* TimelineWithDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineWithDateTableViewCell.swift; sourceTree = "<group>"; };
@@ -94,7 +108,7 @@
 		54B7A7BA2ABD61A6001BD9AD /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		54B7A7BC2ABD8E91001BD9AD /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		54B7A7BE2ABD9A59001BD9AD /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
-		54B7A7C02AC1601D001BD9AD /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
+		54B7A7C02AC1601D001BD9AD /* TimelineWithPhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineWithPhotoTableViewCell.swift; sourceTree = "<group>"; };
 		54B7A7C22AC27724001BD9AD /* StartSurveyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSurveyViewModel.swift; sourceTree = "<group>"; };
 		54C287F12AB7F65500A399E7 /* EmotionResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionResultViewController.swift; sourceTree = "<group>"; };
 		54C287F62AB7FB7800A399E7 /* StartSurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSurveyViewController.swift; sourceTree = "<group>"; };
@@ -183,14 +197,22 @@
 				541684682AB00F4300F12484 /* Info.plist */,
 				541684602AB00F3E00F12484 /* Conscious.xcdatamodeld */,
 				544C7B6A2AB014910084A8CC /* GoogleService-Info.plist */,
+				541F52D92ADE379D00008BAF /* CSTabBarController.swift */,
 			);
 			path = Conscious;
+			sourceTree = "<group>";
+		};
+		5447DBDD2AD8D26700B06198 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5447DBDE2AD8D27200B06198 /* ProfileModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		544C5CF42ABBD3DB0020F88F /* EnterPasswordPage */ = {
 			isa = PBXGroup;
 			children = (
-				544C5CF72ABBD4AD0020F88F /* Model */,
 				544C5CF62ABBD4A90020F88F /* View */,
 				544C5CF52ABBD4A10020F88F /* ViewModel */,
 			);
@@ -213,17 +235,10 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		544C5CF72ABBD4AD0020F88F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				544C5CFE2ABBDEAB0020F88F /* PasswordManager.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		544C5D002ABBF1D00020F88F /* ProfilePage */ = {
 			isa = PBXGroup;
 			children = (
+				5447DBDD2AD8D26700B06198 /* Model */,
 				544C5D092ABC1A250020F88F /* View */,
 				544C5D082ABC1A1E0020F88F /* ViewModel */,
 				544C5D012ABBF1DF0020F88F /* SettingPasswordPage */,
@@ -279,6 +294,7 @@
 				544C7B6D2AB068AC0084A8CC /* UIView+Extension.swift */,
 				544C5CFA2ABBD84E0020F88F /* UIButton+Extension.swift */,
 				54B7A7BE2ABD9A59001BD9AD /* UIColor+Extension.swift */,
+				547FA4E82ADE3B6400D90284 /* UITabBarController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -287,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				546C675C2AB2961800DF82B8 /* FirebaseManager.swift */,
+				544C5CFE2ABBDEAB0020F88F /* PasswordManager.swift */,
 				54C288072AB93A6400A399E7 /* DateManager.swift */,
 			);
 			path = Manager;
@@ -313,6 +330,8 @@
 			isa = PBXGroup;
 			children = (
 				5416845B2AB00F3E00F12484 /* NewDiaryViewController.swift */,
+				5447DBD42AD797F200B06198 /* ContentTableViewCell.swift */,
+				5447DBD82AD7BE9200B06198 /* PhotoTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -321,6 +340,14 @@
 			isa = PBXGroup;
 			children = (
 				546C67682AB2B0AC00DF82B8 /* UserModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		547FA4EA2AE11E6300D90284 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				547FA4ED2AE2270C00D90284 /* EmotionResultModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -347,7 +374,7 @@
 			children = (
 				54B62DEB2AB30E7500908DFE /* TimelineViewController.swift */,
 				54B62DED2AB3130500908DFE /* TimelineWithDateTableViewCell.swift */,
-				54B7A7C02AC1601D001BD9AD /* PhotoTableViewCell.swift */,
+				54B7A7C02AC1601D001BD9AD /* TimelineWithPhotoTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -380,6 +407,7 @@
 			isa = PBXGroup;
 			children = (
 				54C287F32AB7FB5000A399E7 /* EmotionSurveyPage */,
+				547FA4EA2AE11E6300D90284 /* Model */,
 				54C287F02AB7F63400A399E7 /* View */,
 				54C287EF2AB7F62D00A399E7 /* ViewModel */,
 			);
@@ -397,6 +425,7 @@
 		54C287F02AB7F63400A399E7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				547FA4EB2AE11EA200D90284 /* UIConfiguration.swift */,
 				54C287F12AB7F65500A399E7 /* EmotionResultViewController.swift */,
 				548871322AC41AD50067A54D /* EmotionResultCollectionViewCell.swift */,
 				54E198CA2ACE9367000A3931 /* ThirdInfoViewController.swift */,
@@ -506,6 +535,8 @@
 			dependencies = (
 			);
 			name = Conscious;
+			packageProductDependencies = (
+			);
 			productName = Conscious;
 			productReference = 541684542AB00F3E00F12484 /* Conscious.app */;
 			productType = "com.apple.product-type.application";
@@ -534,6 +565,9 @@
 				Base,
 			);
 			mainGroup = 5416844B2AB00F3E00F12484;
+			packageReferences = (
+				5447DBE02AD91B2100B06198 /* XCRemoteSwiftPackageReference "SwiftfulLoadingIndicators" */,
+			);
 			productRefGroup = 541684552AB00F3E00F12484 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -648,7 +682,9 @@
 				54B62DF52AB4324E00908DFE /* DetailViewController.swift in Sources */,
 				544C5CF92ABBD4C00020F88F /* EnterPasswordViewController.swift in Sources */,
 				54B62DEE2AB3130500908DFE /* TimelineWithDateTableViewCell.swift in Sources */,
+				5447DBD52AD797F200B06198 /* ContentTableViewCell.swift in Sources */,
 				54B7A7BF2ABD9A5A001BD9AD /* UIColor+Extension.swift in Sources */,
+				5447DBD92AD7BE9200B06198 /* PhotoTableViewCell.swift in Sources */,
 				54C2880D2AB9A93700A399E7 /* PunchRecordViewController.swift in Sources */,
 				546C675D2AB2961800DF82B8 /* FirebaseManager.swift in Sources */,
 				544C5CFB2ABBD84E0020F88F /* UIButton+Extension.swift in Sources */,
@@ -657,11 +693,13 @@
 				544C5CFD2ABBDBEA0020F88F /* EnterPasswordViewModel.swift in Sources */,
 				54E198CB2ACE9367000A3931 /* ThirdInfoViewController.swift in Sources */,
 				5479F4F72ACA6C820035B645 /* PunchRecordViewModel.swift in Sources */,
-				54B7A7C12AC1601D001BD9AD /* PhotoTableViewCell.swift in Sources */,
+				54B7A7C12AC1601D001BD9AD /* TimelineWithPhotoTableViewCell.swift in Sources */,
+				547FA4EC2AE11EA200D90284 /* UIConfiguration.swift in Sources */,
 				5479F4F52AC888980035B645 /* ProfileTableViewCell.swift in Sources */,
 				546C67692AB2B0AC00DF82B8 /* UserModel.swift in Sources */,
 				54B7A7C32AC27724001BD9AD /* StartSurveyViewModel.swift in Sources */,
 				5416845C2AB00F3E00F12484 /* NewDiaryViewController.swift in Sources */,
+				5447DBDF2AD8D27200B06198 /* ProfileModel.swift in Sources */,
 				547352992AD0055700C4699B /* FirstInfoViewController.swift in Sources */,
 				54C287F22AB7F65500A399E7 /* EmotionResultViewController.swift in Sources */,
 				54C288082AB93A6400A399E7 /* DateManager.swift in Sources */,
@@ -670,6 +708,7 @@
 				546C67652AB2AFF400DF82B8 /* NewDiaryViewModel.swift in Sources */,
 				54C288022AB839CE00A399E7 /* FinishSurveyViewController.swift in Sources */,
 				54B7A7BB2ABD61A6001BD9AD /* LogInViewController.swift in Sources */,
+				541F52DA2ADE379D00008BAF /* CSTabBarController.swift in Sources */,
 				54B62DF02AB32D4400908DFE /* TimelineViewModel.swift in Sources */,
 				54E198C52ACD92A5000A3931 /* SignUpViewController.swift in Sources */,
 				54B62DEC2AB30E7500908DFE /* TimelineViewController.swift in Sources */,
@@ -688,6 +727,8 @@
 				54C287FD2AB8234F00A399E7 /* EmotionSurveyViewController.swift in Sources */,
 				54C288062AB8531500A399E7 /* EmotionResultViewModel.swift in Sources */,
 				5416845A2AB00F3E00F12484 /* SceneDelegate.swift in Sources */,
+				547FA4EE2AE2270C00D90284 /* EmotionResultModel.swift in Sources */,
+				547FA4E92ADE3B6400D90284 /* UITabBarController+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -920,6 +961,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5447DBE02AD91B2100B06198 /* XCRemoteSwiftPackageReference "SwiftfulLoadingIndicators" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftfulThinking/SwiftfulLoadingIndicators.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCVersionGroup section */
 		541684602AB00F3E00F12484 /* Conscious.xcdatamodeld */ = {

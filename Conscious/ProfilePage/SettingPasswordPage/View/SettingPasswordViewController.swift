@@ -62,7 +62,7 @@ struct SettingPasswordView: View {
 
     var body: some View {
         VStack(spacing: 20) {
-            Text(viewModel.mode == .setting ? "Enter Password" : "Update Password")
+            Text("Enter Password")
 
             HStack(spacing: 15) {
                 ForEach(0..<4) { index in

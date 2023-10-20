@@ -49,6 +49,9 @@ class TimelineViewController: UIViewController {
         tableView.dataSource = self
 
         tableView.backgroundColor = .B5
+
+        self.tabBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: 0, right: 0)
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -77,30 +80,29 @@ class TimelineViewController: UIViewController {
 extension TimelineViewController: UITableViewDelegate, UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.diariesByDate.keys.sorted(by: >).count
-//        return viewModel.diar
+        return viewModel.sortedDates.count
+        //        return viewModel.diar
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let date = Array(viewModel.diariesByDate.keys)[section]
+        let date = viewModel.sortedDates[section]
         return viewModel.diariesByDate[date]?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return Array(viewModel.diariesByDate.keys.sorted(by: >))[section]
+        return viewModel.sortedDates[section]
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let textCell = tableView.dequeueReusableCell(withIdentifier: "TimelineWithDateTableViewCell") as? TimelineWithDateTableViewCell else { return UITableViewCell() }
-        guard let photoCell = tableView.dequeueReusableCell(withIdentifier: "TimelineWithPhotoTableViewCell") as? PhotoTableViewCell else { return UITableViewCell() }
+        guard let photoCell = tableView.dequeueReusableCell(withIdentifier: "TimelineWithPhotoTableViewCell") as? TimelineWithPhotoTableViewCell else { return UITableViewCell() }
 
-//        let date = Array(viewModel.diariesByDate.keys.sorted(by: >))[indexPath.section]
-//        if let diary = viewModel.diariesByDate[date]?[indexPath.row] {
-//                cell.titleLabel.text = diary.title
-//                cell.contentLabel.text = diary.content
-//            }
-        let diary = viewModel.diaries[indexPath.row]
+        // 先過濾日期
+        let date = viewModel.sortedDates[indexPath.section]
+        // 再過濾當天的所有日記出來
+        guard let diariesForDate = viewModel.diariesByDate[date] else { return UITableViewCell() }
+        let diary = diariesForDate[indexPath.row]
 
-        if viewModel.diaries[indexPath.row].photoCollection.count == 0 {
+        if diary.photoCollection.isEmpty {
 
             textCell.titleLabel.text = diary.title
             textCell.contentLabel.text = diary.content
@@ -115,40 +117,14 @@ extension TimelineViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let indexPath = tableView.indexPathForSelectedRow {
-            let selectedDiary = viewModel.diaries[indexPath.row]
-            if segue.identifier == "showDetailSegue",
-               let detailVC = segue.destination as? DetailViewController {
-                detailVC.diary = selectedDiary
-            }
-        }
-    }
-
-}
-
-extension TimelineViewController {
-
-//    private func navigationBarConfiguration (_ controller: UINavigationController) {
-//
-//        if #available(iOS 13.0, *) {
-//
-//            let navBarAppearance = UINavigationBarAppearance()
-//            navBarAppearance.configureWithOpaqueBackground()
-//            navBarAppearance.backgroundColor = UIColor.B3
-//            navBarAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-//            navBarAppearance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-//
-//            controller.navigationBar.standardAppearance = navBarAppearance
-//            controller.navigationBar.scrollEdgeAppearance = navBarAppearance
-//            controller.navigationBar.tintColor = .white
-//        } else {
-//
-//            controller.edgesForExtendedLayout = []
-//            controller.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-//            controller.navigationBar.tintColor = .white
-//
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let indexPath = tableView.indexPathForSelectedRow {
+//            let selectedDiary = viewModel.diaries[indexPath.row]
+//            if segue.identifier == "showDetailSegue",
+//               let detailVC = segue.destination as? DetailViewController {
+//                detailVC.diary = selectedDiary
+//            }
 //        }
-//
 //    }
+
 }

@@ -20,12 +20,12 @@ class FirebaseManager {
     }
 
     // 註冊
-    func signUp(email: String, userName: String, password: String, completion: @escaping ((Bool) -> Void)) {
+    func signUp(email: String, userName: String, password: String, completion: @escaping ((NSError?) -> Void)) {
 
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
-            if let error = error {
+            if let error = error as? NSError {
                 print("Error creating user: \(error)")
-                completion(false)
+                completion(error)
             }
             if let result = result {
 
@@ -41,7 +41,7 @@ class FirebaseManager {
 
                 self.authUpdate(user: result.user, name: userName)
 
-                completion(true)
+                completion(nil)
             }
         }
     }
@@ -59,14 +59,16 @@ class FirebaseManager {
         }
     }
 
-    func logIn(email: String, password: String) {
+    func logIn(email: String, password: String, completion: @escaping ((Bool) -> Void)) {
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
             if let error = error {
                 print("Error logging in: \(error)")
+                completion(false)
             }
 
             if let result = result {
                 print("\(String(describing: result.user.displayName)) has logged in.")
+                completion(true)
             }
         }
     }

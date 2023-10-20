@@ -24,6 +24,8 @@ class EmotionResultViewController: UIViewController {
     @IBOutlet weak var infoLabel: UILabel!
     var selectedCell: UICollectionViewCell?
 
+    var uiConfig = UIConfiguration()
+
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -50,29 +52,18 @@ class EmotionResultViewController: UIViewController {
     }
 
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {
-        viewModel.currentDataScope = sender.selectedSegmentIndex == 0 ? .month : .year
-        dateLabel.text = viewModel.currentViewingDateText
-        print("Current viewing date text: \(viewModel.currentViewingDateText)")
+        viewModel.dataScope = sender.selectedSegmentIndex == 0 ? .month : .year
+        dateLabel.text = viewModel.dateString
+        print("Current viewing date text: \(viewModel.dateString)")
     }
 
     override func viewWillAppear(_ animated: Bool) {
 
-        viewModel.canAddNewEmotionRecord()
-
-        viewModel.fetchEmotionRecords()
-            .sink(
-                receiveCompletion: { completion in
-                    switch completion {
-                    case .failure(let error):
-                        print("Error: \(error.localizedDescription)")
-                    case .finished:
-                        break
-                    }
-                }, receiveValue: { data in
-                    self.emotionData = data
-                    print(data)
-                }
-            ).store(in: &cancellables)
+        viewModel.$emotionRecords
+            .sink { [weak self] records in
+                self?.emotionData = records
+            }
+            .store(in: &cancellables)
 
         viewModel.$canAddNewRecord
             .sink { canAddNewRecord in
@@ -80,18 +71,20 @@ class EmotionResultViewController: UIViewController {
             }
             .store(in: &cancellables)
 
-        viewModel.$currentDataScope
+        viewModel.$dataScope
             .sink { [weak self] _ in
-                self?.dateLabel.text = self?.viewModel.currentViewingDateText
+                self?.dateLabel.text = self?.viewModel.dateString
             }
             .store(in: &cancellables)
 
         viewModel.$dateChanged
             .sink { [weak self] _ in
-                self?.dateLabel.text = self?.viewModel.currentViewingDateText
+                self?.dateLabel.text = self?.viewModel.dateString
             }
             .store(in: &cancellables)
 
+        viewModel.fetchEmotionRecords()
+        viewModel.checkIfCanAddNewRecord()
     }
 
     override func viewDidLoad() {
@@ -107,7 +100,7 @@ class EmotionResultViewController: UIViewController {
 
         collectionView.register(EmotionResultCollectionViewCell.self, forCellWithReuseIdentifier: "EmotionResultCollectionViewCell")
 
-        segmentControll.selectedSegmentIndex = viewModel.currentDataScope == .month ? 0 : 1
+        segmentControll.selectedSegmentIndex = viewModel.dataScope == .month ? 0 : 1
 
         setupUI()
     }
@@ -123,18 +116,21 @@ extension EmotionResultViewController: UICollectionViewDataSource, UICollectionV
         return 3
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath)
+                        -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: "EmotionResultCollectionViewCell",
             for: indexPath) as? EmotionResultCollectionViewCell
         else { return UICollectionViewCell() }
 
-        cell.gradientBackground.startColor = viewModel.startColor[indexPath.row]
-        cell.gradientBackground.endColor = viewModel.endColor[indexPath.row]
+        cell.gradientBackground.startColor = uiConfig.topColor[indexPath.row]
+        cell.gradientBackground.endColor = uiConfig.bottomColor[indexPath.row]
         cell.gradientBackground.csBornerRadius = 15
         cell.gradientBackground.angle = 45
-        cell.ornamentalImage.image = UIImage(named: viewModel.imageName[indexPath.row])
-        cell.titleLabel.text = viewModel.titleArray[indexPath.row]
+        cell.ornamentalImage.image = UIImage(named: uiConfig.imageName[indexPath.row])
+        cell.titleLabel.text = uiConfig.titleArray[indexPath.row]
+        cell.subTitleLabel.text = uiConfig.subtitleArray[indexPath.row]
 
         return cell
     }
@@ -142,17 +138,18 @@ extension EmotionResultViewController: UICollectionViewDataSource, UICollectionV
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? EmotionResultCollectionViewCell else { return }
 
-        cell.gradientBackground.hero.id = viewModel.heroIDArray[indexPath.row]
+        cell.gradientBackground.hero.id = uiConfig.heroIDArray[indexPath.row]
         cell.hero.modifiers = [.fade, .scale(0.5)]
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let identifier = "\(viewModel.directedViewControllerArray[indexPath.row])"
+        let identifier = "\(uiConfig.directedViewControllerArray[indexPath.row])"
         let infoVC = storyboard.instantiateViewController(withIdentifier: identifier)
 
         infoVC.modalPresentationStyle = .fullScreen
         infoVC.hero.isEnabled = true
 
         if let firstVC = infoVC as? FirstInfoViewController {
+            // TODO: Enum
             present(firstVC, animated: true, completion: nil)
         } else if let secondVC = infoVC as? SecondInfoViewController {
             present(secondVC, animated: true, completion: nil)
@@ -170,7 +167,9 @@ extension EmotionResultViewController: UICollectionViewDataSource, UICollectionV
 }
 
 extension EmotionResultViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         // 計算動態大小
         let width = CGFloat(220)
         let height = collectionView.frame.height - 32
@@ -216,6 +215,7 @@ struct EmotionLineChartView: View {
 
 // MARK: - Function
 
+// TODO: 拆分成小 function
 extension EmotionResultViewController {
 
     func setupUI() {
@@ -280,11 +280,12 @@ extension EmotionResultViewController {
         self.view.bringSubviewToFront(infoLabel)
     }
 
+    // TODO: Alert 拉成 Manager
     func showOverrideAlert() {
         let alert = UIAlertController(title: "本週已有資料存在", message: "確定要覆蓋本週資料嗎？", preferredStyle: .alert)
 
         alert.addAction(UIAlertAction(title: "確定", style: .default, handler: { _ in
-            self.viewModel.deleteCurrentWeekEmotionRecord()
+            self.viewModel.deleteCurrentWeekRecord()
             self.performSegue(withIdentifier: "showSurveySegue", sender: self)
         }))
 

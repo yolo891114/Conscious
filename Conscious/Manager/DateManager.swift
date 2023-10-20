@@ -25,4 +25,14 @@ class DateManager {
 
         return (startOfWeek, endOfWeek)
     }
+
+    func getCurrentMonth() -> Int {
+        let month = Calendar.current.component(.month, from: Date())
+        return month
+    }
+
+    func getCurrentYear() -> Int {
+        let year = Calendar.current.component(.year, from: Date())
+        return year
+    }
 }

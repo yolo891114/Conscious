@@ -57,7 +57,6 @@ class EnterPasswordViewController: UIViewController {
 
         hostingController.didMove(toParent: self)
 
-        //        biometricsLogin()
     }
 
     func faceIDButtonTapped() {
@@ -73,7 +72,7 @@ class EnterPasswordViewController: UIViewController {
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { (success, error) in
                 if success {
                     DispatchQueue.main.async { [unowned self] in
-                        GlobalState.isUnlock = true
+                        GlobalState.isLock = false
                         viewModel.unlockSuccess.send()
                     }
                 }
