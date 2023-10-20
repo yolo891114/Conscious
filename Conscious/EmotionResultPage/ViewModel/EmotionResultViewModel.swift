@@ -65,12 +65,15 @@ class EmotionResultViewModel: ObservableObject {
     }
 }
 
-// MARK: - Function
-
 extension EmotionResultViewModel {
+
+    // MARK: - Firebase
 
     func fetchEmotionRecords() {
         model.fetchEmotionRecords { [weak self] records, error in
+            if let error = error {
+                print("Error when fetching emotion records")
+            }
             if let records = records {
                 self?.emotionRecords = records
             }
@@ -87,6 +90,8 @@ extension EmotionResultViewModel {
         model.deleteCurrentWeekEmotionRecord()
         canAddNewRecord = true
     }
+
+    // MARK: - Caculate Period
 
     func switchToPreviousPeriod() {
         if dataScope == .month {

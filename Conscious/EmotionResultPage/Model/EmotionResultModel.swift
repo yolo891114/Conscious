@@ -11,7 +11,7 @@ import Combine
 class EmotionResultModel {
 
     func canAddNewEmotionRecord(completion: @escaping (Bool) -> Void) {
-        FirebaseManager.shared.canAddRecordThisWeek() { canAddNewRecord in
+        FirebaseManager.shared.canAddRecordThisWeek { canAddNewRecord in
             if canAddNewRecord {
                 completion(true)
             } else {
