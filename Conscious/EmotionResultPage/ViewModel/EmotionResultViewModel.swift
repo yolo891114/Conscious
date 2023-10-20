@@ -14,57 +14,36 @@ enum DataScope {
     case year
 }
 
-// TODO: Model ViewModel 職責未分
-
 class EmotionResultViewModel: ObservableObject {
-
-    @Published var startColor: [UIColor] = [
-        UIColor.hexStringToUIColor(hex: "CBF7E0"),
-        UIColor.hexStringToUIColor(hex: "CBF4F7"),
-        UIColor.hexStringToUIColor(hex: "E9F7CB")]
-
-    @Published var endColor: [UIColor] = [
-        UIColor.hexStringToUIColor(hex: "BBFDFF"),
-        UIColor.hexStringToUIColor(hex: "BBCAFF"),
-        UIColor.hexStringToUIColor(hex: "FFCFBB")]
-
-    @Published var imageName = ["Excersicing", "notebook", "hoding_heart"]
-
-    @Published var titleArray = ["Emotional Health", "Benefits of Journaling", "Alleviate Anxiety"]
-    @Published var subtitleArray = ["To Ease your worries","To Explore your creativity", "To Elevate your spirits"]
-
-    @Published var directedViewControllerArray = [FirstInfoViewController.self, SecondInfoViewController.self, ThirdInfoViewController.self]
-
-    @Published var heroIDArray = ["showFirstInfoVC", "showSecondInfoVC", "showThirdInfoVC"]
 
     @Published var canAddNewRecord: Bool?
     @Published var dateChanged: Bool = false
     @Published var emotionRecords: [EmotionRecord] = []
-    @Published var currentDataScope: DataScope = .month
-    @Published var currentViewingMonth: Int = Calendar.current.component(.month, from: Date())
-    @Published var currentViewingYear: Int = Calendar.current.component(.year, from: Date())
+    @Published var dataScope: DataScope = .month
+
+    private var currentMonth: Int = DateManager.shared.getCurrentMonth()
+    private var currentYear: Int = DateManager.shared.getCurrentYear()
+
+    private var model = EmotionResultModel()
+    private var cancellables = Set<AnyCancellable>()
 
     var filteredRecords: [EmotionRecord] {
-        switch currentDataScope {
+        switch dataScope {
         case .month:
-            print("month")
             return currentMonthRecords
         case .year:
-            print("year")
             return currentYearRecords
         }
     }
 
-    var currentViewingDateText: String {
-        switch currentDataScope {
+    var dateString: String {
+        switch dataScope {
         case .month:
-            return "\(currentViewingYear)-\(currentViewingMonth)"
+            return "\(currentYear)-\(currentMonth)"
         case .year:
-            return "\(currentViewingYear)"
+            return "\(currentYear)"
         }
     }
-
-    private var cancellables = Set<AnyCancellable>()
 
     var currentMonthRecords: [EmotionRecord] {
         let calendar = Calendar.current
@@ -72,7 +51,7 @@ class EmotionResultViewModel: ObservableObject {
             let recordMonth = calendar.component(.month, from: $0.date)
             let recordYear = calendar.component(.year, from: $0.date)
 
-            return recordMonth == currentViewingMonth && recordYear == currentViewingYear
+            return recordMonth == currentMonth && recordYear == currentYear
         }
     }
 
@@ -81,7 +60,7 @@ class EmotionResultViewModel: ObservableObject {
         return emotionRecords.filter {
             let recordYear = calendar.component(.year, from: $0.date)
 
-            return recordYear == currentViewingYear
+            return recordYear == currentYear
         }
     }
 }
@@ -90,19 +69,27 @@ class EmotionResultViewModel: ObservableObject {
 
 extension EmotionResultViewModel {
 
-    func canAddNewEmotionRecord() {
-        FirebaseManager.shared.canAddRecordThisWeek() { canAddNewRecord in
-            self.canAddNewRecord = canAddNewRecord
+    func fetchEmotionRecords() {
+        model.fetchEmotionRecords { [weak self] records, error in
+            if let records = records {
+                self?.emotionRecords = records
+            }
         }
     }
 
-    func deleteCurrentWeekEmotionRecord() {
-        FirebaseManager.shared.deleteCurrentWeekEmotionRecord()
-        self.canAddNewRecord = true
+    func checkIfCanAddNewRecord() {
+        model.canAddNewEmotionRecord { [weak self] canAdd in
+            self?.canAddNewRecord = canAdd
+        }
+    }
+
+    func deleteCurrentWeekRecord() {
+        model.deleteCurrentWeekEmotionRecord()
+        canAddNewRecord = true
     }
 
     func switchToPreviousPeriod() {
-        if currentDataScope == .month {
+        if dataScope == .month {
             switchToPreviousMonth()
         } else {
             switchToPreviousYear()
@@ -110,7 +97,7 @@ extension EmotionResultViewModel {
     }
 
     func switchToNextPeriod() {
-        if currentDataScope == .month {
+        if dataScope == .month {
             switchToNextMonth()
         } else {
             switchToNextYear()
@@ -118,50 +105,33 @@ extension EmotionResultViewModel {
     }
 
     func switchToPreviousMonth() {
-        if currentViewingMonth > 1 {
-            currentViewingMonth -= 1
+        if currentMonth > 1 {
+            currentMonth -= 1
         } else {
-            currentViewingMonth = 12
-            currentViewingYear -= 1
+            currentMonth = 12
+            currentYear -= 1
         }
         dateChanged.toggle()
     }
 
     func switchToNextMonth() {
-        if currentViewingMonth < 12 {
-            currentViewingMonth += 1
+        if currentMonth < 12 {
+            currentMonth += 1
         } else {
-            currentViewingMonth = 1
-            currentViewingYear += 1
+            currentMonth = 1
+            currentYear += 1
         }
         dateChanged.toggle()
     }
 
     func switchToPreviousYear() {
-        currentViewingYear -= 1
+        currentYear -= 1
         dateChanged.toggle()
     }
 
     func switchToNextYear() {
-        currentViewingYear += 1
+        currentYear += 1
         dateChanged.toggle()
-    }
-
-    // Fetch 後回傳 Future promise
-    func fetchEmotionRecords() -> Future<[EmotionRecord], Error> {
-        return Future { promise in
-            FirebaseManager.shared.fetchEmotionRecords() { emotionRecords, error in
-                if let error = error {
-                    print("Error fetching emotion record: \(error.localizedDescription)")
-                    promise(.failure(error))
-                }
-
-                if let emotionRecords = emotionRecords {
-                    self.emotionRecords = emotionRecords
-                    promise(.success(emotionRecords))
-                }
-            }
-        }
     }
 
 }

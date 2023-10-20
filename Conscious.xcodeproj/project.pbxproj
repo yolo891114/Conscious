@@ -36,6 +36,8 @@
 		5479F4F52AC888980035B645 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479F4F42AC888980035B645 /* ProfileTableViewCell.swift */; };
 		5479F4F72ACA6C820035B645 /* PunchRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479F4F62ACA6C820035B645 /* PunchRecordViewModel.swift */; };
 		547FA4E92ADE3B6400D90284 /* UITabBarController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547FA4E82ADE3B6400D90284 /* UITabBarController+Extension.swift */; };
+		547FA4EC2AE11EA200D90284 /* UIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547FA4EB2AE11EA200D90284 /* UIConfiguration.swift */; };
+		547FA4EE2AE2270C00D90284 /* EmotionResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547FA4ED2AE2270C00D90284 /* EmotionResultModel.swift */; };
 		548871332AC41AD50067A54D /* EmotionResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548871322AC41AD50067A54D /* EmotionResultCollectionViewCell.swift */; };
 		54B62DEC2AB30E7500908DFE /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B62DEB2AB30E7500908DFE /* TimelineViewController.swift */; };
 		54B62DEE2AB3130500908DFE /* TimelineWithDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B62DED2AB3130500908DFE /* TimelineWithDateTableViewCell.swift */; };
@@ -96,6 +98,8 @@
 		5479F4F42AC888980035B645 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		5479F4F62ACA6C820035B645 /* PunchRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PunchRecordViewModel.swift; sourceTree = "<group>"; };
 		547FA4E82ADE3B6400D90284 /* UITabBarController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Extension.swift"; sourceTree = "<group>"; };
+		547FA4EB2AE11EA200D90284 /* UIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConfiguration.swift; sourceTree = "<group>"; };
+		547FA4ED2AE2270C00D90284 /* EmotionResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionResultModel.swift; sourceTree = "<group>"; };
 		548871322AC41AD50067A54D /* EmotionResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionResultCollectionViewCell.swift; sourceTree = "<group>"; };
 		54B62DEB2AB30E7500908DFE /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		54B62DED2AB3130500908DFE /* TimelineWithDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineWithDateTableViewCell.swift; sourceTree = "<group>"; };
@@ -340,6 +344,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		547FA4EA2AE11E6300D90284 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				547FA4ED2AE2270C00D90284 /* EmotionResultModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		54B62DE72AB30E2B00908DFE /* TimelinePage */ = {
 			isa = PBXGroup;
 			children = (
@@ -395,6 +407,7 @@
 			isa = PBXGroup;
 			children = (
 				54C287F32AB7FB5000A399E7 /* EmotionSurveyPage */,
+				547FA4EA2AE11E6300D90284 /* Model */,
 				54C287F02AB7F63400A399E7 /* View */,
 				54C287EF2AB7F62D00A399E7 /* ViewModel */,
 			);
@@ -412,6 +425,7 @@
 		54C287F02AB7F63400A399E7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				547FA4EB2AE11EA200D90284 /* UIConfiguration.swift */,
 				54C287F12AB7F65500A399E7 /* EmotionResultViewController.swift */,
 				548871322AC41AD50067A54D /* EmotionResultCollectionViewCell.swift */,
 				54E198CA2ACE9367000A3931 /* ThirdInfoViewController.swift */,
@@ -680,6 +694,7 @@
 				54E198CB2ACE9367000A3931 /* ThirdInfoViewController.swift in Sources */,
 				5479F4F72ACA6C820035B645 /* PunchRecordViewModel.swift in Sources */,
 				54B7A7C12AC1601D001BD9AD /* TimelineWithPhotoTableViewCell.swift in Sources */,
+				547FA4EC2AE11EA200D90284 /* UIConfiguration.swift in Sources */,
 				5479F4F52AC888980035B645 /* ProfileTableViewCell.swift in Sources */,
 				546C67692AB2B0AC00DF82B8 /* UserModel.swift in Sources */,
 				54B7A7C32AC27724001BD9AD /* StartSurveyViewModel.swift in Sources */,
@@ -712,6 +727,7 @@
 				54C287FD2AB8234F00A399E7 /* EmotionSurveyViewController.swift in Sources */,
 				54C288062AB8531500A399E7 /* EmotionResultViewModel.swift in Sources */,
 				5416845A2AB00F3E00F12484 /* SceneDelegate.swift in Sources */,
+				547FA4EE2AE2270C00D90284 /* EmotionResultModel.swift in Sources */,
 				547FA4E92ADE3B6400D90284 /* UITabBarController+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

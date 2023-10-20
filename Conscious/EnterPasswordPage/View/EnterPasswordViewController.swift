@@ -57,7 +57,6 @@ class EnterPasswordViewController: UIViewController {
 
         hostingController.didMove(toParent: self)
 
-        //        biometricsLogin()
     }
 
     func faceIDButtonTapped() {
