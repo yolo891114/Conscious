@@ -17,6 +17,9 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var editButton: UIButton!
 
     private var viewModel = ProfileViewModel()
+
+    private var profileConfig = ProfileConfiguration()
+
     var cancellables = Set<AnyCancellable>()
 
     private var passwordManager = PasswordManager()
@@ -125,9 +128,9 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             cell.selectionStyle = .none
         }
 
-        cell.iconView.image = UIImage(systemName: viewModel.imageArray[indexPath.row])
-        cell.titleLabel.text = viewModel.titleArray[indexPath.row]
-        cell.descriptionLabel.text = viewModel.descriptionArray[indexPath.row]
+        cell.iconView.image = UIImage(systemName: profileConfig.imageArray[indexPath.row])
+        cell.titleLabel.text = profileConfig.titleArray[indexPath.row]
+        cell.descriptionLabel.text = profileConfig.descriptionArray[indexPath.row]
 
         return cell
     }

@@ -18,7 +18,7 @@ class TimelineViewController: UIViewController {
 
     // 當 diaries 有變化時 reloadData()
     lazy var viewModel = {
-        let viewModel = TimelineViewModel()
+        let viewModel = TimelineViewModel(model: DiaryProvider())
         viewModel.$diaries
             .sink { [weak self] _ in
                 print("reload")
@@ -57,22 +57,7 @@ class TimelineViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        // 利用 Combine 的 Future 功能，當非同步的 API 執行完畢後 reload
         viewModel.fetchDiaries()
-            .sink(
-                receiveCompletion: { completion in
-                    switch completion {
-                    case .failure(let error):
-                        print("Error: \(error.localizedDescription)")
-                    case .finished:
-                        break
-                    }
-                },
-                receiveValue: { _ in
-                    self.tableView.reloadData()
-                }
-            )
-            .store(in: &cancellables)
 
     }
 }
