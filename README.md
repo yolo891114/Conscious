@@ -11,7 +11,7 @@ An emotion-tracking diary app designed for enhanced user engagement and seamless
 - **User Engagement**: Integrated features like self-assessment tests and mental health education.
 - **Data Visualization**: Utilized SwiftUI to display a line chart that visualizes user emotions over time.
 - **Quality Assurance**: Conducted unit tests to ensure app reliability.
-- **App Store Submission**: Gained hands-on experience navigating the App Store submission process (WIP).
+- **App Store Submission**: Gained hands-on experience navigating the App Store submission process.
 
 ## 🎨 UI & Animation Delight
 
