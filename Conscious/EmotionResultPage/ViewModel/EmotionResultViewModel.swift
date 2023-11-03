@@ -24,7 +24,7 @@ class EmotionResultViewModel: ObservableObject {
     private var currentMonth: Int = DateManager.shared.getCurrentMonth()
     private var currentYear: Int = DateManager.shared.getCurrentYear()
 
-    private var model = EmotionResultModel()
+    private var model = EmotionResultProvider()
     private var cancellables = Set<AnyCancellable>()
 
     var filteredRecords: [EmotionRecord] {

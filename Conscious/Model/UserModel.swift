@@ -17,7 +17,7 @@ struct User {
     var emotionRecord: [EmotionRecord]
 }
 
-struct Diary {
+struct Diary: Equatable {
     var diaryID: String
     var timestamp: Date
     var title: String
@@ -63,7 +63,7 @@ struct Diary {
 
 }
 
-struct Photo {
+struct Photo: Equatable {
     var url: String
     var description: String
     var photoID: String

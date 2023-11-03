@@ -95,7 +95,6 @@ class EmotionResultViewController: UIViewController {
 
         collectionView.delegate = self
         collectionView.dataSource = self
-//        self.transitioningDelegate = self
         self.hero.isEnabled = true
 
         collectionView.register(EmotionResultCollectionViewCell.self, forCellWithReuseIdentifier: "EmotionResultCollectionViewCell")
