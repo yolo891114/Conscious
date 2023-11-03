@@ -35,7 +35,7 @@ class NewDiaryViewController: UIViewController, UIImagePickerControllerDelegate,
         super.viewDidLoad()
         // Do any additional setup after loading the view.
 
-//        submitButton.setTitleColor(submitButton.titleColor(for: .normal), for: .disabled)
+        //        submitButton.setTitleColor(submitButton.titleColor(for: .normal), for: .disabled)
 
         tableView.delegate = self
         tableView.dataSource = self
@@ -51,7 +51,14 @@ class NewDiaryViewController: UIViewController, UIImagePickerControllerDelegate,
         viewModel.$isLoading
             .receive(on: DispatchQueue.main)
             .sink { isLoading in
-                isLoading ? self.activityIndicator.startAnimating() : self.activityIndicator.stopAnimating()
+                DispatchQueue.main.async {
+                    if isLoading {
+                        self.activityIndicator.startAnimating()
+                    } else {
+                        self.activityIndicator.stopAnimating()
+                    }
+                }
+
             }
             .store(in: &cancellables)
 
@@ -70,7 +77,9 @@ class NewDiaryViewController: UIViewController, UIImagePickerControllerDelegate,
 
     @IBAction func cameraButtonTapped(_ sender: UIButton) {
 
-        viewModel.isLoading = true
+
+        self.viewModel.isLoading = true
+
         let imagePickerController = UIImagePickerController()
         imagePickerController.sourceType = .photoLibrary
         imagePickerController.delegate = self
