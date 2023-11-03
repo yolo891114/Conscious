@@ -204,11 +204,11 @@
 		541684562AB00F3E00F12484 /* Conscious */ = {
 			isa = PBXGroup;
 			children = (
+				546C67632AB2AF9C00DF82B8 /* Model */,
 				5403DF7C2ACC00D90037B723 /* LobbyPage */,
 				544C7B6C2AB0689C0084A8CC /* Extension */,
 				546C675B2AB295FB00DF82B8 /* Manager */,
 				544C5D002ABBF1D00020F88F /* ProfilePage */,
-				546C67632AB2AF9C00DF82B8 /* Model */,
 				54B62DE72AB30E2B00908DFE /* TimelinePage */,
 				54B62DF12AB4321100908DFE /* DetailPage */,
 				54C288092AB9A8FF00A399E7 /* PunchRecordPage */,
@@ -326,6 +326,13 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		545747162AE755BE00CA6940 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		546C675B2AB295FB00DF82B8 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -339,6 +346,7 @@
 		546C67602AB2AF7E00DF82B8 /* NewDiaryPage */ = {
 			isa = PBXGroup;
 			children = (
+				545747162AE755BE00CA6940 /* Model */,
 				546C67622AB2AF9400DF82B8 /* View */,
 				546C67612AB2AF8800DF82B8 /* ViewModel */,
 			);
