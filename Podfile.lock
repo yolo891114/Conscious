@@ -839,6 +839,7 @@ PODS:
   - PromisesSwift (2.3.1):
     - PromisesObjC (= 2.3.1)
   - RecaptchaInterop (100.0.0)
+  - SnapKit (5.6.0)
   - SwiftLint (0.52.4)
 
 DEPENDENCIES:
@@ -852,6 +853,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - Kingfisher
   - NVActivityIndicatorView
+  - SnapKit
   - SwiftLint
 
 SPEC REPOS:
@@ -887,6 +889,7 @@ SPEC REPOS:
     - PromisesObjC
     - PromisesSwift
     - RecaptchaInterop
+    - SnapKit
     - SwiftLint
 
 SPEC CHECKSUMS:
@@ -921,8 +924,9 @@ SPEC CHECKSUMS:
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
   PromisesSwift: 28dca69a9c40779916ac2d6985a0192a5cb4a265
   RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SwiftLint: 1cc5cd61ba9bacb2194e340aeb47a2a37fda00b3
 
-PODFILE CHECKSUM: 82154fe5406adbc73aa24bc954823fa2a8bf245f
+PODFILE CHECKSUM: 902fa36191973714a8ec2d1b6d10a4616bc8c6e4
 
-COCOAPODS: 1.12.1
+COCOAPODS: 1.14.3

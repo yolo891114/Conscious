@@ -26,7 +26,6 @@
 		544C5D052ABBF20B0020F88F /* SettingPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544C5D042ABBF20B0020F88F /* SettingPasswordViewController.swift */; };
 		544C5D072ABBF27D0020F88F /* SettingPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544C5D062ABBF27D0020F88F /* SettingPasswordViewModel.swift */; };
 		544C5D0B2ABC1A380020F88F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544C5D0A2ABC1A380020F88F /* ProfileViewController.swift */; };
-		544C7B6B2AB014920084A8CC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 544C7B6A2AB014910084A8CC /* GoogleService-Info.plist */; };
 		544C7B6E2AB068AC0084A8CC /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544C7B6D2AB068AC0084A8CC /* UIView+Extension.swift */; };
 		546C675D2AB2961800DF82B8 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546C675C2AB2961800DF82B8 /* FirebaseManager.swift */; };
 		546C67652AB2AFF400DF82B8 /* NewDiaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546C67642AB2AFF400DF82B8 /* NewDiaryViewModel.swift */; };
@@ -65,6 +64,8 @@
 		54E198C72ACE4F48000A3931 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E198C62ACE4F48000A3931 /* ResetPasswordViewController.swift */; };
 		54E198CB2ACE9367000A3931 /* ThirdInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E198CA2ACE9367000A3931 /* ThirdInfoViewController.swift */; };
 		6B6944609698B9D5065EB72C /* Pods_Conscious.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B16F60D1BCDEC2A95318AC3 /* Pods_Conscious.framework */; };
+		9BD9E25F2B3BD1D0000C4B07 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BD9E25E2B3BD1D0000C4B07 /* GoogleService-Info.plist */; };
+		9BD9E2622B3BD1FC000C4B07 /* CodeCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD9E2612B3BD1FC000C4B07 /* CodeCalendarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,7 +102,6 @@
 		544C5D042ABBF20B0020F88F /* SettingPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPasswordViewController.swift; sourceTree = "<group>"; };
 		544C5D062ABBF27D0020F88F /* SettingPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPasswordViewModel.swift; sourceTree = "<group>"; };
 		544C5D0A2ABC1A380020F88F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		544C7B6A2AB014910084A8CC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		544C7B6D2AB068AC0084A8CC /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		546C675C2AB2961800DF82B8 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		546C67642AB2AFF400DF82B8 /* NewDiaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDiaryViewModel.swift; sourceTree = "<group>"; };
@@ -141,6 +141,8 @@
 		54E198C62ACE4F48000A3931 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		54E198CA2ACE9367000A3931 /* ThirdInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdInfoViewController.swift; sourceTree = "<group>"; };
 		5B16F60D1BCDEC2A95318AC3 /* Pods_Conscious.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Conscious.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BD9E25E2B3BD1D0000C4B07 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9BD9E2612B3BD1FC000C4B07 /* CodeCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeCalendarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 		541684562AB00F3E00F12484 /* Conscious */ = {
 			isa = PBXGroup;
 			children = (
+				9BD9E2602B3BD1E9000C4B07 /* PureCode */,
 				546C67632AB2AF9C00DF82B8 /* Model */,
 				5403DF7C2ACC00D90037B723 /* LobbyPage */,
 				544C7B6C2AB0689C0084A8CC /* Extension */,
@@ -222,8 +225,8 @@
 				541684652AB00F4300F12484 /* LaunchScreen.storyboard */,
 				541684682AB00F4300F12484 /* Info.plist */,
 				541684602AB00F3E00F12484 /* Conscious.xcdatamodeld */,
-				544C7B6A2AB014910084A8CC /* GoogleService-Info.plist */,
 				541F52D92ADE379D00008BAF /* CSTabBarController.swift */,
+				9BD9E25E2B3BD1D0000C4B07 /* GoogleService-Info.plist */,
 			);
 			path = Conscious;
 			sourceTree = "<group>";
@@ -567,6 +570,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9BD9E2602B3BD1E9000C4B07 /* PureCode */ = {
+			isa = PBXGroup;
+			children = (
+				9BD9E2612B3BD1FC000C4B07 /* CodeCalendarViewController.swift */,
+			);
+			path = PureCode;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -658,7 +669,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				541684672AB00F4300F12484 /* LaunchScreen.storyboard in Resources */,
-				544C7B6B2AB014920084A8CC /* GoogleService-Info.plist in Resources */,
+				9BD9E25F2B3BD1D0000C4B07 /* GoogleService-Info.plist in Resources */,
 				541684642AB00F4300F12484 /* Assets.xcassets in Resources */,
 				5416845F2AB00F3E00F12484 /* Main.storyboard in Resources */,
 			);
@@ -785,6 +796,7 @@
 				5416845C2AB00F3E00F12484 /* NewDiaryViewController.swift in Sources */,
 				5447DBDF2AD8D27200B06198 /* ProfileModel.swift in Sources */,
 				547352992AD0055700C4699B /* FirstInfoViewController.swift in Sources */,
+				9BD9E2622B3BD1FC000C4B07 /* CodeCalendarViewController.swift in Sources */,
 				54C287F22AB7F65500A399E7 /* EmotionResultViewController.swift in Sources */,
 				54C288082AB93A6400A399E7 /* DateManager.swift in Sources */,
 				544C5D0B2ABC1A380020F88F /* ProfileViewController.swift in Sources */,

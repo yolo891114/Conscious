@@ -39,7 +39,7 @@ class TimelineViewModel: ObservableObject {
                 guard let self = self else { return }
                 self.diaries = dairy
                 self.dateFormatter.dateFormat = "yyyy-MM-dd"
-                self.diariesByDate = Dictionary(grouping: diaries) { self.dateFormatter.string(from: $0.timestamp) }
+                self.diariesByDate = Dictionary(grouping: self.diaries) { self.dateFormatter.string(from: $0.timestamp) }
 
                 self.sortedDates = Array(self.diariesByDate.keys).sorted(by: >)
 

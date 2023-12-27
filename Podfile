@@ -19,5 +19,6 @@ pod 'NVActivityIndicatorView'
 pod 'Firebase/Crashlytics'
 pod 'IQKeyboardManagerSwift'
 
+pod 'SnapKit'
 
 end
