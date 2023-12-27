@@ -81,7 +81,6 @@ extension UIView {
 
 @IBDesignable
 class GradientView: UIView {
-
     var gradientLayer: CAGradientLayer!
 
     @IBInspectable var startColor: UIColor = .red {
@@ -121,7 +120,7 @@ class GradientView: UIView {
     private func setupGradientLayer() {
         if gradientLayer == nil {
             gradientLayer = CAGradientLayer()
-            self.layer.addSublayer(gradientLayer)
+            layer.addSublayer(gradientLayer)
         }
 
         gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
@@ -135,21 +134,21 @@ class GradientView: UIView {
         gradientLayer.endPoint = CGPoint(x: 0.5 + x * 0.5, y: 0.5 + y * 0.5)
 
         if shouldApplyCornerRadius {
-                let maskLayer = CAShapeLayer()
-                maskLayer.path = UIBezierPath(roundedRect: self.bounds, cornerRadius: csBornerRadius).cgPath
-                gradientLayer.mask = maskLayer
-            } else {
-                gradientLayer.mask = nil
-            }
+            let maskLayer = CAShapeLayer()
+            maskLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: csBornerRadius).cgPath
+            gradientLayer.mask = maskLayer
+        } else {
+            gradientLayer.mask = nil
+        }
     }
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        gradientLayer.frame = self.bounds
+        gradientLayer.frame = bounds
         if shouldApplyCornerRadius {
-                let maskLayer = CAShapeLayer()
-                maskLayer.path = UIBezierPath(roundedRect: self.bounds, cornerRadius: csBornerRadius).cgPath
-                gradientLayer.mask = maskLayer
-            }
+            let maskLayer = CAShapeLayer()
+            maskLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: csBornerRadius).cgPath
+            gradientLayer.mask = maskLayer
+        }
     }
 }

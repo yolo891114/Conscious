@@ -5,14 +5,18 @@
 //  Created by jeff on 2023/9/19.
 //
 
-import Foundation
-import UIKit
 import Combine
 import EventsCalendar
+import Foundation
+import UIKit
 
 class PunchRecordViewController: UIViewController {
-
     private var cancellables = Set<AnyCancellable>()
+
+    lazy var newCalenderButton = {
+        let button = UIBarButtonItem(title: "Test", style: .plain, target: self, action: #selector(showCodeCalendar))
+        return button
+    }()
 
     lazy var monthCalendarView = {
         let view = MonthCalendarView(
@@ -25,11 +29,12 @@ class PunchRecordViewController: UIViewController {
         view.isPagingEnabled = true // default value: true
         view.scrollDirection = .horizontal // default value: .horizontal
         if let lightColor = UIColor.B3,
-           let darkColor = UIColor.B2 {
+           let darkColor = UIColor.B2
+        {
             view.viewConfiguration = CalendarConfig(selectionColor: lightColor,
-                               dotColor: darkColor,
-                               selectedDotColor: darkColor,
-                               weekdayTitleColor: darkColor)
+                                                    dotColor: darkColor,
+                                                    selectedDotColor: darkColor,
+                                                    weekdayTitleColor: darkColor)
         }
 
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -76,12 +81,12 @@ class PunchRecordViewController: UIViewController {
         return label
     }()
 
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_: Bool) {
         viewModel.fetchPunchRecord()
             .sink(
                 receiveCompletion: { completion in
                     switch completion {
-                    case .failure(let error):
+                    case let .failure(error):
                         print("Error: \(error.localizedDescription)")
                     case .finished:
                         break
@@ -89,7 +94,8 @@ class PunchRecordViewController: UIViewController {
                 },
                 receiveValue: { [weak self] record in
                     if let consecutiveDays = record.last?.consecutiveDays,
-                       let highestDay = record.last?.highestDay {
+                       let highestDay = record.last?.highestDay
+                    {
                         self?.currentStreakLabel.text = "\(consecutiveDays)"
                         self?.highestStreakLabel.text = "\(highestDay)"
                     }
@@ -101,14 +107,16 @@ class PunchRecordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.addSubview(monthCalendarView)
+        navigationItem.rightBarButtonItem = newCalenderButton
+
+        view.addSubview(monthCalendarView)
 
         monthCalendarView.delegate = self
 
         let texts = ["Current Streak", "Highest Streak"]
         let labels = [currentStreakLabel, highestStreakLabel]
 
-        for index in 0..<2 {
+        for index in 0 ..< 2 {
             let view = UIView()
             view.backgroundColor = .B3
             view.csBornerRadius = 15
@@ -129,42 +137,41 @@ class PunchRecordViewController: UIViewController {
                 titleLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16),
 
                 numberLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                numberLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -16)
+                numberLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -16),
             ])
 
             stackView.addArrangedSubview(view)
         }
 
-        self.view.addSubview(stackView)
+        view.addSubview(stackView)
 
         NSLayoutConstraint.activate([
-            monthCalendarView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100),
-            monthCalendarView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
-            monthCalendarView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
-            monthCalendarView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -300),
+            monthCalendarView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            monthCalendarView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            monthCalendarView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            monthCalendarView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -300),
 
             stackView.topAnchor.constraint(equalTo: monthCalendarView.bottomAnchor, constant: 32),
-            stackView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
-            stackView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
-            stackView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -32)
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -32),
         ])
     }
 }
 
 extension PunchRecordViewController: CalendarViewDelegate {
-
-    func calendarView(_ calendarView: EventsCalendar.CalendarProtocol, didChangeSelectionDateTo date: Date, at indexPath: IndexPath) {
+    func calendarView(_: EventsCalendar.CalendarProtocol, didChangeSelectionDateTo _: Date, at _: IndexPath) {
         print("selected")
         // TODO: 顯示當天日記
     }
 
-    func calendarView(_ calendarView: CalendarProtocol,
-                      eventDaysForCalendar type: CalendarViewType,
-                      with calendarInfo: CalendarInfo,
+    func calendarView(_: CalendarProtocol,
+                      eventDaysForCalendar _: CalendarViewType,
+                      with _: CalendarInfo,
                       and referenceDate: Date,
-                      completion: @escaping (Result<Set<Int>, Error>) -> ()) {
-
-        FirebaseManager.shared.fetchPunchRecord() { records, error in
+                      completion: @escaping (Result<Set<Int>, Error>) -> Void)
+    {
+        FirebaseManager.shared.fetchPunchRecord { records, error in
             if let error = error {
                 print("Error when fetch punch dates: \(error)")
                 completion(.failure(error))
@@ -185,7 +192,11 @@ extension PunchRecordViewController: CalendarViewDelegate {
             DispatchQueue.main.async {
                 completion(.success(Set(punchDaysInMonth)))
             }
-
         }
+    }
+
+    @objc func showCodeCalendar() {
+        let codeCalendarVC = CodeCalendarViewController()
+        navigationController?.pushViewController(codeCalendarVC, animated: false)
     }
 }

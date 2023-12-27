@@ -5,9 +5,9 @@
 //  Created by jeff on 2023/10/23.
 //
 
-import XCTest
 import Combine
 @testable import Conscious
+import XCTest
 
 class MockDiaryProvider: DiaryProvider {
     var diariesToReturn: [Diary] = []
@@ -20,7 +20,6 @@ class MockDiaryProvider: DiaryProvider {
 }
 
 final class ConsciousTests: XCTestCase {
-
     var sut: TimelineViewModel!
     var mockProvider: MockDiaryProvider!
 
@@ -42,7 +41,6 @@ final class ConsciousTests: XCTestCase {
 
     // 測試 Combine 框架觀察的 diaries 變數在 fetch 後有正確被更新
     func testFetchDiariesUpdatesDiaries() {
-
         let expectation = XCTestExpectation(description: "Diaries are fetched")
 
         let diary = Diary(diaryID: "01", date: Date(), title: "Test1", content: "Content1", photoCollection: [])
@@ -64,7 +62,6 @@ final class ConsciousTests: XCTestCase {
 
     // 測試日記有正確按照時間分組
     func testSortedByDate() {
-
         // 假資料
         let date1 = Date()
         let date2 = Calendar.current.date(byAdding: .day, value: -1, to: date1)!
@@ -83,7 +80,7 @@ final class ConsciousTests: XCTestCase {
         let expectedDiariesByDate = [
             dateFormatter.string(from: date3): [diary3],
             dateFormatter.string(from: date1): [diary1],
-            dateFormatter.string(from: date2): [diary2]
+            dateFormatter.string(from: date2): [diary2],
         ]
 
         XCTAssertEqual(sut.diariesByDate, expectedDiariesByDate)
@@ -91,7 +88,6 @@ final class ConsciousTests: XCTestCase {
 
     // 測試日期有正確被格式化
     func testDateFormatting() {
-
         let inputDate = Date()
         print("inputDate:\(inputDate)")
 
@@ -102,7 +98,5 @@ final class ConsciousTests: XCTestCase {
         let actualOutput = dateFormatter.string(from: inputDate)
 
         XCTAssertEqual(expectedOutput, actualOutput, "Date formatting failed.")
-
     }
-
 }

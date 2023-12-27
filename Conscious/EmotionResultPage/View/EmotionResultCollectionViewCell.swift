@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 class EmotionResultCollectionViewCell: UICollectionViewCell {
-
     lazy var gradientBackground: GradientView = {
         let image = GradientView()
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -54,7 +53,8 @@ class EmotionResultCollectionViewCell: UICollectionViewCell {
         setupUI()
     }
 
-    required init?(coder: NSCoder) {
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -80,7 +80,7 @@ class EmotionResultCollectionViewCell: UICollectionViewCell {
             ornamentalImage.trailingAnchor.constraint(equalTo: gradientBackground.trailingAnchor, constant: 16),
             ornamentalImage.bottomAnchor.constraint(equalTo: gradientBackground.bottomAnchor, constant: 16),
             ornamentalImage.widthAnchor.constraint(equalToConstant: 150),
-            ornamentalImage.heightAnchor.constraint(equalToConstant: 150)
+            ornamentalImage.heightAnchor.constraint(equalToConstant: 150),
         ])
     }
 }

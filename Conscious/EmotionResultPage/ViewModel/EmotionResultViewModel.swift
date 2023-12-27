@@ -1,12 +1,12 @@
 //
-//  EmotionDataViewModel.swift
+//  EmotionResultViewModel.swift
 //  Conscious
 //
 //  Created by jeff on 2023/9/18.
 //
 
-import Foundation
 import Combine
+import Foundation
 import UIKit
 
 enum DataScope {
@@ -15,7 +15,6 @@ enum DataScope {
 }
 
 class EmotionResultViewModel: ObservableObject {
-
     @Published var canAddNewRecord: Bool?
     @Published var dateChanged: Bool = false
     @Published var emotionRecords: [EmotionRecord] = []
@@ -66,7 +65,6 @@ class EmotionResultViewModel: ObservableObject {
 }
 
 extension EmotionResultViewModel {
-
     // MARK: - Firebase
 
     func fetchEmotionRecords() {
@@ -138,5 +136,4 @@ extension EmotionResultViewModel {
         currentYear += 1
         dateChanged.toggle()
     }
-
 }

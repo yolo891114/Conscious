@@ -5,8 +5,8 @@
 //  Created by jeff on 2023/9/21.
 //
 
-import Foundation
 import Combine
+import Foundation
 
 // TODO: 更改密碼前輸入舊密碼 / 換密碼時確認密碼
 
@@ -16,7 +16,6 @@ enum PasswordSet {
 }
 
 class SettingPasswordViewModel: ObservableObject {
-
     @Published var inputPassword: String = ""
     private var passwordManager = PasswordManager()
     private var cancellables = Set<AnyCancellable>()
@@ -63,5 +62,4 @@ class SettingPasswordViewModel: ObservableObject {
             settingSuccess.send()
         }
     }
-
 }

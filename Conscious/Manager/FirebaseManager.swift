@@ -5,12 +5,11 @@
 //  Created by jeff on 2023/9/14.
 //
 
-import Foundation
-import FirebaseFirestore
 import FirebaseAuth
+import FirebaseFirestore
+import Foundation
 
 class FirebaseManager {
-
     static let shared = FirebaseManager()
 
     let db = Firestore.firestore()
@@ -21,14 +20,12 @@ class FirebaseManager {
 
     // 註冊
     func signUp(email: String, userName: String, password: String, completion: @escaping ((NSError?) -> Void)) {
-
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if let error = error as? NSError {
                 print("Error creating user: \(error)")
                 completion(error)
             }
             if let result = result {
-
                 print("User created successfully")
 
                 let userRef = self.db.collection("users").document(result.user.uid)
@@ -36,7 +33,7 @@ class FirebaseManager {
                 userRef.setData([
                     "userID": result.user.uid,
                     "email": email,
-                    "userName": userName
+                    "userName": userName,
                 ])
 
                 self.authUpdate(user: result.user, name: userName)
@@ -102,7 +99,7 @@ class FirebaseManager {
             let photoDict: [String: Any] = [
                 "url": photo.url,
                 "description": photo.description,
-                "photoID": photo.photoID
+                "photoID": photo.photoID,
             ]
             photoCollectionArray.append(photoDict)
         }
@@ -112,7 +109,7 @@ class FirebaseManager {
             "date": diary.timestamp,
             "title": diary.title,
             "content": diary.content,
-            "photoCollection": photoCollectionArray
+            "photoCollection": photoCollectionArray,
         ])
     }
 
@@ -146,7 +143,7 @@ class FirebaseManager {
             let photoDict: [String: Any] = [
                 "url": photo.url,
                 "description": photo.description,
-                "photoID": photo.photoID
+                "photoID": photo.photoID,
             ]
             photoCollectionArray.append(photoDict)
         }
@@ -154,7 +151,7 @@ class FirebaseManager {
         diaryRef.updateData([
             "title": diary.title,
             "content": diary.content,
-            "photoCollection": photoCollectionArray
+            "photoCollection": photoCollectionArray,
         ]) { error in
             if let error = error {
                 print("Error updating document: \(error)")
@@ -166,7 +163,6 @@ class FirebaseManager {
 
     // 刪除日記
     func deleteDiary(diaryID: String) {
-
         guard let userID = getCurrentUserID() else { return }
 
         let userRef = db.collection("users").document(userID)
@@ -185,9 +181,7 @@ class FirebaseManager {
 // MARK: - Emotion Record
 
 extension FirebaseManager {
-
     func saveEmotionRecord(emotionRecord: EmotionRecord) {
-
         guard let userID = getCurrentUserID() else { return }
 
         // 找到特定用戶
@@ -198,12 +192,11 @@ extension FirebaseManager {
         emotionRecordRef.setData([
             "id": emotionRecord.id.uuidString,
             "emotionScore": emotionRecord.emotionScore,
-            "date": emotionRecord.date
+            "date": emotionRecord.date,
         ])
     }
 
     func deleteCurrentWeekEmotionRecord() {
-
         guard let userID = getCurrentUserID() else { return }
 
         let userRef = db.collection("users").document(userID)
@@ -232,7 +225,6 @@ extension FirebaseManager {
     }
 
     func fetchEmotionRecords(completion: @escaping ([EmotionRecord]?, Error?) -> Void) {
-
         guard let userID = getCurrentUserID() else { return }
 
         let userRef = db.collection("users").document(userID)
@@ -251,7 +243,6 @@ extension FirebaseManager {
     }
 
     func canAddRecordThisWeek(completion: @escaping (Bool) -> Void) {
-
         guard let userID = getCurrentUserID() else { return }
 
         let (startOfWeek, endOfWeek) = DateManager.shared.getCurrentWeekDates()
@@ -280,16 +271,13 @@ extension FirebaseManager {
             }
         }
     }
-
 }
 
 // MARK: - Punch Record
 
 extension FirebaseManager {
-
     // 新增打卡記錄
     func addPunchRecord(punchRecord: PunchRecord) {
-
         guard let userID = getCurrentUserID() else { return }
 
         let userRef = db.collection("users").document(userID)
@@ -299,12 +287,11 @@ extension FirebaseManager {
             "punchID": punchRecord.punchID,
             "punchDate": punchRecord.punchDate,
             "consecutiveDays": punchRecord.consecutiveDays,
-            "highestDay": punchRecord.highestDay
+            "highestDay": punchRecord.highestDay,
         ])
     }
 
     func fetchPunchRecord(completion: @escaping ([PunchRecord]?, Error?) -> Void) {
-
         guard let userID = getCurrentUserID() else { return }
 
         let userRef = db.collection("users").document(userID)
@@ -323,7 +310,6 @@ extension FirebaseManager {
     }
 
     func deletePunchRecord(punchID: String) {
-
         guard let userID = getCurrentUserID() else { return }
 
         let userRef = db.collection("users").document(userID)

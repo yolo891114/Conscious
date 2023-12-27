@@ -1,15 +1,14 @@
 //
-//  EmotionResultModel.swift
+//  EmotionResultProvider.swift
 //  Conscious
 //
 //  Created by jeff on 2023/10/20.
 //
 
-import Foundation
 import Combine
+import Foundation
 
 class EmotionResultProvider {
-
     func canAddNewEmotionRecord(completion: @escaping (Bool) -> Void) {
         FirebaseManager.shared.canAddRecordThisWeek { canAddNewRecord in
             if canAddNewRecord {

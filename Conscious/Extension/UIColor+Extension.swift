@@ -21,7 +21,6 @@ private enum CSColor: String {
 }
 
 extension UIColor {
-
     // swiftlint:disable identifier_name
     static let B1 = CSColor(.B1)
     static let B2 = CSColor(.B2)

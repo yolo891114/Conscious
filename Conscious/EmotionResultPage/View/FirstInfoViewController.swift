@@ -9,28 +9,27 @@ import Foundation
 import UIKit
 
 class FirstInfoViewController: UIViewController {
-
-    @IBOutlet weak var characterImage: UIImageView!
-    @IBOutlet weak var upperCloudImage: UIImageView!
-    @IBOutlet weak var lowerCloudImage: UIImageView!
-    @IBOutlet weak var upperStarImage: UIImageView!
-    @IBOutlet weak var lowerStarImage: UIImageView!
+    @IBOutlet var characterImage: UIImageView!
+    @IBOutlet var upperCloudImage: UIImageView!
+    @IBOutlet var lowerCloudImage: UIImageView!
+    @IBOutlet var upperStarImage: UIImageView!
+    @IBOutlet var lowerStarImage: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.hero.id = "showFirstInfoVC"
+        view.hero.id = "showFirstInfoVC"
 
         upperCloudImage.frame.origin.y = 290
         lowerCloudImage.frame.origin.y = 460
         upperStarImage.frame.origin.y = 320
         lowerStarImage.frame.origin.y = 450
 
-        self.upperStarImage.transform = CGAffineTransform(rotationAngle: -(.pi / 30))
+        upperStarImage.transform = CGAffineTransform(rotationAngle: -(.pi / 30))
     }
 
-    @IBAction func closeButtontapped(_ sender: UIButton) {
-        self.dismiss(animated: true)
+    @IBAction func closeButtontapped(_: UIButton) {
+        dismiss(animated: true)
     }
 
     override func viewWillAppear(_ animated: Bool) {

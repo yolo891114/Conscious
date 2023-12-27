@@ -9,18 +9,17 @@ import Foundation
 import UIKit
 
 class SecondInfoViewController: UIViewController {
-
-    @IBOutlet weak var upperFlowerImage: UIImageView!
-    @IBOutlet weak var lowerFlowerImage: UIImageView!
+    @IBOutlet var upperFlowerImage: UIImageView!
+    @IBOutlet var lowerFlowerImage: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.hero.id = "showSecondInfoVC"
+        view.hero.id = "showSecondInfoVC"
     }
 
-    @IBAction func closeButtontapped(_ sender: UIButton) {
-        self.dismiss(animated: true)
+    @IBAction func closeButtontapped(_: UIButton) {
+        dismiss(animated: true)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -32,8 +31,8 @@ class SecondInfoViewController: UIViewController {
         rotationAnimation.isCumulative = true
         rotationAnimation.repeatCount = Float.greatestFiniteMagnitude
 
-        self.upperFlowerImage.layer.add(rotationAnimation, forKey: "rotationAnimation")
-        self.lowerFlowerImage.layer.add(rotationAnimation, forKey: "rotationAnimation")
+        upperFlowerImage.layer.add(rotationAnimation, forKey: "rotationAnimation")
+        lowerFlowerImage.layer.add(rotationAnimation, forKey: "rotationAnimation")
     }
 }
 

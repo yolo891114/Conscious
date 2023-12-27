@@ -9,12 +9,10 @@ import Foundation
 import UIKit
 
 class PhotoTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var diaryImage: UIImageView!
+    @IBOutlet var diaryImage: UIImageView!
     var deletePhoto: (() -> Void)?
 
-    @IBAction func deleteButtonTapped(_ sender: UIButton) {
+    @IBAction func deleteButtonTapped(_: UIButton) {
         deletePhoto?()
     }
-
 }

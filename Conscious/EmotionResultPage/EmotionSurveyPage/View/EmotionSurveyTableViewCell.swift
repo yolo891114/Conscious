@@ -9,16 +9,15 @@ import Foundation
 import UIKit
 
 class EmotionSurveyTableViewCell: UITableViewCell {
-
     @IBOutlet var answerButtons: [UIButton]!
 
-    @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet var questionLabel: UILabel!
 
     var question: Question? {
-            didSet {
-                questionLabel.text = question?.caption
-            }
+        didSet {
+            questionLabel.text = question?.caption
         }
+    }
 
     var passScoreData: ((Int) -> Void)?
 

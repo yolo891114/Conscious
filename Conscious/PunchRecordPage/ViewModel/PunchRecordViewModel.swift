@@ -5,14 +5,13 @@
 //  Created by jeff on 2023/10/2.
 //
 
-import Foundation
 import Combine
+import Foundation
 
 class PunchRecordViewModel {
-
     @Published var punchRecord: [PunchRecord] = []
 
-    func fetchPunchRecord() -> Future<[PunchRecord],Error> {
+    func fetchPunchRecord() -> Future<[PunchRecord], Error> {
         return Future { promise in
             FirebaseManager.shared.fetchPunchRecord { record, error in
                 if let error = error {

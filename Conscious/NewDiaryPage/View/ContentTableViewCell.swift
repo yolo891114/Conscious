@@ -9,8 +9,6 @@ import Foundation
 import UIKit
 
 class ContentTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var titleTextView: UITextView!
-    @IBOutlet weak var contentTextView: UITextView!
-
+    @IBOutlet var titleTextView: UITextView!
+    @IBOutlet var contentTextView: UITextView!
 }

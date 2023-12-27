@@ -1,35 +1,34 @@
 //
-//  DetailPageViewController.swift
+//  DetailViewController.swift
 //  Conscious
 //
 //  Created by jeff on 2023/9/15.
 //
 
 import Foundation
-import UIKit
 import Kingfisher
+import UIKit
 
 class DetailViewController: UIViewController {
-
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var contentLabel: UILabel!
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var contentLabel: UILabel!
+    @IBOutlet var imageView: UIImageView!
 
     var diary: Diary?
 
-    @IBAction func editButtonTapped(_ sender: UIButton) {
+    @IBAction func editButtonTapped(_: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let newDiaryViewController = storyboard.instantiateViewController(withIdentifier: "NewDiaryViewController") as? NewDiaryViewController {
-            newDiaryViewController.viewModel.diaryToEdit = self.diary
-            self.navigationController?.pushViewController(newDiaryViewController, animated: true)
+            newDiaryViewController.viewModel.diaryToEdit = diary
+            navigationController?.pushViewController(newDiaryViewController, animated: true)
         }
     }
 
-    @IBAction func deleteButtonTapped(_ sender: UIButton) {
+    @IBAction func deleteButtonTapped(_: UIButton) {
         if let diaryID = diary?.diaryID {
             FirebaseManager.shared.deleteDiary(diaryID: diaryID)
-            self.navigationController?.popToRootViewController(animated: true)
+            navigationController?.popToRootViewController(animated: true)
         }
     }
 
@@ -40,8 +39,9 @@ class DetailViewController: UIViewController {
         titleLabel.text = diary?.title
         contentLabel.text = diary?.content
         if let urlString = diary?.photoCollection.first?.url,
-           let url = URL(string: urlString) {
-            self.imageView.kf.setImage(with: url)
+           let url = URL(string: urlString)
+        {
+            imageView.kf.setImage(with: url)
         }
     }
 }

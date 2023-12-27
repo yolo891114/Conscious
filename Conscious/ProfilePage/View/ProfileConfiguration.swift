@@ -8,7 +8,6 @@
 import Foundation
 
 struct ProfileConfiguration {
-
     let titleArray = ["Privacy Settings",
                       "Notification",
                       "About Us"]
@@ -20,5 +19,4 @@ struct ProfileConfiguration {
     let descriptionArray = ["Manage your device security",
                             "Custom Notification Time",
                             "Contact or Provide Feedback"]
-
 }

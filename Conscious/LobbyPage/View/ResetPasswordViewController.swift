@@ -9,9 +9,8 @@ import Foundation
 import UIKit
 
 class ResetPasswordViewController: UIViewController {
-
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet var emailTextField: UITextField!
+    @IBOutlet var errorLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,11 +18,11 @@ class ResetPasswordViewController: UIViewController {
         errorLabel.isHidden = true
     }
 
-    @IBAction func closeButtontapped(_ sender: UIButton) {
-        self.dismiss(animated: true)
+    @IBAction func closeButtontapped(_: UIButton) {
+        dismiss(animated: true)
     }
 
-    @IBAction func submitButtonTapped(_ sender: UIButton) {
+    @IBAction func submitButtonTapped(_: UIButton) {
         guard let email = emailTextField.text else { return }
 
         FirebaseManager.shared.resetPassword(email: email) { success in

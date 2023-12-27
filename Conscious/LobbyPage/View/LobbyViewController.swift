@@ -9,16 +9,14 @@ import Foundation
 import UIKit
 
 class LobbyViewController: UIViewController {
+    @IBOutlet var cloudImage: UIImageView!
+    @IBOutlet var sunImage: UIImageView!
 
-    @IBOutlet weak var cloudImage: UIImageView!
-    @IBOutlet weak var sunImage: UIImageView!
-
-    @IBAction func loginButtonTapped(_ sender: UIButton) {
+    @IBAction func loginButtonTapped(_: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let loginVC = storyboard.instantiateViewController(withIdentifier: "LogInViewController") as? LogInViewController {
-
             loginVC.modalPresentationStyle = .overFullScreen
-            self.present(loginVC, animated: true)
+            present(loginVC, animated: true)
 
             loginVC.loginSuccess = {
                 self.dismiss(animated: true)
@@ -26,12 +24,11 @@ class LobbyViewController: UIViewController {
         }
     }
 
-    @IBAction func signupButtonTapped(_ sender: UIButton) {
+    @IBAction func signupButtonTapped(_: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let signupVC = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController {
-
             signupVC.modalPresentationStyle = .overFullScreen
-            self.present(signupVC, animated: true)
+            present(signupVC, animated: true)
 
             signupVC.signupSuccess = {
                 self.dismiss(animated: true)
@@ -39,8 +36,7 @@ class LobbyViewController: UIViewController {
         }
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-
+    override func viewWillAppear(_: Bool) {
         cloudImage.frame.origin.x = -215
 
         UIView.animate(withDuration: 2.5, delay: 0.0, options: [.repeat, .autoreverse], animations: {

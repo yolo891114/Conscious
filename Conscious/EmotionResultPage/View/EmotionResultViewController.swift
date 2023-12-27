@@ -5,23 +5,22 @@
 //  Created by jeff on 2023/9/18.
 //
 
-import Foundation
-import UIKit
-import SwiftUI
 import Charts
 import Combine
+import Foundation
 import Hero
+import SwiftUI
+import UIKit
 
 // TODO: 檢查驚嘆號
 
 class EmotionResultViewController: UIViewController {
-
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var createButton: UIButton!
-    @IBOutlet weak var segmentControll: UISegmentedControl!
-    @IBOutlet weak var lineChartBackgroundView: UIView!
-    @IBOutlet weak var emotionLabel: UILabel!
-    @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var createButton: UIButton!
+    @IBOutlet var segmentControll: UISegmentedControl!
+    @IBOutlet var lineChartBackgroundView: UIView!
+    @IBOutlet var emotionLabel: UILabel!
+    @IBOutlet var infoLabel: UILabel!
     var selectedCell: UICollectionViewCell?
 
     var uiConfig = UIConfiguration()
@@ -45,7 +44,7 @@ class EmotionResultViewController: UIViewController {
 
     private var cancellables = Set<AnyCancellable>()
 
-    @IBAction func createButtonTapped(_ sender: UIButton) {
+    @IBAction func createButtonTapped(_: UIButton) {
         if let canAddNewRecord = canAddNewRecord, canAddNewRecord == false {
             showOverrideAlert()
         }
@@ -57,8 +56,7 @@ class EmotionResultViewController: UIViewController {
         print("Current viewing date text: \(viewModel.dateString)")
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-
+    override func viewWillAppear(_: Bool) {
         viewModel.$emotionRecords
             .sink { [weak self] records in
                 self?.emotionData = records
@@ -90,12 +88,12 @@ class EmotionResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.tabBarController?.tabBar.isHidden = false
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        tabBarController?.tabBar.isHidden = false
 
         collectionView.delegate = self
         collectionView.dataSource = self
-        self.hero.isEnabled = true
+        hero.isEnabled = true
 
         collectionView.register(EmotionResultCollectionViewCell.self, forCellWithReuseIdentifier: "EmotionResultCollectionViewCell")
 
@@ -103,24 +101,25 @@ class EmotionResultViewController: UIViewController {
 
         setupUI()
     }
-
 }
 
 extension EmotionResultViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
+    func numberOfSections(in _: UICollectionView) -> Int {
         return 1
     }
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+
+    func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
         return 3
     }
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath)
-                        -> UICollectionViewCell {
+        -> UICollectionViewCell
+    {
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: "EmotionResultCollectionViewCell",
-            for: indexPath) as? EmotionResultCollectionViewCell
+            for: indexPath
+        ) as? EmotionResultCollectionViewCell
         else { return UICollectionViewCell() }
 
         cell.gradientBackground.startColor = uiConfig.topColor[indexPath.row]
@@ -167,8 +166,9 @@ extension EmotionResultViewController: UICollectionViewDataSource, UICollectionV
 
 extension EmotionResultViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+                        layout _: UICollectionViewLayout,
+                        sizeForItemAt _: IndexPath) -> CGSize
+    {
         // 計算動態大小
         let width = CGFloat(220)
         let height = collectionView.frame.height - 32
@@ -177,7 +177,6 @@ extension EmotionResultViewController: UICollectionViewDelegateFlowLayout {
 }
 
 struct EmotionLineChartView: View {
-
     @ObservedObject var viewModel: EmotionResultViewModel
 
     var body: some View {
@@ -216,14 +215,12 @@ struct EmotionLineChartView: View {
 
 // TODO: 拆分成小 function
 extension EmotionResultViewController {
-
     func setupUI() {
-
         let lineChartView = EmotionLineChartView(viewModel: viewModel)
 
         let hostingController = UIHostingController(rootView: lineChartView)
 
-        self.addChild(hostingController)
+        addChild(hostingController)
 
         hostingController.view.translatesAutoresizingMaskIntoConstraints = false
         lineChartBackgroundView.translatesAutoresizingMaskIntoConstraints = false
@@ -233,22 +230,21 @@ extension EmotionResultViewController {
         emotionLabel.translatesAutoresizingMaskIntoConstraints = false
         infoLabel.translatesAutoresizingMaskIntoConstraints = false
 
-        self.view.addSubview(hostingController.view)
-        self.view.addSubview(collectionView)
+        view.addSubview(hostingController.view)
+        view.addSubview(collectionView)
 
         NSLayoutConstraint.activate([
-
-            emotionLabel.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            emotionLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 24),
+            emotionLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            emotionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
 
             segmentControll.topAnchor.constraint(equalTo: emotionLabel.bottomAnchor, constant: 16),
-            segmentControll.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 24),
-            segmentControll.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -24),
+            segmentControll.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            segmentControll.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             segmentControll.heightAnchor.constraint(equalToConstant: 25),
 
             lineChartBackgroundView.topAnchor.constraint(equalTo: segmentControll.bottomAnchor, constant: 16),
-            lineChartBackgroundView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 24),
-            lineChartBackgroundView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -24),
+            lineChartBackgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            lineChartBackgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             lineChartBackgroundView.heightAnchor.constraint(equalToConstant: 300),
 
             dateLabel.topAnchor.constraint(equalTo: lineChartBackgroundView.topAnchor, constant: 24),
@@ -260,23 +256,23 @@ extension EmotionResultViewController {
             hostingController.view.bottomAnchor.constraint(equalTo: lineChartBackgroundView.bottomAnchor, constant: -16),
 
             infoLabel.topAnchor.constraint(equalTo: lineChartBackgroundView.bottomAnchor, constant: 16),
-            infoLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 24),
+            infoLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
 
             collectionView.topAnchor.constraint(equalTo: infoLabel.bottomAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
-            collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
-            collectionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
 
         ])
 
         hostingController.didMove(toParent: self)
 
-        self.view.bringSubviewToFront(createButton)
-        self.view.bringSubviewToFront(dateLabel)
-        self.view.bringSubviewToFront(segmentControll)
-        self.view.bringSubviewToFront(collectionView)
-        self.view.bringSubviewToFront(emotionLabel)
-        self.view.bringSubviewToFront(infoLabel)
+        view.bringSubviewToFront(createButton)
+        view.bringSubviewToFront(dateLabel)
+        view.bringSubviewToFront(segmentControll)
+        view.bringSubviewToFront(collectionView)
+        view.bringSubviewToFront(emotionLabel)
+        view.bringSubviewToFront(infoLabel)
     }
 
     // TODO: Alert 拉成 Manager
@@ -290,6 +286,6 @@ extension EmotionResultViewController {
 
         alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
 
-        self.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
 }

@@ -5,13 +5,12 @@
 //  Created by jeff on 2023/9/14.
 //
 
-import Foundation
 import Combine
 import FirebaseFirestore
 import FirebaseStorage
+import Foundation
 
 class NewDiaryViewModel: ObservableObject {
-
     @Published var title: String = ""
     @Published var content: String = ""
     @Published var photoCollection: [Photo] = []
@@ -36,10 +35,10 @@ class NewDiaryViewModel: ObservableObject {
 
     init() {
         Publishers.CombineLatest($title, $content)
-                .map { title, content in
-                    return !title.isEmpty && !content.isEmpty
-                }
-                .assign(to: &$canSubmit)
+            .map { title, content in
+                !title.isEmpty && !content.isEmpty
+            }
+            .assign(to: &$canSubmit)
     }
 
     func calculateConsecutiveDay(dates: [Date]) -> (currentConsecutiveDay: Int, highestConsecutiveDay: Int) {
@@ -56,15 +55,16 @@ class NewDiaryViewModel: ObservableObject {
 
         // 檢查是不是今天第二篇
         if !allDates.contains(where: { Calendar.current.isDate($0, inSameDayAs: today) }) {
-                allDates.append(today) // 添加今天的日期才能做比較
-            }
+            allDates.append(today) // 添加今天的日期才能做比較
+        }
 
-        for date in 1..<sortedDates.count {
-            let prevDate = Calendar.current.startOfDay(for: sortedDates[date-1])
+        for date in 1 ..< sortedDates.count {
+            let prevDate = Calendar.current.startOfDay(for: sortedDates[date - 1])
             let lastDate = Calendar.current.startOfDay(for: sortedDates[date])
 
             if let nextDayOfPrevDate = Calendar.current.date(byAdding: .day, value: 1, to: prevDate),
-               Calendar.current.isDate(nextDayOfPrevDate, inSameDayAs: lastDate) {
+               Calendar.current.isDate(nextDayOfPrevDate, inSameDayAs: lastDate)
+            {
                 currentConsecutiveDay += 1
                 if currentConsecutiveDay > highestConsecutiveDay {
                     highestConsecutiveDay = currentConsecutiveDay
@@ -103,16 +103,15 @@ class NewDiaryViewModel: ObservableObject {
 
         let updatedDiary = Diary(diaryID: diaryID,
                                  date: date,
-                                 title: self.title,
-                                 content: self.content,
-                                 photoCollection: self.photoCollection)
+                                 title: title,
+                                 content: content,
+                                 photoCollection: photoCollection)
 
         FirebaseManager.shared.updateDiary(diary: updatedDiary)
     }
 
     func saveDiaryWithPhoto(url: String?, photoID: String?) {
-
-        FirebaseManager.shared.fetchPunchRecord() { records, error in
+        FirebaseManager.shared.fetchPunchRecord { records, error in
             if let error = error {
                 print("Error fetching all diaries: \(error.localizedDescription)")
             }
@@ -136,8 +135,8 @@ class NewDiaryViewModel: ObservableObject {
         let newPhotoCollection = url != nil ? [Photo(url: url!, description: "", photoID: photoID ?? "")] : []
         let newDiary = Diary(diaryID: UUID().uuidString,
                              date: Date(),
-                             title: self.title,
-                             content: self.content,
+                             title: title,
+                             content: content,
                              photoCollection: newPhotoCollection)
 
         FirebaseManager.shared.addNewDiary(diary: newDiary)
@@ -145,7 +144,6 @@ class NewDiaryViewModel: ObservableObject {
 
     // 當函數執行完畢後才執行 Closure
     func uploadPhotos(imageData: Data, completion: @escaping (_ url: String?, _ photoID: String?) -> Void) {
-
         let newPhotoID = UUID().uuidString
 
         let storage = Storage.storage()

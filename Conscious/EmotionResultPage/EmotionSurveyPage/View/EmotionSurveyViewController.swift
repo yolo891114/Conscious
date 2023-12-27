@@ -9,14 +9,13 @@ import Foundation
 import UIKit
 
 class EmotionSurveyViewController: UIViewController {
-
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var tableView: UITableView!
 
     lazy var viewModel = EmotionSurveyViewModel()
 
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-        self.tabBarController?.tabBar.isHidden = true
+    override func viewWillAppear(_: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        tabBarController?.tabBar.isHidden = true
     }
 
     override func viewDidLoad() {
@@ -26,7 +25,7 @@ class EmotionSurveyViewController: UIViewController {
         tableView.dataSource = self
     }
 
-    @IBAction func nextButtonTapped(_ sender: UIButton) {
+    @IBAction func nextButtonTapped(_: UIButton) {
         let totalScore = viewModel.calculateTotalScore()
         let newEmotionRecord = EmotionRecord(id: UUID().uuidString,
                                              emotionScore: totalScore,
@@ -35,7 +34,7 @@ class EmotionSurveyViewController: UIViewController {
         print("Total score is: \(totalScore)")
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
         if segue.identifier == "showResultSegue", let destinationVC = segue.destination as? FinishSurveyViewController {
             destinationVC.totalScore = viewModel.calculateTotalScore()
         }
@@ -43,7 +42,7 @@ class EmotionSurveyViewController: UIViewController {
 }
 
 extension EmotionSurveyViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return viewModel.questions.count
     }
 
@@ -62,5 +61,4 @@ extension EmotionSurveyViewController: UITableViewDelegate, UITableViewDataSourc
 
         return cell
     }
-
 }

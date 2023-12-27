@@ -64,6 +64,7 @@
 		54E198C72ACE4F48000A3931 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E198C62ACE4F48000A3931 /* ResetPasswordViewController.swift */; };
 		54E198CB2ACE9367000A3931 /* ThirdInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E198CA2ACE9367000A3931 /* ThirdInfoViewController.swift */; };
 		6B6944609698B9D5065EB72C /* Pods_Conscious.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B16F60D1BCDEC2A95318AC3 /* Pods_Conscious.framework */; };
+		75B1A4702B3C042E0037405A /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B1A46F2B3C042E0037405A /* DateCell.swift */; };
 		9BD9E25F2B3BD1D0000C4B07 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BD9E25E2B3BD1D0000C4B07 /* GoogleService-Info.plist */; };
 		9BD9E2622B3BD1FC000C4B07 /* CodeCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD9E2612B3BD1FC000C4B07 /* CodeCalendarViewController.swift */; };
 /* End PBXBuildFile section */
@@ -141,6 +142,7 @@
 		54E198C62ACE4F48000A3931 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		54E198CA2ACE9367000A3931 /* ThirdInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdInfoViewController.swift; sourceTree = "<group>"; };
 		5B16F60D1BCDEC2A95318AC3 /* Pods_Conscious.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Conscious.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		75B1A46F2B3C042E0037405A /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		9BD9E25E2B3BD1D0000C4B07 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9BD9E2612B3BD1FC000C4B07 /* CodeCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeCalendarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -574,6 +576,7 @@
 			isa = PBXGroup;
 			children = (
 				9BD9E2612B3BD1FC000C4B07 /* CodeCalendarViewController.swift */,
+				75B1A46F2B3C042E0037405A /* DateCell.swift */,
 			);
 			path = PureCode;
 			sourceTree = "<group>";
@@ -803,6 +806,7 @@
 				54B7A7BD2ABD8E91001BD9AD /* ProfileViewModel.swift in Sources */,
 				546C67652AB2AFF400DF82B8 /* NewDiaryViewModel.swift in Sources */,
 				54C288022AB839CE00A399E7 /* FinishSurveyViewController.swift in Sources */,
+				75B1A4702B3C042E0037405A /* DateCell.swift in Sources */,
 				54B7A7BB2ABD61A6001BD9AD /* LogInViewController.swift in Sources */,
 				541F52DA2ADE379D00008BAF /* CSTabBarController.swift in Sources */,
 				54B62DF02AB32D4400908DFE /* TimelineViewModel.swift in Sources */,

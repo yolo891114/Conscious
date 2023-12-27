@@ -8,7 +8,6 @@
 import Foundation
 
 class DateManager {
-
     static let shared = DateManager()
 
     func getCurrentWeekDates() -> (Date, Date) {

@@ -9,17 +9,16 @@ import Foundation
 import UIKit
 
 class FinishSurveyViewController: UIViewController {
-
-    @IBOutlet weak var scoreLabel: UILabel!
-    @IBOutlet weak var resultLabel: UILabel!
+    @IBOutlet var scoreLabel: UILabel!
+    @IBOutlet var resultLabel: UILabel!
 
     var totalScore: Int?
 
     lazy var viewModel = EmotionSurveyViewModel()
 
-    override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.tabBarController?.tabBar.isHidden = false
+    override func viewWillDisappear(_: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        tabBarController?.tabBar.isHidden = false
     }
 
     override func viewDidLoad() {
@@ -29,7 +28,7 @@ class FinishSurveyViewController: UIViewController {
         resultLabel.text = viewModel.getResultText(for: totalScore)
     }
 
-    @IBAction func finsihButtonTapped(_ sender: UIButton) {
-        self.navigationController?.popToRootViewController(animated: true)
+    @IBAction func finsihButtonTapped(_: UIButton) {
+        navigationController?.popToRootViewController(animated: true)
     }
 }

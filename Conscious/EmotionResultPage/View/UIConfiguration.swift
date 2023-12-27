@@ -12,12 +12,14 @@ struct UIConfiguration {
     let topColor: [UIColor] = [
         UIColor.hexStringToUIColor(hex: "CBF7E0"),
         UIColor.hexStringToUIColor(hex: "CBF4F7"),
-        UIColor.hexStringToUIColor(hex: "E9F7CB")]
+        UIColor.hexStringToUIColor(hex: "E9F7CB"),
+    ]
 
     let bottomColor: [UIColor] = [
         UIColor.hexStringToUIColor(hex: "BBFDFF"),
         UIColor.hexStringToUIColor(hex: "BBCAFF"),
-        UIColor.hexStringToUIColor(hex: "FFCFBB")]
+        UIColor.hexStringToUIColor(hex: "FFCFBB"),
+    ]
 
     let imageName: [String] = ["Excersicing",
                                "notebook",

@@ -7,7 +7,4 @@
 
 import Foundation
 
-struct ProfileModel {
-
-
-}
+struct ProfileModel {}

@@ -9,11 +9,9 @@ import Foundation
 import UIKit
 
 class ProfileTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var iconView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet var iconView: UIImageView!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var descriptionLabel: UILabel!
     var hiddenTextField: UITextField?
     var switchButton: UISwitch?
-
 }

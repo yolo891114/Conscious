@@ -5,18 +5,16 @@
 //  Created by jeff on 2023/9/12.
 //
 
-import UIKit
 import Combine
 import NVActivityIndicatorView
+import UIKit
 
 class NewDiaryViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var submitButton: UIButton!
 
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var submitButton: UIButton!
+    private let presentingIndicatorTypes = NVActivityIndicatorType.allCases.filter { $0 != .blank }
 
-    private let presentingIndicatorTypes = {
-        return NVActivityIndicatorType.allCases.filter { $0 != .blank }
-    }()
     var viewModel = NewDiaryViewModel()
 
     private var cancellables = Set<AnyCancellable>()
@@ -58,7 +56,6 @@ class NewDiaryViewController: UIViewController, UIImagePickerControllerDelegate,
                         self.activityIndicator.stopAnimating()
                     }
                 }
-
             }
             .store(in: &cancellables)
 
@@ -70,22 +67,19 @@ class NewDiaryViewController: UIViewController, UIImagePickerControllerDelegate,
             }
             .store(in: &cancellables)
 
-        self.view.addSubview(activityIndicator)
-        self.view.bringSubviewToFront(activityIndicator)
-        activityIndicator.center = self.view.center
+        view.addSubview(activityIndicator)
+        view.bringSubviewToFront(activityIndicator)
+        activityIndicator.center = view.center
     }
 
-    @IBAction func cameraButtonTapped(_ sender: UIButton) {
-
-
-        self.viewModel.isLoading = true
+    @IBAction func cameraButtonTapped(_: UIButton) {
+        viewModel.isLoading = true
 
         let imagePickerController = UIImagePickerController()
         imagePickerController.sourceType = .photoLibrary
         imagePickerController.delegate = self
         imagePickerController.navigationController?.delegate = self
         present(imagePickerController, animated: true, completion: nil)
-
     }
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -94,9 +88,9 @@ class NewDiaryViewController: UIViewController, UIImagePickerControllerDelegate,
         })
     }
 
-    func imagePickerController(_ picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-
+    func imagePickerController(_: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any])
+    {
         if let image = info[.originalImage] as? UIImage {
             viewModel.photoData = image.jpegData(compressionQuality: 0.8)
             DispatchQueue.main.async {
@@ -112,27 +106,26 @@ class NewDiaryViewController: UIViewController, UIImagePickerControllerDelegate,
 
     @objc func submitButtonTapped() {
         viewModel.saveDiary()
-        self.navigationController?.popToRootViewController(animated: true)
+        navigationController?.popToRootViewController(animated: true)
     }
 }
 
 // MARK: - DataSource
 
 extension NewDiaryViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return viewModel.isPhotoSelected ? 2 : 1
     }
 
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
 
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_: UITableView, estimatedHeightForRowAt _: IndexPath) -> CGFloat {
         return 150
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         if viewModel.isPhotoSelected && indexPath.row == 1 {
             guard let photoCell = tableView.dequeueReusableCell(withIdentifier: "PhotoTableViewCell", for: indexPath) as? PhotoTableViewCell else { return UITableViewCell() }
 
@@ -159,15 +152,12 @@ extension NewDiaryViewController: UITableViewDelegate, UITableViewDataSource {
             return contentCell
         }
     }
-
 }
 
 // MARK: - TextView Delegate
 
 extension NewDiaryViewController: UITextViewDelegate {
-
     func textViewDidChange(_ textView: UITextView) {
-
         switch textView.tag {
         case 1:
             viewModel.title = textView.text ?? ""
@@ -180,5 +170,4 @@ extension NewDiaryViewController: UITextViewDelegate {
         tableView.beginUpdates()
         tableView.endUpdates()
     }
-
 }

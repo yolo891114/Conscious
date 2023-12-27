@@ -5,16 +5,15 @@
 //  Created by jeff on 2023/9/21.
 //
 
+import Combine
+import FirebaseAuth
 import Foundation
 import UIKit
-import FirebaseAuth
-import Combine
 
 class ProfileViewController: UIViewController {
-
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var nameTextField: UITextField!
+    @IBOutlet var editButton: UIButton!
 
     private var viewModel = ProfileViewModel()
 
@@ -30,37 +29,34 @@ class ProfileViewController: UIViewController {
         tableView.dataSource = self
 
         nameTextField.isEnabled = false
-        
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-
+    override func viewWillAppear(_: Bool) {
         viewModel.$currentUserName
             .sink { [weak self] name in
                 self?.nameTextField.text = name
             }
             .store(in: &cancellables)
-
     }
 
-    @IBAction func logoutButtonTapped(_ sender: UIButton) {
-
+    @IBAction func logoutButtonTapped(_: UIButton) {
         FirebaseManager.shared.logOut()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let lobbyVC = storyboard.instantiateViewController(withIdentifier: "LobbyViewController") as? LobbyViewController {
             lobbyVC.modalPresentationStyle = .overFullScreen
-            self.navigationController?.present(lobbyVC, animated: true)
+            navigationController?.present(lobbyVC, animated: true)
             GlobalState.isLock = false
         }
     }
 
-    @IBAction func editButtonTapped(_ sender: UIButton) {
+    @IBAction func editButtonTapped(_: UIButton) {
         if nameTextField.isEditing {
             nameTextField.isEnabled = false
             editButton.setImage(UIImage(systemName: "pencil"), for: .normal)
 
             if let user = Auth.auth().currentUser,
-               let name = nameTextField.text {
+               let name = nameTextField.text
+            {
                 FirebaseManager.shared.authUpdate(user: user, name: name)
             }
         } else {
@@ -68,17 +64,13 @@ class ProfileViewController: UIViewController {
             nameTextField.becomeFirstResponder()
             editButton.setImage(UIImage(systemName: "checkmark"), for: .normal)
         }
-
-
-
     }
-
 }
 
 // MARK: DataSource
 
 extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return 3
     }
 
@@ -102,7 +94,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
                 textField.inputView = datePicker
                 textField.isHidden = true
 
-                let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 44))
+                let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 44))
                 let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonTapped))
                 let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelButtonTapped))
                 let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
@@ -134,15 +126,13 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
 
         return cell
     }
-
 }
 
 // MARK: - Function
 
 extension ProfileViewController {
-
-    @objc func cancelButtonTapped(_ sender: UIBarButtonItem) {
-        self.view.endEditing(true)
+    @objc func cancelButtonTapped(_: UIBarButtonItem) {
+        view.endEditing(true)
 
         let indexPath = IndexPath(row: 1, section: 0)
 
@@ -153,12 +143,12 @@ extension ProfileViewController {
         UserDefaults.standard.set(false, forKey: "isNotificationSet")
     }
 
-    @objc func doneButtonTapped(_ sender: UIBarButtonItem) {
+    @objc func doneButtonTapped(_: UIBarButtonItem) {
         let indexPath = IndexPath(row: 1, section: 0)
 
         guard let cell = tableView.cellForRow(at: indexPath) as? ProfileTableViewCell else { return }
 
-        self.view.endEditing(true)
+        view.endEditing(true)
 
         guard let datePicker = cell.hiddenTextField?.inputView as? UIDatePicker else { return }
 
@@ -176,7 +166,7 @@ extension ProfileViewController {
 
                 let settingPasswordVC = SettingPasswordViewController(viewModel: viewModel)
                 settingPasswordVC.modalPresentationStyle = .overFullScreen
-                self.present(settingPasswordVC, animated: true, completion: nil)
+                present(settingPasswordVC, animated: true, completion: nil)
             } else {
                 let currentMode = PasswordSet.off
                 UserDefaults.standard.set(false, forKey: "isPasswordSet")
@@ -184,7 +174,6 @@ extension ProfileViewController {
         }
 
         if sender.tag == 1 {
-
             let indexPath = IndexPath(row: 1, section: 0)
 
             guard let cell = tableView.cellForRow(at: indexPath) as? ProfileTableViewCell else { return }
@@ -196,7 +185,6 @@ extension ProfileViewController {
                 cell.hiddenTextField?.resignFirstResponder()
                 UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["dailyReminder"])
             }
-
         }
     }
 

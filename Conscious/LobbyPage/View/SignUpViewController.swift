@@ -5,16 +5,15 @@
 //  Created by jeff on 2023/10/4.
 //
 
+import FirebaseAuth
 import Foundation
 import UIKit
-import FirebaseAuth
 
 class SignUpViewController: UIViewController {
-
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet var nameTextField: UITextField!
+    @IBOutlet var emailTextField: UITextField!
+    @IBOutlet var passwordTextField: UITextField!
+    @IBOutlet var errorLabel: UILabel!
     var signupSuccess: (() -> Void)?
 
     override func viewDidLoad() {
@@ -23,16 +22,17 @@ class SignUpViewController: UIViewController {
         errorLabel.isHidden = true
     }
 
-    @IBAction func closeButtontapped(_ sender: UIButton) {
-        self.dismiss(animated: true)
+    @IBAction func closeButtontapped(_: UIButton) {
+        dismiss(animated: true)
     }
 
-    @IBAction func signupButtonTapped(_ sender: UIButton) {
+    @IBAction func signupButtonTapped(_: UIButton) {
         guard let name = nameTextField.text, !name.isEmpty,
               let email = emailTextField.text, !email.isEmpty,
-              let password = passwordTextField.text, !password.isEmpty else {
-            self.errorLabel.text = "All fields are required."
-            self.errorLabel.isHidden = false
+              let password = passwordTextField.text, !password.isEmpty
+        else {
+            errorLabel.text = "All fields are required."
+            errorLabel.isHidden = false
             return
         }
 

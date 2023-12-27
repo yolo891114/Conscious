@@ -5,11 +5,10 @@
 //  Created by jeff on 2023/10/20.
 //
 
-import Foundation
 import Combine
+import Foundation
 
 class DiaryProvider {
-
     func fetchDiaries() -> Future<[Diary], Error> {
         return Future { promise in
             FirebaseManager.shared.fetchAllDiaries { diaries, error in

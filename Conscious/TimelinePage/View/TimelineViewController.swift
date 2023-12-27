@@ -5,14 +5,13 @@
 //  Created by jeff on 2023/9/14.
 //
 
-import Foundation
-import UIKit
 import Combine
+import Foundation
 import Kingfisher
+import UIKit
 
 class TimelineViewController: UIViewController {
-
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var tableView: UITableView!
 
     var cancellables = Set<AnyCancellable>()
 
@@ -50,30 +49,28 @@ class TimelineViewController: UIViewController {
 
         tableView.backgroundColor = .B5
 
-        self.tabBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: 0, right: 0)
-
+        tabBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: 0, right: 0)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         viewModel.fetchDiaries()
-
     }
 }
 
 extension TimelineViewController: UITableViewDelegate, UITableViewDataSource {
-
-    func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in _: UITableView) -> Int {
         return viewModel.sortedDates.count
         //        return viewModel.diar
     }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+    func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int {
         let date = viewModel.sortedDates[section]
         return viewModel.diariesByDate[date]?.count ?? 0
     }
 
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_: UITableView, titleForHeaderInSection section: Int) -> String? {
         return viewModel.sortedDates[section]
     }
 
@@ -88,7 +85,6 @@ extension TimelineViewController: UITableViewDelegate, UITableViewDataSource {
         let diary = diariesForDate[indexPath.row]
 
         if diary.photoCollection.isEmpty {
-
             textCell.titleLabel.text = diary.title
             textCell.contentLabel.text = diary.content
 
@@ -111,5 +107,4 @@ extension TimelineViewController: UITableViewDelegate, UITableViewDataSource {
 //            }
 //        }
 //    }
-
 }

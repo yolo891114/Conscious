@@ -5,11 +5,10 @@
 //  Created by jeff on 2023/9/21.
 //
 
-import Foundation
 import Combine
+import Foundation
 
 class EnterPasswordViewModel: ObservableObject {
-
     @Published var inputPassword: String = ""
     @Published var isUnlock: Bool = false
 
@@ -50,5 +49,4 @@ class EnterPasswordViewModel: ObservableObject {
             unlockSuccess.send(())
         }
     }
-
 }

@@ -5,14 +5,13 @@
 //  Created by jeff on 2023/9/21.
 //
 
-import Foundation
-import UIKit
-import SwiftUI
 import Combine
+import Foundation
 import LocalAuthentication
+import SwiftUI
+import UIKit
 
 class EnterPasswordViewController: UIViewController {
-
     lazy var viewModel = EnterPasswordViewModel()
     private var cancellables = Set<AnyCancellable>()
 
@@ -38,25 +37,24 @@ class EnterPasswordViewController: UIViewController {
             }
             .store(in: &cancellables)
 
-        let passwordView = PasswordView(viewModel: self.viewModel)
+        let passwordView = PasswordView(viewModel: viewModel)
 
         let hostingController = UIHostingController(rootView: passwordView)
 
-        self.addChild(hostingController)
+        addChild(hostingController)
 
         hostingController.view.translatesAutoresizingMaskIntoConstraints = false
 
-        self.view.addSubview(hostingController.view)
+        view.addSubview(hostingController.view)
 
         NSLayoutConstraint.activate([
-            hostingController.view.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 16),
-            hostingController.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 16),
-            hostingController.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
-            hostingController.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16)
+            hostingController.view.topAnchor.constraint(equalTo: view.topAnchor, constant: 16),
+            hostingController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 16),
+            hostingController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            hostingController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
         ])
 
         hostingController.didMove(toParent: self)
-
     }
 
     func faceIDButtonTapped() {
@@ -69,7 +67,7 @@ class EnterPasswordViewController: UIViewController {
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
             let reason = "Log in to your account"
             // 評估指定方案
-            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { (success, error) in
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, _ in
                 if success {
                     DispatchQueue.main.async { [unowned self] in
                         GlobalState.isLock = false
@@ -84,7 +82,7 @@ class EnterPasswordViewController: UIViewController {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alertController.addAction(okAction)
-        self.present(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
     }
 }
 
@@ -101,7 +99,7 @@ struct PasswordView: View {
             Text("Enter Password")
 
             HStack(spacing: 15) {
-                ForEach(0..<4) { index in
+                ForEach(0 ..< 4) { index in
                     Circle()
                         .stroke(lineWidth: 2)
                         .frame(width: 16, height: 16)
@@ -124,9 +122,9 @@ struct PasswordView: View {
             }
 
             VStack(spacing: 10) {
-                ForEach(0..<3) { row in
+                ForEach(0 ..< 3) { row in
                     HStack(spacing: 10) {
-                        ForEach(1..<4) { col in
+                        ForEach(1 ..< 4) { col in
                             let number = row * 3 + col
                             Button("\(number)") {
                                 viewModel.appendInputPassword(number: String(number))
@@ -140,7 +138,6 @@ struct PasswordView: View {
                 }
 
                 HStack(spacing: 10) {
-
                     Color.clear
                         .frame(width: 60, height: 60)
                         .background(Color.clear)
@@ -182,7 +179,7 @@ struct Shake: GeometryEffect {
     var shakesPerUnit = 3
     var animatableData: CGFloat
 
-    func effectValue(size: CGSize) -> ProjectionTransform {
+    func effectValue(size _: CGSize) -> ProjectionTransform {
         ProjectionTransform(CGAffineTransform(translationX: amount * sin(animatableData * .pi * CGFloat(shakesPerUnit)), y: 0))
     }
 }
