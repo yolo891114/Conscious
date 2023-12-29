@@ -12,13 +12,12 @@ pod 'FirebaseAuth'
 pod 'FirebaseFirestore'
 pod 'SwiftLint'
 pod 'Firebase/Storage'
-pod 'EventsCalendar'
 pod 'Kingfisher'
-pod 'Hero'
 pod 'NVActivityIndicatorView'
 pod 'Firebase/Crashlytics'
 pod 'IQKeyboardManagerSwift'
-
+pod 'EventsCalendar'
+pod 'Hero'
 pod 'SnapKit'
 
 end
