@@ -14,8 +14,8 @@ class CodeCalendarViewController: UIViewController {
     let calendar = Calendar.current
     let dates: [Date] = []
 
-    var currentYear = Calendar.current.component(.year, from: Date())
-    var currentMonth = Calendar.current.component(.month, from: Date())
+    var selectedYear = Calendar.current.component(.year, from: Date())
+    var selectedMonth = Calendar.current.component(.month, from: Date())
 
     // MARK: - UI
 
@@ -64,33 +64,33 @@ class CodeCalendarViewController: UIViewController {
         collectionView.dataSource = self
 
         setupUI()
-        setCurrentMonthAndYear()
+        setSelectedTimeLabel()
     }
 
     // MARK: - Functions
 
     @objc func showPreviousMonth() {
-        currentMonth -= 1
-        if currentMonth == 0 {
-            currentMonth = 12
-            currentYear -= 1
+        selectedMonth -= 1
+        if selectedMonth == 0 {
+            selectedMonth = 12
+            selectedYear -= 1
         }
-        setCurrentMonthAndYear()
+        setSelectedTimeLabel()
         collectionView.reloadData()
     }
 
     @objc func showNextMonth() {
-        currentMonth += 1
-        if currentMonth == 13 {
-            currentMonth = 1
-            currentYear += 1
+        selectedMonth += 1
+        if selectedMonth == 13 {
+            selectedMonth = 1
+            selectedYear += 1
         }
-        setCurrentMonthAndYear()
+        setSelectedTimeLabel()
         collectionView.reloadData()
     }
 
-    func setCurrentMonthAndYear() {
-        monthLabel.text = "\(currentYear) 年 \(currentMonth) 月"
+    func setSelectedTimeLabel() {
+        monthLabel.text = "\(selectedYear) 年 \(selectedMonth) 月"
     }
 
     func getDaysInMonth(_ currentYear: Int, _ currentMonth: Int) -> Int {
@@ -123,8 +123,8 @@ class CodeCalendarViewController: UIViewController {
 
 extension CodeCalendarViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-        let daysInMonth = getDaysInMonth(currentYear, currentMonth)
-        let spacing = getSpacing(currentYear, currentMonth)
+        let daysInMonth = getDaysInMonth(selectedYear, selectedMonth)
+        let spacing = getSpacing(selectedYear, selectedMonth)
         return daysInMonth + spacing
     }
 
@@ -140,8 +140,8 @@ extension CodeCalendarViewController: UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DateCell", for: indexPath) as? DateCell else { return UICollectionViewCell() }
 
-        let spacing = getSpacing(currentYear, currentMonth)
-        let thisMonth = getCurrentMonthAndDay()[0]
+        let spacing = getSpacing(selectedYear, selectedMonth)
+        let currentMonth = getCurrentMonthAndDay()[0]
         let today = getCurrentMonthAndDay()[1]
 
         if indexPath.row < spacing {
@@ -150,7 +150,7 @@ extension CodeCalendarViewController: UICollectionViewDelegate, UICollectionView
             cell.dateLabel.text = String(indexPath.row + 1 - spacing)
             cell.dateLabel.textColor = .black
             cell.dateLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .regular)
-            if currentMonth == thisMonth && indexPath.row + 1 - spacing == today {
+            if selectedMonth == currentMonth && indexPath.row + 1 - spacing == today {
                 cell.dateLabel.textColor = .red
                 cell.dateLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
             }
