@@ -64,6 +64,8 @@
 		54E198C72ACE4F48000A3931 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E198C62ACE4F48000A3931 /* ResetPasswordViewController.swift */; };
 		54E198CB2ACE9367000A3931 /* ThirdInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E198CA2ACE9367000A3931 /* ThirdInfoViewController.swift */; };
 		6B6944609698B9D5065EB72C /* Pods_Conscious.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B16F60D1BCDEC2A95318AC3 /* Pods_Conscious.framework */; };
+		75A3DC1B2B43E13C00B74E2C /* ConsciousTests2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A3DC1A2B43E13C00B74E2C /* ConsciousTests2.swift */; };
+		75A3DC232B43E56600B74E2C /* DateManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A3DC212B43E4D900B74E2C /* DateManagerTests.swift */; };
 		75B1A4702B3C042E0037405A /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B1A46F2B3C042E0037405A /* DateCell.swift */; };
 		9BD9E25F2B3BD1D0000C4B07 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BD9E25E2B3BD1D0000C4B07 /* GoogleService-Info.plist */; };
 		9BD9E2622B3BD1FC000C4B07 /* CodeCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD9E2612B3BD1FC000C4B07 /* CodeCalendarViewController.swift */; };
@@ -71,6 +73,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		547FA4FC2AE619A300D90284 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5416844C2AB00F3E00F12484 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 541684532AB00F3E00F12484;
+			remoteInfo = Conscious;
+		};
+		75A3DC1C2B43E13C00B74E2C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5416844C2AB00F3E00F12484 /* Project object */;
 			proxyType = 1;
@@ -142,6 +151,9 @@
 		54E198C62ACE4F48000A3931 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		54E198CA2ACE9367000A3931 /* ThirdInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdInfoViewController.swift; sourceTree = "<group>"; };
 		5B16F60D1BCDEC2A95318AC3 /* Pods_Conscious.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Conscious.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		75A3DC182B43E13C00B74E2C /* ConsciousTests2.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConsciousTests2.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		75A3DC1A2B43E13C00B74E2C /* ConsciousTests2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsciousTests2.swift; sourceTree = "<group>"; };
+		75A3DC212B43E4D900B74E2C /* DateManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManagerTests.swift; sourceTree = "<group>"; };
 		75B1A46F2B3C042E0037405A /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		9BD9E25E2B3BD1D0000C4B07 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9BD9E2612B3BD1FC000C4B07 /* CodeCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeCalendarViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +169,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		547FA4F52AE619A200D90284 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		75A3DC152B43E13C00B74E2C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -190,6 +209,7 @@
 			children = (
 				541684562AB00F3E00F12484 /* Conscious */,
 				547FA4F92AE619A300D90284 /* ConsciousTests */,
+				75A3DC192B43E13C00B74E2C /* ConsciousTests2 */,
 				541684552AB00F3E00F12484 /* Products */,
 				8EA8AA1D264E0F0E07E85C1C /* Pods */,
 				94C58D0311470E394B979704 /* Frameworks */,
@@ -201,6 +221,7 @@
 			children = (
 				541684542AB00F3E00F12484 /* Conscious.app */,
 				547FA4F82AE619A300D90284 /* ConsciousTests.xctest */,
+				75A3DC182B43E13C00B74E2C /* ConsciousTests2.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -571,6 +592,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		75A3DC192B43E13C00B74E2C /* ConsciousTests2 */ = {
+			isa = PBXGroup;
+			children = (
+				75A3DC212B43E4D900B74E2C /* DateManagerTests.swift */,
+				75A3DC1A2B43E13C00B74E2C /* ConsciousTests2.swift */,
+			);
+			path = ConsciousTests2;
+			sourceTree = "<group>";
+		};
 		8EA8AA1D264E0F0E07E85C1C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -641,6 +671,24 @@
 			productReference = 547FA4F82AE619A300D90284 /* ConsciousTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		75A3DC172B43E13C00B74E2C /* ConsciousTests2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 75A3DC1E2B43E13C00B74E2C /* Build configuration list for PBXNativeTarget "ConsciousTests2" */;
+			buildPhases = (
+				75A3DC142B43E13C00B74E2C /* Sources */,
+				75A3DC152B43E13C00B74E2C /* Frameworks */,
+				75A3DC162B43E13C00B74E2C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				75A3DC1D2B43E13C00B74E2C /* PBXTargetDependency */,
+			);
+			name = ConsciousTests2;
+			productName = ConsciousTests2;
+			productReference = 75A3DC182B43E13C00B74E2C /* ConsciousTests2.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -648,7 +696,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1430;
+				LastSwiftUpdateCheck = 1510;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					541684532AB00F3E00F12484 = {
@@ -656,6 +704,10 @@
 					};
 					547FA4F72AE619A200D90284 = {
 						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 541684532AB00F3E00F12484;
+					};
+					75A3DC172B43E13C00B74E2C = {
+						CreatedOnToolsVersion = 15.1;
 						TestTargetID = 541684532AB00F3E00F12484;
 					};
 				};
@@ -678,6 +730,7 @@
 			targets = (
 				541684532AB00F3E00F12484 /* Conscious */,
 				547FA4F72AE619A200D90284 /* ConsciousTests */,
+				75A3DC172B43E13C00B74E2C /* ConsciousTests2 */,
 			);
 		};
 /* End PBXProject section */
@@ -695,6 +748,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		547FA4F62AE619A200D90284 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		75A3DC162B43E13C00B74E2C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -760,7 +820,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# \"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 		DE4FF8F499E7553C4DADD1A1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -853,6 +913,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				547FA4FB2AE619A300D90284 /* ConsciousTests.swift in Sources */,
+				75A3DC232B43E56600B74E2C /* DateManagerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		75A3DC142B43E13C00B74E2C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75A3DC1B2B43E13C00B74E2C /* ConsciousTests2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -863,6 +932,11 @@
 			isa = PBXTargetDependency;
 			target = 541684532AB00F3E00F12484 /* Conscious */;
 			targetProxy = 547FA4FC2AE619A300D90284 /* PBXContainerItemProxy */;
+		};
+		75A3DC1D2B43E13C00B74E2C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 541684532AB00F3E00F12484 /* Conscious */;
+			targetProxy = 75A3DC1C2B43E13C00B74E2C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1084,10 +1158,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ssy.ConsciousTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Conscious.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Conscious";
 			};
 			name = Debug;
@@ -1105,7 +1180,53 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ssy.ConsciousTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Conscious.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Conscious";
+			};
+			name = Release;
+		};
+		75A3DC1F2B43E13C00B74E2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ssy.com.ConsciousTests2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Conscious.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Conscious";
+			};
+			name = Debug;
+		};
+		75A3DC202B43E13C00B74E2C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ssy.com.ConsciousTests2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1139,6 +1260,15 @@
 			buildConfigurations = (
 				547FA4FE2AE619A300D90284 /* Debug */,
 				547FA4FF2AE619A300D90284 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		75A3DC1E2B43E13C00B74E2C /* Build configuration list for PBXNativeTarget "ConsciousTests2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75A3DC1F2B43E13C00B74E2C /* Debug */,
+				75A3DC202B43E13C00B74E2C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

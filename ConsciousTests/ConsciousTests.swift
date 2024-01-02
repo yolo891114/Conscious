@@ -88,7 +88,8 @@ final class ConsciousTests: XCTestCase {
 
     // 測試日期有正確被格式化
     func testDateFormatting() {
-        let inputDate = Date()
+//        let inputDate = Date()
+        let inputDate = Date(timeIntervalSince1970: 1698015589)
         print("inputDate:\(inputDate)")
 
         dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -99,4 +100,6 @@ final class ConsciousTests: XCTestCase {
 
         XCTAssertEqual(expectedOutput, actualOutput, "Date formatting failed.")
     }
+    
+    
 }

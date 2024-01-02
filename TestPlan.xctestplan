@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "A5010A61-1C71-4391-92BA-36E3030AC3C6",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Conscious.xcodeproj",
+        "identifier" : "547FA4F72AE619A200D90284",
+        "name" : "ConsciousTests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -19,6 +19,15 @@ class DateCell: UICollectionViewCell {
         return label
     }()
     
+//    lazy var dateButton: UIButton = {
+//        let button = UIButton()
+//        label.font = UIFont.systemFont(ofSize: 15.0, weight: .regular)
+//        label.textColor = .black
+//        label.textAlignment = .center
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        return label
+//    }()
+
     lazy var lunarLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 11.0, weight: .regular)
@@ -27,8 +36,6 @@ class DateCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
-    
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -46,7 +53,7 @@ class DateCell: UICollectionViewCell {
         dateLabel.snp.makeConstraints { make in
             make.center.equalTo(self)
         }
-        
+
         lunarLabel.snp.makeConstraints { make in
             make.top.equalTo(dateLabel.snp.bottom).offset(8)
             make.centerX.equalTo(dateLabel.snp.centerX)

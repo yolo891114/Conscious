@@ -16,16 +16,8 @@ class CodeCalendarViewController: UIViewController {
 
     lazy var selectedYear = isoCalendar.component(.year, from: Date())
     lazy var selectedMonth = isoCalendar.component(.month, from: Date())
-
-    // 轉農曆之 Formatter
-    lazy var formatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.locale = Locale(identifier: "zh_TW")
-        formatter.calendar = lunarCalendar
-        formatter.dateFormat = "dd"
-        return formatter
-    }()
+    
+    lazy var dateManager = DateManager.shared
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -45,14 +37,14 @@ class CodeCalendarViewController: UIViewController {
         return label
     }()
 
-    private let previousButton: UIButton = {
+    private lazy var previousButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
         button.addTarget(self, action: #selector(showPreviousMonth), for: .touchUpInside)
         return button
     }()
 
-    private let nextButton: UIButton = {
+    private lazy var nextButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "chevron.right"), for: .normal)
         button.addTarget(self, action: #selector(showNextMonth), for: .touchUpInside)
@@ -89,6 +81,7 @@ class CodeCalendarViewController: UIViewController {
     // MARK: - Functions
 
     @objc func showPreviousMonth() {
+        // please optimizing this logic
         selectedMonth -= 1
         if selectedMonth == 0 {
             selectedMonth = 12
@@ -99,6 +92,7 @@ class CodeCalendarViewController: UIViewController {
     }
 
     @objc func showNextMonth() {
+        // please optimizing this logic
         selectedMonth += 1
         if selectedMonth == 13 {
             selectedMonth = 1
@@ -112,30 +106,11 @@ class CodeCalendarViewController: UIViewController {
         monthLabel.text = "\(selectedYear) 年 \(selectedMonth) 月"
     }
 
-    func getDaysInMonth(_ currentYear: Int, _ currentMonth: Int) -> Int {
-        let dateComponent = DateComponents(year: currentYear, month: currentMonth)
-        guard let date = isoCalendar.date(from: dateComponent) else { return 0 }
-        guard let range = isoCalendar.range(of: .day, in: .month, for: date) else { return 0 }
-        return range.count
-    }
-
-    // 計算需要多少空白
-    func getSpacing(_ currentYear: Int, _ currentMonth: Int) -> Int {
-        let dateComponent = DateComponents(year: currentYear, month: currentMonth)
-        guard let date = isoCalendar.date(from: dateComponent) else { return 0 }
-        let weekday = isoCalendar.component(.weekday, from: date)
-
-        // 假設第一天是禮拜五 則 weekday == 6 需要額外空出五格
-        let spacing = weekday - 1
-
-        return spacing
-    }
-
-    func getCurrentMonthAndDay() -> [Int] {
-        let currentMonth = isoCalendar.component(.month, from: Date())
-        let currentDay = isoCalendar.component(.day, from: Date())
-        return [currentMonth, currentDay]
-    }
+//    func getCurrentMonthAndDay() -> [Int] {
+//        let currentMonth = isoCalendar.component(.month, from: Date())
+//        let currentDay = isoCalendar.component(.day, from: Date())
+//        return [currentMonth, currentDay]
+//    }
 
     fileprivate func dehighlightCellLabel(_ cell: DateCell) {
         cell.lunarLabel.textColor = .black
@@ -156,8 +131,8 @@ class CodeCalendarViewController: UIViewController {
 
 extension CodeCalendarViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-        let daysInMonth = getDaysInMonth(selectedYear, selectedMonth)
-        let spacing = getSpacing(selectedYear, selectedMonth)
+        let daysInMonth = dateManager.getDaysInMonth(year: selectedYear, month: selectedMonth)
+        let spacing = dateManager.getSpacingDay(year: selectedYear, month: selectedMonth)
         return daysInMonth + spacing
     }
 
@@ -173,9 +148,9 @@ extension CodeCalendarViewController: UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DateCell", for: indexPath) as? DateCell else { return UICollectionViewCell() }
 
-        let spacing = getSpacing(selectedYear, selectedMonth)
-        let currentMonth = getCurrentMonthAndDay()[0]
-        let today = getCurrentMonthAndDay()[1]
+        let spacing = dateManager.getSpacingDay(year: selectedYear, month: selectedMonth)
+//        let currentMonth = getCurrentMonthAndDay()[0]
+//        let today = getCurrentMonthAndDay()[1]
 
         if indexPath.row < spacing {
             cell.dateLabel.text = ""
@@ -184,12 +159,12 @@ extension CodeCalendarViewController: UICollectionViewDelegate, UICollectionView
             let dateComponent = DateComponents(year: selectedYear, month: selectedMonth, day: indexPath.row + 1 - spacing)
             let date = isoCalendar.date(from: dateComponent)
 
-            cell.lunarLabel.text = formatter.string(from: date ?? Date())
+            cell.lunarLabel.text = dateManager.getLunarDayString(year: selectedYear, month: selectedMonth, day: indexPath.row + 1 - spacing)
             cell.dateLabel.text = String(indexPath.row + 1 - spacing)
 
             dehighlightCellLabel(cell)
 
-            if selectedMonth == currentMonth && indexPath.row + 1 - spacing == today {
+            if dateManager.compareDateIsToday(date: date ?? Date()) {
                 highlightCellLabel(cell)
             }
         }
