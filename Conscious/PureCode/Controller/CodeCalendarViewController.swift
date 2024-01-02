@@ -17,6 +17,8 @@ class CodeCalendarViewController: UIViewController {
     var currentYear = Calendar.current.component(.year, from: Date())
     var currentMonth = Calendar.current.component(.month, from: Date())
 
+    // MARK: - UI
+
     private let monthLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 24.0, weight: .bold)
@@ -52,6 +54,8 @@ class CodeCalendarViewController: UIViewController {
         return view
     }()
 
+    // MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -62,6 +66,8 @@ class CodeCalendarViewController: UIViewController {
         setupUI()
         setCurrentMonthAndYear()
     }
+
+    // MARK: - Functions
 
     @objc func showPreviousMonth() {
         currentMonth -= 1

@@ -555,6 +555,22 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		75A3DC122B43942700B74E2C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9BD9E2612B3BD1FC000C4B07 /* CodeCalendarViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		75A3DC132B43943000B74E2C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				75B1A46F2B3C042E0037405A /* DateCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		8EA8AA1D264E0F0E07E85C1C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -575,8 +591,8 @@
 		9BD9E2602B3BD1E9000C4B07 /* PureCode */ = {
 			isa = PBXGroup;
 			children = (
-				9BD9E2612B3BD1FC000C4B07 /* CodeCalendarViewController.swift */,
-				75B1A46F2B3C042E0037405A /* DateCell.swift */,
+				75A3DC132B43943000B74E2C /* View */,
+				75A3DC122B43942700B74E2C /* Controller */,
 			);
 			path = PureCode;
 			sourceTree = "<group>";
