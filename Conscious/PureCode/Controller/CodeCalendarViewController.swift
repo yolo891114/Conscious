@@ -16,7 +16,7 @@ class CodeCalendarViewController: UIViewController {
 
     lazy var selectedYear = isoCalendar.component(.year, from: Date())
     lazy var selectedMonth = isoCalendar.component(.month, from: Date())
-    
+
     lazy var dateManager = DateManager.shared
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -83,7 +83,7 @@ class CodeCalendarViewController: UIViewController {
     @objc func showPreviousMonth() {
         // please optimizing this logic
         selectedMonth -= 1
-        if selectedMonth == 0 {
+        if selectedMonth < 1 {
             selectedMonth = 12
             selectedYear -= 1
         }
@@ -94,7 +94,7 @@ class CodeCalendarViewController: UIViewController {
     @objc func showNextMonth() {
         // please optimizing this logic
         selectedMonth += 1
-        if selectedMonth == 13 {
+        if selectedMonth > 12 {
             selectedMonth = 1
             selectedYear += 1
         }
@@ -106,19 +106,13 @@ class CodeCalendarViewController: UIViewController {
         monthLabel.text = "\(selectedYear) 年 \(selectedMonth) 月"
     }
 
-//    func getCurrentMonthAndDay() -> [Int] {
-//        let currentMonth = isoCalendar.component(.month, from: Date())
-//        let currentDay = isoCalendar.component(.day, from: Date())
-//        return [currentMonth, currentDay]
-//    }
-
     fileprivate func dehighlightCellLabel(_ cell: DateCell) {
         cell.lunarLabel.textColor = .black
         cell.lunarLabel.font = UIFont.systemFont(ofSize: 11.0, weight: .regular)
         cell.dateLabel.textColor = .black
         cell.dateLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .regular)
     }
-    
+
     fileprivate func highlightCellLabel(_ cell: DateCell) {
         cell.dateLabel.textColor = .red
         cell.dateLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .semibold)
@@ -144,27 +138,24 @@ extension CodeCalendarViewController: UICollectionViewDelegate, UICollectionView
         let width = collectionView.frame.width / 7
         return CGSize(width: width, height: 60)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DateCell", for: indexPath) as? DateCell else { return UICollectionViewCell() }
 
         let spacing = dateManager.getSpacingDay(year: selectedYear, month: selectedMonth)
-//        let currentMonth = getCurrentMonthAndDay()[0]
-//        let today = getCurrentMonthAndDay()[1]
 
         if indexPath.row < spacing {
             cell.dateLabel.text = ""
             cell.lunarLabel.text = ""
         } else {
-            let dateComponent = DateComponents(year: selectedYear, month: selectedMonth, day: indexPath.row + 1 - spacing)
-            let date = isoCalendar.date(from: dateComponent)
+            guard let date = dateManager.getDateFrom(year: selectedYear, month: selectedMonth, day: indexPath.row + 1 - spacing) else { return cell }
 
             cell.lunarLabel.text = dateManager.getLunarDayString(year: selectedYear, month: selectedMonth, day: indexPath.row + 1 - spacing)
             cell.dateLabel.text = String(indexPath.row + 1 - spacing)
 
             dehighlightCellLabel(cell)
 
-            if dateManager.compareDateIsToday(date: date ?? Date()) {
+            if dateManager.compareTwoDateIsSame(date1: date, date2: Date()) {
                 highlightCellLabel(cell)
             }
         }
